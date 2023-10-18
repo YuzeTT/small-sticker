@@ -23,7 +23,7 @@ export default function Navbar() {
           }
         </div>
       </div>
-      <Alert message="本站仅供娱乐，所造成的一切后果与本站无关" banner closable />
+      <Alert message="本站仅供娱乐，所造成的一切后果与本站无关" banner />
     </div>
   )
 }

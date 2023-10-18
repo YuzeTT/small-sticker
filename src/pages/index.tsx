@@ -2,7 +2,7 @@ import list from '../utils/router'
 export default function index() {
 
   return (
-    <div className='max-w-xl mx-auto'>
+    <div className='max-w-xl mx-auto mt-2'>
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
         {list.done.map((item, key)=>(
