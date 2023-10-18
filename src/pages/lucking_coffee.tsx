@@ -80,7 +80,9 @@ export default function LuckinCoffee() {
       {contextHolder}
       <Space direction="vertical" className="w-full">
         {/* <Card title="信息" size="small" extra={<a onClick={fillTest}>测试数据</a>}> */}
-        <Line zh='编辑' en='Edit' logo={<div className="i-ri-edit-line" mr-4 text='xl' />}></Line>
+        <Line zh='编辑' en='Edit' logo={<div className="i-ri-edit-line" mr-4 text='xl' />}>
+          <Button onClick={fillTest}>测试数据</Button>
+        </Line>
         <Space direction="vertical">
           <Space.Compact>
             <Input addonBefore="Hi，" className="w-50" placeholder="您的姓名" value={data.name} onChange={(v)=>setData({...data, name: v.target.value})}/>
