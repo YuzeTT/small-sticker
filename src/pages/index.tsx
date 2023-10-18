@@ -1,28 +1,5 @@
-import LuckingCoffee from '/lucking_coffee.svg'
-import Train from '/train.svg'
-import Ticket from '/ticket.svg'
-
+import list from '../utils/router'
 export default function index() {
-
-  const list = {
-    done: [
-      {
-        name: '瑞幸咖啡',
-        logo: LuckingCoffee,
-        url: '/lucking_coffee'
-      }
-    ],
-    todo: [
-      {
-        name: '高铁票',
-        logo: Train,
-      },
-      {
-        name: '电影票',
-        logo: Ticket,
-      },
-    ]
-  }
 
   return (
     <div className='max-w-xl mx-auto'>
