@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   useRoutes,
 } from 'react-router-dom'
+// import { useLocation } from "react-router-dom"
 
 import routes from '~react-pages'
 
@@ -18,10 +19,12 @@ const RouterRender = () => {
 }
 
 function App() {
+  // const location = useLocation();
+  // console.log(location.pathname);
   return (
     <>
-      <Navbar></Navbar>
       <Router>
+        <Navbar></Navbar>
         <div px-4 pb-4>
           <RouterRender/>
         </div>
