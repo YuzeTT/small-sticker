@@ -9,10 +9,10 @@ export default function Navbar() {
   return (
     <div p-4>
       <div flex='~ items-center justify-between'>
-        <div flex='~ items-center'>
+        <a flex='~ items-center' href='/' decoration-none text-zinc-900>
           <img src='/sticker_logo.svg' alt='logo' className='w-8 h-8' mr-2 />
           <div text='lg' font='bold'>小贴纸</div>
-        </div>
+        </a>
         {tag?
           <div flex='~ items-center' bg-gray-50 px-2 py-1 rounded-full>
             <img src={tag.logo} alt="logo" w-5 h-5 mr-2 />
