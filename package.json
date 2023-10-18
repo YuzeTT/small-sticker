@@ -12,9 +12,12 @@
   "dependencies": {
     "antd": "^5.10.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^6.17.0",
+    "react-router-dom": "^6.17.0"
   },
   "devDependencies": {
+    "@iconify-json/ri": "^1.1.12",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -25,6 +28,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "typescript": "^5.0.2",
     "unocss": "^0.56.5",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-pages": "^0.31.0"
   }
 }
