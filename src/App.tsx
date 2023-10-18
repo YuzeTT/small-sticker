@@ -34,7 +34,7 @@ function App() {
     <>
       <Router>
         <Navbar></Navbar>
-        <div px-4 pb-4>
+        <div px-4 pb-4 max-w-xl mx-auto>
           <RouterRender/>
         </div>
       </Router>
