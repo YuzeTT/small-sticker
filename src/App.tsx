@@ -3,13 +3,11 @@ import {
   BrowserRouter as Router,
   useRoutes,
 } from 'react-router-dom'
-// import { useLocation } from "react-router-dom"
-
 import routes from '~react-pages'
-
 import './App.css'
 import Navbar from './components/Navbar'
 import { Spin } from 'antd'
+import Footer from './components/Footer'
 
 const Loading = () => {
   return (
@@ -28,8 +26,6 @@ const RouterRender = () => {
 }
 
 function App() {
-  // const location = useLocation();
-  // console.log(location.pathname);
   return (
     <>
       <Router>
@@ -37,6 +33,7 @@ function App() {
         <div px-4 pb-4 max-w-xl mx-auto>
           <RouterRender/>
         </div>
+        <Footer></Footer>
       </Router>
      </>
   )
