@@ -28,8 +28,8 @@ const columns: ColumnsType<DataType> = [
 
 const data: DataType[] = [
   {
-    key: 'Ric',
-    name: 'John Brown',
+    key: '1',
+    name: 'Ric',
     money: 2.88,
     remark: '网站很好用哇，谢谢！',
   },
