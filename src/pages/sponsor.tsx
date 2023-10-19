@@ -50,6 +50,12 @@ const data = [
     money: 5,
     remark: '感谢开发者开发这么棒的网站！对于收藏癖真的很有帮助！',
   },
+  {
+    key: '10',
+    name: '*户',
+    money: 2.33,
+    remark: '快搞其他奶茶店的 收集癖很需要这个东西',
+  },
 ];
 
 export default function sponsor() {
@@ -71,7 +77,7 @@ export default function sponsor() {
         bordered
         dataSource={data.reverse()}
         renderItem={(item) => (
-          <List.Item extra={<div text='bold xl red-500'>￥{item.money.toFixed(2)}</div>}>
+          <List.Item extra={<div text='bold xl red-500'>￥{item.money.toFixed(2)}</div>} key={item.key}>
             <List.Item.Meta
               title={<a>{item.name}</a>}
               description={item.remark}
