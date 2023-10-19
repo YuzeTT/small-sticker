@@ -62,6 +62,12 @@ const data: DataType[] = [
     money: 8.88,
     remark: '用来逗我的朋友们玩她们都很开心！真的很有趣，谢谢',
   },
+  {
+    key: '7',
+    name: '小高（工作版）',
+    money: 6.66,
+    remark: '亲爱的罗：小软件很棒哦，希望以后可以有很多类型哒，祝你做大做强，祝你闪闪发光，加油哦!',
+  },
 ];
 
 export default function sponsor() {
