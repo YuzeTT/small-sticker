@@ -121,7 +121,7 @@ export default function Train() {
       ticketCode: 'T000001', // 左上角票码
       railwayCode: 'G000', // 车次
       checkCode: '候车室1', // 检票口
-      price: '114', // 票价
+      price: '114.00', // 票价
       date: '2023 年 10 月 14 日', // 发车日期
       time: '12:00', // 发车时间
       uniCode: '250002300021845E0591 JM', // 底部小字
@@ -137,7 +137,6 @@ export default function Train() {
   return (
     <div>
       {contextHolder}
-      还没做完
       <Modal title="导出图片" 
         open={isModalOpen}
         onCancel={handleCancel}
