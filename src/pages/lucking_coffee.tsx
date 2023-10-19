@@ -83,7 +83,7 @@ export default function LuckinCoffee() {
         <Line zh='编辑' en='Edit' logo={<div className="i-ri-edit-line" mr-4 text='xl' />}>
           <Button onClick={fillTest}>测试数据</Button>
         </Line>
-        <Space direction="vertical">
+        <Space direction="vertical" className="w-full">
           <Space.Compact>
             <Input addonBefore="Hi，" className="w-50" placeholder="您的姓名" value={data.name} onChange={(v)=>setData({...data, name: v.target.value})}/>
             <AutoComplete
@@ -122,8 +122,8 @@ export default function LuckinCoffee() {
               placeholder="商品"
             />
             <AutoComplete
-              options={[{value: '标准糖'},{value: '少糖'},{value: '无糖'}]}
-              className=" w-20"
+              options={[{value: '标准糖'},{value: '半糖'},{value: '不另外加糖'}]}
+              className=" w-30"
               placeholder="甜度"
               value={data.sweet} onChange={(v)=>setData({...data, sweet: v})}
             />
