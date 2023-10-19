@@ -164,7 +164,7 @@ export default function Train() {
           <div flex='~ items-center justify-between gap-2'>
             <Input className="w-50" placeholder="始发站" addonAfter='站' value={data.station1} onChange={(v)=>setData({...data, station1: v.target.value})}/>
             <Input className="w-50" placeholder="车次" addonBefore='>' addonAfter='>' value={data.railwayCode} onChange={(v)=>setData({...data, railwayCode: v.target.value})}/>
-            <Input className="w-50" placeholder="到达站" addonAfter='站' value={data.station2} onChange={(v)=>setData({...data, station1: v.target.value})}/>
+            <Input className="w-50" placeholder="到达站" addonAfter='站' value={data.station2} onChange={(v)=>setData({...data, station2: v.target.value})}/>
           </div>
           <Space.Compact className="w-full">
             <DatePicker placeholder="日期" onChange={(_,v)=>setData({...data, date: v})} format={'YYYY 年 MM 月 DD 日'} showToday />
