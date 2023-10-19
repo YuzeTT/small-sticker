@@ -6,10 +6,6 @@ import Line from "../components/Line";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 
 export default function LuckinCoffee() {
-  // const [name, setName] = useState('')
-  // const [code, setCode] = useState('')
-  // const [type, setType] = useState('')
-
   const [data, setData] = useState({
     name: '',
     sex: '',
@@ -53,10 +49,15 @@ export default function LuckinCoffee() {
     });
 
     try {
-      showImage(ref.current,"PNG", true).then((v)=>{
-        setImageSrc(v)
-        console.log(v);
+      showImage(ref.current,"PNG", true).then((imageData)=>{
+        setImageSrc(imageData)
       })
+
+      messageApi.open({
+        key,
+        type: 'success',
+        content: '生成成功！',
+      });
 
       showModal()
     } catch (error) {
@@ -83,13 +84,11 @@ export default function LuckinCoffee() {
     try {
       const t = new Date()
       downloadHtmlAsImage(ref.current,"PNG", t.getTime().toString(), true)
-      // setImageSrc(showImage(ref.current))
       showImage(ref.current,"PNG", true).then((v)=>{
         setImageSrc(v)
         console.log(v);
       })
       
-      // setImageSrc(v)
       messageApi.open({
         key,
         type: 'success',
@@ -136,14 +135,12 @@ export default function LuckinCoffee() {
           <Button type="dashed" danger onClick={handleCancel}>关闭</Button>
         </div>}
       >
-        <div>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
+        <div mb-2>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
         <div>
           <img src={imageSrc} alt="" w-full/>
         </div>
       </Modal>
-      {/* <Alert message="若无法导出图片辛苦截图一下，bug正在修复qwq" type="warning" showIcon closable className="mt-2 -mx-4" /> */}
       <Space direction="vertical" className="w-full">
-        {/* <Card title="信息" size="small" extra={<a onClick={fillTest}>测试数据</a>}> */}
         <Line zh='编辑' en='Edit' logo={<div className="i-ri-edit-line" mr-4 text='xl' />}>
           <Button onClick={fillTest}>测试数据</Button>
         </Line>
@@ -191,7 +188,6 @@ export default function LuckinCoffee() {
               placeholder="甜度"
               value={data.sweet} onChange={(v)=>setData({...data, sweet: v})}
             />
-            {/* <Input placeholder="商品" className="flex-1"/> */}
           </Space.Compact>
           <Space.Compact className="w-full">
             <DatePicker placeholder="日期" onChange={(_,v)=>setData({...data, date: v})} format={'YYYY-MM-DD'} showToday />
@@ -225,7 +221,6 @@ export default function LuckinCoffee() {
           <div className="i-ri-camera-3-line" mr-1 text='lg' />
           导出图片
         </Button>
-        {/* </Card> */}
       </Space>
     </div>
   )
