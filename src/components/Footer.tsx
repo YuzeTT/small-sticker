@@ -8,7 +8,7 @@ export default function Footer() {
           title: '调试信息',
           content: (
             <div>
-              <p>版本：v0.2.50</p>
+              <p>版本：v0.2.60</p>
               <p>时间：{new Date().toLocaleString()}</p>
             </div>
           )

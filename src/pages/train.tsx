@@ -357,12 +357,10 @@ export default function Train() {
                   <div className="i-ri-camera-fill" mr-1 text='lg' />
                   导出图片
                 </Button>
-
               </>,
             },
           ]}
         />
-
       </Space>
     </div>
   )

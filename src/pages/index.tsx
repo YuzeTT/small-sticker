@@ -35,7 +35,6 @@ export default function index() {
           <div p-4 bg-zinc-50 hover:bg-zinc-100 cursor-not-allowed rounded-xl flex='~ items-center' key={key}>
             <img src={item.logo} alt="logo" h-10 w-10 mr-4 op50 />
             <div text='lg zinc-400'>{item.name}</div>
-            {/* <Tag className='ml-2'>Tag 1</Tag> */}
             <div  flex-1></div>
             <div className='i-ri-arrow-right-s-line' text='xl zinc-300' />
           </div>

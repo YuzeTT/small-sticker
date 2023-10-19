@@ -211,7 +211,7 @@ export default function LuckinCoffee() {
                 },
               });
             }else {
-                setData({...data, isShowLogo: 0})
+              setData({...data, isShowLogo: 0})
             }
           }} />
         </Space>
