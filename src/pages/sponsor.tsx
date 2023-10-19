@@ -39,6 +39,18 @@ const data: DataType[] = [
     money: 6.66,
     remark: '小红书追来的，完美解决手残星人撕烂标签的问题!很期待后面高铁票的功能!太太加油!',
   },
+  {
+    key: '3',
+    name: '*伶',
+    money: 6.66,
+    remark: '期待电影票和高铁票功能~',
+  },
+  {
+    key: '4',
+    name: '木头',
+    money: 8.88,
+    remark: '小红书看到的，希望可以新增高铁票板块，真的很不错!',
+  },
 ];
 
 export default function sponsor() {
