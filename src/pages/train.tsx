@@ -210,12 +210,12 @@ export default function Train() {
         
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center scale-75 md:scale-100">
           <Watermark content={data.isShowLogo?'':'【收藏票】仅供收藏'} gap={[10,10]}>
-            <div className="bg-blue-100 rounded-md overflow-hidden relative min-w-100 scale-75 md:scale-100 relative" ref={ref}>
+            <div className="bg-blue-100 rounded-md overflow-hidden relative min-w-100 relative" ref={ref}>
               <div flex='~ justify-between'>
                 <div text='xl red-500' ml-4 mt-1>{data.ticketCode}</div>
-                <div text='' mr-8 mt-1>检票:{data.checkCode}</div>
+                <div text='' mr-8 mt-1 w-full text-right>检票:{data.checkCode}</div>
               </div>
               <div flex='~ justify-between items-center' mx-6>
                 <div>
