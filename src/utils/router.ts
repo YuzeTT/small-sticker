@@ -7,12 +7,14 @@ const list = {
     {
       name: '瑞幸咖啡',
       logo: LuckingCoffee,
-      url: '/lucking_coffee'
+      url: '/lucking_coffee',
+      tag: ''
     },
     {
       name: '高铁票',
       logo: Train,
-      url: '/train'
+      url: '/train',
+      tag: '新上线'
     },
   ],
   todo: [

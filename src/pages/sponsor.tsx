@@ -82,8 +82,7 @@ export default function sponsor() {
       <div my-4>网站的维护需要一定运营成本，如果能收到您的赞助，我会爱你一万年！！！</div>
       <Collapse className='mb-4'
         items={[{ key: '1', label: '点击展开收款码', children: <div>
-          <div>付款后联系微信: hong_yu1024 可以自定义昵称和留言哦!（24小时没回复就帮你登记付款自带的啦~）</div>
-          <div>也可以在付款备注留言和你的名字哦!</div>
+          <div>可以在付款备注留下昵称和留言哦!</div>
           <div>最后谢谢你! mua~</div>
           <img src="/wechat.JPG" alt="" w-full />
         </div> }]}
@@ -97,11 +96,11 @@ export default function sponsor() {
       </div> */}
 
       <List
-        // header={<div>赞助列表</div>}
+        header={<div>根据时间排序</div>}
         // footer={<div>Footer</div>}
         className='mt-4'
         bordered
-        dataSource={data}
+        dataSource={data.reverse()}
         renderItem={(item) => (
           <List.Item extra={<div text='bold xl red-500'>￥{item.money.toFixed(2)}</div>}>
             <List.Item.Meta
