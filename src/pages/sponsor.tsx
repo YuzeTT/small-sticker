@@ -68,6 +68,12 @@ const data: DataType[] = [
     money: 6.66,
     remark: '亲爱的罗：小软件很棒哦，希望以后可以有很多类型哒，祝你做大做强，祝你闪闪发光，加油哦!',
   },
+  {
+    key: '8',
+    name: 'A*a',
+    money: 2.99,
+    remark: '',
+  },
 ];
 
 export default function sponsor() {
