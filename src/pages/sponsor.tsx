@@ -74,6 +74,12 @@ const data: DataType[] = [
     money: 2.99,
     remark: '',
   },
+  {
+    key: '9',
+    name: 'iris',
+    money: 5,
+    remark: '感谢开发者开发这么棒的网站！对于收藏癖真的很有帮助！',
+  },
 ];
 
 export default function sponsor() {
