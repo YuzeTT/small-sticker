@@ -62,6 +62,12 @@ const data = [
     money: 3.14,
     remark: '感觉好萌，期待更多板块~',
   },
+  {
+    key: '12',
+    name: '琅弦',
+    money: 3.14,
+    remark: '刷到了，真的很好提升幸福感，感谢',
+  },
 ];
 
 export default function sponsor() {
