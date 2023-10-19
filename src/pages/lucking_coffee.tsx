@@ -1,4 +1,4 @@
-import { AutoComplete, Button, DatePicker, Input, Space, message } from "antd";
+import { AutoComplete, Button, DatePicker, Input, Space, message, Alert } from "antd";
 import { useCallback, useRef, useState } from "react";
 import downloadHtmlAsImage from "@/utils/downloadHtmlAsImage";
 
@@ -74,6 +74,7 @@ export default function LuckinCoffee() {
   return (
     <div>
       {contextHolder}
+      <Alert message="若无法导出图片辛苦截图一下，bug正在修复qwq" type="warning" showIcon closable className="mt-2 -mx-4" />
       <Space direction="vertical" className="w-full">
         {/* <Card title="信息" size="small" extra={<a onClick={fillTest}>测试数据</a>}> */}
         <Line zh='编辑' en='Edit' logo={<div className="i-ri-edit-line" mr-4 text='xl' />}>

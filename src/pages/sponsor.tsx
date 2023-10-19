@@ -13,7 +13,7 @@ const columns: ColumnsType<DataType> = [
   {
     title: '昵称',
     dataIndex: 'name',
-    // render: (text: string) => <a>{text}</a>,
+    // render: (text: string) => <a classN>{text}</a>,
   },
   {
     title: '金额',
@@ -32,6 +32,12 @@ const data: DataType[] = [
     name: 'Ric',
     money: 2.88,
     remark: '网站很好用哇，谢谢！',
+  },
+  {
+    key: '2',
+    name: '呱',
+    money: 6.66,
+    remark: '小红书追来的，完美解决手残星人撕烂标签的问题!很期待后面高铁票的功能!太太加油!',
   },
 ];
 
