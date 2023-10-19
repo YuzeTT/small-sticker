@@ -1,4 +1,4 @@
-import { AutoComplete, QRCode, Button, Modal, DatePicker, Input, Space, message, Segmented, Watermark, Tabs } from "antd";
+import { AutoComplete, QRCode, Button, Modal, DatePicker, Input, Space, message, Segmented, Watermark, Tabs, Spin } from "antd";
 import { pinyin } from 'pinyin-pro';
 import { useCallback, useRef, useState } from "react";
 import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
@@ -42,6 +42,7 @@ export default function Train() {
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    setImageSrc('')
   };
   const out = useCallback(() => {
     if (ref.current === null) {
@@ -146,9 +147,18 @@ export default function Train() {
           <Button type="dashed" danger onClick={handleCancel}>关闭</Button>
         </div>}
       >
-        <div mb-2>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
+        <div>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
+
+        <div text='sm red-500' className="mb-2" flex='~ items-center'>
+          <div className="i-ri-error-warning-line mr-1 w-8" />
+          <div>已知Bug：多次生成可能导致不出图，刷新即可解决，建议生成一次刷新一次！</div>
+        </div>
         <div>
-          <img src={imageSrc} alt="" w-full shadow-xl/>
+          {imageSrc? <img src={imageSrc} alt="" w-full shadow-xl/>:
+            <Spin tip="渲染图片中...如果长时间未出图请刷新">
+              <div className="h-30" />
+            </Spin>
+          }
         </div>
       </Modal>
       <Space direction="vertical" className="w-full">

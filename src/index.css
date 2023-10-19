@@ -47,7 +47,4 @@ body {
     transform: scale(1) rotate(0deg);
     box-shadow: none;
   }
-  /* 80% {
-    transform: scale(1.1) rotate(-20deg);
-  } */
 }
