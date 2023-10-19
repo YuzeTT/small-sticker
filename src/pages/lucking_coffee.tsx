@@ -196,15 +196,30 @@ export default function LuckinCoffee() {
             <DatePicker picker="time" placeholder="时间" onChange={(_,v)=>setData({...data, time: v})} format={'HH:mm'} use12Hours={false} />
           </Space.Compact>
           <Input placeholder="备注" defaultValue={'建议尽快饮用，风味更佳'} className="" value={data.remark} onChange={(v)=>setData({...data, remark: v.target.value})}/>
-          <Segmented options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} defaultValue={0} onChange={(v)=>{
-            setData({...data, isShowLogo: parseInt(`${v}`)})
+          <Segmented options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} value={data.isShowLogo} onChange={(v)=>{
             if(v===1){
-              Modal.warning({
+              Modal.confirm({
                 title: '免责声明',
                 content: '加入Logo是您的个人行为，与本站无关，所造成的后果自行承担。',
-                okText: '我同意'
+                // footer: (_, { OkBtn, }) => (
+                //   <>
+                //     <Button onClick={()=>{
+                //       setData({...data, isShowLogo: 0})
+                //     }}>不同意</Button>
+                //     <OkBtn />
+                //   </>
+                // ),
+                okText: '我同意',
+                cancelText: '我拒绝',
+                onOk() {
+                  setData({...data, isShowLogo: 1})
+                },
+                onCancel() {
+                  setData({...data, isShowLogo: 0})
+                },
               });
             }
+            setData({...data, isShowLogo: parseInt(`${v}`)})
           }} />
         </Space>
         
