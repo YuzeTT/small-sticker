@@ -21,3 +21,7 @@ pnpm dev
 ``` bash
 pnpm build
 ```
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=YuzeTT/small-sticker&type=Date)](https://star-history.com/#YuzeTT/small-sticker&Date)
