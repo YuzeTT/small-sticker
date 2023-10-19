@@ -1,6 +1,6 @@
 import { AutoComplete, Button, DatePicker, Input, Space, message, Alert } from "antd";
 import { useCallback, useRef, useState } from "react";
-import downloadHtmlAsImage from "@/utils/downloadHtmlAsImage";
+import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
 
 import Line from "../components/Line";
 
@@ -45,7 +45,7 @@ export default function LuckinCoffee() {
         content: '生成成功，请留意下载界面',
       });
     } catch (error) {
-        console.log(err)
+        console.log(error)
         messageApi.open({
           key,
           type: 'error',
