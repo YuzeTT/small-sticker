@@ -3,7 +3,7 @@ import App from './App.tsx'
 import 'virtual:uno.css'
 import './index.css'
 import { H } from 'highlight.run';
-import { ErrorBoundary } from '@highlight-run/react';
+// import { ErrorBoundary } from '@highlight-run/react';
 
 H.init('4d73jv1g', {
 	serviceName: "frontend-app",
@@ -21,7 +21,7 @@ H.init('4d73jv1g', {
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <ErrorBoundary>
-      <App />
-  </ErrorBoundary>,
+  // <ErrorBoundary>
+      <App />,
+  // </ErrorBoundary>,
 )
