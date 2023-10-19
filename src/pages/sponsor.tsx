@@ -52,7 +52,7 @@ const data: DataType[] = [
   },
   {
     key: '5',
-    name: '木头',
+    name: '*我',
     money: 2.22,
     remark: '小红书刷到的，祝你做大做强',
   },
