@@ -1,7 +1,7 @@
 import LuckingCoffee from '/lucking_coffee.svg'
 import Train from '/train.svg'
 import Ticket from '/ticket.svg'
-
+import Mcdonald from '/mcdonald.svg'
 const list = {
   done: [
     {
@@ -16,6 +16,12 @@ const list = {
       url: '/train',
       tag: '新上线'
     },
+    {
+      name: '麦当劳',
+      logo: Mcdonald,
+      url: '/mcdonald',
+      tag: '新上线'
+    }
   ],
   todo: [
     {
