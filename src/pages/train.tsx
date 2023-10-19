@@ -184,9 +184,13 @@ export default function Train() {
             />
           </Space.Compact>
           <Space.Compact className="w-full">
-            <Input placeholder="身份证号码" value={data.id} onChange={(v)=>setData({...data, id: v.target.value})} className='w-[200%]'/>
+            <Input placeholder="身份证号码（18位）" value={data.id} onChange={(v)=>setData({...data, id: v.target.value})} className='w-[200%]'/>
             <Input placeholder="姓名" value={data.name} onChange={(v)=>setData({...data, name: v.target.value})} />
           </Space.Compact>
+          <div text='sm red-500' className="-mt-1" flex='~ items-center'>
+            <div className="i-ri-error-warning-line mr-1" />
+            <div>本站不收集您的信息，但也不建议您填写真实信息！</div>
+          </div>
           <Input placeholder="底部信息" value={data.uniCode} onChange={(v)=>setData({...data, uniCode: v.target.value})}/>
           <Input placeholder="二维码链接" addonBefore='二维码' value={data.qrcode} onChange={(v)=>setData({...data, qrcode: v.target.value})} disabled/>
           <Segmented options={[{label:'显示水印', value:0}, {label:'隐藏水印', value:1}]} value={data.isShowLogo} onChange={(v)=>{
@@ -251,8 +255,8 @@ export default function Train() {
               <div ml-4>{data.id.slice(0, 10)}****{data.id.slice(14, 18)} {data.name}</div>
 
               <div text='center sm' ml-8 px-10 inline-block mt-1 style={{border: '1.5px dashed'}}>
-                <div>报销凭证 遗失不补</div>
-                <div className='-mt-1'>退票改签时需交回车站</div>
+                <div>这个不是 报销凭证</div>
+                <div className='-mt-1'>退票改签只需删除图片</div>
               </div>
 
               <div className='bg-blue-300' mt-1 px-4 py-1>
