@@ -267,8 +267,8 @@ export default function Train() {
             </div>
           </Watermark>
         </div>
-        <Button className="mt-4 w-full" type="primary" onClick={out} flex='~ items-center justify-center'>
-          <div className="i-ri-camera-3-line" mr-1 text='lg' />
+        <Button className="mt-4 w-full" type="primary" onClick={out} flex='~ items-center justify-center' size='large'>
+          <div className="i-ri-camera-fill" mr-1 text='lg' />
           导出图片
         </Button>
       </Space>
