@@ -1,31 +1,7 @@
-import { Collapse, Table, List, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Collapse, List } from 'antd';;
 import Line from '../components/Line';
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  money: number;
-  remark: string;
-}
-
-const columns: ColumnsType<DataType> = [
-  {
-    title: '昵称',
-    dataIndex: 'name',
-  },
-  {
-    title: '金额',
-    dataIndex: 'money',
-    render: (text: number) => <span>￥{text.toFixed(2)}</span>,
-  },
-  {
-    title: '留言',
-    dataIndex: 'remark',
-  },
-];
-
-const data: DataType[] = [
+const data = [
   {
     key: '2',
     name: '呱',
@@ -88,13 +64,6 @@ export default function sponsor() {
         </div> }]}
       />
       <Line zh='赞助列表' en='Sponsor List' logo={<div className="i-ri-file-list-2-line" mr-4 text='xl' />}></Line>
-      {/* <div className='-mx-4 -mt-2'>
-        <Table
-          columns={columns}
-          dataSource={data}
-        />
-      </div> */}
-
       <List
         header={<div>根据时间排序</div>}
         // footer={<div>Footer</div>}
