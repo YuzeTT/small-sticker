@@ -17,3 +17,37 @@
 body {
   margin: 0;
 }
+
+.animated-button {
+  animation: buttonAnimation 4s linear infinite;
+}
+
+@keyframes buttonAnimation {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: none;
+  }
+  5% {
+    transform: scale(1.05) rotate(20deg);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  10% {
+    transform: scale(1.05) rotate(-20deg);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  15% {
+    transform: scale(1.05) rotate(20deg);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  20% {
+    transform: scale(1.05) rotate(-20deg);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  25% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: none;
+  }
+  /* 80% {
+    transform: scale(1.1) rotate(-20deg);
+  } */
+}
