@@ -1,8 +1,9 @@
-import { AutoComplete, Button, DatePicker, Input, Space, message, Alert } from "antd";
+import { AutoComplete, Button, Modal, DatePicker, Input, Space, message } from "antd";
 import { useCallback, useRef, useState } from "react";
 import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
 
 import Line from "../components/Line";
+import showImage from "../utils/downloadHtmlAsImage/showImage";
 
 export default function LuckinCoffee() {
   // const [name, setName] = useState('')
@@ -26,6 +27,20 @@ export default function LuckinCoffee() {
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
   const key = 'updatable';
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageSrc, setImageSrc] = useState('');
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    window.open('/sponsor')
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const out = useCallback(() => {
     if (ref.current === null) {
       return
@@ -38,18 +53,56 @@ export default function LuckinCoffee() {
     });
 
     try {
-      downloadHtmlAsImage(ref.current,"PNG", 'my-image-name', true)
-      messageApi.open({
-        key,
-        type: 'success',
-        content: '生成成功，请留意下载界面',
-      });
+      showImage(ref.current,"PNG", true).then((v)=>{
+        setImageSrc(v)
+        console.log(v);
+      })
+
+      showModal()
     } catch (error) {
         console.log(error)
         messageApi.open({
           key,
           type: 'error',
           content: '生成失败，请将控制台截图反馈给开发者',
+        });
+    }
+  }, [ref])
+
+  const downloadImage = useCallback(() => {
+    if (ref.current === null) {
+      return
+    }
+
+    messageApi.open({
+      key,
+      type: 'loading',
+      content: 'Loading...',
+    });
+
+    try {
+      const t = new Date()
+      downloadHtmlAsImage(ref.current,"PNG", t.getTime().toString(), true)
+      // setImageSrc(showImage(ref.current))
+      showImage(ref.current,"PNG", true).then((v)=>{
+        setImageSrc(v)
+        console.log(v);
+      })
+      
+      // setImageSrc(v)
+      messageApi.open({
+        key,
+        type: 'success',
+        content: '下载成功，请留意下载界面',
+      });
+
+      showModal()
+    } catch (error) {
+        console.log(error)
+        messageApi.open({
+          key,
+          type: 'error',
+          content: '下载失败，麻烦长按图片保存哦！',
         });
     }
   }, [ref])
@@ -74,7 +127,21 @@ export default function LuckinCoffee() {
   return (
     <div>
       {contextHolder}
-      <Alert message="若无法导出图片辛苦截图一下，bug正在修复qwq" type="warning" showIcon closable className="mt-2 -mx-4" />
+      <Modal title="导出图片" 
+        open={isModalOpen}
+        onCancel={handleCancel}
+        footer={<div text='center'>
+          <Button onClick={()=>downloadImage()}>下载图片</Button>
+          <Button type="primary" onClick={handleOk}>干的不错，有赏</Button>
+          <Button type="dashed" danger onClick={handleCancel}>关闭</Button>
+        </div>}
+      >
+        <div>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
+        <div>
+          <img src={imageSrc} alt="" w-full/>
+        </div>
+      </Modal>
+      {/* <Alert message="若无法导出图片辛苦截图一下，bug正在修复qwq" type="warning" showIcon closable className="mt-2 -mx-4" /> */}
       <Space direction="vertical" className="w-full">
         {/* <Card title="信息" size="small" extra={<a onClick={fillTest}>测试数据</a>}> */}
         <Line zh='编辑' en='Edit' logo={<div className="i-ri-edit-line" mr-4 text='xl' />}>
