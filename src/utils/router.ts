@@ -8,13 +8,14 @@ const list = {
       name: '瑞幸咖啡',
       logo: LuckingCoffee,
       url: '/lucking_coffee'
-    }
-  ],
-  todo: [
+    },
     {
       name: '高铁票',
       logo: Train,
+      url: '/train'
     },
+  ],
+  todo: [
     {
       name: '电影票',
       logo: Ticket,
