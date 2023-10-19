@@ -1,6 +1,7 @@
 import { AutoComplete, Button, DatePicker, Input, Space, message, Alert } from "antd";
 import { useCallback, useRef, useState } from "react";
-import { toPng } from 'html-to-image';
+import downloadHtmlAsImage from "@/utils/downloadHtmlAsImage";
+
 import Line from "../components/Line";
 
 export default function LuckinCoffee() {
@@ -36,26 +37,21 @@ export default function LuckinCoffee() {
       content: 'Loading...',
     });
 
-    toPng(ref.current, { cacheBust: true, })
-      .then((dataUrl:any) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.png'
-        link.href = dataUrl
-        link.click()
-        messageApi.open({
-          key,
-          type: 'success',
-          content: '生成成功，请留意下载界面',
-        });
-      })
-      .catch((err) => {
+    try {
+      downloadHtmlAsImage(ref.current,"PNG", 'my-image-name', true)
+      messageApi.open({
+        key,
+        type: 'success',
+        content: '生成成功，请留意下载界面',
+      });
+    } catch (error) {
         console.log(err)
         messageApi.open({
           key,
           type: 'error',
           content: '生成失败，请将控制台截图反馈给开发者',
         });
-      })
+    }
   }, [ref])
 
   const fillTest = () => {
