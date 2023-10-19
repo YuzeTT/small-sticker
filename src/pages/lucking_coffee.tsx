@@ -89,7 +89,7 @@ export default function LuckinCoffee() {
         setImageSrc(v)
         console.log(v);
       })
-      
+
       messageApi.open({
         key,
         type: 'success',
@@ -128,7 +128,7 @@ export default function LuckinCoffee() {
   return (
     <div>
       {contextHolder}
-      <Modal title="导出图片" 
+      <Modal title="导出图片"
         open={isModalOpen}
         onCancel={handleCancel}
         footer={<div text='center'>
@@ -164,7 +164,7 @@ export default function LuckinCoffee() {
               value={data.type} onChange={(v)=>setData({...data, type: v})}
               placeholder="取餐方式"
             />
-            
+
           </Space.Compact>
           <Space>
             <Input addonBefore="第" placeholder="1" className="" value={data.number1} onChange={(v)=>setData({...data, number1: v.target.value})}/>
@@ -201,14 +201,6 @@ export default function LuckinCoffee() {
               Modal.confirm({
                 title: '免责声明',
                 content: '加入Logo是您的个人行为，与本站无关，所造成的后果自行承担。',
-                // footer: (_, { OkBtn, }) => (
-                //   <>
-                //     <Button onClick={()=>{
-                //       setData({...data, isShowLogo: 0})
-                //     }}>不同意</Button>
-                //     <OkBtn />
-                //   </>
-                // ),
                 okText: '我同意',
                 cancelText: '我拒绝',
                 onOk() {
@@ -218,11 +210,12 @@ export default function LuckinCoffee() {
                   setData({...data, isShowLogo: 0})
                 },
               });
+            }else {
+                setData({...data, isShowLogo: 0})
             }
-            setData({...data, isShowLogo: parseInt(`${v}`)})
           }} />
         </Space>
-        
+
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
         <div className="flex items-center justify-center">
