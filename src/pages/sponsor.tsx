@@ -56,6 +56,12 @@ const data = [
     money: 2.33,
     remark: '快搞其他奶茶店的 收集癖很需要这个东西',
   },
+  {
+    key: '11',
+    name: '碱性司空',
+    money: 3.14,
+    remark: '感觉好萌，期待更多板块~',
+  },
 ];
 
 export default function sponsor() {
