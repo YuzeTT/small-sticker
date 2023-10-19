@@ -1,4 +1,4 @@
-import { AutoComplete, QRCode, Button, Modal, DatePicker, Input, Space, message, Segmented } from "antd";
+import { AutoComplete, QRCode, Button, Modal, DatePicker, Input, Space, message, Segmented, Watermark } from "antd";
 import { pinyin } from 'pinyin-pro';
 import { useCallback, useRef, useState } from "react";
 import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
@@ -190,11 +190,11 @@ export default function Train() {
           </Space.Compact>
           <Input placeholder="底部信息" value={data.uniCode} onChange={(v)=>setData({...data, uniCode: v.target.value})}/>
           <Input placeholder="二维码链接" addonBefore='二维码' value={data.qrcode} onChange={(v)=>setData({...data, qrcode: v.target.value})} disabled/>
-          <Segmented options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} value={data.isShowLogo} onChange={(v)=>{
+          <Segmented options={[{label:'显示水印', value:0}, {label:'隐藏水印', value:1}]} value={data.isShowLogo} onChange={(v)=>{
             if(v===1){
               Modal.confirm({
                 title: '免责声明',
-                content: '加入Logo是您的个人行为，与本站无关，所造成的后果自行承担。',
+                content: '去除水印是您的个人行为，与本站无关，所造成的后果自行承担。',
                 okText: '我同意',
                 cancelText: '我拒绝',
                 onOk() {
@@ -212,57 +212,58 @@ export default function Train() {
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
         <div className="flex items-center justify-center">
-          <div className="bg-blue-100 rounded-md overflow-hidden relative min-w-100 scale-75 md:scale-100 relative" ref={ref}>
-            <div flex='~ justify-between'>
-              <div text='xl red-500' ml-4 mt-1>{data.ticketCode}</div>
-              <div text='' mr-8 mt-1>检票:{data.checkCode}</div>
-            </div>
-            <div flex='~ justify-between items-center' mx-6>
-              <div>
+          <Watermark content={data.isShowLogo?'':'【收藏票】仅供收藏'} gap={[10,10]}>
+            <div className="bg-blue-100 rounded-md overflow-hidden relative min-w-100 scale-75 md:scale-100 relative" ref={ref}>
+              <div flex='~ justify-between'>
+                <div text='xl red-500' ml-4 mt-1>{data.ticketCode}</div>
+                <div text='' mr-8 mt-1>检票:{data.checkCode}</div>
+              </div>
+              <div flex='~ justify-between items-center' mx-6>
                 <div>
-                  <span text='2xl' className="tracking-[1rem]">{data.station1}</span>
-                  <span text='lg'>站</span>
+                  <div>
+                    <span text='2xl' className="tracking-[1rem]">{data.station1}</span>
+                    <span text='lg'>站</span>
+                  </div>
+                  <div text='center' className='-mt-1'>{pinyin(data.station1, { toneType: 'none' }).charAt(0).toUpperCase()}{pinyin(data.station1, { toneType: 'none' }).slice(1)}</div>
                 </div>
-                <div text='center' className='-mt-1'>{pinyin(data.station1, { toneType: 'none' }).charAt(0).toUpperCase()}{pinyin(data.station1, { toneType: 'none' }).slice(1)}</div>
-              </div>
-              <div>
-                <div text='xl center' mr-2 className='-mb-4 tracking-widest'>{data.railwayCode}</div>
-                <img src="/right-arrow.png" alt="right-arrow" w-18 />
-              </div>
-              <div>
                 <div>
-                  <span text='2xl' className="tracking-[1rem]">{data.station2}</span>
-                  <span text='lg'>站</span>
+                  <div text='xl center' mr-2 className='-mb-4 tracking-widest'>{data.railwayCode}</div>
+                  <img src="/right-arrow.png" alt="right-arrow" w-18 />
                 </div>
-                <div text='center' className='-mt-1'>{pinyin(data.station2, { toneType: 'none' }).charAt(0).toUpperCase()}{pinyin(data.station2, { toneType: 'none' }).slice(1)}</div>
+                <div>
+                  <div>
+                    <span text='2xl' className="tracking-[1rem]">{data.station2}</span>
+                    <span text='lg'>站</span>
+                  </div>
+                  <div text='center' className='-mt-1'>{pinyin(data.station2, { toneType: 'none' }).charAt(0).toUpperCase()}{pinyin(data.station2, { toneType: 'none' }).slice(1)}</div>
+                </div>
               </div>
-            </div>
-            <div flex='~ justify-between'>
-              <div ml-4>
-                <div>{data.date} {data.time} 开</div>
-                <div ml-1>￥{data.price} 元</div>
+              <div flex='~ justify-between'>
+                <div ml-4>
+                  <div>{data.date} {data.time} 开</div>
+                  <div ml-1>￥{data.price} 元</div>
+                </div>
+                <div mr-5>
+                  <div >{data.sit1}车{data.sit2}号{data.sit3}</div>
+                  <div mr-2 text='right'>{data.type}</div>
+                </div>
               </div>
-              <div mr-5>
-                <div >{data.sit1}车{data.sit2}号{data.sit3}</div>
-                <div mr-2 text='right'>{data.type}</div>
+              <div mt-4 ml-4>仅供收藏使用</div>
+              <div ml-4>{data.id.slice(0, 10)}****{data.id.slice(14, 18)} {data.name}</div>
+
+              <div text='center sm' ml-8 px-10 inline-block mt-1 style={{border: '1.5px dashed'}}>
+                <div>报销凭证 遗失不补</div>
+                <div className='-mt-1'>退票改签时需交回车站</div>
               </div>
-            </div>
-            <div mt-4 ml-4>仅供收藏使用</div>
-            <div ml-4>{data.id.slice(0, 10)}****{data.id.slice(14, 18)} {data.name}</div>
 
-            <div text='center sm' ml-8 px-10 inline-block mt-1 style={{border: '1.5px dashed'}}>
-              <div>报销凭证 遗失不补</div>
-              <div className='-mt-1'>退票改签时需交回车站</div>
-            </div>
+              <div className='bg-blue-300' mt-1 px-4 py-1>
+                <div>{data.uniCode}</div>
+              </div>
 
-            <div className='bg-blue-300' mt-1 px-4 py-1>
-              <div>{data.uniCode}</div>
+              <QRCode value={data.qrcode || 'https://sticker.hsott.cn'} className='absolute right-1 bottom-7' size={100} bordered={false} />
             </div>
-
-            <QRCode value={data.qrcode || 'https://sticker.hsott.cn'} className='absolute right-1 bottom-7' size={100} bordered={false} />
-          </div>
+          </Watermark>
         </div>
-
         <Button className="mt-4 w-full" type="primary" onClick={out} flex='~ items-center justify-center'>
           <div className="i-ri-camera-3-line" mr-1 text='lg' />
           导出图片
