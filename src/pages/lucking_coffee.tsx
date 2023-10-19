@@ -1,4 +1,4 @@
-import { AutoComplete, Button, Modal, DatePicker, Input, Space, message } from "antd";
+import { AutoComplete, Button, Modal, DatePicker, Input, Space, message, Segmented } from "antd";
 import { useCallback, useRef, useState } from "react";
 import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
 
@@ -18,7 +18,8 @@ export default function LuckinCoffee() {
     sweet: '',
     date: '',
     time: '',
-    remark: '建议尽快饮用，风味更佳'
+    remark: '建议尽快饮用，风味更佳',
+    isShowLogo: 0,
   })
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
@@ -119,7 +120,8 @@ export default function LuckinCoffee() {
       sweet: '标准糖',
       date: '2023-10-14',
       time: '15:34',
-      remark: '建议尽快饮用，风味更佳'
+      remark: '建议尽快饮用，风味更佳',
+      isShowLogo: 0
     })
   }
 
@@ -194,13 +196,23 @@ export default function LuckinCoffee() {
             <DatePicker picker="time" placeholder="时间" onChange={(_,v)=>setData({...data, time: v})} format={'HH:mm'} use12Hours={false} />
           </Space.Compact>
           <Input placeholder="备注" defaultValue={'建议尽快饮用，风味更佳'} className="" value={data.remark} onChange={(v)=>setData({...data, remark: v.target.value})}/>
+          <Segmented options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} defaultValue={0} onChange={(v)=>{
+            setData({...data, isShowLogo: parseInt(`${v}`)})
+            if(v===1){
+              Modal.warning({
+                title: '免责声明',
+                content: '加入Logo是您的个人行为，与本站无关，所造成的后果自行承担。',
+                okText: '我同意'
+              });
+            }
+          }} />
         </Space>
         
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
         <div className="flex items-center justify-center">
           <div className="bg-[#A8D3FD] rounded-md relative w-80 " ref={ref}>
-            <img src="/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" />
+            {data.isShowLogo? <img src="/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" />:''}
             <div className="px-3 text-xl">Hi，{data.name || '未填写'} {data.sex}</div>
             <div className="flex items-center px-3 pt-2">
               <div className="font-bold text-4xl">{data.code || '000'}</div>

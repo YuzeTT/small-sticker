@@ -9,7 +9,7 @@ export default function index() {
         closable
         description={<>
           <div>BUG反馈/功能建议/摸鱼划水 欢迎加入QQ群: <b>752693422</b></div>
-          <div>因为网站完全由一个18岁苦逼学生制作，更新可能较慢，更多的模板正在制作中喔，有更好的需求或建议也欢迎联系我！</div>
+          <div>为什么没小程序：因为没满18（悲）</div>
           <div>因为网站运营需要一定成本，如果您手中富裕不妨 <a href="/sponsor">支持一下</a> 网站运营！</div>
           <div>或者在 <a href="https://github.com/YuzeTT/small-sticker">Github</a> 给我个Star 对我的帮助也非常大！！</div>
         </>}
