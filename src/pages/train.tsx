@@ -95,7 +95,7 @@ export default function Train() {
         setImageSrc(v)
         console.log(v);
       })
-      
+
       messageApi.open({
         key,
         type: 'success',
@@ -138,7 +138,7 @@ export default function Train() {
   return (
     <div>
       {contextHolder}
-      <Modal title="导出图片" 
+      <Modal title="导出图片"
         open={isModalOpen}
         onCancel={handleCancel}
         footer={<div text='center'>
@@ -217,11 +217,12 @@ export default function Train() {
                   setData({...data, isShowLogo: 0})
                 },
               });
+            }else {
+              setData({...data, isShowLogo: 0})
             }
-            setData({...data, isShowLogo: parseInt(`${v}`)})
           }} />
         </Space>
-        
+
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
         {/* -------------------------------- */}
@@ -290,7 +291,7 @@ export default function Train() {
                   <div className="i-ri-camera-fill" mr-1 text='lg' />
                   导出图片
                 </Button>
-              
+
               </>,
             },
             {
@@ -356,12 +357,12 @@ export default function Train() {
                   <div className="i-ri-camera-fill" mr-1 text='lg' />
                   导出图片
                 </Button>
-              
+
               </>,
             },
           ]}
         />
-        
+
       </Space>
     </div>
   )
