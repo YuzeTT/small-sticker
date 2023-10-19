@@ -1,4 +1,4 @@
-import { Collapse, Table } from 'antd';
+import { Collapse, Table, List, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import Line from '../components/Line';
 
@@ -26,12 +26,6 @@ const columns: ColumnsType<DataType> = [
 ];
 
 const data: DataType[] = [
-  {
-    key: '1',
-    name: 'Ric',
-    money: 2.88,
-    remark: '网站很好用哇，谢谢！',
-  },
   {
     key: '2',
     name: '呱',
@@ -85,7 +79,7 @@ const data: DataType[] = [
 export default function sponsor() {
   return (
     <div className=''>
-      <div my-4>网站的维护需要一定运营成本,如果能收到您的赞助,我会非常开心！！！</div>
+      <div my-4>网站的维护需要一定运营成本，如果能收到您的赞助，我会爱你一万年！！！</div>
       <Collapse className='mb-4'
         items={[{ key: '1', label: '点击展开收款码', children: <div>
           <div>付款后联系微信: hong_yu1024 可以自定义昵称和留言哦!（24小时没回复就帮你登记付款自带的啦~）</div>
@@ -95,12 +89,29 @@ export default function sponsor() {
         </div> }]}
       />
       <Line zh='赞助列表' en='Sponsor List' logo={<div className="i-ri-file-list-2-line" mr-4 text='xl' />}></Line>
-      <div className='-mx-4 -mt-2'>
+      {/* <div className='-mx-4 -mt-2'>
         <Table
           columns={columns}
           dataSource={data}
         />
-      </div>
+      </div> */}
+
+      <List
+        // header={<div>赞助列表</div>}
+        // footer={<div>Footer</div>}
+        className='mt-4'
+        bordered
+        dataSource={data}
+        renderItem={(item) => (
+          <List.Item extra={<div text='bold xl red-500'>￥{item.money.toFixed(2)}</div>}>
+            <List.Item.Meta
+              title={<a>{item.name}</a>}
+              description={item.remark}
+            />
+            {/* <Typography.Text mark>[ITEM]</Typography.Text> {item.name} */}
+          </List.Item>
+        )}
+      />
     </div>
   )
 }
