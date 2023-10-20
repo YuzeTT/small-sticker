@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   useRoutes,
@@ -8,6 +8,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { Spin } from 'antd'
 import Footer from './components/Footer'
+import { nanoid } from 'nanoid'
 
 const Loading = () => {
   return (
@@ -26,6 +27,18 @@ const RouterRender = () => {
 }
 
 function App() {
+  useEffect(()=>{
+    const id = localStorage.getItem("id")
+    if (id) {
+      console.log('idok');
+      
+    } else {
+      console.log('noid');
+      const t_id = nanoid(10)
+      localStorage.setItem("id", t_id)
+    }
+  }, [])
+
   return (
     <>
       <Router>

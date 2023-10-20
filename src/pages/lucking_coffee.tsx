@@ -4,6 +4,7 @@ import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
 
 import Line from "../components/Line";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
+import SecureWatermark from "../components/SecureWatermark";
 
 export default function LuckinCoffee() {
   const [data, setData] = useState({
@@ -220,20 +221,22 @@ export default function LuckinCoffee() {
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
         <div className="flex items-center justify-center">
           <div className="bg-[#A8D3FD] rounded-md relative w-80 " ref={ref}>
-            {data.isShowLogo? <img src="/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" />:''}
-            <div className="px-3 text-xl">Hi，{data.name || '未填写'} {data.sex}</div>
-            <div className="flex items-center px-3 pt-2">
-              <div className="font-bold text-4xl">{data.code || '000'}</div>
-              <div className="text-lg pl-2">{data.type || '自己飞走'}</div>
-              <div className="text-lg pl-2">第{data.number1 || '1'}/{data.number2 || '1'}杯</div>
-            </div>
-            <div className="flex">
-              <div className="text-lg pl-2">{data.temp || '【烫烫烫】'}</div>
-              <div className="text-lg pl-2">{data.product || '锟斤拷'}</div>
-            </div>
-            <div className="text-lg pl-2">{data.sweet || '胰岛素配合'}</div>
-            <div className="pl-2 font-bold pt-4 line-height-2">{data.date || '0000-00-00'} {data.time || '00:00'}</div>
-            <div className="pl-2 pb-3">{data.remark}</div>
+            <SecureWatermark>
+              {data.isShowLogo? <img src="/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" />:''}
+              <div className="px-3 text-xl">Hi，{data.name || '未填写'} {data.sex}</div>
+              <div className="flex items-center px-3 pt-2">
+                <div className="font-bold text-4xl">{data.code || '000'}</div>
+                <div className="text-lg pl-2">{data.type || '自己飞走'}</div>
+                <div className="text-lg pl-2">第{data.number1 || '1'}/{data.number2 || '1'}杯</div>
+              </div>
+              <div className="flex">
+                <div className="text-lg pl-2">{data.temp || '【烫烫烫】'}</div>
+                <div className="text-lg pl-2">{data.product || '锟斤拷'}</div>
+              </div>
+              <div className="text-lg pl-2">{data.sweet || '胰岛素配合'}</div>
+              <div className="pl-2 font-bold pt-4 line-height-2">{data.date || '0000-00-00'} {data.time || '00:00'}</div>
+              <div className="pl-2 pb-3">{data.remark}</div>
+            </SecureWatermark>
           </div>
         </div>
 
