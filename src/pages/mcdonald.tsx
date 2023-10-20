@@ -131,7 +131,8 @@ export default function Mcdonald() {
       time: '',
       bless: '如产品有错送, 请联系配送员：123456',
       isShowLogo: 0,
-      isWhite: 0
+      isWhite: 0,
+      isSolidColor: true
     })
   }
 
@@ -173,7 +174,7 @@ export default function Mcdonald() {
             }}/>
             <span className="">/</span>
             <Input addonAfter="数量" placeholder="1" value={data.comboList[0].number} onChange={(v)=>{
-                setData({...data, comboList: [{...data.comboList[0], number: v.target.value}]})
+              setData({...data, comboList: [{...data.comboList[0], number: Number(v.target.value)}, ...data.comboList.slice(1)]})
             }}/>
             <Input addonAfter='实付款' placeholder='88.8' value={data.spend} onChange={
               (v)=>setData({...data, spend: v.target.value})
@@ -191,8 +192,12 @@ export default function Mcdonald() {
             <Input placeholder='祝福' className='w-100' addonAfter='天天开心' value={data.bless} onChange={(v)=>setData({...data, bless: v.target.value})}/>
           </Space.Compact>
           <div>
-            <Segmented options={[{label:'白色', value: 1}, {label:'麦色', value: 0}]} value={data.isWhite} onChange={(v)=>{
-                setData({...data, isWhite: v})
+            <Segmented options={[{label:'白色', value: 1}, {label:'麦色', value:0}]} value={data.isWhite} onChange={(v)=>{
+              if (v === 1) {
+                setData({...data, isWhite: 1})
+              }else {
+                setData({...data, isWhite: 0})
+              }
             }} />
             <Segmented className='ml-5' options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} value={data.isShowLogo} onChange={(v)=>{
               if(v===1){
