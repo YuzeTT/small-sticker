@@ -214,7 +214,7 @@ export default function Mcdonald() {
           </Space.Compact>
           <Space.Compact className='w-full'>
             <Input addonBefore='配送费' placeholder='6' value={data.spend.pack} onChange={(v)=>setData({...data, spend: {...data.spend, pack: v.target.value}})}/>
-            <Input addonBefore='总计' placeholder='6' value={data.spend.total} onChange={(v)=>setData({...data, spend: {...data.spend, total: v.target.value}})}/>
+            <Input addonBefore='价格' placeholder='6' value={data.spend.total} onChange={(v)=>setData({...data, spend: {...data.spend, total: v.target.value}})}/>
             <Input addonBefore='优惠' placeholder='6' value={data.spend.offer} onChange={(v)=>setData({...data, spend: {...data.spend, offer: v.target.value}})}/>
           </Space.Compact>
           <div text='sm' op50 mt-2>餐品信息</div>
@@ -291,7 +291,7 @@ export default function Mcdonald() {
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className='i-ri-landscape-line' mr-4 text='xl' />}></Line>
         <div className='flex items-center justify-center'>
-          <div className='bg-white rounded-md w-90 shadow-xl pb-10 relative' ref={ref}>
+          <div className='bg-white rounded-md w-90 shadow-xl pb-6 relative' ref={ref}>
             <SecureWatermark>
               <div className='w-full text-center mb-4 mt-10'>
                 {data.isShowLogo? <img src='/mcdonald.png' alt='' className='w-50' />:''}
@@ -318,7 +318,7 @@ export default function Mcdonald() {
                 </table>
                 <div text='sm'>
                   <div>外送费：{data.spend.pack}</div>
-                  <div>总计：{data.spend.total}</div>
+                  <div>总计：{parseInt(data.spend.pack) + parseInt(data.spend.total)}</div>
                   <div>优惠：{data.spend.offer}</div>
                   <div>实付：{parseInt(data.spend.pack) + parseInt(data.spend.total) - parseInt(data.spend.offer)}</div>
                 </div>
