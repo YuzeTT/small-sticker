@@ -207,7 +207,7 @@ export default function Mcdonald() {
             <Input addonBefore='号码' placeholder='123****1234' value={data.phone} onChange={(v)=>setData({...data, phone: v.target.value})}/>
           </Space.Compact>
           <Input addonBefore='送餐地址' placeholder='填写收货地址' value={data.userAddress} onChange={(v)=>setData({...data, userAddress: v.target.value})}/>
-          <Input addonBefore='小尾巴' placeholder='Happy brithday' value={data.userAddress} onChange={(v)=>setData({...data, userAddress: v.target.value})}/>
+          <Input addonBefore='小尾巴' placeholder='Happy brithday' value={data.line} onChange={(v)=>setData({...data, line: v.target.value})}/>
           <Space.Compact className='w-full'>
             <Input addonBefore='门店电话' placeholder='123****1234' value={data.phone1} onChange={(v)=>setData({...data, phone1: v.target.value})}/>
             <Input addonBefore='客服电话' placeholder='123****1234' value={data.phone2} onChange={(v)=>setData({...data, phone2: v.target.value})}/>
