@@ -25,10 +25,10 @@
       window.addEventListener("load", (event) => {
         const id = localStorage.getItem("id")
         if (id) {
-          window.clarity("identify", id).then((v)=>{
+          window.clarity("identify", id, id).then((v)=>{
             console.log(v)
             localStorage.setItem("userId", v.userId)
-            localStorage.setItem("userHint", v.userHint)
+            localStorage.setItem("sessionId", v.sessionId)
           })
         } else {
           console.log('noid');
