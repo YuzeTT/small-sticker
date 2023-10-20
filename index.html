@@ -22,15 +22,18 @@
       })(window, document, "clarity", "script", "jd2me6das9");
     </script>
     <script>
-      const id = localStorage.getItem("id")
-      if (id) {
-        window.clarity("identify", id)
-      } else {
-        console.log('noid');
-        // const t_id = nanoid(10)
-        // localStorage.setItem("id", t_id)
-        // window.clarity(id)
-      }
+      window.addEventListener("load", (event) => {
+        const id = localStorage.getItem("id")
+        if (id) {
+          window.clarity("identify", id).then((v)=>{
+            console.log(v)
+            localStorage.setItem("userId", v.userId)
+            localStorage.setItem("userHint", v.userHint)
+          })
+        } else {
+          console.log('noid');
+        }
+      });
     </script>
   </head>
   <body>
