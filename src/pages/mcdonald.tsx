@@ -131,8 +131,7 @@ export default function Mcdonald() {
       time: '',
       bless: '如产品有错送, 请联系配送员：123456',
       isShowLogo: 0,
-      isWhite: 0,
-      isSolidColor: true
+      isWhite: 0
     })
   }
 
@@ -232,7 +231,7 @@ export default function Mcdonald() {
                 <div>#{data.name}</div>
                 <div>备注:  {data.remark}</div>
               </div>
-              <div className='py-2'>-----------------------------------------------</div>
+              <div className='py-2'>----------------------------------</div>
               <div>
                 <div className='flex items-center'>
                   <div>下单时间：{data.date || '0000-00-00'}</div>
@@ -240,7 +239,7 @@ export default function Mcdonald() {
                 </div>
                 <div className='pt-1'>订单编号：{data.id}</div>
               </div>
-              <div className='py-2'>--------------------商品-----------------------</div>
+              <div className='py-2'>---------------商品---------------</div>
               <div className='flex items-center justify-between px-1'>
                 <div>
                   <div>名称</div>
@@ -259,17 +258,17 @@ export default function Mcdonald() {
                   }
                 </div>
               </div>
-              <div className='py-2'>--------------------优惠-----------------------</div>
+              <div className='py-2'>---------------优惠----------------</div>
               <div>{data.discount}</div>
               <div className='flex justify-end'>实付：{data.spend || '88.8'}</div>
-              <div className='py-2'>--------------------配送-----------------------</div>
+              <div className='py-2'>---------------配送----------------</div>
               <div>
                 配送地址： {data.address}
               </div>
               <div>
                 收货人：{data.receiver}
               </div>
-              <div className='py-2'>------------------天天开心---------------------</div>
+              <div className='py-2'>--------------天天开心--------------</div>
               <div>{data.bless}</div>
             </div>
           </div>
