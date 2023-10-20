@@ -1,19 +1,25 @@
-import { Button, Modal, Form, Input, Space, message, Segmented, Spin, Card } from 'antd';
+import { Button, Modal, Form, Input, Space, message, Segmented, Spin } from 'antd';
 import { useCallback, useRef, useState } from 'react';
 import downloadHtmlAsImage from '../utils/downloadHtmlAsImage';
 
 import Line from '../components/Line';
 import showImage from '../utils/downloadHtmlAsImage/showImage';
+import SecureWatermark from "../components/SecureWatermark";
 
 import './mcdonald.css'
 
 export default function Mcdonald() {
+  const { TextArea } = Input;
+
   const [form] = Form.useForm()
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({list: [
+    {number: '', name: ''}
+  ]})
   const [data, setData] = useState({
     name: '',// 套餐名称
     code: '',// 取餐码
     remark: '',// 套餐备注
+    need: '',
     // id: '2023082205200001',// 套餐订单编号
     spend: {
       pack: '', // 配送费
@@ -33,7 +39,6 @@ export default function Mcdonald() {
     phone1: '', // 门店电话
     phone2: '', // 客服电话
     isShowLogo: 0,
-    isWhite: 0
   })
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
@@ -124,7 +129,8 @@ export default function Mcdonald() {
     setData({
       name: '爱心套餐',// 套餐名称
       code: '20232',// 取餐码
-      remark: '快写完了快写完了',// 套餐备注
+      remark: '一定要天天开心呀！',// 套餐备注
+      need: '吸管 x1',
       // id: '2023082205200001',// 套餐订单编号
       spend: {
         pack: '6', // 配送费
@@ -136,15 +142,21 @@ export default function Mcdonald() {
       addressCode: '2023012', // 门店代码
       date1: '2023-00-00 12:00:00',// 订单时间
       date2: '2023-00-00 12:00:00',// 制作时间
-      user: '', // 名字
-      phone: '',// 号码
-      userAddress: '', // 配送地址
-      from: '', // 来源
-      line: '', // 小尾巴
-      phone1: '', // 门店电话
-      phone2: '', // 客服电话
+      user: 'YuzeTT', // 名字
+      phone: '123****1234',// 号码
+      userAddress: '福建省', // 配送地址
+      from: 'APP', // 来源
+      line: 'Happy brithday', // 小尾巴
+      phone1: '1234-12341234', // 门店电话
+      phone2: '1234-12341234', // 客服电话
       isShowLogo: 0,
-      isWhite: 0
+    })
+
+    setFormData({
+      list: [
+        {name: '麦旋风', number: '1'},
+        {name: '爱', number: '1'},
+      ]
     })
   }
 
@@ -152,12 +164,9 @@ export default function Mcdonald() {
     console.log( values)
     setFormData(values)
   };
-  
-
 
   return (
     <div>
-      <div>还没写完！！</div>
       {contextHolder}
       <Modal title='导出图片'
         open={isModalOpen}
@@ -188,6 +197,7 @@ export default function Mcdonald() {
             <Input placeholder='取餐码' value={data.code} onChange={(v)=>setData({...data, code: v.target.value})}/>
           </div>
           <Input addonBefore='备注' placeholder='开心！快乐！健康！平安！' value={data.remark} onChange={(v)=>setData({...data, remark: v.target.value})}/>
+          <TextArea rows={2} placeholder='需求（可输入多行），例：吸管 x1' value={data.need} onChange={(v)=>setData({...data, need: v.target.value})}/>
           <Input addonBefore='订单时间' placeholder='2023-10-10 12:00:00' value={data.date1} onChange={(v)=>setData({...data, date1: v.target.value})}/>
           <Input addonBefore='制作时间' placeholder='2023-10-10 12:00:00' value={data.date2} onChange={(v)=>setData({...data, date2: v.target.value})}/>
           <Input addonBefore='来源' placeholder='饿了么' value={data.from} onChange={(v)=>setData({...data, from: v.target.value})}/>
@@ -214,6 +224,7 @@ export default function Mcdonald() {
             form={form}
             onFinish={onFinish}
             autoComplete="off"
+            initialValues={{ list: [{number: '', name: ''}] }}
           >
             <Form.List name="list">
               {(fields, { add, remove }) => (
@@ -256,14 +267,7 @@ export default function Mcdonald() {
             </Form.Item>
           </Form>
           <div>
-            <Segmented options={[{label:'白色', value: 1}, {label:'麦色', value:0}]} value={data.isWhite} onChange={(v)=>{
-              if (v === 1) {
-                setData({...data, isWhite: 1})
-              }else {
-                setData({...data, isWhite: 0})
-              }
-            }} />
-            <Segmented className='ml-5' options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} value={data.isShowLogo} onChange={(v)=>{
+            <Segmented options={[{label:'隐藏Logo', value:0}, {label:'显示Logo', value:1}]} value={data.isShowLogo} onChange={(v)=>{
               if(v===1){
                 Modal.confirm({
                   title: '免责声明',
@@ -287,96 +291,62 @@ export default function Mcdonald() {
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className='i-ri-landscape-line' mr-4 text='xl' />}></Line>
         <div className='flex items-center justify-center'>
-          <div className='bg-white rounded-md w-90 shadow-xl pb-10' ref={ref}>
-            <div className='w-full text-center mb-4 mt-10'>
-              {data.isShowLogo? <img src='/mcdonald.png' alt='' className='w-50' />:''}
-            </div>
-            <div className='px-8'>
-              <div text='center'>
-                <div>#{data.name}</div>
-                <div text='xl' my-2 font='bold'>{data.code}</div>
+          <div className='bg-white rounded-md w-90 shadow-xl pb-10 relative' ref={ref}>
+            <SecureWatermark>
+              <div className='w-full text-center mb-4 mt-10'>
+                {data.isShowLogo? <img src='/mcdonald.png' alt='' className='w-50' />:''}
               </div>
-              <div text='xl' font='bold' className='whitespace-pre-line'>订单备注：{data.remark} / KVS-020</div>
-              <div text='sm' mt-5>
-                <div>配料需求</div>
-                <div>吸管 x1</div>
-              </div>
-              {/* <hr/> */}
-              {/* <div>
-                <div className='flex items-center'>
-                  <div>下单时间：{data.date || '0000-00-00'}</div>
-                  <div className='ml-2'>{data.time || '00:00'}</div>
+              <div className='px-8'>
+                <div text='center'>
+                  <div>#{data.name}</div>
+                  <div text='xl' my-2 font='bold'>{data.code}</div>
                 </div>
-                <div className='pt-1'>订单编号：{data.id}</div>
-              </div> */}
-              <hr className='my-3' />
-              <div text='xl' font='bold'>产品需求(总数:1)</div>
-              <table text='xl'>
-                <tr className='first:underline first:decoration-1'>
-                  <td>1</td>
-                  <td>麦旋风</td>
-                </tr>
-              </table>
-              <div text='sm'>
-                <div>外送费：6</div>
-                <div>总计：24</div>
-                <div>优惠：10</div>
-                <div>实付：20</div>
-              </div>
-              <hr className='my-3' />
-              <div text='sm'>
-                <div>餐厅名称：麦麦小饭馆</div>
-                <div>餐厅编号：2023014</div>
-                <div>订单时间：{data.date1}</div>
-                <div>产品制作时间：{data.date2}</div>
-                <div>来源：饿了么</div>
-              </div>
-              <hr className='my-3' />
-              <div text='sm'>
-                <div>联系信息：YuzeTT 136****1153</div>
-                <div>送餐地址：福建省</div>
-              </div>
-              <div className='my-3 relative'>
-                <hr />
-                <div absolute className='-top-2.5 px-2 left-1/2 -translate-x-1/2 z-10' text='sm black' bg='white'>Happy brithday</div>
-              </div>
-              <div text='sm'>
-                <div>★请在产品制作两个小时内食用，如需延后食用，请尽快密封后冷藏保存，谨防虫蝇</div>
-                <div>★如有疑问请联系</div>
-                <div>门店电话：0000-12293233</div>
-                <div>客服电话：1245-12293233</div>
-              </div>
-              {/* <div className='flex items-center justify-between px-1'>
-                <div>
-                  <div>名称</div>
-                  {
-                    data.comboList.map((v, i)=>{
-                      return <div key={i}>{v.name}</div>
-                    })
-                  }
+                <div text='xl' font='bold' className='whitespace-pre-line'>订单备注：{data.remark} / KVS-020</div>
+                <div text='sm' mt-5>
+                  <div>配料需求</div>
+                  <div className='whitespace-pre-line '>{data.need}</div>
                 </div>
-                <div>
-                  <div>数量</div>
-                  {
-                    data.comboList.map((v, i)=>{
-                      return <div key={i}>{v.number}</div>
-                    })
-                  }
+                <hr className='my-3' />
+                <div text='xl' font='bold'>产品需求(总数:{formData.list.length || '0'})</div>
+                <table text='xl'>
+                  {formData.list.map((item, key) => (
+                    <tr className='first:underline first:decoration-1' key={key}>
+                      <td>{item.number}</td>
+                      <td>{item.name}</td>
+                    </tr>
+                  ))}
+                </table>
+                <div text='sm'>
+                  <div>外送费：{data.spend.pack}</div>
+                  <div>总计：{data.spend.total}</div>
+                  <div>优惠：{data.spend.offer}</div>
+                  <div>实付：{parseInt(data.spend.pack) + parseInt(data.spend.total) - parseInt(data.spend.offer)}</div>
                 </div>
-              </div> */}
-              {/* <hr/> */}
-              {/* <div>{data.discount}</div>
-              <div className='flex justify-end'>实付：{data.spend || '88.8'}</div>
-              <hr/>
-              <div>
-                配送地址： {data.address}
+                <hr className='my-3' />
+                <div text='sm'>
+                  <div>餐厅名称：{data.address}</div>
+                  <div>餐厅编号：{data.addressCode}</div>
+                  <div>订单时间：{data.date1}</div>
+                  <div>产品制作时间：{data.date2}</div>
+                  <div>来源：{data.from}</div>
+                </div>
+                <hr className='my-3' />
+                <div text='sm'>
+                  <div>联系信息：{data.user} {data.phone}</div>
+                  <div>送餐地址：{data.userAddress}</div>
+                </div>
+                <div className='my-3 relative'>
+                  <hr />
+                  <div absolute className='-top-2.5 px-2 left-1/2 -translate-x-1/2 z-10' text='sm black' bg='white'>{data.line}</div>
+                </div>
+                <div text='sm'>
+                  <div>★请在产品制作两个小时内食用，如需延后食用，请尽快密封后冷藏保存，谨防虫蝇</div>
+                  <div>★如有疑问请联系</div>
+                  <div>门店电话：{data.phone1}</div>
+                  <div>客服电话：{data.phone2}</div>
+                </div>
               </div>
-              <div>
-                收货人：{data.receiver}
-              </div>
-              <hr/>
-              <div>{data.bless}</div> */}
-            </div>
+            </SecureWatermark>
           </div>
         </div>
 
