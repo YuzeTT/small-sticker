@@ -313,12 +313,14 @@ export default function Mcdonald() {
                 <hr className='my-3' />
                 <div text='xl' font='bold'>产品需求(总数:{formData.list.length || '0'})</div>
                 <table text='xl'>
-                  {formData.list.map((item, key) => (
-                    <tr className='first:underline first:decoration-1' key={key}>
-                      <td>{item.number}</td>
-                      <td>{item.name}</td>
-                    </tr>
-                  ))}
+                  <tbody>
+                    {formData.list.map((item, key) => (
+                      <tr className='first:underline first:decoration-1' key={key}>
+                        <td>{item.number}</td>
+                        <td>{item.name}</td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </table>
                 <div text='sm'>
                   <div>外送费：{data.spend.pack}</div>
