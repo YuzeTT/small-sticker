@@ -1,19 +1,6 @@
 import { Modal } from 'antd';
-import { useEffect, useState } from 'react';
 
 export default function Footer() {
-  const [userId, setUserId] = useState('')
-  const [userId2, setUserId2] = useState('')
-  useEffect(()=>{
-    const id = localStorage.getItem("userId")
-    const id2 = localStorage.getItem("id")
-    if (id&&id2) {
-      setUserId(id);
-      setUserId2(id2);
-    } else {
-      console.log('f-noid');
-    }
-  }, [userId2])
   return (
     <div flex='~ items-center justify-center' pb-4>
       <div className='text-sm op-50' onClick={()=>{
@@ -23,8 +10,8 @@ export default function Footer() {
             <div>
               <p>版本：v0.2.60</p>
               <p>时间：{new Date().toLocaleString()}</p>
-              <p>ID：{userId2}</p>
-              <p>决断ID：{userId}</p>
+              <p>ID：{localStorage.getItem("id")}</p>
+              <p>决断ID：{localStorage.getItem("userId")}</p>
             </div>
           )
         });
