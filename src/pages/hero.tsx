@@ -23,7 +23,7 @@ const data = [
     key: '2',
     name: '幸运函数',
     ghName : 'luckfunc',
-    remark: '代码优化，麦当劳小票 作者',
+    remark: '代码优化，参与 麦当劳小票 开发',
     avatar: luckfunc,
   },
 ];

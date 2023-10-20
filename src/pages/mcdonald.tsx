@@ -261,8 +261,8 @@ export default function Mcdonald() {
               )}
             </Form.List>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
-                提交
+              <Button type="primary" htmlType="submit" className='w-full'>
+                提交（修改商品后需要点击）
               </Button>
             </Form.Item>
           </Form>
