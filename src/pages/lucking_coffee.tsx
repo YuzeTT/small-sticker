@@ -38,6 +38,7 @@ export default function LuckinCoffee() {
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    setImageSrc('')
   };
   const out = useCallback(() => {
     if (ref.current === null) {
