@@ -1,7 +1,7 @@
 import LuckingCoffee from '/lucking_coffee.svg'
 import Train from '/train.svg'
 import Ticket from '/ticket.svg'
-import Mcdonald from '/mcdonald.svg'
+import Mcdonald from '/mcdonald.png'
 const list = {
   done: [
     {

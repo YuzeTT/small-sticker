@@ -1,4 +1,4 @@
-import { AutoComplete, Button, Modal, DatePicker, Input, Space, message, Segmented } from "antd";
+import { AutoComplete, Button, Modal, DatePicker, Input, Space, message, Segmented, Spin } from "antd";
 import { useCallback, useRef, useState } from "react";
 import downloadHtmlAsImage from "../utils/downloadHtmlAsImage";
 
@@ -140,7 +140,11 @@ export default function LuckinCoffee() {
       >
         <div mb-2>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
         <div>
-          <img src={imageSrc} alt="" w-full/>
+          {imageSrc? <img src={imageSrc} alt="" w-full shadow-xl/>:
+            <Spin tip="渲染图片中...如果长时间未出图请刷新">
+              <div className="h-30" />
+            </Spin>
+          }
         </div>
       </Modal>
       <Space direction="vertical" className="w-full">

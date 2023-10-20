@@ -1,29 +1,37 @@
-import { Button, Modal, DatePicker, Input, Space, message, Segmented } from 'antd';
+import { Button, Modal, Form, Input, Space, message, Segmented, Spin, Card } from 'antd';
 import { useCallback, useRef, useState } from 'react';
 import downloadHtmlAsImage from '../utils/downloadHtmlAsImage';
 
 import Line from '../components/Line';
 import showImage from '../utils/downloadHtmlAsImage/showImage';
 
+import './mcdonald.css'
+
 export default function Mcdonald() {
+  const [form] = Form.useForm()
+  const [formData, setFormData] = useState({})
   const [data, setData] = useState({
-    name: '麦当劳套餐',// 套餐名称
-    remark: '开心！快乐！健康！平安！',// 套餐备注
-    id: '2023082205200001',// 套餐订单编号
-    comboList: [
-      {
-        name: '限定套餐1',
-        number: 2
-      }
-    ],
-    // 花费
-    spend: '',
-    discount: '这里是折扣信息',
-    address: '北京市朝阳区朝阳公园',
-    receiver: '麦**',
-    date: '',// 日期
-    time: '',// 时间
-    bless: '如产品有错送, 请联系配送员：123456',
+    name: '',// 套餐名称
+    code: '',// 取餐码
+    remark: '',// 套餐备注
+    // id: '2023082205200001',// 套餐订单编号
+    spend: {
+      pack: '', // 配送费
+      total: '', // 总计
+      offer: '', // 优惠
+      pay: '', // 实付
+    },
+    address: '', // 门店地址
+    addressCode: '', // 门店代码
+    date1: '',// 订单时间
+    date2: '',// 制作时间
+    user: '', // 名字
+    phone: '',// 号码
+    userAddress: '', // 配送地址
+    from: '', // 来源
+    line: '', // 小尾巴
+    phone1: '', // 门店电话
+    phone2: '', // 客服电话
     isShowLogo: 0,
     isWhite: 0
   })
@@ -114,43 +122,59 @@ export default function Mcdonald() {
   }, [ref])
   const fillTest = () => {
     setData({
-      name: '麦当劳套餐',// 套餐名称
-      remark: '开心！快乐！健康！平安！',// 套餐备注
-      id: '2023082205200001',// 套餐订单编号
-      comboList: [
-        {
-          name: '#限定套餐1',
-          number: 1
-        }
-      ],
-      spend: '88.8',
-      discount: '这里是折扣信息',
-      address: '北京市朝阳区朝阳公园',
-      receiver: '麦**',
-      date: '',
-      time: '',
-      bless: '如产品有错送, 请联系配送员：123456',
+      name: '爱心套餐',// 套餐名称
+      code: '20232',// 取餐码
+      remark: '快写完了快写完了',// 套餐备注
+      // id: '2023082205200001',// 套餐订单编号
+      spend: {
+        pack: '6', // 配送费
+        total: '12', // 总计
+        offer: '3', // 优惠
+        pay: '32', // 实付
+      },
+      address: '麦当劳门店', // 门店地址
+      addressCode: '2023012', // 门店代码
+      date1: '2023-00-00 12:00:00',// 订单时间
+      date2: '2023-00-00 12:00:00',// 制作时间
+      user: '', // 名字
+      phone: '',// 号码
+      userAddress: '', // 配送地址
+      from: '', // 来源
+      line: '', // 小尾巴
+      phone1: '', // 门店电话
+      phone2: '', // 客服电话
       isShowLogo: 0,
       isWhite: 0
     })
   }
 
+  const onFinish = (values: any) => {
+    console.log( values)
+    setFormData(values)
+  };
+  
+
 
   return (
     <div>
+      <div>还没写完！！</div>
       {contextHolder}
       <Modal title='导出图片'
-             open={isModalOpen}
-             onCancel={handleCancel}
-             footer={<div text='center'>
-               <Button onClick={()=>downloadImage()}>下载图片</Button>
-               <Button type='primary' onClick={handleOk}>干的不错，有赏</Button>
-               <Button type='dashed' danger onClick={handleCancel}>关闭</Button>
-             </div>}
+        open={isModalOpen}
+        onCancel={handleCancel}
+        footer={<div text='center'>
+          <Button onClick={()=>downloadImage()}>下载图片</Button>
+          <Button type='primary' onClick={handleOk}>干的不错，有赏</Button>
+          <Button type='dashed' danger onClick={handleCancel}>关闭</Button>
+        </div>}
       >
         <div mb-2>请 <span text='blue-500'>长按保存图片</span>或点击底部 <span text='blue-500'>下载按钮</span></div>
         <div>
-          <img src={imageSrc} alt='' w-full/>
+          {imageSrc? <img src={imageSrc} alt="" w-full shadow-xl/>:
+            <Spin tip="渲染图片中...如果长时间未出图请刷新">
+              <div className="h-30" />
+            </Spin>
+          }
         </div>
       </Modal>
       <Space direction='vertical' className='w-full'>
@@ -158,38 +182,79 @@ export default function Mcdonald() {
           <Button onClick={fillTest}>测试数据</Button>
         </Line>
         <Space direction='vertical' className='w-full'>
-          <Space.Compact>
-            <Input addonBefore='套餐' className='w-50' placeholder='套餐名称' value={data.name} onChange={(v)=>setData({...data, name: v.target.value})}/>
-            <Input addonBefore='备注' className='w-50' placeholder='套餐备注' value={data.remark} onChange={(v)=>setData({...data, remark: v.target.value})}/>
+          <div text='sm' op50>基本信息</div>
+          <div flex='~ justify-between gap-2'>
+            <Input addonBefore='#' placeholder='套餐名称' value={data.name} onChange={(v)=>setData({...data, name: v.target.value})}/>
+            <Input placeholder='取餐码' value={data.code} onChange={(v)=>setData({...data, code: v.target.value})}/>
+          </div>
+          <Input addonBefore='备注' placeholder='开心！快乐！健康！平安！' value={data.remark} onChange={(v)=>setData({...data, remark: v.target.value})}/>
+          <Input addonBefore='订单时间' placeholder='2023-10-10 12:00:00' value={data.date1} onChange={(v)=>setData({...data, date1: v.target.value})}/>
+          <Input addonBefore='制作时间' placeholder='2023-10-10 12:00:00' value={data.date2} onChange={(v)=>setData({...data, date2: v.target.value})}/>
+          <Input addonBefore='来源' placeholder='饿了么' value={data.from} onChange={(v)=>setData({...data, from: v.target.value})}/>
+
+          <Space.Compact className='w-full'>
+            <Input addonBefore='姓名' placeholder='YuzeTT' value={data.user} onChange={(v)=>setData({...data, user: v.target.value})}/>
+            <Input addonBefore='号码' placeholder='123****1234' value={data.phone} onChange={(v)=>setData({...data, phone: v.target.value})}/>
+          </Space.Compact>
+          <Input addonBefore='送餐地址' placeholder='填写收货地址' value={data.userAddress} onChange={(v)=>setData({...data, userAddress: v.target.value})}/>
+          <Input addonBefore='小尾巴' placeholder='Happy brithday' value={data.userAddress} onChange={(v)=>setData({...data, userAddress: v.target.value})}/>
+          <Space.Compact className='w-full'>
+            <Input addonBefore='门店电话' placeholder='123****1234' value={data.phone1} onChange={(v)=>setData({...data, phone1: v.target.value})}/>
+            <Input addonBefore='客服电话' placeholder='123****1234' value={data.phone2} onChange={(v)=>setData({...data, phone2: v.target.value})}/>
           </Space.Compact>
           <Space.Compact className='w-full'>
-            <DatePicker placeholder='日期' onChange={(_,v)=>setData({...data, date: v})} format={'YYYY-MM-DD'} showToday />
-            <DatePicker picker='time' placeholder='时间' onChange={(_,v)=>setData({...data, time: v})} format={'HH:mm'} use12Hours={false} />
+            <Input addonBefore='配送费' placeholder='6' value={data.spend.pack} onChange={(v)=>setData({...data, spend: {...data.spend, pack: v.target.value}})}/>
+            <Input addonBefore='总计' placeholder='6' value={data.spend.total} onChange={(v)=>setData({...data, spend: {...data.spend, total: v.target.value}})}/>
+            <Input addonBefore='优惠' placeholder='6' value={data.spend.offer} onChange={(v)=>setData({...data, spend: {...data.spend, offer: v.target.value}})}/>
           </Space.Compact>
-          <Input placeholder='套餐订单编号' addonAfter='订单号' className='' value={data.id} onChange={(v)=>setData({...data, id: v.target.value})}/>
-          <Space className='flex-full'>
-            <Input addonBefore="套餐名称" placeholder="名称" value={data.comboList[0].name} onChange={(v)=>{
-              setData({...data, comboList: [{...data.comboList[0], name: v.target.value}, ...data.comboList.slice(1)]})
-            }}/>
-            <span className="">/</span>
-            <Input addonAfter="数量" placeholder="1" value={data.comboList[0].number} onChange={(v)=>{
-              setData({...data, comboList: [{...data.comboList[0], number: Number(v.target.value)}, ...data.comboList.slice(1)]})
-            }}/>
-            <Input addonAfter='实付款' placeholder='88.8' value={data.spend} onChange={
-              (v)=>setData({...data, spend: v.target.value})
-            }/>
-          </Space>
-          <Space.Compact className='w-full'>
-            <Input addonBefore='优惠信息' placeholder='1' value={data.discount} onChange={(v)=>setData({...data, discount: v.target.value})}/>
-          </Space.Compact>
-          <Space>
-            <Input addonBefore='配送地址' placeholder='麦家' className='' value={data.address} onChange={(v)=>setData({...data, address: v.target.value})}/>
-            <span className=''>/</span>
-            <Input addonAfter='收货人' placeholder='小麦' className='' value={data.receiver} onChange={(v)=>setData({...data, receiver: v.target.value})}/>
-          </Space>
-          <Space.Compact>
-            <Input placeholder='祝福' className='w-100' addonAfter='天天开心' value={data.bless} onChange={(v)=>setData({...data, bless: v.target.value})}/>
-          </Space.Compact>
+          <div text='sm' op50 mt-2>餐品信息</div>
+
+          <Form
+            name="dynamic_form_nest_item"
+            form={form}
+            onFinish={onFinish}
+            autoComplete="off"
+          >
+            <Form.List name="list">
+              {(fields, { add, remove }) => (
+                <>
+                  {fields.map(({ key, name, ...restField }) => (
+                    <div flex='~ items-center' key={key}>
+                      <Space.Compact className='w-full mb-2'>
+                        <Form.Item
+                          className='mb-0'
+                          {...restField}
+                          name={[name, 'number']}
+                        >
+                          <Input placeholder="1" addonBefore='数量' className='w-30'/>
+                        </Form.Item>
+                        <Form.Item
+                          className='mb-0'
+                          {...restField}
+                          name={[name, 'name']}
+                        >
+                          <Input placeholder="输入餐品名称" addonBefore='餐品' />
+                        </Form.Item>
+                      </Space.Compact>
+                      <Button className='ml-2 mb-2' onClick={() => remove(name)} block>
+                        删除
+                      </Button>
+                    </div>
+                  ))}
+                  <Form.Item>
+                    <Button type="dashed" onClick={() => add()} block>
+                      新增一个餐品
+                    </Button>
+                  </Form.Item>
+                </>
+              )}
+            </Form.List>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                提交
+              </Button>
+            </Form.Item>
+          </Form>
           <div>
             <Segmented options={[{label:'白色', value: 1}, {label:'麦色', value:0}]} value={data.isWhite} onChange={(v)=>{
               if (v === 1) {
@@ -222,25 +287,66 @@ export default function Mcdonald() {
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className='i-ri-landscape-line' mr-4 text='xl' />}></Line>
         <div className='flex items-center justify-center'>
-          <div className={data.isWhite? 'bg-[#FFF] rounded-md w-90 h-200': 'bg-[#BB9C69] rounded-md w-90 h-200'} ref={ref}>
-            <div>
-              {data.isShowLogo? <img src='/mcdonald.svg' alt='' className='w-90' />:''}
+          <div className='bg-white rounded-md w-90 shadow-xl pb-10' ref={ref}>
+            <div className='w-full text-center mb-4 mt-10'>
+              {data.isShowLogo? <img src='/mcdonald.png' alt='' className='w-50' />:''}
             </div>
-            <div className='px-3 py-2'>
-              <div>
+            <div className='px-8'>
+              <div text='center'>
                 <div>#{data.name}</div>
-                <div>备注:  {data.remark}</div>
+                <div text='xl' my-2 font='bold'>{data.code}</div>
               </div>
-              <div className='py-2'>----------------------------------</div>
-              <div>
+              <div text='xl' font='bold' className='whitespace-pre-line'>订单备注：{data.remark} / KVS-020</div>
+              <div text='sm' mt-5>
+                <div>配料需求</div>
+                <div>吸管 x1</div>
+              </div>
+              {/* <hr/> */}
+              {/* <div>
                 <div className='flex items-center'>
                   <div>下单时间：{data.date || '0000-00-00'}</div>
                   <div className='ml-2'>{data.time || '00:00'}</div>
                 </div>
                 <div className='pt-1'>订单编号：{data.id}</div>
+              </div> */}
+              <hr className='my-3' />
+              <div text='xl' font='bold'>产品需求(总数:1)</div>
+              <table text='xl'>
+                <tr className='first:underline first:decoration-1'>
+                  <td>1</td>
+                  <td>麦旋风</td>
+                </tr>
+              </table>
+              <div text='sm'>
+                <div>外送费：6</div>
+                <div>总计：24</div>
+                <div>优惠：10</div>
+                <div>实付：20</div>
               </div>
-              <div className='py-2'>---------------商品---------------</div>
-              <div className='flex items-center justify-between px-1'>
+              <hr className='my-3' />
+              <div text='sm'>
+                <div>餐厅名称：麦麦小饭馆</div>
+                <div>餐厅编号：2023014</div>
+                <div>订单时间：{data.date1}</div>
+                <div>产品制作时间：{data.date2}</div>
+                <div>来源：饿了么</div>
+              </div>
+              <hr className='my-3' />
+              <div text='sm'>
+                <div>联系信息：YuzeTT 136****1153</div>
+                <div>送餐地址：福建省</div>
+              </div>
+              <div className='my-3 relative'>
+                <hr />
+                <div absolute className='-top-2.5 px-2 left-1/2 -translate-x-1/2 z-10' text='sm black' bg='white'>Happy brithday</div>
+              </div>
+              <div text='sm'>
+                <div>★请在产品制作两个小时内食用，如需延后食用，请尽快密封后冷藏保存，谨防虫蝇</div>
+                <div>★如有疑问请联系</div>
+                <div>门店电话：0000-12293233</div>
+                <div>客服电话：1245-12293233</div>
+              </div>
+              {/* <div className='flex items-center justify-between px-1'>
                 <div>
                   <div>名称</div>
                   {
@@ -257,19 +363,19 @@ export default function Mcdonald() {
                     })
                   }
                 </div>
-              </div>
-              <div className='py-2'>---------------优惠----------------</div>
-              <div>{data.discount}</div>
+              </div> */}
+              {/* <hr/> */}
+              {/* <div>{data.discount}</div>
               <div className='flex justify-end'>实付：{data.spend || '88.8'}</div>
-              <div className='py-2'>---------------配送----------------</div>
+              <hr/>
               <div>
                 配送地址： {data.address}
               </div>
               <div>
                 收货人：{data.receiver}
               </div>
-              <div className='py-2'>--------------天天开心--------------</div>
-              <div>{data.bless}</div>
+              <hr/>
+              <div>{data.bless}</div> */}
             </div>
           </div>
         </div>
