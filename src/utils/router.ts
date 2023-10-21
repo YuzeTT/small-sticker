@@ -1,6 +1,6 @@
 import LuckingCoffee from '/lucking_coffee.svg'
 import Train from '/train.svg'
-import Maoyan from '/maoyan.png'
+import Maoyan from '/ticket.svg'
 import Mcdonald from '/mcdonald.png'
 import Heytea from '/heytea.png'
 
