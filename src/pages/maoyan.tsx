@@ -1,16 +1,22 @@
-import { Alert, QRCode } from "antd";
+import { Alert, QRCode, Switch } from "antd";
+import { useState } from "react";
+import HighText from "../components/HighText";
 
-export default function maoyan() {
+export default function Maoyan() {
+  const [highLight , setHighLight] = useState<boolean>(true)
   return (
     <div mt-4>
       <Alert message="【新设计模式】直接点击文字即可编辑！" type="info" showIcon />
+      <div>
+        <Switch checked={highLight} onChange={(checked)=>{setHighLight(checked)}} />
+      </div>
       <div mt-4 p-2>
-        <div bg='white' className='max-w-80 mx-auto shadow-xl rounded-md overflow-hidden'>
+        <div bg='white' className='w-80 mx-auto shadow-xl rounded-md overflow-hidden'>
           <div pl-4 flex='~ justify-between'>
             {/* left */}
-            <div>
+            <div className="w-[75%]">
               <img src="/maoyan-2.png" alt="logo" h-7 pt-3 pb-1 />
-              <div contentEditable text='sm'>影院名称（店铺地址）</div>
+              <div text='sm'><HighText show={highLight} text='影院名称' />（<HighText show={highLight} text='店铺地址'></HighText>）</div>
               <div contentEditable text='sm'>电影名称(2D/3D)</div>
               <div mt-1 flex='~ items-center justify-between'>
                 <div contentEditable text='sm'>影厅特色</div>
@@ -33,9 +39,9 @@ export default function maoyan() {
               </div>
             </div>
             {/* right */}
-            <div py-3 ml-4 w-20>
+            <div py-3 ml-4 className="w-[25%]">
               <div flex='~ justify-center'>
-                <div px-2 my-1 rounded-full bg-red-500 text='white'>副券</div>
+                <div px-2 className='py-0.5' rounded-full bg-red-500 text='white'>副券</div>
               </div>
               <div contentEditable text='xs' mt-2>影厅</div>
               <div contentEditable text='xs'>座位</div>
