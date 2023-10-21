@@ -60,7 +60,7 @@ export default function Maoyan() {
   return (
     <div mt-4>
       {contextHolder}
-      <Alert message="【新设计模式】直接点击文字即可编辑！" type="info" showIcon />
+      <Alert message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon />
       <div mt-4>
         {/* <Switch checked={highLight} onChange={(checked)=>{setHighLight(checked)}} /> */}
 
