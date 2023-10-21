@@ -61,6 +61,7 @@ export default function Maoyan() {
     <div mt-4>
       {contextHolder}
       <Alert message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
+      <Alert message="此项目疑似被“特别关注”或将出现法律风险，故下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。" type="error" showIcon closable />
       <div mt-4>
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
           setStatus(parseInt(`${v}`))
@@ -71,7 +72,7 @@ export default function Maoyan() {
           }
         }} />
       </div>
-      <div mt-4 p-2>
+      <div mt-4 p-2 className='hidden'>
         <div className='flex justify-center'>
           <div bg='white' className='w-80 shadow-xl relative' ref={ref} style={status===2?{display: 'none'}:{}}>
             <SecureWatermark>
