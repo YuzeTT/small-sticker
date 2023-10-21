@@ -7,7 +7,7 @@ import Heytea from '/heytea.png'
 const list = {
   done: [
     {
-      name: '猫眼电影',
+      name: '电影纪念票',
       logo: Maoyan,
       url: '/maoyan',
       tag: '全新升级'
