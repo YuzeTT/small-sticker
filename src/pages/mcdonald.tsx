@@ -8,11 +8,20 @@ import SecureWatermark from "../components/SecureWatermark";
 
 import './mcdonald.css'
 
+interface List {
+  name: string,
+  number:string
+}
+
+interface FormRef {
+  list: List[]
+}
+
 export default function Mcdonald() {
   const { TextArea } = Input;
 
   const [form] = Form.useForm()
-  const [formData, setFormData] = useState({list: [
+  const [formData, setFormData] = useState<FormRef>({list: [
     {number: '', name: ''}
   ]})
   const [data, setData] = useState({
@@ -90,6 +99,7 @@ export default function Mcdonald() {
         content: '生成失败，请将控制台截图反馈给开发者',
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref])
 
   const downloadImage = useCallback(() => {
@@ -126,6 +136,7 @@ export default function Mcdonald() {
         content: '下载失败，麻烦长按图片保存哦！',
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref])
   const fillTest = () => {
     setData({
@@ -163,7 +174,7 @@ export default function Mcdonald() {
     })
   }
 
-  const onFinish = (values) => {
+  const onFinish = (values: FormRef) => {
     console.log( values)
     setFormData(values)
   };
