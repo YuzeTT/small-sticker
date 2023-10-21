@@ -1,11 +1,53 @@
-import { Alert, QRCode, Segmented } from "antd";
-import { useState } from "react";
+import { Alert, Button, QRCode, Segmented, message, Spin } from "antd";
+import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
+import showImage from "../utils/downloadHtmlAsImage/showImage";
 
 export default function Maoyan() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [messageApi, contextHolder] = message.useMessage();
+  const key = 'updatable';
+  const [imageSrc, setImageSrc] = useState('');
+  
+  const out = useCallback(() => {
+    if (ref.current === null) {
+      return
+    }
+
+    setImageSrc('')
+
+    messageApi.open({
+      key,
+      type: 'loading',
+      content: 'Loading...',
+    });
+
+    try {
+      showImage(ref.current,"PNG", true).then((imageData)=>{
+        setImageSrc(imageData)
+      })
+
+      messageApi.open({
+        key,
+        type: 'success',
+        content: '生成成功！',
+      });
+
+      // showModal()
+    } catch (error) {
+        console.log(error)
+        messageApi.open({
+          key,
+          type: 'error',
+          content: '生成失败，请将控制台截图反馈给开发者',
+        });
+    }
+  }, [ref, messageApi])
+
   const [highLight , setHighLight] = useState<boolean>(true)
   return (
     <div mt-4>
+      {contextHolder}
       <Alert message="【新设计模式】直接点击文字即可编辑！" type="info" showIcon />
       <div mt-4>
         {/* <Switch checked={highLight} onChange={(checked)=>{setHighLight(checked)}} /> */}
@@ -17,9 +59,14 @@ export default function Maoyan() {
             setHighLight(false)
           }
         }} />
+
+        <Button className="mt-4 w-full" type="primary" onClick={out} flex='~ items-center justify-center' size='large'>
+          <div className="i-ri-camera-fill" mr-1 text='lg' />
+          导出图片
+        </Button>
       </div>
       <div mt-4 p-2>
-        <div bg='white' className='w-80 mx-auto shadow-xl rounded-md overflow-hidden'>
+        <div bg='white' className='w-80 mx-auto shadow-xl rounded-md overflow-hidden' ref={ref}>
           <div pl-4 flex='~ justify-between'>
             {/* left */}
             <div className="w-[75%]">
@@ -104,6 +151,11 @@ export default function Maoyan() {
           </div>
         </div>
         {/* <div></div> */}
+        {imageSrc? <img src={imageSrc} alt="" w-full shadow-xl/>:
+          <Spin tip="渲染图片中...如果长时间未出图请刷新">
+            <div className="h-30" />
+          </Spin>
+        }
       </div>
     </div>
   )
