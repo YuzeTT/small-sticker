@@ -146,6 +146,14 @@ const data = [
     reply: '谢谢姐妹鸭！人间烟火气，最抚凡人心❤️',
     time: '2023-10-21 14:09'
   },
+  {
+    key: '18',
+    name: 'A*y',
+    money: 0.01,
+    remark: '怎么+作者微信',
+    reply: '有事情可以加QQ群哦，后续会增加微信群哒！',
+    time: '2023-10-21 20:46'
+  },
 ];
 
 export default function sponsor() {
