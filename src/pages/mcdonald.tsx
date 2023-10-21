@@ -163,7 +163,7 @@ export default function Mcdonald() {
     })
   }
 
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     console.log( values)
     setFormData(values)
   };
@@ -202,6 +202,10 @@ export default function Mcdonald() {
           <Input addonBefore='备注' placeholder='开心！快乐！健康！平安！' value={data.remark} onChange={(v)=>setData({...data, remark: v.target.value})}/>
           <Input addonBefore='ID' placeholder='我也不知道有啥用的ID' value={data.id} onChange={(v)=>setData({...data, id: v.target.value})}/>
           <TextArea rows={2} placeholder='需求（可输入多行），例：吸管 x1' value={data.need} onChange={(v)=>setData({...data, need: v.target.value})}/>
+          <Space.Compact className='w-full'>
+            <Input addonBefore='门店地址' placeholder='xxx麦当劳' value={data.address} onChange={(v)=>setData({...data, address: v.target.value})}/>
+            <Input addonBefore='门店代码' placeholder='123123' value={data.addressCode} onChange={(v)=>setData({...data, addressCode: v.target.value})}/>
+          </Space.Compact>
           <Input addonBefore='订单时间' placeholder='2023-10-10 12:00:00' value={data.date1} onChange={(v)=>setData({...data, date1: v.target.value})}/>
           <Input addonBefore='制作时间' placeholder='2023-10-10 12:00:00' value={data.date2} onChange={(v)=>setData({...data, date2: v.target.value})}/>
           <Input addonBefore='来源' placeholder='饿了么' value={data.from} onChange={(v)=>setData({...data, from: v.target.value})}/>
