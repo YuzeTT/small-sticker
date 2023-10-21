@@ -1,7 +1,9 @@
 import LuckingCoffee from '/lucking_coffee.svg'
 import Train from '/train.svg'
-import Ticket from '/ticket.svg'
+import Maoyan from '/maoyan.png'
 import Mcdonald from '/mcdonald.png'
+import Heytea from '/heytea.png'
+
 const list = {
   done: [
     {
@@ -21,12 +23,18 @@ const list = {
       logo: Mcdonald,
       url: '/mcdonald',
       tag: '新上线'
-    }
+    },
+    {
+      name: '猫眼电影',
+      logo: Maoyan,
+      url: '/maoyan',
+      tag: 'Beta'
+    },
   ],
   todo: [
     {
-      name: '电影票',
-      logo: Ticket,
+      name: '喜茶',
+      logo: Heytea,
     },
   ]
 }
