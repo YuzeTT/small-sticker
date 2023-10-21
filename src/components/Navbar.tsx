@@ -22,8 +22,8 @@ export default function Navbar() {
             </div>:''
           } */}
           <a href="/sponsor" decoration-none text-zinc-900 px-5 py-2 bg-blue-100 rounded-full flex='~ items-center' className='animated-button'>
-            <div className="i-ri-cup-line text-blue-500" mr-1 />
-            <div text-blue-500>请我喝咖啡</div>
+            <div className="i-ri-hand-heart-fill text-blue-500" mr-1 />
+            <div text-blue-500>支持一下</div>
           </a>
         </div>
       </div>

@@ -60,19 +60,14 @@ export default function Maoyan() {
   return (
     <div mt-4>
       {contextHolder}
-      <Alert message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon />
+      <Alert message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
       <div mt-4>
-        {/* <Switch checked={highLight} onChange={(checked)=>{setHighLight(checked)}} /> */}
-
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
           setStatus(parseInt(`${v}`))
           if(v===0) {
             setHighLight(true)
           } else if(v===1) {
             setHighLight(false)
-          } else {
-            // setHighLight(false)
-            // out()
           }
         }} />
       </div>
@@ -87,7 +82,6 @@ export default function Maoyan() {
                   <div text='sm'><HighText show={highLight} text='影院名称' eg='万达国际影城（福州台江店）' /></div>
                   <div text='sm'>
                     <HighText show={highLight} text='电影名称' eg='深海(3D)' />
-                    {/* (<HighText show={highLight} text='电影形式' eg='3D' />) */}
                   </div>
                   <div mt-1 flex='~ items-center justify-between'>
                     <div text='sm'>
@@ -171,7 +165,6 @@ export default function Maoyan() {
             {isLoading?'正在导出请勿切换页面':'导出图片'}
           </Button>:''
         }
-        {/* <div></div> */}
         {status===2?
           <>
             {imageSrc.length === 0?
@@ -185,20 +178,10 @@ export default function Maoyan() {
                         src={v.data}
                       />
                     </div>
-                    {/* <Card
-                      hoverable
-                      cover={<img alt="image" src={v.data} />}
-                    >
-                      <Meta title={v.time} />
-                    </Card> */}
                     <div text='sm gray-500' mt-2>{v.time}</div>
-                    {/* <img src={v.data} alt="" w-full shadow-xl/> */}
                   </div>
                 ))
                 }
-                  {/* <Spin tip="渲染图片中...如果长时间未出图请刷新">
-                    <div className="h-30" />
-                  </Spin> */}
               </div>
             }
           </>:
