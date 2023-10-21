@@ -4,7 +4,7 @@ export default function HighText({text, show, eg}:{text?: string, show: boolean,
   const [quickInput , setQuickInput] = useState('')
   return (
     <div inline-block align-top mb-1 className='rounded-1 overflow-hidden'>
-      <div contentEditable={true} style={show?{padding: '0 0.25rem', color: '#000000', background: '#DBEAFE', border: '1.5px solid #3B82F6', borderRadius: '0.25rem 0.25rem 0 0'}:{}} outline-none>{quickInput}</div>
+      <div contentEditable={true} suppressContentEditableWarning={true} style={show?{padding: '0 0.25rem', color: '#000000', background: '#DBEAFE', border: '1.5px solid #3B82F6', borderRadius: '0.25rem 0.25rem 0 0'}:{}} outline-none>{quickInput}</div>
       {show?
         <div>
           <div text='xs white' bg='blue-500' px-1 flex='~ items-center' className='py-0.5'>

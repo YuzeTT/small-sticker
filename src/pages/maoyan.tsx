@@ -1,4 +1,4 @@
-import { Alert, Button, QRCode, Segmented, message, Spin } from "antd";
+import { Alert, QRCode, Segmented, message, Button, Empty } from "antd";
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
@@ -7,14 +7,14 @@ export default function Maoyan() {
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
   const key = 'updatable';
-  const [imageSrc, setImageSrc] = useState('');
+  const [imageSrc, setImageSrc] = useState<{time: string, data: string}[]>([]);
+  const [highLight , setHighLight] = useState<boolean>(true)
+  const [status , setStatus] = useState<number>(0)
   
   const out = useCallback(() => {
     if (ref.current === null) {
       return
     }
-
-    setImageSrc('')
 
     messageApi.open({
       key,
@@ -24,7 +24,14 @@ export default function Maoyan() {
 
     try {
       showImage(ref.current,"PNG", true).then((imageData)=>{
-        setImageSrc(imageData)
+        if(imageData === 'data:image/png;') {
+          messageApi.open({
+            key,
+            type: 'error',
+            content: '生成失败，请将控制台截图反馈给开发者',
+          });
+        }
+        setImageSrc((v)=>[{time: new Date().toLocaleString(), data: imageData}, ...v])
       })
 
       messageApi.open({
@@ -44,7 +51,7 @@ export default function Maoyan() {
     }
   }, [ref, messageApi])
 
-  const [highLight , setHighLight] = useState<boolean>(true)
+  
   return (
     <div mt-4>
       {contextHolder}
@@ -52,21 +59,20 @@ export default function Maoyan() {
       <div mt-4>
         {/* <Switch checked={highLight} onChange={(checked)=>{setHighLight(checked)}} /> */}
 
-        <Segmented block={true} options={[{value: 1, label: '编辑模式'}, {value: 0, label: '预览模式'}]} onChange={(v)=>{
-          if(v) {
+        <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
+          setStatus(parseInt(`${v}`))
+          if(v===0) {
             setHighLight(true)
-          } else {
+          } else if(v===1) {
             setHighLight(false)
+          } else {
+            // setHighLight(false)
+            // out()
           }
         }} />
-
-        <Button className="mt-4 w-full" type="primary" onClick={out} flex='~ items-center justify-center' size='large'>
-          <div className="i-ri-camera-fill" mr-1 text='lg' />
-          导出图片
-        </Button>
       </div>
       <div mt-4 p-2>
-        <div bg='white' className='w-80 mx-auto shadow-xl rounded-md overflow-hidden' ref={ref}>
+        <div bg='white' className='w-80 mx-auto shadow-xl rounded-md overflow-hidden' ref={ref} style={status===2?{position: 'absolute', top: '-1000px'}:{}}>
           <div pl-4 flex='~ justify-between'>
             {/* left */}
             <div className="w-[75%]">
@@ -150,12 +156,35 @@ export default function Maoyan() {
             <img src="/maoyan-3.png" alt="logo" h-4 />
           </div>
         </div>
-        {/* <div></div> */}
-        {imageSrc? <img src={imageSrc} alt="" w-full shadow-xl/>:
-          <Spin tip="渲染图片中...如果长时间未出图请刷新">
-            <div className="h-30" />
-          </Spin>
+
+        {status===1?
+          <Button className="mt-4 w-full mt-6" type="primary" onClick={out} flex='~ items-center justify-center' size='large'>
+            <div className="i-ri-camera-fill" mr-1 text='lg' />
+            导出图片
+          </Button>:''
         }
+        {/* <div></div> */}
+        {status===2?
+          <>
+            {imageSrc.length === 0?
+              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='暂无数据' />:
+              <>
+                {imageSrc.map((v,k)=>(
+                  <div key={k}>
+                    <div>{v.time}</div>
+                    <img src={v.data} alt="" w-full shadow-xl/>
+                  </div>
+                ))
+                }
+                  {/* <Spin tip="渲染图片中...如果长时间未出图请刷新">
+                    <div className="h-30" />
+                  </Spin> */}
+              </>
+            }
+          </>:
+          ''
+        }
+        
       </div>
     </div>
   )
