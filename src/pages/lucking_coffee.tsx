@@ -71,8 +71,7 @@ export default function LuckinCoffee() {
           content: '生成失败，请将控制台截图反馈给开发者',
         });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref])
+  }, [ref, messageApi])
 
   const downloadImage = useCallback(() => {
     if (ref.current === null) {
@@ -108,8 +107,7 @@ export default function LuckinCoffee() {
           content: '下载失败，麻烦长按图片保存哦！',
         });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref])
+  }, [ref, messageApi])
 
   const fillTest = () => {
     setData({
