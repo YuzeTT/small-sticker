@@ -7,6 +7,12 @@ import Heytea from '/heytea.png'
 const list = {
   done: [
     {
+      name: '猫眼电影',
+      logo: Maoyan,
+      url: '/maoyan',
+      tag: '全新升级'
+    },
+    {
       name: '瑞幸咖啡',
       logo: LuckingCoffee,
       url: '/lucking_coffee',
@@ -16,19 +22,13 @@ const list = {
       name: '高铁票',
       logo: Train,
       url: '/train',
-      tag: '新上线'
+      tag: ''
     },
     {
       name: '麦当劳',
       logo: Mcdonald,
       url: '/mcdonald',
-      tag: '新上线'
-    },
-    {
-      name: '猫眼电影',
-      logo: Maoyan,
-      url: '/maoyan',
-      tag: 'Beta'
+      tag: ''
     },
   ],
   todo: [
