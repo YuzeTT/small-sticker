@@ -10,11 +10,13 @@ export default function Maoyan() {
   const [imageSrc, setImageSrc] = useState<{time: string, data: string}[]>([]);
   const [highLight , setHighLight] = useState<boolean>(true)
   const [status , setStatus] = useState<number>(0)
+  const [isLoading , setIsLoading] = useState<boolean>(false)
   
   const out = useCallback(() => {
     if (ref.current === null) {
       return
     }
+    setIsLoading(true)
 
     messageApi.open({
       key,
@@ -24,22 +26,24 @@ export default function Maoyan() {
 
     try {
       showImage(ref.current,"PNG", true).then((imageData)=>{
-        if(imageData === 'data:image/png;') {
+        if(imageData === 'data:,') {
           messageApi.open({
             key,
             type: 'error',
             content: '生成失败，请将控制台截图反馈给开发者',
           });
+          setIsLoading(false)
+        }else {
+          setStatus(2)
+          messageApi.open({
+            key,
+            type: 'success',
+            content: '生成成功！',
+          });
+          setIsLoading(false)
         }
         setImageSrc((v)=>[{time: new Date().toLocaleString(), data: imageData}, ...v])
       })
-
-      messageApi.open({
-        key,
-        type: 'success',
-        content: '生成成功！',
-      });
-
       // showModal()
     } catch (error) {
         console.log(error)
@@ -159,9 +163,9 @@ export default function Maoyan() {
           </div>
         </div>
         {status===1?
-          <Button className="mt-4 w-full mt-6" type="primary" onClick={out} flex='~ items-center justify-center' size='large'>
-            <div className="i-ri-camera-fill" mr-1 text='lg' />
-            导出图片
+          <Button className="mt-4 w-full mt-6" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
+            <div className="i-ri-camera-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
+            {isLoading?'正在导出请勿切换页面':'导出图片'}
           </Button>:''
         }
         {/* <div></div> */}
