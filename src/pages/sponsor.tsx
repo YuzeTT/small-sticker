@@ -1,4 +1,5 @@
-import { Collapse, List, Tag } from 'antd';
+import { Collapse, List, Tag, Tabs } from 'antd';
+import type { TabsProps } from 'antd';
 import Line from '../components/Line';
 
 const data = [
@@ -131,7 +132,7 @@ const data = [
     time: '2023-10-21 10:52'
   },
   {
-    key: '16',
+    key: '18',
     name: 'I*W',
     money: 2,
     remark: '希望有喜茶奥',
@@ -139,7 +140,7 @@ const data = [
     time: '2023-10-21 11:19'
   },
   {
-    key: '17',
+    key: '19',
     name: '*人',
     money: 2.88,
     remark: '可以让我把小事儿记录下来，真的好治愈，谢谢啦❤️',
@@ -147,12 +148,30 @@ const data = [
     time: '2023-10-21 14:09'
   },
   {
-    key: '18',
+    key: '20',
     name: 'A*y',
     money: 0.01,
     remark: '怎么+作者微信',
     reply: '有事情可以加QQ群哦，后续会增加微信群哒！',
     time: '2023-10-21 20:46'
+  },
+];
+
+const items: TabsProps['items'] = [
+  {
+    key: '1',
+    label: '微信',
+    children: <>
+      <img src="/wechat.JPG" alt="" w-full />
+    </>,
+  },
+  {
+    key: '2',
+    label: '支付宝',
+    children: <div className='grid grid-cols-2'>
+      <img src="/redpack.PNG" alt="" w-full />
+      <img src="/alipay.PNG" alt="" w-full />
+    </div>,
   },
 ];
 
@@ -164,7 +183,7 @@ export default function sponsor() {
         items={[{ key: '1', label: '点击展开收款码', children: <div>
           <div>可以在付款备注留下昵称和留言哦!</div>
           <div>最后谢谢你! mua~</div>
-          <img src="/wechat.JPG" alt="" w-full />
+          <Tabs defaultActiveKey="1" centered items={items} />
         </div> }]}
       />
       <Line zh='赞助列表' en='Sponsor List' logo={<div className="i-ri-file-list-2-line" mr-4 text='xl' />}></Line>
