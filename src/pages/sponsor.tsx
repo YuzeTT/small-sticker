@@ -138,6 +138,14 @@ const data = [
     reply: '好嘞，下周更新奶茶系列哦！',
     time: '2023-10-21 11:19'
   },
+  {
+    key: '17',
+    name: '*人',
+    money: 2.88,
+    remark: '可以让我把小事儿记录下来，真的好治愈，谢谢啦❤️',
+    reply: '谢谢姐妹鸭！人间烟火气，最抚凡人心❤️',
+    time: '2023-10-21 14:09'
+  },
 ];
 
 export default function sponsor() {
