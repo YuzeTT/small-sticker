@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function HighText({text, show, eg}:{text?: string, show: boolean, eg?: string}) {
   const [quickInput , setQuickInput] = useState('')
   return (
-    <div inline-block align-top mb-1 className='rounded-1 overflow-hidden'>
+    <div inline-block align-top className='rounded-1 overflow-hidden'>
       <div contentEditable={true} suppressContentEditableWarning={true} style={show?{padding: '0.1rem 0.25rem', color: '#000000', background: '#DBEAFE', border: '1.5px solid #3B82F6', borderRadius: '0.25rem'}:{}} outline-none>{quickInput}</div>
       {show?
         <div>
@@ -24,6 +24,7 @@ export default function HighText({text, show, eg}:{text?: string, show: boolean,
         </div>
         :''
       }
+      {show?<div mb-1/>:''}
     </div>
   )
 }

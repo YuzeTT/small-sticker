@@ -14,6 +14,12 @@
   -webkit-text-size-adjust: 100%;
 } */
 
+@font-face {
+  font-family: 'code';
+  font-style: normal;
+  src: local('code'), url(/fonts/mttmilano-bold-webfont.ttf) format('truetype');
+}
+
 body {
   margin: 0;
 }
