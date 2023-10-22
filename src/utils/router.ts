@@ -1,15 +1,15 @@
 import LuckingCoffee from '/lucking_coffee.svg'
 import Train from '/train.svg'
-import Maoyan from '/ticket.svg'
+import Ticket from '/cinema_logo.png'
 import Mcdonald from '/mcdonald.png'
 import Heytea from '/heytea.png'
 
 const list = {
   done: [
     {
-      name: '电影纪念票',
-      logo: Maoyan,
-      url: '/maoyan',
+      name: '观影纪念票',
+      logo: Ticket,
+      url: '/cinema_ticket',
       tag: '全新升级'
     },
     {

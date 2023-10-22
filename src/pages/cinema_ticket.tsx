@@ -60,9 +60,9 @@ export default function Maoyan() {
   return (
     <div mt-4>
       {contextHolder}
-      <Alert className='hidden' message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
-      <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable />
-      <div mt-4 className='hidden'>
+      <Alert message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
+      {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
+      <div mt-4>
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
           setStatus(parseInt(`${v}`))
           if(v===0) {
@@ -72,14 +72,14 @@ export default function Maoyan() {
           }
         }} />
       </div>
-      <div mt-4 p-2 className='hidden'>
+      <div mt-4 p-2>
         <div className='flex justify-center'>
           <div bg='white' className='w-80 shadow-xl relative' ref={ref} style={status===2?{display: 'none'}:{}}>
             <SecureWatermark>
               <div pl-4 flex='~ justify-between'>
                 {/* left */}
                 <div className="w-[75%]">
-                  <img src="/maoyan-2.png" alt="logo" h-7 pt-3 pb-1 />
+                  <img src="/cinema_red.png" alt="logo" h-7 pt-3 pb-1 />
                   <div text='sm'><HighText show={highLight} text='影院名称' eg='万达国际影城（福州台江店）' /></div>
                   <div text='sm'>
                     <HighText show={highLight} text='电影名称' eg='深海(3D)' />
@@ -125,7 +125,7 @@ export default function Maoyan() {
                 {/* right */}
                 <div py-3 ml-4 className="w-[25%]">
                   <div flex='~ justify-center'>
-                    <div px-2 className='py-0.5' rounded-full bg-red-500 text='white'>副券</div>
+                    <div px-2 className='py-0.5' rounded-full bg='#EF0F38' text='white'>副券</div>
                   </div>
                   <div text='xs' mt-2>
                     <HighText show={highLight} text='影厅' eg='9号VIP厅' />
@@ -153,9 +153,9 @@ export default function Maoyan() {
                   </div>
                 </div>
               </div>
-              <div px-4 py-2 bg='red-500' mt-4 flex='~ items-center justify-between'>
-                <div text='white xs'>凭此影票 入场观看</div>
-                <img src="/maoyan-3.png" alt="logo" h-4 />
+              <div px-4 py-2 bg='#EF0F38' mt-4 flex='~ items-center justify-between'>
+                <div text='white xs'>观此电影 特此纪念</div>
+                <img src="/cinema_white.png" alt="logo" h-4 />
               </div>
             </SecureWatermark>
           </div>
