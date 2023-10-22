@@ -103,8 +103,8 @@ export default function Maoyan() {
                   <div flex='~' mt-1>
                     <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={140} />
                     <div ml-2>
-                      <div text='xs'>票价：<HighText show={highLight} text='' eg='10' />元</div>
-                      <div text='xs'>服务费：<HighText show={highLight} text='' eg='10'/>元</div>
+                      <div text='xs'>票价：<HighText show={highLight} text='' eg='10.0' />元</div>
+                      <div text='xs'>服务费：<HighText show={highLight} text='' eg='10.0'/>元</div>
                       <div text='xs'>
                         <HighText show={highLight} text='日期' eg='08-11' />
                         {' '}
@@ -143,7 +143,7 @@ export default function Maoyan() {
                     <HighText show={highLight} text='电影名称' eg='深海(3D)' />
                   </div>
                   <div text='xs' mt-4>
-                    <HighText show={highLight} text='票价' eg='20' />元
+                    <HighText show={highLight} text='票价' eg='20.0' />元
                   </div>
                   <div text='xs' mt-4>
                     <HighText show={highLight} text='机器码1' eg='13150000' />
