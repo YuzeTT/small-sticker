@@ -1,4 +1,5 @@
 import { Alert, QRCode, Segmented, message, Button, Empty, Image } from "antd";
+import dayjs from 'dayjs'
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
@@ -116,7 +117,7 @@ export default function Heytea() {
                     <HighText show={highLight} text='取餐+数量' eg='自取 1/1' />
                   </div>
                   <div text='xs'>
-                    <HighText show={highLight} text='日期时间' eg='2023-10-22 18:30:02' />
+                    <HighText show={highLight} text='日期时间' eg={dayjs().format('YYYY-MM-DD HH:mm:ss')} />
                   </div>
                   <div text='xs'>
                     <HighText show={highLight} text='店铺名称' eg='南平xxx店' />
