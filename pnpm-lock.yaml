@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@highlight-run/react':
-    specifier: ^3.2.1
-    version: 3.2.1(react-dom@18.2.0)(react@18.2.0)
   '@types/downloadjs':
     specifier: ^1.4.5
     version: 1.4.5
@@ -20,9 +17,6 @@ dependencies:
   downloadjs:
     specifier: ^1.4.7
     version: 1.4.7
-  highlight.run:
-    specifier: ^8.0.0
-    version: 8.0.0
   html-to-image:
     specifier: ^1.11.11
     version: 1.11.11
@@ -422,16 +416,6 @@ packages:
     resolution: {integrity: sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@highlight-run/react@3.2.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-jjnXsr0T4pXX4D6Etrw081J45ruBrxi2378cVKAqtevgBGu2mQV51/bq14nwi10hrCU/qVr1IhXLHB2y8PY2ug==}
-    peerDependencies:
-      react: '>=16'
-      react-dom: '>=16'
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
 
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}
@@ -1937,10 +1921,6 @@ packages:
     resolution: {integrity: sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ==}
     engines: {node: '>= 0.4.0'}
     dev: true
-
-  /highlight.run@8.0.0:
-    resolution: {integrity: sha512-tj4zaiL9sRSojL6s6YX7nzEjOgxaN5qxWVGo+I9nRisJHbfgBCoYlWe3wqmtc7c4zklSRrAS7QAteuUb2/ME3g==}
-    dev: false
 
   /html-to-image@1.11.11:
     resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
