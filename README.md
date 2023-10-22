@@ -9,6 +9,12 @@
 
 </div>
 
+## 技术栈
+
+- Vite
+- React
+- Ant.Design
+
 ## 开发
 
 ``` bash
