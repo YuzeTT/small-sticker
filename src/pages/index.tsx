@@ -9,7 +9,7 @@ export default function index() {
         closable
         description={<>
           <div>BUG反馈/功能建议/摸鱼划水 欢迎加入QQ群: <b>752693422</b> 获得最新更新通知哦！！</div>
-          <div>为什么没小程序：因为没满18（悲）</div>
+          {/* <div>小程序</div> */}
           <div>因为网站运营需要一定成本，如果您手中富裕不妨 <a href="/sponsor">支持一下</a> 网站运营！</div>
           <div>或者在 <a href="https://github.com/YuzeTT/small-sticker">Github</a> 给我个Star 对我的帮助也非常大！！ 你可以 <a href="/hero">在这里</a> 查看伟大的贡献者们！</div>
         </>}
@@ -25,7 +25,7 @@ export default function index() {
               <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
             </div>
             <div text='lg zinc-900'>{item.name}</div>
-            {item.tag?<Tag className='ml-2' color={item.tag==='Beta'? 'magenta':'red'}>{item.tag}</Tag>:''}
+            {item.tag?<Tag className='ml-2' color={item.tag==='开发中'? 'magenta':'red'}>{item.tag}</Tag>:''}
             <div  flex-1></div>
             <div className='i-ri-arrow-right-s-line' text='xl zinc-300' />
           </a>

@@ -4,6 +4,7 @@ import Ticket_ from '/ticket.svg'
 import Ticket from '/cinema_logo.png'
 import Mcdonald from '/mcdonald.png'
 import Heytea from '/heytea.png'
+import Chagee from '/chagee.png'
 
 const list = {
   done: [
@@ -37,12 +38,18 @@ const list = {
       url: '/mcdonald',
       tag: ''
     },
+    {
+      name: '某麦票根',
+      logo: Ticket_,
+      url: '/ticket',
+      tag: '开发中'
+    },
   ],
   todo: [
     {
-      name: '演唱会票根',
-      logo: Ticket_,
-    },
+      name: '霸王茶姬',
+      logo: Chagee
+    }
   ]
 }
 
