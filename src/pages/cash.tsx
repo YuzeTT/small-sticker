@@ -1,32 +1,33 @@
 // import React from 'react'
 
-import { Space, Input, Button, Card, Collapse, Progress, Alert } from "antd";
-import data from "../utils/sponsorList";
-import { useState } from "react";
+import { Space, Input, Card, Progress, Alert } from "antd";
+// import data from "../utils/sponsorList";
+// import { useState } from "react";
 
 export default function Cash() {
-  const [inputNumber , setInputNumber] = useState('')
-  const [userInfo , setUserInfo] = useState({})
+  // const [inputNumber , setInputNumber] = useState('')
+  // const [userInfo , setUserInfo] = useState({})
 
-  const onSubmit = () => {
-    const r = data.find(({number}) => number === inputNumber)
-    console.log(r);
-    setUserInfo(r)
+  // const onSubmit = () => {
+  //   const r = data.find(({number}) => number === inputNumber)
+  //   console.log(r);
+  //   setUserInfo(r)
     
-  }
+  // }
   return (
     <div mt-4>
       <div>
         <Space.Compact className='w-full'>
           <Input 
             placeholder="输入您的赞助的付款订单号"
-            onChange={(v)=>{setInputNumber(v.target.value)}}
+            // onChange={(v)=>{setInputNumber(v.target.value)}}
           />
-          <Button type="primary" onClick={onSubmit}>提交</Button>
+          {/* <Button type="primary" onClick={onSubmit}>提交</Button> */}
         </Space.Compact>
       </div>
-      {userInfo?
-        <Card title={userInfo.name} extra={<div className="op50">{userInfo.time}</div>} className='mt-4'>
+      {/* {userInfo? */}
+        <Card >
+        {/* <Card title={userInfo.name} extra={<div className="op50">{userInfo.time}</div>} className='mt-4'> */}
           <div flex='~'>
             <div>
               <div text='sm gray-400'>已用次数</div>
@@ -63,7 +64,7 @@ export default function Cash() {
           </div>
         </Card>
         :''
-      }
+      {/* } */}
     </div>
   )
 }

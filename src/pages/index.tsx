@@ -21,7 +21,9 @@ export default function index() {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
         {list.done.map((item, key)=>(
           <a href={item.url} p-4 bg-zinc-50 hover:bg-zinc-100 cursor-pointer rounded-xl decoration-none flex='~ items-center' key={key} >
-            <img src={item.logo} alt="logo" h-10 w-10 mr-4 />
+            <div w-14 h-10 text='center'>
+              <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
+            </div>
             <div text='lg zinc-900'>{item.name}</div>
             {item.tag?<Tag className='ml-2' color={item.tag==='Beta'? 'magenta':'red'}>{item.tag}</Tag>:''}
             <div  flex-1></div>

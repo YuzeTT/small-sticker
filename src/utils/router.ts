@@ -8,10 +8,16 @@ import Heytea from '/heytea.png'
 const list = {
   done: [
     {
+      name: '喜茶',
+      logo: Heytea,
+      url: 'heytea',
+      tag: '新上线'
+    },
+    {
       name: '观影纪念票',
       logo: Ticket,
       url: '/cinema_ticket',
-      tag: '全新升级'
+      tag: ''
     },
     {
       name: '瑞幸咖啡',
@@ -30,12 +36,6 @@ const list = {
       logo: Mcdonald,
       url: '/mcdonald',
       tag: ''
-    },
-    {
-      name: '喜茶',
-      logo: Heytea,
-      url: 'heytea',
-      tag: 'Beta'
     },
   ],
   todo: [
