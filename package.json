@@ -15,6 +15,7 @@
     "dayjs": "^1.11.10",
     "detect-browser": "^5.3.0",
     "downloadjs": "^1.4.7",
+    "framer-motion": "^10.16.4",
     "html-to-image": "^1.11.11",
     "nanoid": "^5.0.2",
     "pinyin-pro": "^3.17.0",
