@@ -10,7 +10,7 @@ export default function Footer() {
           closable: true,
           content: (
             <div>
-              <p>版本：v0.3.1</p>
+              <p>版本：v0.3.2</p>
               <p>时间：{new Date().toLocaleString()}</p>
               <p>ID：{localStorage.getItem("id")}</p>
               <p>决断ID：{localStorage.getItem("userId")}</p>

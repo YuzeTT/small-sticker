@@ -6,6 +6,7 @@
 import { motion } from "framer-motion"
 
 export default function Navbar() {
+  // const h = 10
   const h = new Date().getHours()
 
   // @unocss-include
@@ -13,8 +14,8 @@ export default function Navbar() {
     ['夜已深，注意休息哦！', 'i-ri-moon-cloudy-fill'], // 0,1,2
     ['晚安全世界，快去睡觉吧！', 'i-ri-sparkling-2-fill'], // 3,4,5
     ['早安呀！', 'i-ri-sun-foggy-fill'], // 6,7,8
-    ['早安，一日之计在于晨！', 'i-ri-sun-cloudy-fill'], // 9,10,11
-    ['中午咯~打个盹？', 'i-ri-sun-fill"'], // 12,13,14
+    ['早生蚝！', 'i-ri-sun-cloudy-fill'], // 9,10,11
+    ['中午咯~打个盹？', 'i-ri-sun-fill'], // 12,13,14
     ['下午好，继续加油哇！', 'i-ri-game-fill'], // 15,16,17
     ['吃了嘛！！', 'i-ri-restaurant-fill'], // 18,19,20
     ['累了一天吧，该睡觉咯~', 'i-ri-moon-foggy-fill'], // 21,22,23
@@ -23,8 +24,8 @@ export default function Navbar() {
   // 获取问好消息
   const getMsg = () => {
     switch (h) {
-      // case 12:
-      //   return ['记得按时吃饭哦！', 'i-carbon-service-desk']
+      case 15:
+        return ['三点几嘞，做做做撚啊做！', 'i-ri-beer-fill']
       default:
         return time_list[Math.floor(h / 3)]
     }
@@ -73,7 +74,7 @@ export default function Navbar() {
         </div>
       </div>
       <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center'>
-        <div className={getMsg()[1]} text-lg></div>
+        <div className={getMsg()[1]} text-lg text-blue-500></div>
         <div pl-2>{getMsg()[0]}</div>
       </div>
       {/* <Alert message="本站仅供娱乐，所造成的一切后果与本站无关" banner /> */}

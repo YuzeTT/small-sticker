@@ -9,37 +9,37 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
-      name: '喜茶',
+      name: ['喜茶', 'Heytea'],
       logo: Heytea,
       url: 'heytea',
       tag: '新上线'
     },
     {
-      name: '观影纪念票',
+      name: ['观影纪念票', 'Ticket'],
       logo: Ticket,
       url: '/cinema_ticket',
       tag: ''
     },
     {
-      name: '瑞幸咖啡',
+      name: ['瑞幸咖啡', 'Lucking Coffee'],
       logo: LuckingCoffee,
       url: '/lucking_coffee',
       tag: ''
     },
     {
-      name: '高铁票',
+      name: ['高铁票', 'Train'],
       logo: Train,
       url: '/train',
       tag: ''
     },
     {
-      name: '麦当劳',
+      name: ['麦当劳', 'Mcdonald'],
       logo: Mcdonald,
       url: '/mcdonald',
       tag: ''
     },
     {
-      name: '某麦票根',
+      name: ['某麦票根', 'Mai Ticket'],
       logo: Ticket_,
       url: '/ticket',
       tag: '开发中'
@@ -47,7 +47,7 @@ const list = {
   ],
   todo: [
     {
-      name: '霸王茶姬',
+      name: ['霸王茶姬', 'Chagee'],
       logo: Chagee
     }
   ]
