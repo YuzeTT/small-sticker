@@ -75,58 +75,60 @@ export default function Heytea() {
       </div>
       <div mt-4 p-2>
         <div className='flex justify-center'>
-          <div bg='orange-100' className='w-60 z-0 shadow-xl relative px-6 py-4' ref={ref} style={status===2?{display: 'none'}:{}}>
+          <div bg='white' className='w-60 z-0 shadow-xl relative px-4 py-4' ref={ref} style={status===2?{display: 'none'}:{}}>
             <SecureWatermark>
-              <img src="/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80/>
-              <div flex='~ items-center'>
-                {/* <div text='xs' px-1 style={{border: '1px solid'}}></div> */}
-                <div text='xs'>
-                  <img src="/heytea_tag.svg" alt="tag" h-4 absolute  className='-z-10'/>
-                  <div px-1 className='z-10'>
-                    <HighText show={highLight} text='等级' eg='进阶贵宾' />
-                  </div>
-                </div>
-                <div text='sm' ml-1>Hey, <HighText show={highLight} text='昵称' eg='YuzeTT' /></div>
-              </div>
-              <div style={{fontFamily: 'code'}} mt-1 text='4xl'>
-                <HighText show={highLight} text='取餐码' eg='7302' />
-              </div>
-              <div text='2xl' font='bold' className='-mt-1'>
-                <HighText show={highLight} text='产品名称' eg='月观' />
-              </div>
-              <div text='sm' className='mt-1'>
-                <HighText show={highLight} text='产品配置' eg='少冰' />
-              </div>
+              {/* <img src="/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80/> */}
               <div flex='~ justify-between'>
-                <div flex='~'>
-                  <div text='sm' font='bold' className='mt-6'>
-                    <HighText show={highLight} text='产品介绍' eg='风味基因' />
-                  </div>
-                  <div text='sm' className='mt-6 ml-2'>
-                    <HighText show={highLight} text='产品介绍' eg='清爽茗茶' />
-                  </div>
+                <div>
+                  <HighText show={highLight} text='方式' eg='堂食' />
                 </div>
-                <div text='sm' className='mt-6 text-right'>
-                  <HighText show={highLight} text='小标签' eg='真牛乳' />
+                <div>
+                  <HighText show={highLight} text='下单渠道' eg='微信小程序' />
+                </div>
+                <div>
+                  <HighText show={highLight} text='数量' eg='1/1' />
                 </div>
               </div>
-              <div text='xs white center' font='bold' mt-2 bg-black  tracking-widest>有问题找阿喜，出品不满为你重做</div>
-              <div mt-1 flex='~ justify-between'>
+              <div text='2xl'>
+                <HighText show={highLight} text='产品名称' eg='伯牙绝弦' />
+              </div>
+              <div flex='~ gap-2' text='2xl'>
+                <div>
+                  <HighText show={highLight} text='杯型' eg='大杯' />
+                </div>
+                <div>
+                  <HighText show={highLight} text='冰度' eg='标准冰' />
+                </div>
+                <div>
+                  <HighText show={highLight} text='糖度' eg='标准糖' />
+                </div>
+              </div>
+              <div mt-8 text='3xl'>
+                <HighText show={highLight} text='取餐码' eg='T0021' />
+              </div>
+              <div className='mt-1'>
+                <HighText show={highLight} text='日期 时间' eg={dayjs().format('MM-DD HH:mm')} />
+              </div>
+              <div className='mt-1'>
+                <HighText show={highLight} text='店铺名称' eg='小红薯店' />
+              </div>
+              
+              <div flex='~ justify-between' mt-4>
                 <div>
                   <div font='bold'>
-                    <HighText show={highLight} text='取餐+数量' eg='自取 1/1' />
+                    <HighText show={highLight} text='标语1' eg='原叶鲜奶茶' />
                   </div>
-                  <div text='xs'>
-                    <HighText show={highLight} text='日期时间' eg={dayjs().format('YYYY-MM-DD HH:mm:ss')} />
+                  <div font='bold'>
+                    <HighText show={highLight} text='标语2' eg='喝出真茶味' />
                   </div>
-                  <div text='xs'>
-                    <HighText show={highLight} text='店铺名称' eg='南平xxx店' />
-                  </div>
-                  <div text='xs'>
-                    <HighText show={highLight} text='店铺号码' eg='0599-00000000' />
+                  <div className='mt-2' text='0.7rem'>
+                    <HighText show={highLight} text='服务热线' eg='全球服务热线400-0000-000' />
                   </div>
                 </div>
-                <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' />
+                <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={80} color='black' />
+              </div>
+              <div className='mt-2' text='0.7rem'>
+                <HighText show={highLight} text='承诺' eg='如果对饮料有任何不满意门店可以免费为您重做' />
               </div>
             </SecureWatermark>
           </div>

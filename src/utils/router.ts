@@ -9,9 +9,15 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
+      name: ['霸王茶姬', 'Chagee'],
+      logo: Chagee,
+      url: '/chagee',
+      tag: '新上线'
+    },
+    {
       name: ['喜茶', 'Heytea'],
       logo: Heytea,
-      url: 'heytea',
+      url: '/heytea',
       tag: '新上线'
     },
     {

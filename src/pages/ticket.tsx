@@ -62,7 +62,7 @@ export default function Ticket() {
     <div mt-4>
       {highLight}
       {contextHolder}
-      <Alert message="【新设计模式】蓝色的是输入框属性，绿色的是示例文字，点击绿色部分可以快速输入内容。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
+      <Alert message="蓝色的是输入框属性，绿色的是示例文字（点击可快速填充）。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
       {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
       <div mt-4>
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{

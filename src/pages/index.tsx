@@ -15,7 +15,7 @@ export default function index() {
         </div>
       </div>
       <div text='sm' op50 mb-2>已完成</div>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
         {list.done.map((item, key)=>(
           <a href={item.url} p-4 bg-white hover:bg-zinc-50 cursor-pointer rounded-xl decoration-none key={key} >
             <div flex='~ items-start justify-between'>
