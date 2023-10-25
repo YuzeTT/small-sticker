@@ -17,7 +17,7 @@
 @font-face {
   font-family: 'code';
   font-style: normal;
-  src: local('code'), url(/fonts/mttmilano-bold-webfont.ttf) format('truetype');
+  src: local('code'), url('/fonts/Neutra Display Titling.otf') format('truetype');
 }
 
 body {
