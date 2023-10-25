@@ -110,7 +110,7 @@ export default function Heytea() {
                   <HighText show={highLight} text='小标签' eg='真牛乳' />
                 </div>
               </div>
-              <div text='xs white center' font='bold' mt-2 bg-black  tracking-widest>有问题找问题，出品不满为你重做</div>
+              <div text='xs white center' font='bold' mt-2 bg-black  tracking-widest>有问题找阿喜，出品不满为你重做</div>
               <div mt-1 flex='~ justify-between'>
                 <div>
                   <div font='bold'>

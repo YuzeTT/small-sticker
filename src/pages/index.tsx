@@ -17,7 +17,7 @@ export default function index() {
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
         {list.done.map((item, key)=>(
-          <a href={item.url} p-4 bg-white hover:bg-zinc-100 cursor-pointer rounded-xl decoration-none key={key} >
+          <a href={item.url} p-4 bg-white hover:bg-zinc-50 cursor-pointer rounded-xl decoration-none key={key} >
             <div flex='~ items-start justify-between'>
               <div w-14 h-10 text='center'>
                 <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
@@ -26,8 +26,6 @@ export default function index() {
             </div>
             <div mt-6 text='xl zinc-700'>{item.name[0]}</div>
             <div text='sm zinc-500'>{item.name[1]}</div>
-            
-            {/* <div className='i-ri-arrow-right-s-line' text='xl zinc-300' /> */}
           </a>
         ))}
       </div>
@@ -38,7 +36,6 @@ export default function index() {
             <img src={item.logo} alt="logo" h-10 w-10 mr-4 op50 />
             <div text='lg zinc-400'>{item.name[0]}</div>
             <div  flex-1></div>
-            {/* <div className='i-ri-arrow-right-s-line' text='xl zinc-300' /> */}
           </div>
         ))}
       </div>
