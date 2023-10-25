@@ -30,12 +30,16 @@ export default function index() {
         ))}
       </div>
       <div text='sm' op50 mb-2 mt-4>待制作（或许赞助可以加速呢！）</div>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-3 op50'>
         {list.todo.map((item, key)=>(
-          <div p-4 bg-white hover:bg-zinc-100 cursor-not-allowed rounded-xl flex='~ items-center' key={key}>
-            <img src={item.logo} alt="logo" h-10 w-10 mr-4 op50 />
-            <div text='lg zinc-400'>{item.name[0]}</div>
-            <div  flex-1></div>
+          <div p-4 bg-white hover:bg-zinc-50 rounded-xl decoration-none key={key} >
+            <div flex='~ items-start justify-between'>
+              <div w-14 h-10 text='center'>
+                <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
+              </div>
+            </div>
+            <div className='mt-6' text='xl zinc-700'>{item.name[0]}</div>
+            <div text='sm zinc-500'>{item.name[1]}</div>
           </div>
         ))}
       </div>

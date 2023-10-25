@@ -12,7 +12,7 @@ const list = {
       name: ['霸王茶姬', 'Chagee'],
       logo: Chagee,
       url: '/chagee',
-      tag: '新上线'
+      tag: '测试版'
     },
     {
       name: ['喜茶', 'Heytea'],
@@ -53,8 +53,8 @@ const list = {
   ],
   todo: [
     {
-      name: ['霸王茶姬', 'Chagee'],
-      logo: Chagee
+      name: ['蜜雪冰城', 'MXBC'],
+      logo: '/mxbc.png'
     }
   ]
 }
