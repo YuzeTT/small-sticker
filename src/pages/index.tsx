@@ -4,18 +4,6 @@ export default function index() {
 
   return (
     <div className='max-w-xl mx-auto mt-2'>
-      <div className=''>
-        <div className='absolute -mt-10 top-5 left-10 down1 text-4xl z-10'>🎂</div>
-        <div className='absolute -mt-30 top-0 left-30 down2 text-3xl z-10'>🎂</div>
-        <div className='absolute mt-0 top-0 left-50 down1 text-5xl z-10'>🎂</div>
-        <div className='absolute -mt-20 top-0 left-70 down2 text-xl z-10'>🎂</div>
-        <div className='absolute mt-0 top-0 left-80 down2 text-4xl z-10'>🎂</div>
-        <div className='absolute  -mt-30 top-10 left-10 down1 text-4xl z-10'>🎉</div>
-        <div className='absolute -mt-10 top-10 left-30 down2 text-3xl z-10'>🎉</div>
-        <div className='absolute -mt-30 top-10 left-50 down1 text-5xl z-10'>🎉</div>
-        <div className='absolute -mt-10 top-10 left-70 down2 text-4xl z-10'>🎉</div>
-        <div className='absolute -mt-35 top-10 left-80 down2 text-4xl z-10'>🎉</div>
-      </div>
       <Alert
         message="公告"
         closable
@@ -28,7 +16,7 @@ export default function index() {
         type="info"
         className='mb-2 mt-4'
       />
-      <Alert message="🎂 喜报：开发者今天成年啦！！" type="error" className='mb-2' />
+      {/* <Alert message="🎂 喜报：开发者今天成年啦！！" type="error" className='mb-2' /> */}
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
         {list.done.map((item, key)=>(
