@@ -43,7 +43,7 @@ function App() {
     <>
       <Router>
         <Navbar></Navbar>
-        <div px-4 pb-4 max-w-xl mx-auto>
+        <div px-4 py-4 max-w-xl mx-auto bg='#EFEFEF'>
           <RouterRender/>
         </div>
         <Footer></Footer>

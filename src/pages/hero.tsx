@@ -30,7 +30,7 @@ const data = [
 
 export default function hero() {
   return (
-    <div>
+    <div className='-mt-4'>
       <Line zh='贡献列表' en='Hero List' logo={<div className="i-ri-file-list-2-line" mr-4 text='xl' />}></Line>
       <Alert message="🎉 感谢下列成员的奉献" type="error" className='mt-4' />
       <List

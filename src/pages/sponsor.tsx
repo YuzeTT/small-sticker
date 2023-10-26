@@ -23,7 +23,7 @@ const items: TabsProps['items'] = [
 
 export default function sponsor() {
   return (
-    <div className=''>
+    <div className='-mt-4'>
       <div my-4>网站的维护需要一定运营成本，如果能收到您的赞助，我会爱你一万年！！！</div>
       <Collapse className='mb-4'
         items={[{ key: '1', label: '点击展开收款码', children: <div>

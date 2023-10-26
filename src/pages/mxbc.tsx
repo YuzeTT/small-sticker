@@ -59,7 +59,7 @@ export default function Heytea() {
 
   
   return (
-    <div mt-4>
+    <div>
       {contextHolder}
       <Alert message="蓝色的是输入框属性，绿色的是示例文字（点击可快速填充）。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
       {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
@@ -95,7 +95,7 @@ export default function Heytea() {
                 <HighText show={highLight} text='冰度，糖度' eg='少冰，五分糖' />
               </div>
               <div className='-mt-1'>
-                <HighText show={highLight} text='日期 时间 手机号' eg='10-27 00:20 13600000000' />
+                <HighText show={highLight} text='日期 时间 手机号' eg={`${dayjs().format('MM-DD HH:mm')} 13600000000`} />
               </div>
               <div className='-mt-1'>
                 <HighText show={highLight} text='编码 编码 广告 ' eg='98800301 3uU 聚会点大单，蜜雪更划算' />

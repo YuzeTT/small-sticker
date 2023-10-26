@@ -137,7 +137,7 @@ export default function Train() {
   }
 
   return (
-    <div>
+    <div className='-mt-4'>
       {contextHolder}
       <Modal title="导出图片"
         open={isModalOpen}

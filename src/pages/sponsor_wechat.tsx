@@ -4,7 +4,7 @@ import data from '../utils/sponsorList'
 
 export default function sponsor() {
   return (
-    <div className=''>
+    <div className='-mt-4'>
       <div bg='white' p-2 className='-mx-4 w-150'>
         {data.map((item, key)=>(
           <div key={key} my-2 bg='zinc-50' p-4 rounded-xl>
