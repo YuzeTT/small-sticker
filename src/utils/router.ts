@@ -9,6 +9,12 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
+      name: ['蜜雪冰城', 'MXBC'],
+      logo: '/mxbc.png',
+      url: '/mxbc',
+      tag: '新上线'
+    },
+    {
       name: ['霸王茶姬', 'Chagee'],
       logo: Chagee,
       url: '/chagee',
@@ -18,7 +24,7 @@ const list = {
       name: ['喜茶', 'Heytea'],
       logo: Heytea,
       url: '/heytea',
-      tag: '新上线'
+      tag: ''
     },
     {
       name: ['观影纪念票', 'Ticket'],
@@ -53,9 +59,17 @@ const list = {
   ],
   todo: [
     {
-      name: ['蜜雪冰城', 'MXBC'],
-      logo: '/mxbc.png'
-    }
+      name: ['茶颜悦色', 'Sexy tea'],
+      logo: '/sexytea.png',
+    },
+    {
+      name: ['星巴克', 'Starbucks'],
+      logo: '/starbucks.png',
+    },
+    {
+      name: ['一点点', 'alittle tea'],
+      logo: '/alittle-tea.png',
+    },
   ]
 }
 
