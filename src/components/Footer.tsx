@@ -2,7 +2,7 @@ import { Modal } from 'antd';
 
 export default function Footer() {
   return (
-    <div flex='~ items-center justify-center' pb-4>
+    <div flex='~ items-center justify-center' py-4 bg='white'>
       <div className='text-sm op-50' onClick={()=>{
         Modal.info({
           title: '调试信息',

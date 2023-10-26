@@ -89,10 +89,10 @@ export default function Heytea() {
                   <HighText show={highLight} text='数量' eg='1/1' />
                 </div>
               </div>
-              <div text='2xl'>
+              <div text='3xl' origin-left scale-x-75 w='125%'>
                 <HighText show={highLight} text='产品名称' eg='伯牙绝弦' />
               </div>
-              <div flex='~ gap-2' text='2xl'>
+              <div flex='~ gap-2' text='3xl' origin-left scale-x-75 w='125%'>
                 <div>
                   <HighText show={highLight} text='杯型' eg='大杯' />
                 </div>
@@ -103,7 +103,7 @@ export default function Heytea() {
                   <HighText show={highLight} text='糖度' eg='标准糖' />
                 </div>
               </div>
-              <div mt-8 text='3xl'>
+              <div mt-8 text='4xl' >
                 <HighText show={highLight} text='取餐码' eg='T0021' />
               </div>
               <div className='mt-1'>
@@ -113,7 +113,7 @@ export default function Heytea() {
                 <HighText show={highLight} text='店铺名称' eg='小红薯店' />
               </div>
               
-              <div flex='~ justify-between' mt-4>
+              <div flex='~ justify-between' mt-2>
                 <div>
                   <div font='bold'>
                     <HighText show={highLight} text='标语1' eg='原叶鲜奶茶' />
