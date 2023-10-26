@@ -12,7 +12,7 @@ const list = {
       name: ['霸王茶姬', 'Chagee'],
       logo: Chagee,
       url: '/chagee',
-      tag: '测试版'
+      tag: '新上线'
     },
     {
       name: ['喜茶', 'Heytea'],
