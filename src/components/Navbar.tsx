@@ -52,7 +52,7 @@ export default function Navbar() {
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
           <motion.div className='flex justify-end flex-1' >
-            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 bg-blue-100 rounded-full flex='~ items-center justify-center'>
+            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center'>
               {/* <motion.div 
                 initial="collapsed"
                 animate={
@@ -65,10 +65,10 @@ export default function Navbar() {
                 }}
                 transition={{ type: "spring" }}className=' text-blue-500 '
               >
-                <div className='whitespace-nowrap overflow-hidden'>支持一下</div>
+                
               </motion.div> */}
-              <div className={`i-ri-hand-heart-fill text-blue-500`} />
-
+              <div className={`i-ri-hand-heart-fill text-orange-500`} />
+              <div className='whitespace-nowrap overflow-hidden text-sm ml-1 text-orange-500'>支持一下</div>
             </a>
           </motion.div>
         </div>
