@@ -1,4 +1,4 @@
-import { Segmented, message, Button, Slider } from "antd";
+import { Segmented, message, Button, Slider, Switch } from "antd";
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
@@ -11,6 +11,7 @@ export default function Heytea() {
   const [messageApi, contextHolder] = message.useMessage();
   const [size1 , setSize1] = useState(24)
   const [size2 , setSize2] = useState(14)
+  const [showGan , setShowGan] = useState(true)
   const key = 'updatable';
   const [imageSrc, setImageSrc] = useState<{time: string, data: string}[]>([]);
   const [highLight , setHighLight] = useState<boolean>(true)
@@ -77,6 +78,10 @@ export default function Heytea() {
         }} />
       </div>
       <div m-2>
+        <div mb-2>
+          <div text='sm zinc-500' mb-1>显示杆子</div>
+          <Switch onChange={(v)=>{setShowGan(v)}} checked={showGan} />
+        </div>
         <div>
           <div text='sm zinc-500'>地点文字大小</div>
           <div flex='~ items-center'>
@@ -124,7 +129,7 @@ export default function Heytea() {
                     </div>
                   </div>
                 </div>
-                <div text-center>
+                <div text-center style={{display: showGan?'block':'none'}}>
                   <img src="/guideboard_gan.png" alt="杆子" className='w-20 -mt-[1px]' />
                 </div>
               </div>
