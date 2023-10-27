@@ -78,7 +78,7 @@ export default function Heytea() {
           }
         }} />
       </div>
-      <div m-2>
+      <div m-2 className={status===2?'hidden':''}>
         <div mb-2>
           <div text='sm zinc-500' mb-1>显示杆子</div>
           <Switch onChange={(v)=>{setShowGan(v)}} checked={showGan} />
