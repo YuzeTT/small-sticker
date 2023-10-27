@@ -12,36 +12,36 @@ const list = {
       name: ['路牌', 'Guideboard'],
       logo: '/guideboard.png',
       url: '/guideboard',
-      tag: '测试版'
-    },
-    {
-      name: ['蜜雪冰城', 'MXBC'],
-      logo: '/mxbc.png',
-      url: '/mxbc',
-      tag: '新上线'
-    },
-    {
-      name: ['霸王茶姬', 'Chagee'],
-      logo: Chagee,
-      url: '/chagee',
       tag: '新上线'
     },
     {
       name: ['喜茶', 'Heytea'],
       logo: Heytea,
       url: '/heytea',
+      tag: '热门'
+    },
+    {
+      name: ['瑞幸咖啡', 'Lucking Coffee'],
+      logo: LuckingCoffee,
+      url: '/lucking_coffee',
+      tag: '热门'
+    },
+    {
+      name: ['蜜雪冰城', 'MXBC'],
+      logo: '/mxbc.png',
+      url: '/mxbc',
+      tag: ''
+    },
+    {
+      name: ['霸王茶姬', 'Chagee'],
+      logo: Chagee,
+      url: '/chagee',
       tag: ''
     },
     {
       name: ['观影纪念票', 'Ticket'],
       logo: Ticket,
       url: '/cinema_ticket',
-      tag: ''
-    },
-    {
-      name: ['瑞幸咖啡', 'Lucking Coffee'],
-      logo: LuckingCoffee,
-      url: '/lucking_coffee',
       tag: ''
     },
     {

@@ -36,7 +36,7 @@ export default function sponsor() {
       <List
         header={<div>根据时间排序</div>}
         // footer={<div>Footer</div>}
-        className='mt-4'
+        className='mt-4 bg-white'
         bordered
         dataSource={data.reverse()}
         renderItem={(item) => (

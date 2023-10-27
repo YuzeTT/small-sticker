@@ -1,10 +1,11 @@
-import { QRCode, Segmented, message, Button, Empty, Image } from "antd";
+import { QRCode, Segmented, message, Button } from "antd";
 import dayjs from 'dayjs'
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 import SecureWatermark from "../components/SecureWatermark";
 import InputGuide from "../components/InputGuide";
+import ExportList from "../components/ExportList";
 
 export default function Heytea() {
   const ref = useRef<HTMLDivElement>(null)
@@ -141,28 +142,9 @@ export default function Heytea() {
           </Button>:''
         }
         {status===2?
-          <>
-            {imageSrc.length === 0?
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='暂无数据' />:
-              <div className='space-y-4'>
-                {imageSrc.map((v,k)=>(
-                  <div key={k}>
-                    <div style={{border:'2px dashed #E5E7EB', padding: '10px'}}>
-                      <Image
-                        className="shadow-xl"
-                        src={v.data}
-                      />
-                    </div>
-                    <div text='sm gray-500' mt-2>{v.time}</div>
-                  </div>
-                ))
-                }
-              </div>
-            }
-          </>:
+          <ExportList imageSrc={imageSrc} />:
           ''
         }
-        
       </div>
     </div>
   )

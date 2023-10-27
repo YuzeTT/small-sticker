@@ -1,10 +1,11 @@
-import { QRCode, Segmented, message, Button, Empty, Image } from "antd";
+import { QRCode, Segmented, message, Button } from "antd";
 // import dayjs from 'dayjs'
 import { useCallback, useRef, useState } from "react";
 // import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 import SecureWatermark from "../components/SecureWatermark";
 import InputGuide from "../components/InputGuide";
+import ExportList from "../components/ExportList";
 
 export default function Ticket() {
   const ref = useRef<HTMLDivElement>(null)
@@ -64,7 +65,6 @@ export default function Ticket() {
       {highLight}
       {contextHolder}
       <InputGuide />
-      {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
       <div>
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
           setStatus(parseInt(`${v}`))
@@ -156,28 +156,9 @@ export default function Ticket() {
           </Button>:''
         }
         {status===2?
-          <>
-            {imageSrc.length === 0?
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='暂无数据' />:
-              <div className='space-y-4'>
-                {imageSrc.map((v,k)=>(
-                  <div key={k}>
-                    <div style={{border:'2px dashed #E5E7EB', padding: '10px'}}>
-                      <Image
-                        className="shadow-xl"
-                        src={v.data}
-                      />
-                    </div>
-                    <div text='sm gray-500' mt-2>{v.time}</div>
-                  </div>
-                ))
-                }
-              </div>
-            }
-          </>:
+          <ExportList imageSrc={imageSrc} />:
           ''
         }
-        
       </div>
     </div>
   )

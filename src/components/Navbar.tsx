@@ -41,7 +41,7 @@ export default function Navbar() {
             <div className="i-ri-menu-fill text-2xl text-gray-500" />
           </div>
           <a flex='~ items-center' href='/' decoration-none text-zinc-900>
-            <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' mr-2 />
+            <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' />
             {/* <div text='lg' font='bold'>大贴纸</div> */}
           </a>
           {/* {tag?
@@ -51,8 +51,8 @@ export default function Navbar() {
             </div>:''
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
-          <motion.div className='flex justify-end flex-1' >
-            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center'>
+          <motion.div className='flex justify-end flex-1'>
+            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button'>
               {/* <motion.div 
                 initial="collapsed"
                 animate={
