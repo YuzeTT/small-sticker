@@ -1,9 +1,10 @@
-import { Alert, QRCode, Segmented, message, Button, Empty, Image } from "antd";
+import { QRCode, Segmented, message, Button, Empty, Image } from "antd";
 import dayjs from 'dayjs'
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 import SecureWatermark from "../components/SecureWatermark";
+import InputGuide from "../components/InputGuide";
 
 export default function Heytea() {
   const ref = useRef<HTMLDivElement>(null)
@@ -61,9 +62,9 @@ export default function Heytea() {
   return (
     <div>
       {contextHolder}
-      <Alert message="蓝色的是输入框属性，绿色的是示例文字（点击可快速填充）。输入完毕后进入预览模式点击生成图片哦！" type="info" showIcon closable />
+      <InputGuide />
       {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
-      <div mt-4>
+      <div>
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
           setStatus(parseInt(`${v}`))
           if(v===0) {
