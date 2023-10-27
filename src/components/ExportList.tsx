@@ -14,7 +14,7 @@ export default function ExportList({imageSrc}:{imageSrc: {data: string, time: st
                   src={v.data}
                 />
               </div>
-              <div text='sm gray-500' mt-2>{v.time}</div>
+              <div text='sm gray-500' className='mt-2'>{v.time}</div>
             </div>
           ))
           }

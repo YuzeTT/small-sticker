@@ -104,9 +104,11 @@ export default function Heytea() {
                   <div bg='#1F4DA0' px-2 py-1>
                     <div flex='~ justify-between' text='white' style={{fontSize: size2+'px'}}>
                       <HighText show={highLight} text='方向' eg='西' />
-                      <HighText show={highLight} text='方向' eg='东' />
+                      <div className='text-right'>
+                        <HighText show={highLight} text='方向' eg='东' />
+                      </div>
                     </div>
-                    <div text='center white' className='-mt-1 mb-1' font='600' style={{fontSize: size1+'px'}}>
+                    <div text='center white' className='mb-1' font='600' style={{fontSize: size1+'px'}}>
                       <HighText show={highLight} text='地点' eg='我在学校很想家' />
                     </div>
                   </div>
@@ -116,7 +118,7 @@ export default function Heytea() {
                         <HighText show={highLight} text='方向' eg='W' />
                       </div>
                       <HighText show={highLight} text='英文名' eg='Sticker' />
-                      <div flex-1 text-right>
+                      <div flex-1 className='text-right'>
                         <HighText show={highLight} text='方向' eg='E' />
                       </div>
                     </div>
