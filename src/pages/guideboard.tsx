@@ -1,4 +1,4 @@
-import { Segmented, message, Button, } from "antd";
+import { Segmented, message, Button, Slider } from "antd";
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
@@ -9,6 +9,8 @@ import ExportList from "../components/ExportList";
 export default function Heytea() {
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
+  const [size1 , setSize1] = useState(24)
+  const [size2 , setSize2] = useState(14)
   const key = 'updatable';
   const [imageSrc, setImageSrc] = useState<{time: string, data: string}[]>([]);
   const [highLight , setHighLight] = useState<boolean>(true)
@@ -74,22 +76,41 @@ export default function Heytea() {
           }
         }} />
       </div>
+      <div m-2>
+        <div>
+          <div text='sm zinc-500'>地点文字大小</div>
+          <div flex='~ items-center'>
+            <div className="i-ri-font-family text-xs" />
+            <Slider min={10} max={40} onChange={setSize1} value={size1} className='flex-1 mx-3'></Slider>
+            <div className="i-ri-font-family  text-lg" />
+          </div>
+        </div>
+        <div>
+          <div text='sm zinc-500'>方向文字大小</div>
+          <div flex='~ items-center'>
+            <div className="i-ri-font-family text-xs" />
+            <Slider min={5} max={20} onChange={setSize2} value={size2} className='flex-1 mx-3'></Slider>
+            <div className="i-ri-font-family  text-lg" />
+          </div>
+        </div>
+      </div>
       <div mt-4 p-2>
         <div className='flex justify-center'>
           <div bg='' className='w-60 z-0 relative p-2' ref={ref} style={status===2?{display: 'none'}:{}}>
+            
             <SecureWatermark>
               <div mx-auto className=''>
                 <div rounded overflow-hidden shadow>
                   <div bg='#1F4DA0' px-2 py-1>
-                    <div flex='~ justify-between' text='white sm'>
+                    <div flex='~ justify-between' text='white' style={{fontSize: size2+'px'}}>
                       <HighText show={highLight} text='方向' eg='西' />
                       <HighText show={highLight} text='方向' eg='东' />
                     </div>
-                    <div text='2xl center white' className='-mt-1 mb-1' font='600'>
+                    <div text='center white' className='-mt-1 mb-1' font='600' style={{fontSize: size1+'px'}}>
                       <HighText show={highLight} text='地点' eg='我在学校很想家' />
                     </div>
                   </div>
-                  <div bg='zinc-100' py-1 px-2 text='sm'>
+                  <div bg='zinc-100' py-1 px-2 style={{fontSize: size2+'px'}}>
                     <div flex='~ justify-between' text='black'>
                       <div flex-1>
                         <HighText show={highLight} text='方向' eg='W' />
