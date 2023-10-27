@@ -9,6 +9,12 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
+      name: ['路牌', 'Guideboard'],
+      logo: '/guideboard.png',
+      url: '/guideboard',
+      tag: '测试版'
+    },
+    {
       name: ['蜜雪冰城', 'MXBC'],
       logo: '/mxbc.png',
       url: '/mxbc',
