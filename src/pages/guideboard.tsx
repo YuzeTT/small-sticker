@@ -11,6 +11,7 @@ export default function Heytea() {
   const [messageApi, contextHolder] = message.useMessage();
   const [size1 , setSize1] = useState(24)
   const [size2 , setSize2] = useState(14)
+  const [size3 , setSize3] = useState(14)
   const [showGan , setShowGan] = useState(true)
   const key = 'updatable';
   const [imageSrc, setImageSrc] = useState<{time: string, data: string}[]>([]);
@@ -83,10 +84,18 @@ export default function Heytea() {
           <Switch onChange={(v)=>{setShowGan(v)}} checked={showGan} />
         </div>
         <div>
-          <div text='sm zinc-500'>地点文字大小</div>
+          <div text='sm zinc-500'>地点中文文字大小</div>
           <div flex='~ items-center'>
             <div className="i-ri-font-family text-xs" />
             <Slider min={10} max={40} onChange={setSize1} value={size1} className='flex-1 mx-3'></Slider>
+            <div className="i-ri-font-family  text-lg" />
+          </div>
+        </div>
+        <div>
+          <div text='sm zinc-500'>地点英文文字大小</div>
+          <div flex='~ items-center'>
+            <div className="i-ri-font-family text-xs" />
+            <Slider min={5} max={20} onChange={setSize3} value={size3} className='flex-1 mx-3'></Slider>
             <div className="i-ri-font-family  text-lg" />
           </div>
         </div>
@@ -117,13 +126,15 @@ export default function Heytea() {
                       <HighText show={highLight} text='地点' eg='我在学校很想家' />
                     </div>
                   </div>
-                  <div bg='zinc-100' py-1 px-2 style={{fontSize: size2+'px'}}>
-                    <div flex='~ justify-between' text='black'>
-                      <div flex-1>
+                  <div bg='zinc-100' py-1 px-2>
+                    <div flex='~ justify-between items-center' text='black'>
+                      <div flex-1 style={{fontSize: size2+'px'}}>
                         <HighText show={highLight} text='方向' eg='W' />
                       </div>
-                      <HighText show={highLight} text='英文名' eg='Sticker' />
-                      <div flex-1 className='text-right'>
+                      <div style={{fontSize: size3+'px'}}>
+                        <HighText show={highLight} text='英文名' eg='Sticker' />
+                      </div>
+                      <div flex-1 className='text-right' style={{fontSize: size2+'px'}}>
                         <HighText show={highLight} text='方向' eg='E' />
                       </div>
                     </div>
