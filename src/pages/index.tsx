@@ -13,6 +13,7 @@ export default function index() {
         <div text='sm zinc-600'>
           或者在 <a href="https://github.com/YuzeTT/small-sticker"  decoration-none text-blue-500>Github</a> 给我个Star 对我的帮助也非常大！！ 你可以 <a href="/hero"  decoration-none text-blue-500>在这里</a> 查看伟大的贡献者们！
         </div>
+        <div text='sm orange-600' mt-2>夸克暂时无法保存图片（除了夸克其他都行）另外如果你有办法解决欢迎联系（有赏）</div>
       </div>
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
