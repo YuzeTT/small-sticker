@@ -15,18 +15,6 @@ const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   reader.readAsDataURL(img);
 };
 
-const beforeUpload = (file: RcFile) => {
-  const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-  if (!isJpgOrPng) {
-    message.error('You can only upload JPG/PNG file!');
-  }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error('Image must smaller than 2MB!');
-  }
-  return isJpgOrPng && isLt2M;
-};
-
 export default function Heytea() {
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
@@ -98,7 +86,7 @@ export default function Heytea() {
   const uploadButton = (
     <div>
       {loading ? '上传中' : <div className="i-ri-file-upload-line mx-auto text-2xl" /> }
-      <div style={{ marginTop: 8 }}>上传照片</div>
+      <div style={{ marginTop: 8 }}>点击上传</div>
     </div>
   );
 
@@ -130,12 +118,12 @@ export default function Heytea() {
           <div mr-4>
             <div text='sm zinc-500' mb-1>上传图片</div>
             <Upload
-              name="avatar"
+              name="Image"
               listType="picture-card"
               className="overflow-hidden"
               showUploadList={false}
               // action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
-              beforeUpload={beforeUpload}
+              // beforeUpload={beforeUpload}
               onChange={handleChange}
             >
               {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
