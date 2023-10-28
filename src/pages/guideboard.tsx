@@ -67,7 +67,6 @@ export default function Heytea() {
     <div>
       {contextHolder}
       <InputGuide />
-      {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
       <div>
         <Segmented block={true} options={[{value: 0, label: '编辑模式'}, {value: 1, label: '预览模式'}, {value: 2, label: '导出记录'}]} value={status} onChange={(v)=>{
           setStatus(parseInt(`${v}`))
@@ -78,6 +77,12 @@ export default function Heytea() {
           }
         }} />
       </div>
+      {status===1?
+        <Button className="w-full mt-4" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
+          <div className="i-ri-camera-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
+          {isLoading?'正在导出请勿切换页面':'导出图片'}
+        </Button>:''
+      }
       <div m-2 className={status===2?'hidden':''}>
         <div mb-2>
           <div text='sm zinc-500' mb-1>显示杆子</div>
@@ -147,12 +152,6 @@ export default function Heytea() {
             </SecureWatermark>
           </div>
         </div>
-        {status===1?
-          <Button className="mt-4 w-full mt-6" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
-            <div className="i-ri-camera-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
-            {isLoading?'正在导出请勿切换页面':'导出图片'}
-          </Button>:''
-        }
         {status===2?
           <ExportList imageSrc={imageSrc} />:
           ''

@@ -75,6 +75,12 @@ export default function Heytea() {
           }
         }} />
       </div>
+      {status===1?
+        <Button className="w-full mt-4" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
+          <div className="i-ri-camera-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
+          {isLoading?'正在导出请勿切换页面':'导出图片'}
+        </Button>:''
+      }
       <div mt-4 p-2>
         <div className='flex justify-center'>
           <div bg='white' className='w-60 z-0 shadow-xl relative px-4 py-4' ref={ref} style={status===2?{display: 'none'}:{}}>
@@ -135,12 +141,6 @@ export default function Heytea() {
             </SecureWatermark>
           </div>
         </div>
-        {status===1?
-          <Button className="mt-4 w-full mt-6" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
-            <div className="i-ri-camera-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
-            {isLoading?'正在导出请勿切换页面':'导出图片'}
-          </Button>:''
-        }
         {status===2?
           <ExportList imageSrc={imageSrc} />:
           ''
