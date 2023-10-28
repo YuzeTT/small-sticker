@@ -100,7 +100,7 @@ export default function Heytea() {
               <div text='3xl' origin-left scale-x-75 w='125%'>
                 <HighText show={highLight} text='产品名称' eg='伯牙绝弦' />
               </div>
-              <div flex='~ gap-2' text='3xl' origin-left scale-x-75 w='125%'>
+              <div flex='~ gap-2' text='3xl' origin-left scale-x-75 w='155%'>
                 <div>
                   <HighText show={highLight} text='杯型' eg='大杯' />
                 </div>
