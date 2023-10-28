@@ -9,10 +9,10 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
-      name: ['旅游打卡', 'Photo'],
+      name: ['照片打卡', 'Photo'],
       logo: '/photo.png',
       url: '/photo',
-      tag: '测试版'
+      tag: '新上线'
     },
     {
       name: ['路牌', 'Guideboard'],
