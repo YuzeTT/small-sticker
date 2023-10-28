@@ -9,6 +9,12 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
+      name: ['旅游打卡', 'Photo'],
+      logo: '/photo.png',
+      url: '/photo',
+      tag: '测试版'
+    },
+    {
       name: ['路牌', 'Guideboard'],
       logo: '/guideboard.png',
       url: '/guideboard',
@@ -75,6 +81,10 @@ const list = {
     {
       name: ['一点点', 'alittle tea'],
       logo: '/alittle-tea.png',
+    },
+    {
+      name: ['库迪咖啡', 'COTTI COFFEE'],
+      logo: '/cotti.png',
     },
   ]
 }
