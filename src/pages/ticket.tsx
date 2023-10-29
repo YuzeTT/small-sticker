@@ -298,8 +298,39 @@ export default function Ticket() {
         </div>
         <Modal title="获得密钥" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
           <p text-lg>途径一</p>
-          <p>直接购买去水印限时套餐</p>
-          <p text-red-500>2.88元一小时 | 5.00元2小时 | 10.00元24小时 | 20.00元三天 | 30元永久！！</p>
+          <p>直接购买去水印限时<b>不限次</b>套餐</p>
+          <div grid grid-cols-3 mb-2 gap-2>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+              <div text-2xl font-bold>10小时</div>
+              <div mt-1>支持一下</div>
+              <div text-lg text-red font-bold>￥1.88</div>
+            </div>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+              <div text-2xl font-bold>24小时</div>
+              <div mt-1>来瓶可乐</div>
+              <div text-lg text-red font-bold>￥3.00</div>
+            </div>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+              <div text-2xl font-bold>5天</div>
+              <div mt-1>来瓶东方树叶</div>
+              <div text-lg text-red font-bold>￥5.00</div>
+            </div>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+              <div text-2xl font-bold>14天</div>
+              <div mt-1>来瓶奶茶</div>
+              <div text-lg text-red font-bold>￥12.00</div>
+            </div>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+              <div text-2xl font-bold>30天</div>
+              <div mt-1>来点下午茶</div>
+              <div text-lg text-red font-bold>￥18.00</div>
+            </div>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+              <div text-2xl font-bold>永久</div>
+              <div mt-1>再生父亲套餐</div>
+              <div text-lg text-red font-bold>￥50.00</div>
+            </div>
+          </div>
           <Collapse
             items={[{ key: '1', label: '点击展开加微信', children: <>
               <img src="/wechat_qrcode.jpg" alt="" w-full />
