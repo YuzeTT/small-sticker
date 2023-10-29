@@ -133,7 +133,6 @@ export default function Heytea() {
             <div mb-2>
               <div text='sm zinc-500' mb-1>背景颜色</div>
               <ColorPicker
-                disabledAlpha
                 showText
                 value={bgColor}
                 onChange={(_,v)=>setBgColor(v)}
@@ -167,7 +166,6 @@ export default function Heytea() {
             <div>
               <div text='sm zinc-500' mb-1>文字颜色</div>
               <ColorPicker
-                disabledAlpha 
                 showText
                 value={textColor}
                 onChange={(_,v)=>setTextColor(v)}
