@@ -298,9 +298,9 @@ export default function Ticket() {
         </div>
         <Modal title="获得密钥（全站通用）" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
           <p text-lg>途径一</p>
-          <p>直接购买去水印限时<b>不限次</b>套餐</p>
+          <p>直接购买去水印限时<b>不限次</b>套餐 （选好了直接加微信转账就行啦！）</p>
           <div grid grid-cols-3 mb-2 gap-2>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+            {/* <div text-center bg-zinc-100 rounded-xl py-2 px-2>
               <div text-2xl font-bold>10小时</div>
               <div mt-1>支持一下</div>
               <div text-lg text-red font-bold>￥1.88</div>
@@ -314,7 +314,7 @@ export default function Ticket() {
               <div text-2xl font-bold>5天</div>
               <div mt-1>来瓶东方树叶</div>
               <div text-lg text-red font-bold>￥5.00</div>
-            </div>
+            </div> */}
             <div text-center bg-zinc-100 rounded-xl py-2 px-2>
               <div text-2xl font-bold>14天</div>
               <div mt-1>来瓶奶茶</div>
