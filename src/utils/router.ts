@@ -9,6 +9,12 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
+      name: ['大麦票根', 'DaMai Ticket'],
+      logo: Ticket_,
+      url: '/ticket',
+      tag: '新上线'
+    },
+    {
       name: ['照片打卡', 'Photo'],
       logo: '/photo.png',
       url: '/photo',
@@ -18,7 +24,7 @@ const list = {
       name: ['路牌', 'Guideboard'],
       logo: '/guideboard.png',
       url: '/guideboard',
-      tag: '新上线'
+      tag: '热门'
     },
     {
       name: ['喜茶', 'Heytea'],
@@ -61,12 +67,6 @@ const list = {
       logo: Mcdonald,
       url: '/mcdonald',
       tag: ''
-    },
-    {
-      name: ['大麦票根', 'DaMai Ticket'],
-      logo: Ticket_,
-      url: '/ticket',
-      tag: '新上线'
     },
   ],
   todo: [

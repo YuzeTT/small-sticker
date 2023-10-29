@@ -1,4 +1,4 @@
-import { QRCode, Segmented, message, Button } from "antd";
+import { QRCode, Segmented, message, Button, ColorPicker } from "antd";
 // import dayjs from 'dayjs'
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
@@ -17,6 +17,8 @@ export default function Ticket() {
   const [status , setStatus] = useState<number>(0)
   const [isLoading , setIsLoading] = useState<boolean>(false)
   const [beforeOut , setBeforeOut] = useState(true)
+  const [textColor , setTextColor] = useState('#1269A0')
+  const [bgColor , setBgColor] = useState('#87ACD4')
   
   const out = useCallback(() => {
     setBeforeOut(false)
@@ -98,11 +100,121 @@ export default function Ticket() {
         </>
         :''
       }
-      
+      <div flex='~' space-x-2 mt-2>
+        <div mb-2>
+          <div text='sm zinc-500' mb-1>右侧背景颜色</div>
+          <ColorPicker
+            disabledAlpha
+            showText
+            value={bgColor}
+            onChange={(_,v)=>setBgColor(v)}
+            presets={[
+              {
+                label: '预设',
+                colors: [
+                  '#FFFFFF',
+                  '#FFE4E6',
+                  '#FCE7F3',
+                  '#FAE8FF',
+                  '#F3E8FF',
+                  '#EDE9FE',
+                  '#E0E7FF',
+                  '#DBEAFE',
+                  '#E0F2FE',
+                  '#CFFAFE',
+                  '#CCFBF1',
+                  '#D1FAE5',
+                  '#DCFCE7',
+                  '#ECFCCB',
+                  '#FEF9C3',
+                  '#FEF3C7',
+                  '#FFEDD5',
+                  '#FEE2E2',
+                  '#3F3F46',
+                  '#BE123C',
+                  '#BE185D',
+                  '#A21CAF',
+                  '#7E22CE',
+                  '#6D28D9',
+                  '#4338CA',
+                  '#1D4ED8',
+                  '#0369A1',
+                  '#0E7490',
+                  '#0F766E',
+                  '#047857',
+                  '#15803D',
+                  '#4D7C0F',
+                  '#CA8A04',
+                  '#B45309',
+                  '#C2410C',
+                  '#B91C1C',
+                ],
+              },
+            ]}
+          />
+        </div>
+        <div>
+          <div text='sm zinc-500' mb-1>底部背景颜色</div>
+          <ColorPicker
+            disabledAlpha 
+            showText
+            value={textColor}
+            onChange={(_,v)=>setTextColor(v)}
+            presets={[
+              {
+                label: '预设',
+                colors: [
+                  '#FFFFFF',
+                  '#FFE4E6',
+                  '#FCE7F3',
+                  '#FAE8FF',
+                  '#F3E8FF',
+                  '#EDE9FE',
+                  '#E0E7FF',
+                  '#DBEAFE',
+                  '#E0F2FE',
+                  '#CFFAFE',
+                  '#CCFBF1',
+                  '#D1FAE5',
+                  '#DCFCE7',
+                  '#ECFCCB',
+                  '#FEF9C3',
+                  '#FEF3C7',
+                  '#FFEDD5',
+                  '#FEE2E2',
+                  '#3F3F46',
+                  '#BE123C',
+                  '#BE185D',
+                  '#A21CAF',
+                  '#7E22CE',
+                  '#6D28D9',
+                  '#4338CA',
+                  '#1D4ED8',
+                  '#0369A1',
+                  '#0E7490',
+                  '#0F766E',
+                  '#047857',
+                  '#15803D',
+                  '#4D7C0F',
+                  '#CA8A04',
+                  '#B45309',
+                  '#C2410C',
+                  '#B91C1C',
+                ],
+              },
+            ]}
+          />
+        </div>
+      </div>
+      <div mt-2 text='sm red-500' className="-mt-1" flex='~ items-center'>
+        {/* <div className="i-ri-lightbulb-line mr-1" /> */}
+        <div className='block lg:hidden'>您的屏幕宽度不足以完整显示内容，已经帮你缩小显示啦，辛苦双指放大填写哦！（不影响导出质量）</div>
+      </div>
       <div mt-2 p-2  style={{fontFamily: 'sans'}}>
         <div className='flex justify-center'>
+          
           {/* @unocss-include */}
-          <div bg='white' className={`min-w-220 z-0 shadow-xl relative px-4 py-4 rotate-90= origin-top  ${beforeOut?'scale-40 md:scale-100':''}`} ref={ref} style={status===2?{display: 'none'}:{}}>
+          <div bg='white' className={`min-w-220 z-0 shadow-xl relative px-4 py-4 rotate-90= origin-top  ${beforeOut?'scale-40 md:scale-80 lg:scale-100':''}`} ref={ref} style={status===2?{display: 'none'}:{}}>
             <SecureWatermark>
               <div flex='~ justify-between'>
                 {/* left */}
@@ -157,7 +269,7 @@ export default function Ticket() {
                     </div>
                   </div>
                   <div mt-6 className='-mb-2'>
-                    <div w-full bg='red' h-auto rounded-xl  overflow-hidden flex='~'>
+                    <div w-full h-auto rounded-xl  overflow-hidden flex='~' style={{background: textColor}}>
                       <div bg='black' h-full text='white' flex='~ items-center justify-center' px-2 py-1>
                         <div className="i-ri-phone-fill text-2xl" />
                         <div ml-1 text='xl'><HighText show={highLight} text='号码' eg='1010-0000' /></div>
@@ -174,7 +286,7 @@ export default function Ticket() {
                   <div style={{borderLeft: '1px dashed #EFEFEF'}} h-full absolute className='left-1/2 ml-1 transform -translate-x-1/2 z-20'></div>
                   {/* <div h-full absolute className='w-[1px]  left-1/2 transform -translate-x-1/2 z-10  ml-1'></div> */}
                   <div p-2 w-full>
-                    <div bg='red' w-full h-full relative>
+                    <div w-full h-full relative style={{background: bgColor}}>
                       
                       {/* <div text='5xl' font='bold' scale-x-75 w='125%' origin-left text-center>SUB TICKET</div> */}
                       <div text='5xl' font='bold' scale-x-65 absolute className='left-1/2 transform -translate-x-1/2 whitespace-nowrap' mt-4>SUB TICKET</div>
