@@ -12,7 +12,7 @@ const list = {
       name: ['大麦票根', 'DaMai Ticket'],
       logo: Ticket_,
       url: '/ticket',
-      tag: '新上线'
+      tag: '被举报'
     },
     {
       name: ['照片打卡', 'Photo'],
