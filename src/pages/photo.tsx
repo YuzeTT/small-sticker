@@ -227,7 +227,7 @@ export default function Heytea() {
                       <HighText show={highLight} text='日期' eg={dayjs().format('MM-DD HH:mm')} />
                     </div>
                   </div>
-                  <div font='bold' style={{color: textColor}}>
+                  <div font='bold' style={{color: textColor}} absolute right-4 bottom-4>
                     {/* <div>HELLO</div> */}
                     <div>
                       <HighText show={highLight} text='标语1（可换行）' eg='HELLO' />
