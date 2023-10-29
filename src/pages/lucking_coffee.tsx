@@ -224,7 +224,7 @@ export default function LuckinCoffee() {
 
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className="i-ri-landscape-line" mr-4 text='xl' />}></Line>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center font-sans">
           <div className="bg-[#A8D3FD] rounded-md relative w-80 " ref={ref}>
             <SecureWatermark>
               {data.isShowLogo? <img src="/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" />:''}
@@ -240,7 +240,7 @@ export default function LuckinCoffee() {
               </div>
               <div className="text-lg pl-2">{data.sweet || '胰岛素配合'}</div>
               <div className="pl-2 font-bold pt-4 line-height-2">{data.date || '0000-00-00'} {data.time || '00:00'}</div>
-              <div className="pl-2 pb-3">{data.remark}</div>
+              <div className="pl-2 pb-3 mt-1">{data.remark}</div>
             </SecureWatermark>
           </div>
         </div>

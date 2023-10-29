@@ -201,7 +201,7 @@ export default function Heytea() {
           </div>
         </div>
       </div>
-      <div mt-4 p-2>
+      <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
           <div className='w-auto z-0 shadow-xl relative w-full' ref={ref} style={status===2?{display: 'none'}:{background: bgColor}}>
             <SecureWatermark>

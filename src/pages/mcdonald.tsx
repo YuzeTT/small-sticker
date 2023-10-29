@@ -307,7 +307,7 @@ export default function Mcdonald() {
 
         <div my-2></div>
         <Line zh='预览' en='Preview' logo={<div className='i-ri-landscape-line' mr-4 text='xl' />}></Line>
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center font-sans'>
           <div className='bg-white rounded-md w-90 shadow-xl pb-6 relative' ref={ref}>
             <SecureWatermark>
               <div className='w-full text-center mb-4 pt-10'>

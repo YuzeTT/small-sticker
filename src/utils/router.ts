@@ -1,6 +1,6 @@
 import LuckingCoffee from '/lucking_coffee.svg'
 import Train from '/train.svg'
-import Ticket_ from '/ticket.svg'
+import Ticket_ from '/damai.png'
 import Ticket from '/cinema_logo.png'
 import Mcdonald from '/mcdonald.png'
 import Heytea from '/heytea.png'
@@ -63,10 +63,10 @@ const list = {
       tag: ''
     },
     {
-      name: ['某麦票根', 'Mai Ticket'],
+      name: ['大麦票根', 'DaMai Ticket'],
       logo: Ticket_,
       url: '/ticket',
-      tag: '开发中'
+      tag: '新上线'
     },
   ],
   todo: [

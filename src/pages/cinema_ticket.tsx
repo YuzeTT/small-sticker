@@ -79,7 +79,7 @@ export default function Maoyan() {
           {isLoading?'正在导出请勿切换页面':'导出图片'}
         </Button>:''
       }
-      <div mt-4 p-2>
+      <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
           <div bg='white' className='w-80 shadow-xl relative' ref={ref} style={status===2?{display: 'none'}:{}}>
             <SecureWatermark>

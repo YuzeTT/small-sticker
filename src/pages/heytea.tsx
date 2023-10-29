@@ -81,7 +81,7 @@ export default function Heytea() {
           {isLoading?'正在导出请勿切换页面':'导出图片'}
         </Button>:''
       }
-      <div mt-4 p-2>
+      <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
           <div bg='orange-100' className='w-60 z-0 shadow-xl relative px-6 py-4' ref={ref} style={status===2?{display: 'none'}:{}}>
             <SecureWatermark>

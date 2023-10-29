@@ -113,7 +113,7 @@ export default function Heytea() {
           </div>
         </div>
       </div>
-      <div mt-4 p-2>
+      <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
           <div bg='' className='w-60 z-0 relative p-2' ref={ref} style={status===2?{display: 'none'}:{}}>
             

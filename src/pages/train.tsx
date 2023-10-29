@@ -235,7 +235,7 @@ export default function Train() {
               label: `蓝色`,
               key: '1',
               children: <>
-                <div className="flex items-center justify-center scale-75 md:scale-100">
+                <div className="flex items-center justify-center scale-75 md:scale-100 font-sans">
                   <div className="bg-blue-100 rounded-md overflow-hidden relative min-w-100 relative shadow-xl" ref={ref}>
                     <SecureWatermark>
                       <Watermark content={data.isShowLogo?'':'【收藏票】仅供收藏'} gap={[10,10]}>
@@ -301,7 +301,7 @@ export default function Train() {
               label: `红色`,
               key: '2',
               children: <>
-                <div className="flex items-center justify-center scale-75 md:scale-100">
+                <div className="flex items-center justify-center scale-75 md:scale-100 font-sans">
                   <div className=" rounded-md overflow-hidden relative min-w-100 p-4 shadow-xl" ref={ref}>
                     <SecureWatermark>
                       <Watermark content={data.isShowLogo?'':'【收藏票】仅供收藏'} gap={[10,10]}>
