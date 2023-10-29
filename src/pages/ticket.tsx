@@ -299,7 +299,7 @@ export default function Ticket() {
         <Modal title="获得密钥" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
           <p text-lg>途径一</p>
           <p>直接购买去水印限时套餐</p>
-          <p text-red-500>2.88元一小时 | 5.00元2小时 | 10.00元24小时 | 20.00元三天 | 50元永久！！</p>
+          <p text-red-500>2.88元一小时 | 5.00元2小时 | 10.00元24小时 | 20.00元三天 | 30元永久！！</p>
           <Collapse
             items={[{ key: '1', label: '点击展开加微信', children: <>
               <img src="/wechat_qrcode.jpg" alt="" w-full />
