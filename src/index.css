@@ -20,6 +20,12 @@
   src: local('code'), url('/fonts/Neutra Display Titling.otf') format('truetype');
 }
 
+@font-face {
+  font-family: 'sans';
+  font-style: normal;
+  src: local('sans'), url('/fonts/FangZhengHeiTiJianTi.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   background-color: #FFFFFF;
