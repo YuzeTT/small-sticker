@@ -133,7 +133,7 @@ export default function Ticket() {
       setShowText(false)
       messageApi.open({
         type: 'success',
-        content: '去水印成功，请遵守法律法规哦！',
+        content: `去水印成功，感谢${v.name}的支持！`,
       });
       
     }else{
@@ -293,10 +293,10 @@ export default function Ticket() {
         </Space.Compact>
         <div className=''>
           <Button type="primary" onClick={showModal} className='mt-2'>
-            获得密钥
+            获得密钥（全站通用）
           </Button>
         </div>
-        <Modal title="获得密钥" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Modal title="获得密钥（全站通用）" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
           <p text-lg>途径一</p>
           <p>直接购买去水印限时<b>不限次</b>套餐</p>
           <div grid grid-cols-3 mb-2 gap-2>
