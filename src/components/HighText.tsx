@@ -13,11 +13,11 @@ export default function HighText({text, show, eg}:{text?: string, show: boolean,
             <div>{text}</div>
           </div>
           {eg?
-            <div text='xs gray-500' flex='~ items-center' className='pb-0.5 -mt-0.5'>
+            <div text='xs gray-500' flex='~ items-center' className='pb-0.5 -mt-0.5' onClick={()=>{setQuickInput(eg)}}>
               {/* <div className="i-ri-corner-left-up-line" /> */}
               {/* <div className="i-ri-arrow-up-line" /> */}
               <div className="i-ri-skip-right-line" />
-              <div className='cursor-pointer' onClick={()=>{setQuickInput(eg)}}>{eg}</div>
+              <div className='cursor-pointer' >{eg}</div>
             </div>
             :''
           }

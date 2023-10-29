@@ -67,8 +67,8 @@ export default function Navbar() {
               >
                 
               </motion.div> */}
-              <div className={`i-ri-hand-heart-fill text-orange-500`} />
-              <div className='whitespace-nowrap overflow-hidden text-sm ml-1 text-orange-500'>支持一下</div>
+              <div className={`i-ri-cup-fill text-orange-500`} />
+              <div className='whitespace-nowrap overflow-hidden text-sm ml-1 text-orange-500'>请我喝咖啡</div>
             </a>
           </motion.div>
         </div>

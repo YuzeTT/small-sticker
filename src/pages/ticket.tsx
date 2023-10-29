@@ -100,115 +100,118 @@ export default function Ticket() {
         </>
         :''
       }
-      <div flex='~' space-x-2 mt-2>
-        <div mb-2>
-          <div text='sm zinc-500' mb-1>右侧背景颜色</div>
-          <ColorPicker
-            disabledAlpha
-            showText
-            value={bgColor}
-            onChange={(_,v)=>setBgColor(v)}
-            presets={[
-              {
-                label: '预设',
-                colors: [
-                  '#FFFFFF',
-                  '#FFE4E6',
-                  '#FCE7F3',
-                  '#FAE8FF',
-                  '#F3E8FF',
-                  '#EDE9FE',
-                  '#E0E7FF',
-                  '#DBEAFE',
-                  '#E0F2FE',
-                  '#CFFAFE',
-                  '#CCFBF1',
-                  '#D1FAE5',
-                  '#DCFCE7',
-                  '#ECFCCB',
-                  '#FEF9C3',
-                  '#FEF3C7',
-                  '#FFEDD5',
-                  '#FEE2E2',
-                  '#3F3F46',
-                  '#BE123C',
-                  '#BE185D',
-                  '#A21CAF',
-                  '#7E22CE',
-                  '#6D28D9',
-                  '#4338CA',
-                  '#1D4ED8',
-                  '#0369A1',
-                  '#0E7490',
-                  '#0F766E',
-                  '#047857',
-                  '#15803D',
-                  '#4D7C0F',
-                  '#CA8A04',
-                  '#B45309',
-                  '#C2410C',
-                  '#B91C1C',
-                ],
-              },
-            ]}
-          />
+      <div style={status===2?{display: 'none'}:{}}>
+
+        <div flex='~' space-x-2 mt-2>
+          <div mb-2>
+            <div text='sm zinc-500' mb-1>右侧背景颜色</div>
+            <ColorPicker
+              disabledAlpha
+              showText
+              value={bgColor}
+              onChange={(_,v)=>setBgColor(v)}
+              presets={[
+                {
+                  label: '预设',
+                  colors: [
+                    '#FFFFFF',
+                    '#FFE4E6',
+                    '#FCE7F3',
+                    '#FAE8FF',
+                    '#F3E8FF',
+                    '#EDE9FE',
+                    '#E0E7FF',
+                    '#DBEAFE',
+                    '#E0F2FE',
+                    '#CFFAFE',
+                    '#CCFBF1',
+                    '#D1FAE5',
+                    '#DCFCE7',
+                    '#ECFCCB',
+                    '#FEF9C3',
+                    '#FEF3C7',
+                    '#FFEDD5',
+                    '#FEE2E2',
+                    '#3F3F46',
+                    '#BE123C',
+                    '#BE185D',
+                    '#A21CAF',
+                    '#7E22CE',
+                    '#6D28D9',
+                    '#4338CA',
+                    '#1D4ED8',
+                    '#0369A1',
+                    '#0E7490',
+                    '#0F766E',
+                    '#047857',
+                    '#15803D',
+                    '#4D7C0F',
+                    '#CA8A04',
+                    '#B45309',
+                    '#C2410C',
+                    '#B91C1C',
+                  ],
+                },
+              ]}
+            />
+          </div>
+          <div>
+            <div text='sm zinc-500' mb-1>底部背景颜色</div>
+            <ColorPicker
+              disabledAlpha 
+              showText
+              value={textColor}
+              onChange={(_,v)=>setTextColor(v)}
+              presets={[
+                {
+                  label: '预设',
+                  colors: [
+                    '#FFFFFF',
+                    '#FFE4E6',
+                    '#FCE7F3',
+                    '#FAE8FF',
+                    '#F3E8FF',
+                    '#EDE9FE',
+                    '#E0E7FF',
+                    '#DBEAFE',
+                    '#E0F2FE',
+                    '#CFFAFE',
+                    '#CCFBF1',
+                    '#D1FAE5',
+                    '#DCFCE7',
+                    '#ECFCCB',
+                    '#FEF9C3',
+                    '#FEF3C7',
+                    '#FFEDD5',
+                    '#FEE2E2',
+                    '#3F3F46',
+                    '#BE123C',
+                    '#BE185D',
+                    '#A21CAF',
+                    '#7E22CE',
+                    '#6D28D9',
+                    '#4338CA',
+                    '#1D4ED8',
+                    '#0369A1',
+                    '#0E7490',
+                    '#0F766E',
+                    '#047857',
+                    '#15803D',
+                    '#4D7C0F',
+                    '#CA8A04',
+                    '#B45309',
+                    '#C2410C',
+                    '#B91C1C',
+                  ],
+                },
+              ]}
+            />
+          </div>
         </div>
-        <div>
-          <div text='sm zinc-500' mb-1>底部背景颜色</div>
-          <ColorPicker
-            disabledAlpha 
-            showText
-            value={textColor}
-            onChange={(_,v)=>setTextColor(v)}
-            presets={[
-              {
-                label: '预设',
-                colors: [
-                  '#FFFFFF',
-                  '#FFE4E6',
-                  '#FCE7F3',
-                  '#FAE8FF',
-                  '#F3E8FF',
-                  '#EDE9FE',
-                  '#E0E7FF',
-                  '#DBEAFE',
-                  '#E0F2FE',
-                  '#CFFAFE',
-                  '#CCFBF1',
-                  '#D1FAE5',
-                  '#DCFCE7',
-                  '#ECFCCB',
-                  '#FEF9C3',
-                  '#FEF3C7',
-                  '#FFEDD5',
-                  '#FEE2E2',
-                  '#3F3F46',
-                  '#BE123C',
-                  '#BE185D',
-                  '#A21CAF',
-                  '#7E22CE',
-                  '#6D28D9',
-                  '#4338CA',
-                  '#1D4ED8',
-                  '#0369A1',
-                  '#0E7490',
-                  '#0F766E',
-                  '#047857',
-                  '#15803D',
-                  '#4D7C0F',
-                  '#CA8A04',
-                  '#B45309',
-                  '#C2410C',
-                  '#B91C1C',
-                ],
-              },
-            ]}
-          />
+        <div mt-2 text='sm red-500' className="-mt-1" flex='~ items-center'>
+          {/* <div className="i-ri-lightbulb-line mr-1" /> */}
+          <div className='block lg:hidden'>您的屏幕宽度不足以完整显示内容，已经帮你缩小显示啦，辛苦双指放大填写哦！（不影响导出质量）</div>
         </div>
-      </div>
-      <div mt-2 text='sm red-500' className="-mt-1" flex='~ items-center'>
-        {/* <div className="i-ri-lightbulb-line mr-1" /> */}
-        <div className='block lg:hidden'>您的屏幕宽度不足以完整显示内容，已经帮你缩小显示啦，辛苦双指放大填写哦！（不影响导出质量）</div>
       </div>
       <div mt-2 p-2  style={{fontFamily: 'sans'}}>
         <div className='flex justify-center'>
