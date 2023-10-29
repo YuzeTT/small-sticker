@@ -1,4 +1,4 @@
-import { QRCode, Segmented, message, Button, ColorPicker, Watermark,Space, Input } from "antd";
+import { QRCode, Segmented, message, Button, ColorPicker, Watermark,Space, Input, Modal, Collapse } from "antd";
 // import dayjs from 'dayjs'
 import { useCallback, useRef, useState } from "react";
 import JSEncrypt from 'jsencrypt'
@@ -22,6 +22,19 @@ export default function Ticket() {
   const [bgColor , setBgColor] = useState('#87ACD4')
   const [showText , setShowText] = useState(true)
   const [inputKey , setInputKey] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const decrypt = new JSEncrypt()
   const priKey  = `-----BEGIN RSA PRIVATE KEY-----
@@ -112,7 +125,7 @@ export default function Ticket() {
       });
       return
     }
-    const v = JSON.parse(uncrypted)
+    const v = JSON.parse(uncrypted.toString())
     console.log(v);
     const t = new Date().getTime()
     if(v.time-t >= 0) {
@@ -278,6 +291,24 @@ export default function Ticket() {
           <Input.Password placeholder="请输入密钥以去水印" value={inputKey} onChange={(v)=>{setInputKey(v.target.value)}} />
           <Button type="primary" onClick={()=>{removeText()}}>去水印</Button>
         </Space.Compact>
+        <div className=''>
+          <Button type="primary" onClick={showModal} className='mt-2'>
+            获得密钥
+          </Button>
+        </div>
+        <Modal title="获得密钥" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+          <p text-lg>途径一</p>
+          <p>直接购买去水印限时套餐</p>
+          <p text-red-500>2.88元一小时 | 5.00元2小时 | 10.00元24小时 | 20.00元三天 | 50元永久！！</p>
+          <Collapse
+            items={[{ key: '1', label: '点击展开加微信', children: <>
+              <img src="/wechat_qrcode.jpg" alt="" w-full />
+            </> }]}
+          />
+          <p>之前赞助过的用户可以直接找我兑换哦~</p>
+          <p text-lg>途径二</p>
+          <p>发送推荐文章（平台不限），每获得10个点赞可以获得一日去水印余额</p>
+        </Modal>
         <div mt-2 text='sm red-500' className="-mt-1" flex='~ items-center'>
           {/* <div className="i-ri-lightbulb-line mr-1" /> */}
           <div className='block lg:hidden'>您的屏幕宽度不足以完整显示内容，已经帮你缩小显示啦，辛苦双指放大填写哦！（不影响导出质量）</div>
