@@ -24,8 +24,8 @@ export default function Get_key() {
     const encryptor = new JSEncrypt()  // 创建加密对象实例
     //之前ssl生成的公钥，复制的时候要小心不要有空格
     // const pubKey = ``
-    const pubKey = import.meta.env.PUBKEY
-    console.log(import.meta.env.PUBKEY);
+    const pubKey = import.meta.env.VITE_PUBKEY
+    console.log(import.meta.env.VITE_PUBKEY);
     
     encryptor.setPublicKey(pubKey)//设置公钥
     const rsa_text = encryptor.encrypt(JSON.stringify(data)) 
