@@ -4,7 +4,7 @@ export default function index() {
 
   return (
     <div className='max-w-xl mx-auto mt-4'>
-      <img src="/bei.png" alt="" rounded-xl w-full mb-2 />
+      {/* <img src="/bei.png" alt="" rounded-xl w-full mb-2 /> */}
       <div p-4 bg='white' rounded-xl mb-4>
         <div text='xl zinc-800' font='bold'>公告</div>
         <div text='sm zinc-600' mt-3>BUG反馈/功能建议/摸鱼划水 QQ群: 752693422</div>

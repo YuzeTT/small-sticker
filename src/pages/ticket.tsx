@@ -338,7 +338,7 @@ export default function Ticket() {
           />
           <p>之前赞助过的用户可以直接找我兑换哦~</p>
           <p text-lg>途径二</p>
-          <p>发送推荐文章（平台不限），每获得10个点赞可以获得一日去水印余额</p>
+          <p>关注公众号：大贴纸 回复推广获取详情</p>
         </Modal>
         <div mt-2 text='sm red-500' className="-mt-1" flex='~ items-center'>
           {/* <div className="i-ri-lightbulb-line mr-1" /> */}
