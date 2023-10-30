@@ -6,7 +6,7 @@ import {
 import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
-import { Spin } from 'antd'
+import { Spin, Modal } from 'antd'
 import Footer from './components/Footer'
 import { nanoid } from 'nanoid'
 
@@ -31,6 +31,14 @@ function App() {
     const id = localStorage.getItem("id")
     if (id) {
       console.log('idok');
+      
+      if(id==='NU4Wb3J3Hz'){
+        Modal.warning({
+          title: '关于您违规使用我站工具的警告',
+          content: '我站发现您对使用本站生成的内容进行了涂抹二维码并共享的操作，故我站向您发送告警弹窗，如继续该行为我站将永久封禁您的ID',
+          okText: '我已了解，且同意协议'
+        });
+      }
       
     } else {
       console.log('noid');
