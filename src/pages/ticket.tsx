@@ -315,17 +315,17 @@ export default function Ticket() {
               <div mt-1>来瓶东方树叶</div>
               <div text-lg text-red font-bold>￥5.00</div>
             </div> */}
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2 onClick={()=>{messageApi.open({type:'warning', content:'直接加微信哦~'})}}>
               <div text-2xl font-bold>14天</div>
               <div mt-1>来瓶奶茶</div>
               <div text-lg text-red font-bold>￥12.00</div>
             </div>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2 onClick={()=>{messageApi.open({type:'warning', content:'直接加微信哦~'})}}>
               <div text-2xl font-bold>30天</div>
               <div mt-1>来点下午茶</div>
               <div text-lg text-red font-bold>￥18.00</div>
             </div>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
+            <div text-center bg-zinc-100 rounded-xl py-2 px-2 onClick={()=>{messageApi.open({type:'warning', content:'直接加微信哦~'})}}>
               <div text-2xl font-bold>永久</div>
               <div mt-1>再生父亲套餐</div>
               <div text-lg text-red font-bold>￥50.00</div>
