@@ -24,7 +24,7 @@ export default function index() {
               <div w-14 h-10 text='center'>
                 <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
               </div>
-              {item.tag?<Tag mr-0 color={item.tag==='开发中'? 'magenta':'red'}>{item.tag}</Tag>:''}
+              {item.tag?<Tag className='animate-spin ' mr-0 color={item.tag==='开发中'? 'magenta':'red'}>{item.tag}</Tag>:''}
             </div>
             <div mt-6 text='xl zinc-700'>{item.name[0]}</div>
             <div text='sm zinc-500'>{item.name[1]}</div>

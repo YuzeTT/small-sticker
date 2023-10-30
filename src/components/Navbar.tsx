@@ -37,11 +37,12 @@ export default function Navbar() {
     <div bg='white'>
       <div>
         <div className='h-[64px]' px-4 flex='~ items-center justify-between'>
-          <div  flex-1>
-            <div className="i-ri-menu-fill text-2xl text-gray-500" />
+          <div  flex-1 >
+            <div className="i-ri-menu-fill text-2xl text-gray-500 animate-spin " />
           </div>
           <a flex='~ items-center' href='/' decoration-none text-zinc-900>
-            <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' />
+            <img src='/wsj.png' alt='logo' className='animate-spin w-12 h-12' />
+            {/* <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' /> */}
             {/* <div text='lg' font='bold'>大贴纸</div> */}
           </a>
           {/* {tag?
@@ -52,7 +53,7 @@ export default function Navbar() {
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
           <motion.div className='flex justify-end flex-1'>
-            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button'>
+            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button= animate-spin '>
               {/* <motion.div 
                 initial="collapsed"
                 animate={
@@ -73,7 +74,7 @@ export default function Navbar() {
           </motion.div>
         </div>
       </div>
-      <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center'>
+      <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center' animate-spin >
         <div className={getMsg()[1]} text-lg text-blue-500></div>
         <div pl-2>{getMsg()[0]}</div>
       </div>
