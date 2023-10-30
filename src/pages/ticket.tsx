@@ -68,7 +68,7 @@ export default function Ticket() {
   `
   decrypt.setPrivateKey(priKey)
   
-  const out = useCallback((n: number) => {
+  const out = useCallback((n?: number) => {
     setBeforeOut(false)
     if (ref.current === null) {
       return
@@ -87,7 +87,7 @@ export default function Ticket() {
           messageApi.open({
             key,
             type: 'error',
-            content: '生成失败，请将控制台截图反馈给开发者',
+            content: '生成失败，请尝试不同清晰度',
           });
           setIsLoading(false)
         }else {
@@ -108,7 +108,7 @@ export default function Ticket() {
         messageApi.open({
           key,
           type: 'error',
-          content: '生成失败，请将控制台截图反馈给开发者',
+          content: '生成失败，请尝试不同清晰度',
         });
         setBeforeOut(true)
     }
@@ -163,28 +163,28 @@ export default function Ticket() {
       </div>
       {status===1?
         <>
-          <Button className="w-full mt-4" type="primary" onClick={()=>{out(1)}} flex='~ items-center justify-center' size='large' loading={isLoading}>
+          <Button className="w-full mt-4" type="primary" onClick={()=>{out()}} flex='~ items-center justify-center' size='large' loading={isLoading}>
             <div className="i-ri-dvd-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
-            {isLoading?'正在导出请勿切换页面':'急速导出'}
+            {isLoading?'导出中':'急速导出'}
           </Button>
           <div flex='~ gap-2'>
             <Button className="w-full mt-2" onClick={()=>{out(5)}} flex='~ items-center justify-center' size='large' loading={isLoading}>
               <div className="i-ri-hd-fill text-orange-500" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
-              {isLoading?'正在导出请勿切换页面':'高清（x5）'}
+              {isLoading?'导出中':'高清（x5）'}
             </Button>
             <Button className="w-full mt-2" onClick={()=>{out(10)}} flex='~ items-center justify-center' size='large' loading={isLoading}>
               <div className="i-ri-4k-fill text-red-500" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
-              {isLoading?'正在导出请勿切换页面':'超清（x10）'}
+              {isLoading?'导出中':'超清（x10）'}
             </Button>
           </div>
           <div mt-2 text='sm orange-500' className="-mt-1" flex='~ items-center'>
             <div className="i-ri-lightbulb-line mr-1" />
             <div>导出时预览图会放大以获得更清晰的结果</div>
           </div>
-          <div mt-2 text='sm teal-500' className="-mt-1" flex='~ items-center' style={{display: beforeOut?'none':''}}>
+          {/* <div mt-2 text='sm teal-500' className="-mt-1" flex='~ items-center' style={{display: beforeOut?'none':''}}>
             <div className="i-ri-user-heart-line mr-1" />
             <div>莫慌！只是放大了</div>
-          </div>
+          </div> */}
         </>
         :''
       }
@@ -359,7 +359,7 @@ export default function Ticket() {
         <div className='flex justify-center'>
           
           {/* @unocss-include */}
-          <div bg='white' className={`min-w-220 z-0 shadow-xl relative px-4 py-4 rotate-90= origin-top  ${beforeOut?'scale-40 md:scale-80 lg:scale-100':''}`} ref={ref} style={status===2?{display: 'none'}:{}}>
+          <div bg='white' className={`min-w-220 z-0 shadow-xl relative px-4 py-4 rotate-90= origin-top  ${beforeOut?' scale-40 md:scale-80 lg:scale-100':''}`} ref={ref} style={status===2?{display: 'none'}:{}}>
             <Watermark content={showText?'[纪念票] 仅限个人收藏使用':''}>
               <SecureWatermark>
                 <div flex='~ justify-between'>

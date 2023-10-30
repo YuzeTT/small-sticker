@@ -7,12 +7,12 @@ export default async function showImage(
   targetElement: HTMLElement,
   type: "JPEG" | "PNG",
   hasImages = false,
-  pixel: number = 1
+  pixel: number|undefined = undefined
 ) {
   const canvas =
     hasImages && isSafariOrIos()
       ? await convertHtmlToCanvas(targetElement, 10, 150, pixel) // safari loves pain
-      : await convertHtmlToCanvas(targetElement, 0, 1, pixel);
+      : await convertHtmlToCanvas(targetElement, undefined, undefined, pixel);
 
   switch (type) {
     case "PNG":
