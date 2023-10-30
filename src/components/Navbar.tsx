@@ -34,7 +34,7 @@ export default function Navbar() {
   // const location = useLocation()
   // const tag = list.done.find((e)=> e.url === location.pathname)
   return (
-    <div bg='white'>
+    <div bg='white' overflow-hidden>
       <div>
         <div className='h-[64px]' px-4 flex='~ items-center justify-between'>
           <div  flex-1 >
