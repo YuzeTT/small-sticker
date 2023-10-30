@@ -68,7 +68,7 @@ export default function Ticket() {
   `
   decrypt.setPrivateKey(priKey)
   
-  const out = useCallback(() => {
+  const out = useCallback((n: number) => {
     setBeforeOut(false)
     if (ref.current === null) {
       return
@@ -82,7 +82,7 @@ export default function Ticket() {
     });
 
     try {
-      showImage(ref.current,"PNG", true).then((imageData)=>{
+      showImage(ref.current,"PNG", true, n).then((imageData)=>{
         if(imageData === 'data:,') {
           messageApi.open({
             key,
@@ -163,10 +163,20 @@ export default function Ticket() {
       </div>
       {status===1?
         <>
-          <Button className="w-full mt-4" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
-            <div className="i-ri-camera-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
-            {isLoading?'正在导出请勿切换页面':'导出图片'}
+          <Button className="w-full mt-4" type="primary" onClick={()=>{out(1)}} flex='~ items-center justify-center' size='large' loading={isLoading}>
+            <div className="i-ri-dvd-fill" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
+            {isLoading?'正在导出请勿切换页面':'急速导出'}
           </Button>
+          <div flex='~ gap-2'>
+            <Button className="w-full mt-2" onClick={()=>{out(5)}} flex='~ items-center justify-center' size='large' loading={isLoading}>
+              <div className="i-ri-hd-fill text-orange-500" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
+              {isLoading?'正在导出请勿切换页面':'高清（x5）'}
+            </Button>
+            <Button className="w-full mt-2" onClick={()=>{out(10)}} flex='~ items-center justify-center' size='large' loading={isLoading}>
+              <div className="i-ri-4k-fill text-red-500" mr-1 text='lg' style={{display: isLoading? 'none':'block'}} />
+              {isLoading?'正在导出请勿切换页面':'超清（x10）'}
+            </Button>
+          </div>
           <div mt-2 text='sm orange-500' className="-mt-1" flex='~ items-center'>
             <div className="i-ri-lightbulb-line mr-1" />
             <div>导出时预览图会放大以获得更清晰的结果</div>
@@ -376,7 +386,7 @@ export default function Ticket() {
                         <div text='2xl' mb-1 font='bold'>
                           <HighText show={highLight} text='区域' eg='一层' />
                         </div>
-                        <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={130} color='black' />
+                        <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={130} color='black' type={'svg'} />
                         <div text='xl' font='bold' mt-2>
                           <HighText show={highLight} text='提示文字1' eg='内场严禁' />
                         </div>

@@ -9,11 +9,12 @@ export default async function downloadHtmlAsImage(
   type: "JPEG" | "PNG",
   fileName: string,
   hasImages = false,
+  pixel: number = 1
 ) {
   const canvas =
     hasImages && isSafariOrIos()
-      ? await convertHtmlToCanvas(targetElement, 10, 150) // safari loves pain
-      : await convertHtmlToCanvas(targetElement);
+      ? await convertHtmlToCanvas(targetElement, 10, 150, pixel) // safari loves pain
+      : await convertHtmlToCanvas(targetElement, 0, 1, pixel);
 
   switch (type) {
     case "PNG":
