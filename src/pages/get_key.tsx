@@ -13,7 +13,6 @@ export default function Get_key() {
     name: name
   })
   const refresh = () => {
-    console.log('刷新');
     setData({
       time: t+parseInt(d)*1000*60*60*24+parseInt(h)*1000*60*60,
       name: name
@@ -21,17 +20,12 @@ export default function Get_key() {
     
   }
   const key = () => {
-    const encryptor = new JSEncrypt()  // 创建加密对象实例
-    //之前ssl生成的公钥，复制的时候要小心不要有空格
-    // const pubKey = ``
+    const encryptor = new JSEncrypt()
     const pubKey = import.meta.env.VITE_PUBKEY
-    console.log(import.meta.env.VITE_PUBKEY);
     
-    encryptor.setPublicKey(pubKey)//设置公钥
+    encryptor.setPublicKey(pubKey)
     const rsa_text = encryptor.encrypt(JSON.stringify(data)) 
-    console.log(rsa_text);
-    setRsa(rsa_text||'失败')
-    
+    setRsa(rsa_text||'Error')
   }
   return (
     <div>
@@ -45,7 +39,6 @@ export default function Get_key() {
           <input type="number" value={h} onChange={(v)=>{setH(v.target.value)}} /> hour(s)
         </div>
       </div>
-      {/* <div className='mt-4'>total: </div> */}
       <table mt-2>
         <tbody>
           <tr>
