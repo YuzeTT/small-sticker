@@ -29,7 +29,7 @@ export default function Footer() {
         <div text='sm' op10 mx-2>|</div>
         <a href='https://github.com/YuzeTT/small-sticker' className='decoration-none text-blue-500 op50 hover:op100 transition'>Github</a>
       </div>
-      <div  text='sm' mt-2>友情链接：<a href='https://target.elfmc.com/' className='decoration-none text-blue-500 op50 hover:op100 transition'>POMOTIMER</a></div>
+      <div text='sm' op-50 mt-2 text-center>友情链接：<a href='https://target.elfmc.com/' className='decoration-none text-blue-500 op50 hover:op100 transition'>POMOTIMER</a></div>
     </div>
   )
 }
