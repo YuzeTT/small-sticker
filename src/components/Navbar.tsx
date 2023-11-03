@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 
 export default function Navbar() {
   // const h = 10
+  const hostname = window.location.hostname
   const h = new Date().getHours()
 
   // @unocss-include
@@ -38,10 +39,14 @@ export default function Navbar() {
       <div>
         <div className='h-[64px]' px-4 flex='~ items-center justify-between'>
           <div  flex-1 >
-            <div className="i-ri-menu-fill text-2xl text-gray-500" />
+            {/* <div className="i-ri-menu-fill text-2xl text-gray-500" /> */}
+            {hostname === 'star.uztt.top'?
+              <span className='px-2 py-1 bg-green-200 text-green-700 rounded-md text-sm font-500'>{'St'+'able'}</span>:
+              <span className='px-2 py-1 bg-orange-200 text-orange-700 rounded-md text-sm font-500'>Beta</span>
+            }
           </div>
           <a flex='~ items-center' href='/' decoration-none text-zinc-900>
-            <img src='/wsj.png' alt='logo' className='w-12 h-12' />
+            <img src='/wsj.png' alt='logo' className='w-8 h-8' />
             {/* <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' /> */}
             {/* <div text='lg' font='bold'>大贴纸</div> */}
           </a>
