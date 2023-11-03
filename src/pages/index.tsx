@@ -1,4 +1,4 @@
-import { Tag, Modal } from 'antd'
+import { Modal } from 'antd'
 import list from '../utils/router'
 import FollowMe from '../components/FollowMe';
 
@@ -46,15 +46,22 @@ export default function index() {
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
         {list.done.map((item, key)=>(
-          <div p-4 bg-white hover:bg-zinc-50 cursor-pointer rounded-xl decoration-none key={key} onClick={()=>{jumpBefore(item.url)}}>
-            <div flex='~ items-start justify-between'>
-              <div w-14 h-10 text='center'>
-                <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
+          <div p-4 bg-white  hover:bg-zinc-50 cursor-pointer rounded-xl decoration-none relative overflow-hidden className='z-0' key={key} onClick={()=>{jumpBefore(item.url)}}>
+            <div className='z-20'>
+              <div flex='~ items-start justify-between'>
+                <div className='w-25 h-10 bg-contain bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
+                {item.tag?
+                  <div className='px-1 py-0.5 text-sm rounded' style={{backgroundColor: item.tag_color[0], color: item.tag_color[1]}}>{item.tag}</div>
+                  :''
+                }
               </div>
-              {item.tag?<Tag mr-0 color={item.tag==='开发中'? 'magenta':'red'}>{item.tag}</Tag>:''}
+              <div mt-4 text='xl zinc-700'>{item.name[0]}</div>
+              <div text='xs zinc-500'>{item.name[1]}</div>
             </div>
-            <div mt-6 text='xl zinc-700'>{item.name[0]}</div>
-            <div text='sm zinc-500'>{item.name[1]}</div>
+            {item.tag==='热门'?
+              <div className='absolute top-0 right-0 z-0 w-full h-full bg-no-repeat bg-right-top' style={{backgroundImage: 'url(/card_bg_red.svg)'}}></div>
+              :''
+            }
           </div>
         ))}
       </div>
