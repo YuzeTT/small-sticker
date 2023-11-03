@@ -14,7 +14,7 @@ const list = {
     {
       name: ['古茗', 'GOOD ME'],
       logo: '/goodme.webp',
-      url: '/fpld',
+      url: '/goodme',
       tag: '测试',
       tag_color: warn
     },
