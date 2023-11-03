@@ -7,30 +7,30 @@ import { motion } from "framer-motion"
 
 export default function Navbar() {
   // const h = 10
-  const hostname = window.location.hostname
-  const h = new Date().getHours()
+  // const hostname = window.location.hostname
+  // const h = new Date().getHours()
 
   // @unocss-include
-  const time_list = [
-    ['夜已深，注意休息哦！', 'i-ri-moon-cloudy-fill'], // 0,1,2
-    ['晚安全世界，快去睡觉吧！', 'i-ri-sparkling-2-fill'], // 3,4,5
-    ['早安呀！', 'i-ri-sun-foggy-fill'], // 6,7,8
-    ['早生蚝！', 'i-ri-sun-cloudy-fill'], // 9,10,11
-    ['中午咯~打个盹？', 'i-ri-sun-fill'], // 12,13,14
-    ['下午好，继续加油哇！', 'i-ri-game-fill'], // 15,16,17
-    ['吃了嘛！！', 'i-ri-restaurant-fill'], // 18,19,20
-    ['累了一天吧，该睡觉咯~', 'i-ri-moon-foggy-fill'], // 21,22,23
-  ]
+  // const time_list = [
+  //   ['夜已深，注意休息哦！', 'i-ri-moon-cloudy-fill'], // 0,1,2
+  //   ['晚安全世界，快去睡觉吧！', 'i-ri-sparkling-2-fill'], // 3,4,5
+  //   ['早安呀！', 'i-ri-sun-foggy-fill'], // 6,7,8
+  //   ['早生蚝！', 'i-ri-sun-cloudy-fill'], // 9,10,11
+  //   ['中午咯~打个盹？', 'i-ri-sun-fill'], // 12,13,14
+  //   ['下午好，继续加油哇！', 'i-ri-game-fill'], // 15,16,17
+  //   ['吃了嘛！！', 'i-ri-restaurant-fill'], // 18,19,20
+  //   ['累了一天吧，该睡觉咯~', 'i-ri-moon-foggy-fill'], // 21,22,23
+  // ]
 
   // 获取问好消息
-  const getMsg = () => {
-    switch (h) {
-      case 15:
-        return ['三点几嘞，做做做撚啊做！', 'i-ri-beer-fill']
-      default:
-        return time_list[Math.floor(h / 3)]
-    }
-  }
+  // const getMsg = () => {
+  //   switch (h) {
+  //     case 15:
+  //       return ['三点几嘞，做做做撚啊做！', 'i-ri-beer-fill']
+  //     default:
+  //       return time_list[Math.floor(h / 3)]
+  //   }
+  // }
   // const [showText , setShowText] = useState(false)
   // const location = useLocation()
   // const tag = list.done.find((e)=> e.url === location.pathname)
@@ -38,15 +38,16 @@ export default function Navbar() {
     <div bg='white' overflow-hidden>
       <div>
         <div className='h-[64px]' px-4 flex='~ items-center justify-between'>
-          <div  flex-1 >
             {/* <div className="i-ri-menu-fill text-2xl text-gray-500" /> */}
+          {/* <div  flex-1 >
             {hostname === 'star.uztt.top'?
               <span className='px-2 py-1 bg-green-200 text-green-700 rounded-md text-sm font-500'>{'St'+'able'}</span>:
               <span className='px-2 py-1 bg-orange-200 text-orange-700 rounded-md text-sm font-500'>Beta</span>
             }
-          </div>
+          </div> */}
           <a flex='~ items-center' href='/' decoration-none text-zinc-900>
             <img src='/wsj.png' alt='logo' className='w-8 h-8' />
+            <span className="text-lg font-bold ml-2">大贴纸</span>
             {/* <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' /> */}
             {/* <div text='lg' font='bold'>大贴纸</div> */}
           </a>
@@ -79,10 +80,10 @@ export default function Navbar() {
           </motion.div>
         </div>
       </div>
-      <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center' >
+      {/* <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center' >
         <div className={getMsg()[1]} text-lg text-blue-500></div>
         <div pl-2>{getMsg()[0]}</div>
-      </div>
+      </div> */}
       {/* <Alert message="本站仅供娱乐，所造成的一切后果与本站无关" banner /> */}
     </div>
   )
