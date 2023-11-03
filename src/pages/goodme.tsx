@@ -64,7 +64,6 @@ export default function Heytea() {
     <div>
       {contextHolder}
       <InputGuide />
-      {/* <Alert message="此项目疑似被“特别关注”或将出现法律风险，故临时下线电影票功能维护，将去除所有第三方信息，只保留纪念功能。感谢您的支持！" type="error" showIcon closable /> */}
       <div>
         <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
           setStatus(parseInt(`${v}`))
@@ -95,7 +94,7 @@ export default function Heytea() {
                 </div>
               </div>
               <div>
-                <div className='text-xs bg-black text-white px-2 py-0.5 rounded-full font-bold'>
+                <div className='text-xs bg-black text-white px-2 py-0.5 rounded-full font-bold' style={{height: highLight?'1.3rem':'auto'}}>
                   <HighText show={highLight} text='取餐方式' eg='YuzeTT自取' />
                 </div>
               </div>
@@ -124,56 +123,6 @@ export default function Heytea() {
                 <HighText show={highLight} text='slogan' eg='@我最好的朋友喝奶茶' />
               </div>
             </div>
-            {/* <img src="/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80 />
-            <div flex='~ items-center'>
-              <div text='xs'>
-                <img src="/heytea_tag.svg" alt="tag" h-4 absolute className='-z-10' />
-                <div px-1 className='z-10'>
-                  <HighText show={highLight} text='等级' eg='进阶贵宾' />
-                </div>
-              </div>
-              <div text='sm' ml-1>Hey, <HighText show={highLight} text='昵称' eg='YuzeTT' /></div>
-            </div>
-            <div style={{ fontFamily: 'code' }} mt-1 text='4xl'>
-              <HighText show={highLight} text='取餐码' eg='7302' />
-            </div>
-            <div text='2xl' font='bold' className='-mt-1'>
-              <HighText show={highLight} text='产品名称' eg='月观' />
-            </div>
-            <div text='sm' className='mt-1'>
-              <HighText show={highLight} text='产品配置' eg='少冰' />
-            </div>
-            <div flex='~ justify-between'>
-              <div flex='~'>
-                <div text='sm' font='bold' className='mt-6'>
-                  <HighText show={highLight} text='产品介绍' eg='风味基因' />
-                </div>
-                <div text='sm' className='mt-6 ml-2'>
-                  <HighText show={highLight} text='产品介绍' eg='清爽茗茶' />
-                </div>
-              </div>
-              <div text='sm' className='mt-6 text-right'>
-                <HighText show={highLight} text='小标签' eg='真牛乳' />
-              </div>
-            </div>
-            <div text='xs white center' font='bold' mt-2 bg-black tracking-widest>有问题找阿喜，出品不满为你重做</div>
-            <div mt-1 flex='~ justify-between'>
-              <div>
-                <div font='bold'>
-                  <HighText show={highLight} text='取餐+数量' eg='自取 1/1' />
-                </div>
-                <div text='xs'>
-                  <HighText show={highLight} text='日期时间' eg={dayjs().format('YYYY-MM-DD HH:mm:ss')} />
-                </div>
-                <div text='xs'>
-                  <HighText show={highLight} text='店铺名称' eg='南平xxx店' />
-                </div>
-                <div text='xs'>
-                  <HighText show={highLight} text='店铺号码' eg='0599-00000000' />
-                </div>
-              </div>
-              <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' />
-            </div> */}
           </div>
         </div>
         {status === 2 ?
