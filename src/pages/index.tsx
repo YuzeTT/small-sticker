@@ -51,7 +51,7 @@ export default function index() {
               <div flex='~ items-start justify-between'>
                 <div className='w-25 h-10 bg-contain bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
                 {item.tag?
-                  <div className='px-1 py-0.5 text-sm rounded' style={{backgroundColor: item.tag_color[0], color: item.tag_color[1]}}>{item.tag}</div>
+                  <div className='px-1 py-0.5 text-xs rounded' style={{backgroundColor: item.tag_color[0], color: item.tag_color[1]}}>{item.tag}</div>
                   :''
                 }
               </div>

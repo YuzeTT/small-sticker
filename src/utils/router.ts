@@ -7,7 +7,7 @@ import Heytea from '/heytea.png'
 import Chagee from '/chagee.png'
 
 const hot = ['#FEE2E2','#DC2626']
-const warn = ['#FEF3C7','#D97706']
+// const warn = ['#FEF3C7','#D97706']
 
 const list = {
   done: [
@@ -15,8 +15,8 @@ const list = {
       name: ['古茗', 'GOOD ME'],
       logo: '/goodme.webp',
       url: '/goodme',
-      tag: '测试',
-      tag_color: warn
+      tag: '新上线',
+      tag_color: hot
     },
     {
       name: ['仿拍立得', 'I can\'t translate it'],
