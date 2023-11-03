@@ -9,6 +9,12 @@ import Chagee from '/chagee.png'
 const list = {
   done: [
     {
+      name: ['仿拍立得', 'I can\'t translate it'],
+      logo: '/fpld.webp',
+      url: '/fpld',
+      tag: '免费'
+    },
+    {
       name: ['大麦票根', 'DaMai Ticket'],
       logo: Ticket_,
       url: '/ticket',

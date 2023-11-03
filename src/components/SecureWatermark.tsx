@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 
-export default function SecureWatermark({children}:{children: ReactNode}) {
+export default function SecureWatermark({children}:{children?: ReactNode}) {
   const [userId, setUserId] = useState('')
   const [userId2, setUserId2] = useState('')
   useEffect(()=>{
@@ -16,11 +16,11 @@ export default function SecureWatermark({children}:{children: ReactNode}) {
   }, [userId])
 
   return (
-    <div>
-      <div text='.6rem' className='absolute right-0 op5 top-0 z-30'>{userId2}</div>
-      <div text='.6rem' className='absolute right-0 op5 bottom-0 z-30'>{userId2}</div>
-      <div text='.6rem' className='absolute left-0 op5 top-0 z-30'>{userId2}</div>
-      <div text='.6rem' className='absolute left-0 op5 bottom-0 z-30'>{userId2}</div>
+    <div className='absolute w-full h-full top-0 left-0 pointer-events-none'>
+      <div text='.6rem' className='absolute right-0 op2 top-0 z-30'>{userId2}</div>
+      <div text='.6rem' className='absolute right-0 op2 bottom-0 z-30'>{userId2}</div>
+      <div text='.6rem' className='absolute left-0 op2 top-0 z-30'>{userId2}</div>
+      <div text='.6rem' className='absolute left-0 op2 bottom-0 z-30'>{userId2}</div>
       {children}
     </div>
   )
