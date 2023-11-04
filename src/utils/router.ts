@@ -7,10 +7,17 @@ import Heytea from '/heytea.png'
 import Chagee from '/chagee.png'
 
 const hot = ['#FEE2E2','#DC2626']
-// const warn = ['#FEF3C7','#D97706']
+const warn = ['#FEF3C7','#D97706']
 
 const list = {
   done: [
+    {
+      name: ['茶百道', 'ChaPanda'],
+      logo: '/chapanda.webp',
+      url: '/chapanda',
+      tag: '测试',
+      tag_color: warn
+    },
     {
       name: ['古茗', 'GOOD ME'],
       logo: '/goodme.webp',
