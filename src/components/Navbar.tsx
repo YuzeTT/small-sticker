@@ -35,7 +35,7 @@ export default function Navbar() {
   // const location = useLocation()
   // const tag = list.done.find((e)=> e.url === location.pathname)
   return (
-    <div bg='white' overflow-hidden>
+    <div bg='white' overflow-hidden style={{borderBottom :'1px solid #EFEFEF'}}>
       <div>
         <div className='h-[64px]' px-4 flex='~ items-center justify-between'>
             {/* <div className="i-ri-menu-fill text-2xl text-gray-500" /> */}
@@ -58,7 +58,10 @@ export default function Navbar() {
             </div>:''
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
-          <motion.div className='flex justify-end flex-1'>
+          <motion.div className='flex justify-end flex-1 items-center space-x-2'>
+            <a href="https://github.com/YuzeTT/small-sticker" className='decoration-none text-#1F2328'>
+              <div className='i-ri-github-fill text-2xl'></div>
+            </a>
             <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button= '>
               {/* <motion.div 
                 initial="collapsed"

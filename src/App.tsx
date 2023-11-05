@@ -51,7 +51,7 @@ function App() {
     <>
       <Router>
         <Navbar></Navbar>
-        <div bg='#EFEFEF'>
+        <div bg='white'>
           <div px-4 py-4 max-w-xl mx-auto>
             <RouterRender/>
           </div>

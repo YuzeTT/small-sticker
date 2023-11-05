@@ -28,6 +28,7 @@
 
 body {
   margin: 0;
+  /* background-color: #EFEFEF; */
   background-color: #FFFFFF;
 }
 
@@ -60,4 +61,8 @@ body {
     transform: scale(1) rotate(0deg);
     box-shadow: none;
   }
+}
+
+a {
+  text-decoration: none;
 }
