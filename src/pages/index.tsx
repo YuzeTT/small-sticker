@@ -74,7 +74,7 @@ export default function index() {
             </div>
           </a>
           <a href='https://www.xiaohongshu.com/user/profile/5dbc28ee00000000010047ef' className='text-zinc-800 bg-gradient-to-r from-white to-[#FF274110] rounded-xl p-4 flex items-center' style={{border: '1px solid #F4F4F5'}}>
-            <img src="/red.svg" alt="red" className='w-6 h-6 mr-2' />
+            <img src="/red.svg" alt="red" className='w-6 h-6 mr-4' />
             <div>
               <div className='font-bold mt-0.5 text-lg'>小红书</div>
             </div>
