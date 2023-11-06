@@ -85,7 +85,7 @@ export default function Heytea() {
         <div className='flex justify-center'>
           <div bg='orange-100' className='w-60 z-0 shadow-xl relative px-6 py-4' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <SecureWatermark />
-            <img src="/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80 />
+            <img src="/images/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80 />
             <div flex='~ items-center'>
               {/* <div text='xs' px-1 style={{border: '1px solid'}}></div> */}
               <div text='xs'>

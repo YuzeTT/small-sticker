@@ -128,7 +128,7 @@ export default function Heytea() {
               <div className='font-bold text-lime text-[0.95rem]'>
                 <HighText show={highLight} text='slogan' eg='好茶为底，制造新鲜。' inputed />
               </div>
-              <img src="/chapanda.webp" alt="chapanda" className='w-10 h-10' />
+              <img src="/images/chapanda.webp" alt="chapanda" className='w-10 h-10' />
             </div>
           </div>
         </div>

@@ -344,7 +344,7 @@ export default function Ticket() {
           <Collapse
             items={[{
               key: '1', label: '点击展开加微信', children: <>
-                <img src="/wechat_qrcode.jpg" alt="" w-full />
+                <img src="/images/wechat_qrcode.jpg" alt="" w-full />
               </>
             }]}
           />
@@ -377,7 +377,7 @@ export default function Ticket() {
                   <div flex='~ items-center'>
                     {/* <div w-22 h-12 bg='gray-200' mr-4></div> */}
                     <HiddenLogo>
-                      <img src="/damai.png" alt="" h-12 />
+                      <img src="/images/damai.png" alt="" h-12 />
                     </HiddenLogo>
                     <div text='xl' font='bold' ml-4>
                       <HighText show={highLight} text='名称' eg='2023张杰未·LIVE- [耀·北斗] 巡回演唱会-北京站' />

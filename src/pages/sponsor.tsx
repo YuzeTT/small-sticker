@@ -7,15 +7,15 @@ const items: TabsProps['items'] = [
     key: '1',
     label: '微信',
     children: <>
-      <img src="/wechat.JPG" alt="" w-full />
+      <img src="/images/wechat.JPG" alt="" w-full />
     </>,
   },
   {
     key: '2',
     label: '支付宝',
     children: <div className='grid grid-cols-2'>
-      <img src="/redpack.PNG" alt="" w-full />
-      <img src="/alipay.PNG" alt="" w-full />
+      <img src="/images/redpack.PNG" alt="" w-full />
+      <img src="/images/alipay.PNG" alt="" w-full />
     </div>,
   },
 ];

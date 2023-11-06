@@ -46,7 +46,7 @@ export default function Navbar() {
             }
           </div> */}
           <a flex='~ items-center' href='/' decoration-none text-zinc-900>
-            <img src='/wsj.png' alt='logo' className='w-8 h-8' />
+            <img src='/images/wsj.png' alt='logo' className='w-8 h-8' />
             <span className="text-lg font-bold ml-2">大贴纸</span>
             {/* <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' /> */}
             {/* <div text='lg' font='bold'>大贴纸</div> */}

@@ -313,7 +313,7 @@ export default function Mcdonald() {
           <div className='bg-white rounded-md w-90 shadow-xl pb-6 relative' ref={ref}>
             <SecureWatermark />
             <div className='w-full text-center mb-4 pt-10'>
-              {data.isShowLogo ? <img src='/mcdonald.png' alt='' className='w-50' /> : ''}
+              {data.isShowLogo ? <img src='/images/mcdonald.png' alt='' className='w-50' /> : ''}
             </div>
             <div className='px-8'>
               <div text='center'>

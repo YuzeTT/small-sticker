@@ -86,7 +86,7 @@ export default function Heytea() {
           <div bg='white' className='w-55 z-0 shadow-xl relative px-2 py-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <SecureWatermark />
             <div flex='~ justify-between'>
-              <img src="/mxbc_logo.png" alt="logo" h-7 />
+              <img src="/images/mxbc_logo.png" alt="logo" h-7 />
               <div>
                 <HighText show={highLight} text='数量' eg='01/01' />
               </div>

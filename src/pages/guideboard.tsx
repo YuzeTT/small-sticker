@@ -146,7 +146,7 @@ export default function Heytea() {
                 </div>
               </div>
               <div text-center style={{ display: showGan ? 'block' : 'none' }}>
-                <img src="/guideboard_gan.png" alt="杆子" className='w-20 -mt-[1px]' />
+                <img src="/images/guideboard_gan.png" alt="杆子" className='w-20 -mt-[1px]' />
               </div>
             </div>
           </div>

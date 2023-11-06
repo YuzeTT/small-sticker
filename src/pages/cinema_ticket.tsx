@@ -86,7 +86,7 @@ export default function Maoyan() {
             <div pl-4 flex='~ justify-between'>
               {/* left */}
               <div className="w-[75%]">
-                <img src="/cinema_red.png" alt="logo" h-7 pt-3 pb-1 />
+                <img src="/images/cinema_red.png" alt="logo" h-7 pt-3 pb-1 />
                 <div text='sm'><HighText show={highLight} text='影院名称' eg='万达国际影城（福州台江店）' /></div>
                 <div text='sm'>
                   <HighText show={highLight} text='电影名称' eg='深海(3D)' />
@@ -162,7 +162,7 @@ export default function Maoyan() {
             </div>
             <div px-4 py-2 bg='#EF0F38' mt-4 flex='~ items-center justify-between'>
               <div text='white xs'>观此电影 特此纪念</div>
-              <img src="/cinema_white.png" alt="logo" h-4 />
+              <img src="/images/cinema_white.png" alt="logo" h-4 />
             </div>
           </div>
         </div>

@@ -227,7 +227,7 @@ export default function LuckinCoffee() {
         <div className="flex items-center justify-center font-sans">
           <div className="bg-[#A8D3FD] rounded-md relative w-80 " ref={ref}>
             <SecureWatermark />
-            {data.isShowLogo ? <img src="/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" /> : ''}
+            {data.isShowLogo ? <img src="/images/lucking_coffee_dark.svg" alt="" className="absolute w-8 right-4 top-5" /> : ''}
             <div className="px-3 text-xl">Hi，{data.name || '未填写'} {data.sex}</div>
             <div className="flex items-center px-3 pt-2">
               <div className="font-bold text-4xl">{data.code || '000'}</div>

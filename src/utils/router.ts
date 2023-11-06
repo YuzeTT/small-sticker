@@ -1,33 +1,40 @@
-import LuckingCoffee from '/lucking_coffee.svg'
-import Train from '/train.svg'
-import Ticket_ from '/damai.png'
-import Ticket from '/cinema_logo.png'
-import Mcdonald from '/mcdonald.png'
-import Heytea from '/heytea.png'
-import Chagee from '/chagee.png'
+import LuckingCoffee from '/images/lucking_coffee.svg'
+import Train from '/images/train.svg'
+import Ticket_ from '/images/damai.png'
+import Ticket from '/images/cinema_logo.png'
+import Mcdonald from '/images/mcdonald.png'
+import Heytea from '/images/heytea.png'
+import Chagee from '/images/chagee.png'
 
 const hot = ['#FEE2E2','#DC2626']
-// const warn = ['#FEF3C7','#D97706']
+const warn = ['#FEF3C7','#D97706']
 
 const list = {
   done: [
     {
+      name: ['库迪咖啡', 'COTTI COFFEE'],
+      logo: '/images/cotti.png',
+      url: '/cotti',
+      tag: '测试',
+      tag_color: warn
+    },
+    {
       name: ['茶百道', 'ChaPanda'],
-      logo: '/chapanda.webp',
+      logo: '/images/chapanda.webp',
       url: '/chapanda',
       tag: '新上线',
       tag_color: hot
     },
     {
       name: ['古茗', 'GOOD ME'],
-      logo: '/goodme.webp',
+      logo: '/images/goodme.webp',
       url: '/goodme',
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['仿拍立得', 'I can\'t translate it'],
-      logo: '/fpld.webp',
+      logo: '/images/fpld.webp',
       url: '/fpld',
       tag: '热门',
       tag_color: hot
@@ -55,21 +62,21 @@ const list = {
     },
     {
       name: ['照片打卡', 'Photo'],
-      logo: '/photo.png',
+      logo: '/images/photo.png',
       url: '/photo',
       tag: '',
       tag_color: ['','']
     },
     {
       name: ['路牌', 'Guideboard'],
-      logo: '/guideboard.png',
+      logo: '/images/guideboard.png',
       url: '/guideboard',
       tag: '',
       tag_color: ['','']
     },
     {
       name: ['蜜雪冰城', 'MXBC'],
-      logo: '/mxbc.png',
+      logo: '/images/mxbc.png',
       url: '/mxbc',
       tag: '',
       tag_color: ['','']
@@ -106,19 +113,19 @@ const list = {
   todo: [
     {
       name: ['茶颜悦色', 'Sexy tea'],
-      logo: '/sexytea.png',
+      logo: '/images/sexytea.png',
     },
     {
       name: ['星巴克', 'Starbucks'],
-      logo: '/starbucks.png',
+      logo: '/images/starbucks.png',
     },
     {
       name: ['一点点', 'alittle tea'],
-      logo: '/alittle-tea.png',
+      logo: '/images/alittle-tea.png',
     },
     {
-      name: ['库迪咖啡', 'COTTI COFFEE'],
-      logo: '/cotti.png',
+      name: ['CoCo都可', 'CoCo'],
+      logo: '/images/coco.jpg',
     },
   ]
 }

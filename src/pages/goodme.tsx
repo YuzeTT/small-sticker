@@ -118,7 +118,7 @@ export default function Heytea() {
               <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={80} color='black' />
             </div>
             <div className='mt-2 flex justify-between items-center'>
-              <img src="/goodme-2.webp" alt="goodme" className='w-15' />
+              <img src="/images/goodme-2.webp" alt="goodme" className='w-15' />
               <div className='font-bold'>
                 <HighText show={highLight} text='slogan' eg='@我最好的朋友喝奶茶' />
               </div>
