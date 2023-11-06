@@ -74,7 +74,7 @@ export default function index() {
             </div>
           </a>
           <a href='https://www.xiaohongshu.com/user/profile/5dbc28ee00000000010047ef' className='text-zinc-800 bg-gradient-to-r from-white to-[#FF274110] rounded-xl p-4 flex items-center' style={{border: '1px solid #F4F4F5'}}>
-            <img src="/red.svg" alt="red" className='w-6 h-6 mr-4' />
+            <img src="/images/red.svg" alt="red" className='w-6 h-6 mr-4' />
             <div>
               <div className='font-bold mt-0.5 text-lg'>小红书</div>
             </div>
@@ -103,7 +103,7 @@ export default function index() {
               <div text='xs zinc-500'>{item.name[1]}</div>
             </div>
             {item.tag==='热门'?
-              <div className='absolute top-0 right-0 z-0 w-full h-full bg-no-repeat bg-right-top' style={{backgroundImage: 'url(/card_bg_red.svg)'}}></div>
+              <div className='absolute top-0 right-0 z-0 w-full h-full bg-no-repeat bg-right-top' style={{backgroundImage: 'url(/images/card_bg_red.svg)'}}></div>
               :''
             }
           </div>
