@@ -305,11 +305,11 @@ export default function Fpld() {
             </Upload>
           </div>
           <div className='flex-1 ml-2'>
-            <div text='sm zinc-500' mb-3>调整高度</div>
+            <div text='sm zinc-500' mb-3>签名高度</div>
             <Slider  defaultValue={30} value={bottomPixel} onChange={(v)=>{setBottomPixel(v)}} />
           </div>
         </div>
-        <div text='sm zinc-500' mb-1 mt-2>叠加模式</div>
+        <div text='sm zinc-500' mb-1 mt-2>签名叠加模式</div>
         <Segmented block={true} options={[
           {value: 'normal', label: '正常 · 透明'},
           {value: 'multiply', label: '正片叠底 · 白底'},
