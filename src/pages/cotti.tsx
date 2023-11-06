@@ -91,7 +91,7 @@ export default function Heytea() {
               <img src="/images/cotti-2.webp" alt="cotti" className='w-35 h-auto -mr-1' />
             </div>
             <div className='flex items-end'>
-              <div className='text-2xl font-bold mr-4'>
+              <div className='text-3xl font-bold mr-3'>
                 <HighText show={highLight} text='取餐妈' eg='*E6' />
               </div>
               <div className='mb-1'>
