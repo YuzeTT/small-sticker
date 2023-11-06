@@ -1,6 +1,5 @@
-import { Collapse, List, Tag, Tabs } from 'antd';
+import { Collapse, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
-import Line from '../components/Line';
 import data from '../utils/sponsorList'
 
 const items: TabsProps['items'] = [
@@ -32,37 +31,28 @@ export default function sponsor() {
           <Tabs defaultActiveKey="1" centered items={items} />
         </div> }]}
       />
-      <Line zh='赞助列表' en='Sponsor List' logo={<div className="i-ri-file-list-2-line" mr-4 text='xl' />}></Line>
-      <List
-        header={<div>根据时间排序</div>}
-        // footer={<div>Footer</div>}
-        className='mt-4 bg-white'
-        bordered
-        dataSource={data.reverse()}
-        renderItem={(item) => (
-          <List.Item extra={<div text='bold xl red-500'>￥{item.money.toFixed(2)}</div>} key={item.key}>
-            <List.Item.Meta
-              title={<div>
-                <div text='gray-300 sm' className='font-normal'>
-                  {item.time}
-                </div>
-                <div text='lg' flex='~ items-center'>
-                  <Tag bordered={false} color="gold" className='mr-2'>
-                    赞助
-                  </Tag>
-                  <div>{item.name}</div>
-                </div>
-              </div>}
-              description={<>
-                <div>留言：{item.remark || '无'}</div>
-                <div text='blue-500'>开发者回复：{item.reply}</div>
-              </>}
-            />
-              {/* 123 */}
-            {/* <Typography.Text mark>[ITEM]</Typography.Text> {item.name} */}
-          </List.Item>
-        )}
-      />
+      <div className='space-y-4'>
+        {data.reverse().map((item, key) => (
+          <div key={key} className='bg-red-50 rounded-xl'>
+            
+            <div className='bg-white px-4 py-2 rounded-lg' style={{border: '1px solid #F4F4F5'}}>
+              <div className='flex justify-between items-center mb-2'>
+                <div className='flex-1 font-bold text-lg'>{item.name}</div>
+                <div className='op50 text-sm'>{item.time}</div>
+              </div>
+              <div className='op50 text-sm'>留言：{item.remark}</div>
+              <div className='text-blue-500 text-sm mt-1'>开发者回复：{item.reply}</div>
+            </div>
+            <div className='p-3 flex items-center justify-between'>
+              <div className='px-2 py-1 bg-white flex items-center text-sm rounded-md text-red-500'>
+                <div className='i-ri-hand-heart-fill mr-1.5'></div>
+                <div>赞助</div>
+              </div>
+              <div className='text-lg font-bold text-red-500'>￥{item.money.toFixed(2)}</div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
