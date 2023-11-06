@@ -7,7 +7,7 @@ import Heytea from '/images/heytea.png'
 import Chagee from '/images/chagee.png'
 
 const hot = ['#FEE2E2','#DC2626']
-const warn = ['#FEF3C7','#D97706']
+// const warn = ['#FEF3C7','#D97706']
 
 const list = {
   done: [
@@ -15,14 +15,14 @@ const list = {
       name: ['库迪咖啡', 'COTTI COFFEE'],
       logo: '/images/cotti.png',
       url: '/cotti',
-      tag: '测试',
-      tag_color: warn
+      tag: '新上线',
+      tag_color: hot
     },
     {
       name: ['茶百道', 'ChaPanda'],
       logo: '/images/chapanda.webp',
       url: '/chapanda',
-      tag: '新上线',
+      tag: '热门',
       tag_color: hot
     },
     {
