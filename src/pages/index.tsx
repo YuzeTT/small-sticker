@@ -45,7 +45,7 @@ export default function index() {
       </div> */}
       <div className='bg-zinc-50 p-2 rounded-2xl mb-4'>
         <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>快捷跳转</div>
-        <div className='grid grid-cols-2 gap-2 outline-blue-400/30'>
+        <div className='grid grid-cols-2 gap-2'>
           <CopyToClipboard text='752693422'
             onCopy={() => message.success({content:'已复制到剪贴板'})}>
             <div className='bg-gradient-to-r from-white to-[#0099FF20] rounded-xl p-4 flex items-center' style={{border: '1px solid #F4F4F5'}} data-clipboard-text='752693422'>
