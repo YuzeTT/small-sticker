@@ -2,7 +2,7 @@ export default function InputGuide({hiddenTips}:{hiddenTips?: boolean}) {
   return (
     <div>
       {!hiddenTips?
-        <div flex='~ items-center' mb-2  bg-white p-2 rounded-md>
+        <div flex='~ items-center' mb-2  bg-zinc-50 p-2 rounded-md>
           <div className="i-ri-lightbulb-fill w-4 h-4 mr-2 text-blue-500" />
           <div text='zinc-600 sm'>点击灰色文字可以快速填充哦！</div>
         </div>:''
