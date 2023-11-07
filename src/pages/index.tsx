@@ -87,6 +87,14 @@ export default function index() {
           </a>
         </div>
       </div>
+      <div className='bg-zinc-50 p-2 rounded-2xl mb-4'>
+        <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>站外推荐</div>
+        <div className='grid grid-cols-2 gap-2'>
+          <a href="https://fei.z2ajj.cn/?t=jpybajg" target='_blank' className='col-span-2'>
+            <img src="/images/fly.webp" alt="fly" className='w-full rounded-xl overflow-hidden' style={{border: '1px solid #F4F4F5'}}/>
+          </a>
+        </div>
+      </div>
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
         {list.done.map((item, key)=>(
