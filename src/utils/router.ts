@@ -12,12 +12,13 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
-      name: ['库迪咖啡', 'COTTI COFFEE'],
-      logo: '/images/cotti.png',
-      url: '/cotti',
+      name: ['沪上阿姨', 'ShangHaiShaoFu'],
+      logo: '/images/hsay.jpg',
+      url: '/hsay',
       tag: '新上线',
       tag_color: hot
     },
+    
     {
       name: ['茶百道', 'ChaPanda'],
       logo: '/images/chapanda.webp',
@@ -59,6 +60,13 @@ const list = {
       url: '/lucking_coffee',
       tag: '热门',
       tag_color: hot
+    },
+    {
+      name: ['库迪咖啡', 'COTTI COFFEE'],
+      logo: '/images/cotti.png',
+      url: '/cotti',
+      tag: '',
+      tag_color: ['','']
     },
     {
       name: ['照片打卡', 'Photo'],
@@ -112,12 +120,12 @@ const list = {
   ],
   todo: [
     {
-      name: ['茶颜悦色', 'Sexy tea'],
-      logo: '/images/sexytea.png',
-    },
-    {
       name: ['星巴克', 'Starbucks'],
       logo: '/images/starbucks.png',
+    },
+    {
+      name: ['茶颜悦色', 'Sexy tea'],
+      logo: '/images/sexytea.png',
     },
     {
       name: ['一点点', 'alittle tea'],
