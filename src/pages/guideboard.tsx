@@ -115,7 +115,7 @@ export default function Heytea() {
       </div>
       <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
-          <div bg='' className='w-60 z-0 relative p-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
+          <div bg='' className='w-65 z-0 relative p-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
 
             <SecureWatermark />
             <div mx-auto className=''>
@@ -145,8 +145,8 @@ export default function Heytea() {
                   </div>
                 </div>
               </div>
-              <div text-center style={{ display: showGan ? 'block' : 'none' }}>
-                <img src="/images/guideboard_gan.png" alt="杆子" className='w-20 -mt-[1px]' />
+              <div style={{ display: showGan ? 'block' : 'none' }}>
+                <img src="/images/guideboard_gan.png" alt="杆子" className='w-20 -mt-[1px] mx-auto' />
               </div>
             </div>
           </div>

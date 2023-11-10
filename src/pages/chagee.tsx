@@ -83,7 +83,7 @@ export default function Heytea() {
       }
       <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
-          <div bg='white' className='w-60 z-0 shadow-xl relative px-4 py-4' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
+          <div bg='white' className='w-65 z-0 shadow-xl relative px-4 py-4' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <SecureWatermark />
             {/* <img src="/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80/> */}
             <div flex='~ justify-between'>

@@ -252,7 +252,7 @@ export default function Train() {
                           <div text='center' className='-mt-1'>{pinyin(data.station1, { toneType: 'none' }).charAt(0).toUpperCase()}{pinyin(data.station1, { toneType: 'none' }).slice(1)}</div>
                         </div>
                         <div>
-                          <div text='xl center' mr-2 className='-mb-4 tracking-widest'>{data.railwayCode}</div>
+                          <div text='xl center' mr-2 className='-mb-2 tracking-widest'>{data.railwayCode}</div>
                           <img src="/images/right-arrow.png" alt="right-arrow" w-18 />
                         </div>
                         <div>

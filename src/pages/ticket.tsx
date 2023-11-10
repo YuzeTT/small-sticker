@@ -361,7 +361,7 @@ export default function Ticket() {
         <div className='flex justify-center'>
 
           {/* @unocss-include */}
-          <div bg='white' className={`min-w-220 z-0 shadow-xl relative px-4 py-4 rotate-90= origin-top  ${beforeOut ? ' scale-40 md:scale-80 lg:scale-100' : ''}`} ref={ref} style={status === 2 ? { display: 'none' } : {}}>
+          <div bg='white' className={`min-w-230 z-0 shadow-xl relative px-4 py-4 rotate-90= origin-top  ${beforeOut ? ' scale-40 md:scale-80 lg:scale-100' : ''}`} ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <Watermark content={showText ? '[纪念票] 仅限个人收藏使用' : ''}>
               <SecureWatermark />
               <div flex='~ justify-between'>

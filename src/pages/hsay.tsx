@@ -82,7 +82,7 @@ export default function Hsay() {
       }
       <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
-          <div bg='white' className={`w-60 ${highLight?'h-auto':'h-100 max-h-100'} z-0 shadow-xl relative p-4 flex flex-col`} ref={ref} style={status === 2 ? { display: 'none' } : {}}>
+          <div bg='white' className={`w-65 ${highLight?'h-auto':'h-100 max-h-100'} z-0 shadow-xl relative p-4 flex flex-col`} ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <SecureWatermark />
             <div>
               <div className='text-2xl font-bold'>

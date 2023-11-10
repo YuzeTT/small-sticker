@@ -82,7 +82,7 @@ export default function Heytea() {
       }
       <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
-          <div bg='yellow-100' className='w-60 z-0 shadow-xl relative px-2 py-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
+          <div bg='yellow-100' className='w-65 z-0 shadow-xl relative px-2 py-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <SecureWatermark />
             <div className='flex justify-between items-center'>
               <div className='text-[0.85rem]'>

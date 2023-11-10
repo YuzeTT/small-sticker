@@ -1,5 +1,6 @@
 import { QRCode, Segmented, message, Button } from "antd";
 import dayjs from 'dayjs'
+import { Button as ButtonC } from '@chakra-ui/react'
 import { useCallback, useRef, useState } from "react";
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
@@ -75,6 +76,11 @@ export default function Heytea() {
         }} />
       </div>
       {status === 1 ?
+        <div>
+          <ButtonC colorScheme='blue'>Button</ButtonC>
+        </div> : ''
+      }
+      {status === 1 ?
         <Button className="w-full mt-4" type="primary" onClick={out} flex='~ items-center justify-center' size='large' loading={isLoading}>
           <div className="i-ri-camera-fill" mr-1 text='lg' style={{ display: isLoading ? 'none' : 'block' }} />
           {isLoading ? '正在导出请勿切换页面' : '导出图片'}
@@ -82,7 +88,7 @@ export default function Heytea() {
       }
       <div mt-4 p-2 font-sans>
         <div className='flex justify-center'>
-          <div bg='white' className='w-60 z-0 shadow-xl relative px-4 py-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
+          <div bg='white' className='w-65 z-0 shadow-xl relative px-4 py-2' ref={ref} style={status === 2 ? { display: 'none' } : {}}>
             <SecureWatermark />
             <div className='flex justify-between items-center'>
               <div className='flex items-end'>

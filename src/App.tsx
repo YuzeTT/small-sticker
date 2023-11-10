@@ -3,26 +3,47 @@ import {
   BrowserRouter as Router,
   useRoutes,
 } from 'react-router-dom'
+import { Skeleton, Stack, Fade } from '@chakra-ui/react'
 import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
-import { Spin, Modal } from 'antd'
+import { Modal } from 'antd'
 import Footer from './components/Footer'
 import { nanoid } from 'nanoid'
 
 const Loading = () => {
   return (
-    <Spin tip='加载中...'>
-      <div h-50 w-full></div>
-    </Spin>
+    <div className=''>
+      <Stack>
+        <Skeleton height='35px' fadeDuration={5}/>
+        <div className='grid grid-cols-3 gap-2'>
+          <Skeleton height='35px' />
+          <Skeleton height='35px' />
+          <Skeleton height='35px' />
+        </div>
+        <div className='grid grid-cols-3 gap-2'>
+          <Skeleton height='25px' />
+          <Skeleton height='25px' />
+          <Skeleton height='25px' />
+        </div>
+        <Skeleton height='280px' width='200px' className='mx-auto mt-4' />
+        {/* <Skeleton height='100px' />
+        <Skeleton height='100px' /> */}
+      </Stack>
+    </div>
   )
 }
 
 const RouterRender = () => {
   return (
-    <Suspense fallback={<Loading />}>
-      {useRoutes(routes)}
-    </Suspense>
+    <div>
+      {/* <Loading /> */}
+      <Suspense fallback={<Loading />}>
+        <Fade in={true}>
+        {useRoutes(routes)}
+        </Fade>
+      </Suspense>
+    </div>
   )
 }
 
