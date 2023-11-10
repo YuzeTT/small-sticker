@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@types/downloadjs": "^1.4.5",
     "antd": "^5.10.1",
     "antd-img-crop": "^4.13.0",
