@@ -72,7 +72,7 @@ export default function Instagram() {
           </Button>
         </label>
       </div>
-      <div>
+      <div className='mb-4'>
         <div className='flex items-center gap-4'>
           <table className='w-48 h-40 mx-auto'>
             <tbody>
@@ -80,7 +80,7 @@ export default function Instagram() {
                 <td className='h-full w-full relative overflow-hidden'>
                   <div className='h-full w-full bg-center bg-contain bg-cover bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image})`, transform: `translate(${imageX}%,${imageY}%) scale(${imageZoom-30}%)`}}>
                   </div>
-                  <div className='h-35 w-42 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' style={{border:'20px solid #00000050'}}></div>
+                  <div className='h-35 w-45 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' style={{border:'20px solid #00000050'}}></div>
                   <div className='text-[0.7rem] text-white absolute top-[1px] left-1/2 transform -translate-x-1/2'>裁剪区</div>
                 </td>
                 <td className='h-full w-full'>
@@ -117,8 +117,6 @@ export default function Instagram() {
             <div className='text-xs text-center op80'>X:{imageX}% Y:{imageY}% Zoom:{imageZoom}%</div>
           </div>
         </div>
-
-        <div className='text-xs text-center op50 mb-2'>X:{imageX}% Y:{imageY}% Zoom:{imageZoom}%</div>
       </div>
       <BaseCard ref={ref}>
         <div className={`min-w-[250px] max-w-[250px] z-0 relative min-h-[350px] max-h-[350px] h-[350px]  origin-top flex flex-col`}>

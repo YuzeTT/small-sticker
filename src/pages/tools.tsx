@@ -77,7 +77,7 @@ export default function Heytea() {
         }} />
       </div>
       
-      <div className='h14 relative mt-2'>
+      <div className='h-10 relative mt-2'>
         <ScaleFade in={status === 0} className='absolute w-full z-20' unmountOnExit>
           <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
             setStatus(1)
