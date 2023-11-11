@@ -14,7 +14,7 @@ const list = {
     {
       name: ['沪上阿姨', 'ShangHaiShaoFu'],
       logo: '/images/hsay.jpg',
-      url: '/hsay',
+      url: '/tools/hsay',
       tag: '新上线',
       tag_color: hot
     },
@@ -22,14 +22,14 @@ const list = {
     {
       name: ['茶百道', 'ChaPanda'],
       logo: '/images/chapanda.webp',
-      url: '/chapanda',
+      url: '/tools/chapanda',
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['古茗', 'GOOD ME'],
       logo: '/images/goodme.webp',
-      url: '/goodme',
+      url: '/tools/goodme',
       tag: '热门',
       tag_color: hot
     },
@@ -50,7 +50,7 @@ const list = {
     {
       name: ['喜茶', 'Heytea'],
       logo: Heytea,
-      url: '/heytea',
+      url: '/tools/heytea',
       tag: '热门',
       tag_color: hot
     },
@@ -64,7 +64,7 @@ const list = {
     {
       name: ['库迪咖啡', 'COTTI COFFEE'],
       logo: '/images/cotti.png',
-      url: '/cotti',
+      url: '/tools/cotti',
       tag: '',
       tag_color: ['','']
     },
@@ -85,21 +85,21 @@ const list = {
     {
       name: ['蜜雪冰城', 'MXBC'],
       logo: '/images/mxbc.png',
-      url: '/mxbc',
+      url: '/tools/mxbc',
       tag: '',
       tag_color: ['','']
     },
     {
       name: ['霸王茶姬', 'Chagee'],
       logo: Chagee,
-      url: '/chagee',
+      url: '/tools/chagee',
       tag: '',
       tag_color: ['','']
     },
     {
       name: ['观影纪念票', 'Ticket'],
       logo: Ticket,
-      url: '/cinema_ticket',
+      url: '/tools/cinema_ticket',
       tag: '',
       tag_color: ['','']
     },
