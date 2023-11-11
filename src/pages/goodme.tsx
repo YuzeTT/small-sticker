@@ -7,6 +7,7 @@ import showImage from "../utils/downloadHtmlAsImage/showImage";
 import SecureWatermark from "../components/SecureWatermark";
 import InputGuide from "../components/InputGuide";
 import ExportList from "../components/ExportList";
+// import ExportButton from "../components/ExportButton";
 
 export default function Heytea() {
   const ref = useRef<HTMLDivElement>(null)
@@ -75,6 +76,7 @@ export default function Heytea() {
           }
         }} />
       </div>
+      {/* <ExportButton ref={ref}></ExportButton> */}
       {status === 1 ?
           <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={out}>
           <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
