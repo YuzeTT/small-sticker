@@ -73,8 +73,8 @@ export default function Instagram() {
         </label>
       </div>
       <div>
-        <div className='flex items-center'>
-          <table className='w-48 h-40 mx-auto overflow-hidden'>
+        <div className='flex items-center gap-4'>
+          <table className='w-48 h-40 mx-auto'>
             <tbody>
               <tr>
                 <td className='h-full w-full relative overflow-hidden'>
@@ -105,28 +105,21 @@ export default function Instagram() {
               </tr>
             </tbody>
           </table>
-          <div>
+          <div className='flex-1 mb-4'>
+            <div className='text-xs text-center op50 mb1'>图片缩放</div>
             <Slider aria-label='slider-ex-1' defaultValue={100} min={0} max={200} onChange={(v)=>{setImageZoom(v)}}>
               <SliderTrack>
                 <SliderFilledTrack />
               </SliderTrack>
               <SliderThumb />
             </Slider>
+            <div className='text-xs text-center op50 mb1 mt-4'>详细参数</div>
+            <div className='text-xs text-center op80'>X:{imageX}% Y:{imageY}% Zoom:{imageZoom}%</div>
           </div>
         </div>
-        
-        
-        {/* <Slider aria-label='slider-ex-2'  defaultValue={0} min={-100} max={100} onChange={(v)=>{setImageY(v)}} orientation='vertical' minH='100px'>
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider> */}
-        
 
         <div className='text-xs text-center op50 mb-2'>X:{imageX}% Y:{imageY}% Zoom:{imageZoom}%</div>
       </div>
-      {/* {image && <img src={image} alt="Uploaded" style={{ maxWidth: '300px', marginTop: '10px' }} />} */}
       <BaseCard ref={ref}>
         <div className={`min-w-[250px] max-w-[250px] z-0 relative min-h-[350px] max-h-[350px] h-[350px]  origin-top flex flex-col`}>
           <div className='flex justify-between px-2 py-1.5 bg-white'>
