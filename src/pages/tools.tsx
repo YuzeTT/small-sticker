@@ -1,9 +1,8 @@
 import { Segmented, message } from "antd";
-import { Button, Collapse } from '@chakra-ui/react'
+import { Button, Collapse, ScaleFade } from '@chakra-ui/react'
 import { useCallback, useRef, useState } from "react";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 import SecureWatermark from "../components/SecureWatermark";
-import InputGuide from "../components/InputGuide";
 import ExportList from "../components/ExportList";
 import { Outlet } from "react-router";
 
@@ -61,7 +60,10 @@ export default function Heytea() {
   return (
     <div>
       {contextHolder}
-      <InputGuide />
+      <div flex='~ items-center' mb-2  bg-zinc-50 p-2 rounded-md>
+        <div className="i-ri-lightbulb-fill w-4 h-4 mr-2 text-blue-500" />
+        <div text='zinc-600 sm'>点击灰色文字可以快速填充哦！</div>
+      </div>
       <div>
         <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
           console.log(highLight);
@@ -74,38 +76,40 @@ export default function Heytea() {
           }
         }} />
       </div>
-      <Collapse in={status === 1} animateOpacity>
-        <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={out}>
-          <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          导出图片
-        </Button>
-      </Collapse>
-      {/* <SlideFade in={status === 1} offsetY='20px' startingHeight={0}>
-        <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={out}>
-          <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          导出图片
-        </Button>
-      </SlideFade>
-       */}
-      {/* <ScaleFade initialScale={0.9} in={status === 1}>
-        <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={out}>
-          <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          导出图片
-        </Button>
-      </ScaleFade> */}
-      {/* <Fade initialScale={0.9} in={status === 1}>
-        <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={out}>
-          <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          导出图片
-        </Button>
-      </Fade> */}
-      {/* {status === 1 ?
-          <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={out}>
-          <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          导出图片
-        </Button> : ''
-      } */}
+      
+      <div className='h14 relative'>
+        <ScaleFade in={status === 0} className='absolute w-full z-20' unmountOnExit>
+          <Button variant='second' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+            setStatus(1)
+            setHighLight(false)
+          }}>
+            下一步
+            <div className="i-ri-arrow-right-line" ml-1 style={{ display: isLoading ? 'none' : 'block' }} />
+          </Button>
+        </ScaleFade>
+        <ScaleFade in={status === 1} className='absolute w-full z-20' unmountOnExit>
+          <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+            console.log('+ 导出');
+            out()
+          }}>
+            <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+            导出图片
+          </Button>
+        </ScaleFade>
+        <ScaleFade in={status === 2} className='absolute w-full z-20' unmountOnExit>
+          <Button variant='second' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+            setStatus(0)
+            setHighLight(true)
+          }}>
+            <div className="i-ri-arrow-go-back-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+            返回编辑
+          </Button>
+        </ScaleFade>
+      </div>
       <div font-sans>
+        <Collapse in={status === 2} animateOpacity className='pt-4' unmountOnExit>
+          <ExportList imageSrc={imageSrc} />
+        </Collapse>
         <Collapse in={status !== 2} animateOpacity className='p-8'>
           <div className='flex justify-center'>
             <div ref={ref} className='shadow-xl'>
@@ -114,12 +118,6 @@ export default function Heytea() {
             </div>
           </div>
         </Collapse>
-        <Collapse in={status === 2} animateOpacity className='pt-4'>
-          <ExportList imageSrc={imageSrc} />
-        </Collapse>
-        {/* {status === 2 ?
-          ''
-        } */}
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ export default function ExportList({imageSrc}:{imageSrc: {data: string, time: st
     <div>
       {imageSrc.length === 0?
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='暂无数据' />:
-        <div className='space-y-4'>
+        <div className='grid grid-cols-2 gap-4'>
           {imageSrc.map((v,k)=>(
             <div key={k}>
               <div style={{border:'2px dashed #E5E7EB', padding: '10px'}}>
