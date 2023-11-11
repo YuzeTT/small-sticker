@@ -44,6 +44,7 @@
     "typescript": "^5.0.2",
     "unocss": "^0.56.5",
     "vite": "^4.4.5",
-    "vite-plugin-pages": "^0.31.0"
+    "vite-plugin-pages": "^0.31.0",
+    "vite-plugin-pwa": "^0.16.7"
   }
 }
