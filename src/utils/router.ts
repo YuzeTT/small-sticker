@@ -11,13 +11,13 @@ const hot = ['#FEE2E2','#DC2626']
 
 const list = {
   done: [
-    {
-      name: ['Instagram', '三寸 小卡/透卡'],
-      logo: '/images/instagram/logo.webp',
-      url: '/tools/instagram',
-      tag: '内测',
-      tag_color: ['#FEF3C7','#D97706']
-    },
+    // {
+    //   name: ['Instagram', '三寸 小卡/透卡'],
+    //   logo: '/images/instagram/logo.webp',
+    //   url: '/tools/instagram',
+    //   tag: '内测',
+    //   tag_color: ['#FEF3C7','#D97706']
+    // },
     {
       name: ['茶百道', '奶茶标签'],
       logo: '/images/chapanda.webp',
@@ -140,6 +140,10 @@ const list = {
     {
       name: ['CoCo都可', '奶茶标签'],
       logo: '/images/coco.jpg',
+    },
+    {
+      name: ['Instagram', '三寸 小卡/透卡'],
+      logo: '/images/instagram/logo.webp',
     },
   ]
 }
