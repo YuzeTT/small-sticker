@@ -60,7 +60,7 @@ export default function Heytea() {
   return (
     <div>
       {contextHolder}
-      <div flex='~ items-center' mb-2  bg-zinc-50 p-2 rounded-md>
+      <div flex='~ items-center' mb-4  bg-zinc-50 p-2 rounded-md>
         <div className="i-ri-lightbulb-fill w-4 h-4 mr-2 text-blue-500" />
         <div text='zinc-600 sm'>点击灰色文字可以快速填充哦！</div>
       </div>
@@ -77,9 +77,9 @@ export default function Heytea() {
         }} />
       </div>
       
-      <div className='h14 relative'>
+      <div className='h14 relative mt-2'>
         <ScaleFade in={status === 0} className='absolute w-full z-20' unmountOnExit>
-          <Button variant='second' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+          <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
             setStatus(1)
             setHighLight(false)
           }}>
@@ -88,7 +88,7 @@ export default function Heytea() {
           </Button>
         </ScaleFade>
         <ScaleFade in={status === 1} className='absolute w-full z-20' unmountOnExit>
-          <Button variant='main' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+          <Button variant='main' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
             console.log('+ 导出');
             out()
           }}>
@@ -97,7 +97,7 @@ export default function Heytea() {
           </Button>
         </ScaleFade>
         <ScaleFade in={status === 2} className='absolute w-full z-20' unmountOnExit>
-          <Button variant='second' className='w-full mt-4' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+          <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
             setStatus(0)
             setHighLight(true)
           }}>
@@ -110,11 +110,13 @@ export default function Heytea() {
         <Collapse in={status === 2} animateOpacity className='pt-4' unmountOnExit>
           <ExportList imageSrc={imageSrc} />
         </Collapse>
-        <Collapse in={status !== 2} animateOpacity className='p-8'>
+        <Collapse in={status !== 2} animateOpacity className='pt-4'>
           <div className='flex justify-center'>
-            <div ref={ref} className='shadow-xl'>
-              <SecureWatermark />
-              <Outlet context={[highLight]} />
+            <div style={{border: '1px dashed rgb(226 228 233 / 1)', boxShadow: '0px 4px 7px 0px #00000008'}}>
+              <div ref={ref} className='' >
+                <SecureWatermark />
+                <Outlet context={[highLight]} />
+              </div>
             </div>
           </div>
         </Collapse>
