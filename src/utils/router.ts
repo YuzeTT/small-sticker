@@ -12,106 +12,112 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
-      name: ['沪上阿姨', 'ShangHaiShaoFu'],
-      logo: '/images/hsay.jpg',
-      url: '/tools/hsay',
-      tag: '新上线',
-      tag_color: hot
+      name: ['Instagram', '三寸 小卡/透卡'],
+      logo: '/images/instagram/logo.webp',
+      url: '/tools/instagram',
+      tag: '内测',
+      tag_color: ['#FEF3C7','#D97706']
     },
-    
     {
-      name: ['茶百道', 'ChaPanda'],
+      name: ['茶百道', '奶茶标签'],
       logo: '/images/chapanda.webp',
       url: '/tools/chapanda',
       tag: '热门',
       tag_color: hot
     },
     {
-      name: ['古茗', 'GOOD ME'],
+      name: ['古茗', '奶茶标签'],
       logo: '/images/goodme.webp',
       url: '/tools/goodme',
       tag: '热门',
       tag_color: hot
     },
     {
-      name: ['仿拍立得', 'I can\'t translate it'],
+      name: ['仿拍立得', '三寸 小卡'],
       logo: '/images/fpld.webp',
       url: '/fpld',
       tag: '热门',
       tag_color: hot
     },
     {
-      name: ['大麦票根', 'DaMai Ticket'],
+      name: ['大麦票根', '纪念票根'],
       logo: Ticket_,
       url: '/ticket',
       tag: '热门',
       tag_color: hot
     },
     {
-      name: ['喜茶', 'Heytea'],
+      name: ['喜茶', '奶茶标签'],
       logo: Heytea,
       url: '/tools/heytea',
       tag: '热门',
       tag_color: hot
     },
     {
-      name: ['瑞幸咖啡', 'Lucking Coffee'],
+      name: ['瑞幸咖啡', '咖啡标签'],
       logo: LuckingCoffee,
       url: '/lucking_coffee',
       tag: '热门',
       tag_color: hot
     },
     {
-      name: ['库迪咖啡', 'COTTI COFFEE'],
+      name: ['沪上阿姨', '奶茶标签'],
+      logo: '/images/hsay.jpg',
+      url: '/tools/hsay',
+      tag: '',
+      tag_color: ['','']
+    },
+    {
+      name: ['库迪咖啡', '咖啡标签'],
       logo: '/images/cotti.png',
       url: '/tools/cotti',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['照片打卡', 'Photo'],
+      name: ['照片打卡', '纪念卡'],
       logo: '/images/photo.png',
       url: '/photo',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['路牌', 'Guideboard'],
+      name: ['路牌', '你懂的'],
       logo: '/images/guideboard.png',
       url: '/guideboard',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['蜜雪冰城', 'MXBC'],
+      name: ['蜜雪冰城', '奶茶标签'],
       logo: '/images/mxbc.png',
       url: '/tools/mxbc',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['霸王茶姬', 'Chagee'],
+      name: ['霸王茶姬', '奶茶标签'],
       logo: Chagee,
       url: '/tools/chagee',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['观影纪念票', 'Ticket'],
+      name: ['观影纪念票', '纪念票根'],
       logo: Ticket,
       url: '/tools/cinema_ticket',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['高铁票', 'Train'],
+      name: ['高铁票', '纪念票根'],
       logo: Train,
       url: '/train',
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['麦当劳', 'Mcdonald'],
+      name: ['麦当劳', '小票'],
       logo: Mcdonald,
       url: '/mcdonald',
       tag: '',
@@ -120,19 +126,19 @@ const list = {
   ],
   todo: [
     {
-      name: ['星巴克', 'Starbucks'],
+      name: ['星巴克', '咖啡标签'],
       logo: '/images/starbucks.png',
     },
     {
-      name: ['茶颜悦色', 'Sexy tea'],
+      name: ['茶颜悦色', '奶茶标签'],
       logo: '/images/sexytea.png',
     },
     {
-      name: ['一点点', 'alittle tea'],
+      name: ['一点点', '奶茶标签'],
       logo: '/images/alittle-tea.png',
     },
     {
-      name: ['CoCo都可', 'CoCo'],
+      name: ['CoCo都可', '奶茶标签'],
       logo: '/images/coco.jpg',
     },
   ]
