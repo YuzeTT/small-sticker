@@ -9,6 +9,8 @@ export default function SecureWatermark({children}:{children?: ReactNode}) {
     if (id && id2) {
       setUserId(id);
       setUserId2(id2);
+      console.log(id2);
+      
     } else {
       console.log('w-noid');
       

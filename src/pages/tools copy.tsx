@@ -2,7 +2,7 @@ import { Segmented, message } from "antd";
 import { Button, Collapse, ScaleFade } from '@chakra-ui/react'
 import { useCallback, useRef, useState } from "react";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
-// import SecureWatermark from "../components/SecureWatermark";
+import SecureWatermark from "../components/SecureWatermark";
 import ExportList from "../components/ExportList";
 import { Outlet } from "react-router";
 
@@ -111,14 +111,13 @@ export default function Heytea() {
           <ExportList imageSrc={imageSrc} />
         </Collapse>
         <Collapse in={status !== 2} animateOpacity className='pt-4'>
-          <Outlet context={[highLight, ref]} />
           <div className='flex justify-center'>
-            {/* <div style={{border: '1px dashed rgb(226 228 233 / 1)', boxShadow: '0px 4px 7px 0px #00000008'}}>
-              <div className='' >
+            <div style={{border: '1px dashed rgb(226 228 233 / 1)', boxShadow: '0px 4px 7px 0px #00000008'}}>
+              <div ref={ref} className='' >
                 <SecureWatermark />
-                
+                <Outlet context={[highLight]} />
               </div>
-            </div> */}
+            </div>
           </div>
         </Collapse>
       </div>
