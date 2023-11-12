@@ -3,6 +3,7 @@ import { Modal, message } from 'antd'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import list from '../utils/router'
 import FollowMe from '../components/FollowMe';
+import isVip from '../utils/isVip';
 
 export default function index() {
   const jumpBefore = (url: string) => {
@@ -117,9 +118,6 @@ export default function index() {
         {list.todo.map((item, key)=>(
           <div p-4 className='card hover:bg-zinc-50 transition' rounded-xl decoration-none key={key} >
             <div flex='~ items-start justify-between'>
-              {/* <div w-14 h-10 text='center'>
-                <img src={item.logo} alt="logo" h-10 w-auto mr-4 />
-              </div> */}
               <div className='w-25 h-10 bg-contain bg-cover bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
             </div>
             <div className='mt-6' text='xl zinc-700'>{item.name[0]}</div>
@@ -127,6 +125,7 @@ export default function index() {
           </div>
         ))}
       </div>
+      {isVip().is_vip?'':
       <div className='card p-2 rounded-2xl mt-4'>
         <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>广告</div>
         <div className='grid grid-cols-2 gap-2'>
@@ -135,6 +134,8 @@ export default function index() {
           </a>
         </div>
       </div>
+      }
+      
     </div>
   )
 }
