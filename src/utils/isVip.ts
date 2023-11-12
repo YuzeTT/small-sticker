@@ -9,7 +9,7 @@ const isVip = () => {
   const uncrypted = decrypt.decrypt(id||'')
   console.log(id);
   if(uncrypted===null){
-    return {level:0}
+    return {is_vip: false, level:0}
   }
   const v = JSON.parse(uncrypted.toString())
   console.log(v);
@@ -17,13 +17,13 @@ const isVip = () => {
   if(v.time-t >= 0) {
     console.log('+ 密钥有效');
     console.log(v);
-    return v
+    return {is_vip: true, ...v}
   }else{
     console.log('- 密钥无效');
     localStorage.removeItem('key')
     localStorage.removeItem('is_login')
     localStorage.removeItem('login_exp')
-    return {level:0}
+    return {is_vip: false, level:0}
   }
 }
 

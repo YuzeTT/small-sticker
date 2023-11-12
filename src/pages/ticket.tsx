@@ -1,6 +1,7 @@
-import { QRCode, Segmented, message, Button, ColorPicker, Watermark, Space, Input, Modal, Collapse } from "antd";
+import { QRCode, Segmented, message, Button, ColorPicker, Watermark } from "antd";
 // import dayjs from 'dayjs'
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
+// import { useToast } from '@chakra-ui/react'
 import JSEncrypt from 'jsencrypt'
 import HighText from "../components/HighText";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
@@ -8,6 +9,7 @@ import SecureWatermark from "../components/SecureWatermark";
 import InputGuide from "../components/InputGuide";
 import ExportList from "../components/ExportList";
 import HiddenLogo from "../components/HiddenLogo";
+import isVip from "../utils/isVip";
 
 export default function Ticket() {
   const ref = useRef<HTMLDivElement>(null)
@@ -21,20 +23,6 @@ export default function Ticket() {
   const [textColor, setTextColor] = useState('#1269A0')
   const [bgColor, setBgColor] = useState('#87ACD4')
   const [showText, setShowText] = useState(true)
-  const [inputKey, setInputKey] = useState('')
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
 
   const decrypt = new JSEncrypt()
   const priKey = import.meta.env.VITE_PRIKEY
@@ -87,41 +75,31 @@ export default function Ticket() {
 
   }, [ref, messageApi])
 
-  const removeText = () => {
-    const uncrypted = decrypt.decrypt(inputKey)
-    console.log(inputKey);
-    if (uncrypted === null) {
-      messageApi.open({
-        type: 'error',
-        content: '密钥错误',
-      });
-      return
-    }
-    const v = JSON.parse(uncrypted.toString())
-    console.log(v);
-    const t = new Date().getTime()
-    if (v.time - t >= 0) {
-      console.log('有效');
+  useEffect(()=>{
+    const vip = isVip()
+    if(vip.is_vip) {
       setShowText(false)
-      messageApi.open({
-        type: 'success',
-        content: `去水印成功，感谢${v.name}的支持！`,
-      });
-
-    } else {
-      console.log('无效');
-      messageApi.open({
-        type: 'error',
-        content: '您的密钥已失效',
-      });
     }
-
-  }
+  },[])
 
   return (
     <div>
       {highLight}
       {contextHolder}
+      <div>
+        {showText?<>
+          <a href='/user' flex='~ items-center' mb-2 px-2 py-1 text-white rounded className='bg-blue-500 text-sm decoration-none'>
+            <div className="i-ri-vip-crown-2-fill mr-1" />
+            <div>开通VIP去水印（站点运营成本很高的qwq）</div>
+          </a>
+        </>:
+        <div flex='~ items-center' mb-2 px-2 py-1 text-white rounded className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-sm'>
+          <div className="i-ri-vip-crown-2-fill mr-1" />
+          <div>亲爱的VIP用户，已为您去除水印</div>
+        </div>
+        }
+
+      </div>
       <InputGuide />
       <div>
         <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
@@ -268,64 +246,7 @@ export default function Ticket() {
             />
           </div>
         </div>
-        <div text='sm zinc-500' mb-1>去水印密钥（选填）</div>
-        <Space.Compact style={{ width: '100%' }}>
-          <Input.Password placeholder="请输入密钥以去水印" value={inputKey} onChange={(v) => { setInputKey(v.target.value) }} />
-          <Button type="primary" onClick={() => { removeText() }}>去水印</Button>
-        </Space.Compact>
-        <div className=''>
-          <Button type="primary" onClick={showModal} className='mt-2'>
-            获得密钥（全站通用）
-          </Button>
-        </div>
-        <Modal title="获得密钥（全站通用）" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-          <p text-lg>途径一</p>
-          <p>直接购买去水印限时<b>不限次</b>套餐 （选好了直接加微信转账就行啦！）</p>
-          <div grid grid-cols-3 mb-2 gap-2>
-            {/* <div text-center bg-zinc-100 rounded-xl py-2 px-2>
-              <div text-2xl font-bold>10小时</div>
-              <div mt-1>支持一下</div>
-              <div text-lg text-red font-bold>￥1.88</div>
-            </div>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
-              <div text-2xl font-bold>24小时</div>
-              <div mt-1>来瓶可乐</div>
-              <div text-lg text-red font-bold>￥3.00</div>
-            </div>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2>
-              <div text-2xl font-bold>5天</div>
-              <div mt-1>来瓶东方树叶</div>
-              <div text-lg text-red font-bold>￥5.00</div>
-            </div> */}
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2 onClick={() => { messageApi.open({ type: 'warning', content: '直接加微信哦~' }) }}>
-              <div text-2xl font-bold>14天</div>
-              <div mt-1>来瓶奶茶</div>
-              <div text-lg text-red font-bold>￥12.00</div>
-            </div>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2 onClick={() => { messageApi.open({ type: 'warning', content: '直接加微信哦~' }) }}>
-              <div text-2xl font-bold>30天</div>
-              <div mt-1>来点下午茶</div>
-              <div text-lg text-red font-bold>￥18.00</div>
-            </div>
-            <div text-center bg-zinc-100 rounded-xl py-2 px-2 onClick={() => { messageApi.open({ type: 'warning', content: '直接加微信哦~' }) }}>
-              <div text-2xl font-bold>永久</div>
-              <div mt-1>再生父亲套餐</div>
-              <div text-lg text-red font-bold>￥50.00</div>
-            </div>
-          </div>
-          <Collapse
-            items={[{
-              key: '1', label: '点击展开加微信', children: <>
-                <img src="/images/wechat_qrcode.jpg" alt="" w-full />
-              </>
-            }]}
-          />
-          <p>之前赞助过的用户可以直接找我兑换哦~</p>
-          <p text-lg>途径二</p>
-          <p>关注公众号：大贴纸 回复推广获取详情</p>
-        </Modal>
         <div mt-2 text='sm red-500' className="-mt-1" flex='~ items-center'>
-          {/* <div className="i-ri-lightbulb-line mr-1" /> */}
           <div className='block lg:hidden'>您的屏幕宽度不足以完整显示内容，已经帮你缩小显示啦，辛苦双指放大填写哦！（不影响导出质量）</div>
         </div>
       </div>
@@ -466,22 +387,6 @@ export default function Ticket() {
                     </div>
                   </div>
                 </div>
-                {/* <div flex='~' className='flex-1 -m-4' ml-2>
-                    <div grid grid-cols-2 w-full>
-                      <div mx-auto w-full py-2>
-                        <div bg='red' h-full>
-                          <div text='4xl center' font-bold scale-x-75>SUB</div>
-                          <div text='3xl center'>副 券</div>
-                        </div>
-                      </div>
-                      <div mx-auto w-full style={{borderLeft: '1px dashed #F87171'}} py-2>
-                        <div bg='red' h-full mr-2>
-                          <div text='4xl center' font-bold scale-x-75>TICKET</div>
-                          <div text='3xl center'>副 券</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
               </div>
             </Watermark>
           </div>
