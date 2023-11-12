@@ -1,4 +1,4 @@
-![](/public/banner.jpg)
+![](/public/images/banner.jpg)
 
 <div align="center">
 
@@ -31,3 +31,5 @@ pnpm build
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=YuzeTT/small-sticker&type=Date)](https://star-history.com/#YuzeTT/small-sticker&Date)
+
+![Alt](https://repobeats.axiom.co/api/embed/b1d4a643a585101f11767dbb0d1c9be1c15c6363.svg "Repobeats analytics image")
