@@ -132,7 +132,7 @@ export default function Instagram() {
             <div className='bg-gradient-to-rt from-[#FCCE10] via-[#FA0C65] to-[#D009B9] p-[1px] rounded-full'>
               <div className='bg-white rounded-full p-[1px]'>
                 {head?
-                <div className='w-4.5 h-4.5 rounded-full bg-center bg-contain bg-cover bg-no-repeat' style={{backgroundImage: `url(${head})`}} />:
+                <div className='w-4.5 h-4.5 rounded-full bg-center bg-cover bg-no-repeat ' style={{backgroundImage: `url(${head})`}} />:
                 <div className='w-4.5 h-4.5 rounded-full bg-zinc-50' />
                 }
               </div>
