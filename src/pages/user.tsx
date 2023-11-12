@@ -12,6 +12,13 @@ import {
   AlertDialogOverlay,
   useDisclosure,
   Checkbox,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from '@chakra-ui/react'
 import JSEncrypt from 'jsencrypt'
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
@@ -36,7 +43,7 @@ const getVip = (level: number, time: number = 0, name: string = '加载中...') 
     }
   ]
 
-  const v = list.find((v)=>v.level===level)
+  const v = list.find((v) => v.level === level)
 
   const loginExp = localStorage.getItem("login_exp")
 
@@ -47,10 +54,10 @@ const getVip = (level: number, time: number = 0, name: string = '加载中...') 
         <div className='flex items-center'>
           {v?.text}
           <div className='text-xl font-bold '>
-            {parseInt(loginExp||'0')>=new Date().getTime()?name:'用户'}
+            {parseInt(loginExp || '0') >= new Date().getTime() ? name : '用户'}
           </div>
         </div>
-        <div className='text-xs op50 mt-1'>到期时间：{time?dayjs(time).format('YYYY-MM-DD HH:mm'):'无期限'}</div>
+        <div className='text-xs op50 mt-1'>到期时间：{time ? dayjs(time).format('YYYY-MM-DD HH:mm') : '无期限'}</div>
       </div>
     </div>
   )
@@ -61,25 +68,28 @@ export default function User() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = useRef(null)
 
+  const { isOpen: isOpenVip, onOpen: onOpenVip, onClose: onCloseVip } = useDisclosure()
+  // const vipBtnRef = useRef(null)
+
   const [userId, setUserId] = useState('')
   const [check, setCheck] = useState(false)
-  const [userInfo, setUserInfo] = useState({name: '用户', level: 0, time: 0, wechat: ''})
+  const [userInfo, setUserInfo] = useState({ name: '用户', level: 0, time: 0, wechat: '' })
   const [inputKey, setInputKey] = useState('')
-  const decrypt = useMemo(()=>new JSEncrypt(),[])
-  const priKey  = import.meta.env.VITE_PRIKEY
+  const decrypt = useMemo(() => new JSEncrypt(), [])
+  const priKey = import.meta.env.VITE_PRIKEY
   decrypt.setPrivateKey(priKey)
   const getInfo = useCallback(() => {
     const id = localStorage.getItem("key")
-    const uncrypted = decrypt.decrypt(id||'')
+    const uncrypted = decrypt.decrypt(id || '')
     console.log(id);
-    if(uncrypted===null){
+    if (uncrypted === null) {
       return
     }
     const v = JSON.parse(uncrypted.toString())
     // setUserInfo(v)
     console.log(v);
     const t = new Date().getTime()
-    if(v.time-t >= 0) {
+    if (v.time - t >= 0) {
       console.log('+ 密钥有效');
       console.log(`${v.name}，欢迎回来！`);
       toast({
@@ -90,8 +100,8 @@ export default function User() {
       })
       setUserInfo(v)
       console.log(v);
-      
-    }else{
+
+    } else {
       console.log('- 密钥无效');
       toast({
         variant: 'subtle',
@@ -100,8 +110,8 @@ export default function User() {
         duration: 1000,
       })
     }
-    
-  },[decrypt])
+
+  }, [decrypt])
 
   const setUserID = useCallback(() => {
     const id = localStorage.getItem("id")
@@ -110,15 +120,15 @@ export default function User() {
     } else {
       console.log('v-noid');
     }
-  },[])
+  }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     setUserID()
     getInfo()
   }, [getInfo, setUserID])
 
   const activeVip = () => {
-    if(inputKey==='') {
+    if (inputKey === '') {
       toast({
         variant: 'subtle',
         description: `请输入密钥`,
@@ -129,8 +139,7 @@ export default function User() {
     }
     console.log('+ 激活会员');
     const uncrypted = decrypt.decrypt(inputKey)
-    // console.log(id);
-    if(uncrypted===null){
+    if (uncrypted === null) {
       toast({
         variant: 'subtle',
         description: `密钥错误`,
@@ -142,7 +151,7 @@ export default function User() {
     const v = JSON.parse(uncrypted.toString())
     console.log(v);
     const t = new Date().getTime()
-    if(v.time-t >= 0) {
+    if (v.time - t >= 0) {
       console.log('+ 密钥有效');
       toast({
         variant: 'subtle',
@@ -152,12 +161,12 @@ export default function User() {
       })
       localStorage.removeItem('is_login')
       localStorage.removeItem('login_exp')
-      
+
       setUserInfo(v)
       localStorage.setItem("key", inputKey)
       // reload()
       location.reload()
-    }else{
+    } else {
       console.log('- 密钥无效');
       toast({
         variant: 'subtle',
@@ -167,7 +176,7 @@ export default function User() {
       })
     }
   }
-  
+
   return (
     <>
       <AlertDialog
@@ -201,7 +210,7 @@ export default function User() {
                         <span className='op50 mr-2'>密钥</span>
                       </td>
                       <td>
-                        <span className='font-bold text-blue-500'>{inputKey.slice(0,5)}**********</span>
+                        <span className='font-bold text-blue-500'>{inputKey.slice(0, 5)}**********</span>
                       </td>
                     </tr>
                   </tbody>
@@ -214,11 +223,11 @@ export default function User() {
 
             <AlertDialogFooter>
               <div className='flex flex-1'>
-                <Checkbox className='flex-1' isChecked={check} onChange={(v)=>{setCheck(v.target.checked)}}>我同意协议</Checkbox>
+                <Checkbox className='flex-1' isChecked={check} onChange={(v) => { setCheck(v.target.checked) }}>我同意协议</Checkbox>
                 <Button ref={cancelRef} onClick={onClose}>
                   取消
                 </Button>
-                <Button colorScheme='red' onClick={()=>{
+                <Button colorScheme='red' onClick={() => {
                   activeVip()
                   onClose()
                 }} ml={3} isDisabled={!check}>
@@ -242,9 +251,66 @@ export default function User() {
               <InputLeftElement>
                 <div className="i-ri-bank-card-line text-xl" />
               </InputLeftElement>
-              <Input placeholder='输入密钥' type='password' onChange={(v)=>{setInputKey(v.target.value)}} />
+              <Input placeholder='输入密钥' type='password' onChange={(v) => { setInputKey(v.target.value) }} />
             </InputGroup>
-            <Button variant='main' onClick={onOpen}>激活</Button>
+            <Button variant='second' onClick={onOpen}>激活</Button>
+          </div>
+        </div>
+
+        <Drawer
+          isOpen={isOpenVip}
+          placement='bottom'
+          onClose={onCloseVip}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>支持小站</DrawerHeader>
+            <DrawerBody>
+              <div className=''>
+                <div className='mb-1 font-bold text-orange-500 text-center text-lg'>直接加好友直接转账即可~</div>
+                <div className='mb-1 font-bold text-orange-500 text-center text-lg'>微信: hong_yu1024 (备注：会员)</div>
+                <div className='text-zinc-500 text-center text-sm'>之前赞助过的宝可以 补差价 <span className='font-bold'>并额外赠送7天</span> 哦！</div>
+                <img src="/images/wechat_qrcode.jpg" alt="qrcode" className='w-80 mx-auto mt-2' />
+              </div>
+            </DrawerBody>
+            <DrawerFooter>
+              <Button variant='second' mr={3} onClick={onCloseVip}>
+                关闭
+              </Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+
+        <div className='card'>
+          <div>
+            <div grid grid-cols-1>
+              <div bg-white p-4 rounded-xl relative onClick={onOpenVip}>
+                <div className='flex-1'>
+                  <div className='font-bold text-xl'>🧋一杯奶茶 | 早鸟特惠</div>
+                  <div text-sm my-1>
+                    <span className='text-red-500'>￥12.00</span>
+                    <span op20 mx-1>/</span>
+                    <span className='text-red-500'>31天</span>
+                  </div>
+                  <div className='mt-2'>
+                    <div flex='~ items-center'>
+                      <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+                      <div className='text-sm op80 ml-2'>解锁所有VIP功能</div>
+                    </div>
+                    <div flex='~ items-center'>
+                      <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+                      <div className='text-sm op80 ml-2'>超清导出</div>
+                    </div>
+                    <div flex='~ items-center'>
+                      <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+                      <div className='text-sm op80 ml-2'>去广告</div>
+                    </div>
+                  </div>
+                  <div className='absolute top-4 right-4 text-xs text-white rounded-full px-2 py-0.2 bg-red-500'>建站特惠</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
