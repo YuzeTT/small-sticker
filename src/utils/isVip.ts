@@ -12,7 +12,6 @@ const isVip = () => {
     return {level:0}
   }
   const v = JSON.parse(uncrypted.toString())
-  // setUserInfo(v)
   console.log(v);
   const t = new Date().getTime()
   if(v.time-t >= 0) {

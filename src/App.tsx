@@ -29,8 +29,6 @@ const Loading = () => {
           <Skeleton height='25px' />
         </div>
         <Skeleton height='280px' width='200px' className='mx-auto mt-4' />
-        {/* <Skeleton height='100px' />
-        <Skeleton height='100px' /> */}
       </Stack>
     </div>
   )
@@ -39,7 +37,6 @@ const Loading = () => {
 const RouterRender = () => {
   return (
     <div>
-      {/* <Loading /> */}
       <Suspense fallback={<Loading />}>
         <Fade in={true}>
         {useRoutes(routes)}
@@ -51,9 +48,6 @@ const RouterRender = () => {
 
 function App() {
   const info = isVip()
-  // console.log('22'+info);
-  // console.log(info);
-  
   useEffect(()=>{
     const id = localStorage.getItem("id")
     if (id) {

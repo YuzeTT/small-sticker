@@ -150,6 +150,8 @@ export default function User() {
         status: 'success',
         duration: 1000,
       })
+      localStorage.removeItem('is_login')
+      localStorage.removeItem('login_exp')
       
       setUserInfo(v)
       localStorage.setItem("key", inputKey)
