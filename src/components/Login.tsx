@@ -41,9 +41,9 @@ export default function Login({name}:{name: string}) {
   },[])
 
   return (
-    <div>
+    <div className=''>
       {id!=null&&isLogin===false?
-        <div className='absolute top-0 left-0 w-screen h-screen z-20 bg-white'>
+        <div className='absolute top-0 left-0 w-screen fixed h-screen overflow-hidden z-80 bg-white'>
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center'>
             <div className='text-sm op50 text-center mb-2'>身份验证</div>
             <div className='text-xl font-bold op90 text-center mb-4'>输入微信号以继续</div>
