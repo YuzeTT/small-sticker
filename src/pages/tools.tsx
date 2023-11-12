@@ -105,7 +105,7 @@ export default function Heytea() {
             </Button> */}
             <Button variant='vip' className='w-full' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={()=>{
               console.log('+ 导出');
-              if(!isVip().is_vip) {
+              if(isVip().is_vip) {
                 out(10)
               }else {
                 toast({
