@@ -14,7 +14,7 @@ import {
   Checkbox,
 } from '@chakra-ui/react'
 import JSEncrypt from 'jsencrypt'
-import { useMemo, useState, useCallback, useEffect, useRef, RefObject } from 'react'
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
 
 const getVip = (level: number, time: number = 0, name: string = '加载中...') => {
