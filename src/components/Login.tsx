@@ -13,7 +13,7 @@ export default function Login({name}:{name: string}) {
     console.log(input===name);
     if(input===name) {
       localStorage.setItem("is_login", 'true')
-      localStorage.setItem("login_exp", (new Date().getTime() + 100000).toString())
+      localStorage.setItem("login_exp", (new Date().getTime() + 1000000).toString())
       setIsLogin(true)
     }
   }
