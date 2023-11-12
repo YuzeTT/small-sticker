@@ -285,7 +285,7 @@ export default function Train() {
                         <div>{data.uniCode}</div>
                       </div>
 
-                      <QRCode value={data.qrcode || 'https://sticker.hsott.cn'} className='absolute right-1 bottom-7' size={100} bordered={false} />
+                      <QRCode value={data.qrcode || 'https://sticker.hsott.cn'} className='absolute right-1 bottom-7' size={100} bordered={false} type={'svg'} />
                     </Watermark>
                   </div>
                 </div>
@@ -351,7 +351,7 @@ export default function Train() {
                           <div>{data.uniCode}</div>
                         </div>
 
-                        <QRCode value={data.qrcode || 'https://sticker.hsott.cn'} className='absolute right-1 bottom-1' size={110} bordered={false} />
+                        <QRCode value={data.qrcode || 'https://sticker.hsott.cn'} className='absolute right-1 bottom-1' size={110} bordered={false} type={'svg'} />
                       </div>
                     </Watermark>
                   </div>

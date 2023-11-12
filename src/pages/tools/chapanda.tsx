@@ -29,7 +29,7 @@ export default function Chapanda() {
                 <HighText show={highLight} text='时间' eg={dayjs().format('MM-DD HH:mm')} />
               </div>
             </div>
-            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' />
+            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' type={'svg'} />
           </div>
           <div className='text-xl font-bold mt-2'>
             <HighText show={highLight} text='餐品' eg='茉莉奶绿' />

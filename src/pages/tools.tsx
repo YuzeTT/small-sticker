@@ -1,12 +1,17 @@
 import { Segmented, message } from "antd";
-import { Button, Collapse, ScaleFade } from '@chakra-ui/react'
+import { Button, Collapse, ScaleFade, useToast } from '@chakra-ui/react'
 import { useCallback, useRef, useState } from "react";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 // import SecureWatermark from "../components/SecureWatermark";
+import { useNavigate } from 'react-router-dom';
 import ExportList from "../components/ExportList";
 import { Outlet } from "react-router";
+import isVip from "../utils/isVip";
 
 export default function Heytea() {
+  const toast = useToast()
+  const navigate = useNavigate();
+
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
   const key = 'updatable';
@@ -15,20 +20,14 @@ export default function Heytea() {
   const [status, setStatus] = useState<number>(0)
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const out = useCallback(() => {
+  const out = useCallback((n?: number) => {
     if (ref.current === null) {
       return
     }
     setIsLoading(true)
 
-    messageApi.open({
-      key,
-      type: 'loading',
-      content: 'Loading...',
-    });
-
     try {
-      showImage(ref.current, "PNG", true).then((imageData) => {
+      showImage(ref.current, "PNG", true, n).then((imageData) => {
         if (imageData === 'data:,') {
           messageApi.open({
             key,
@@ -38,22 +37,23 @@ export default function Heytea() {
           setIsLoading(false)
         } else {
           setStatus(2)
-          messageApi.open({
-            key,
-            type: 'success',
-            content: '生成成功！',
-          });
+          toast({
+            description: "导出成功！长按图片即可保存",
+            status: 'success',
+            duration: 5000,
+            variant: 'subtle'
+          })
           setIsLoading(false)
         }
         setImageSrc((v) => [{ time: new Date().toLocaleString(), data: imageData }, ...v])
       })
     } catch (error) {
       console.log(error)
-      messageApi.open({
-        key,
-        type: 'error',
-        content: '生成失败，请将控制台截图反馈给开发者',
-      });
+      toast({
+        description: "生成失败，请将控制台截图反馈给开发者",
+        status: 'error',
+        duration: 9000,
+      })
     }
   }, [ref, messageApi])
 
@@ -88,13 +88,43 @@ export default function Heytea() {
           </Button>
         </ScaleFade>
         <ScaleFade in={status === 1} className='absolute w-full z-20' unmountOnExit>
-          <Button variant='main' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
-            console.log('+ 导出');
-            out()
-          }}>
-            <div className="i-ri-camera-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-            导出图片
-          </Button>
+          <div className="flex gap-2">
+            <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+              console.log('+ 导出');
+              out(1)
+            }}>
+              <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+              急速导出 (720P)
+            </Button>
+            {/* <Button variant='main' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+              console.log('+ 导出');
+              out()
+            }}>
+              <div className="i-ri-hd-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+              标准导出
+            </Button> */}
+            <Button variant='vip' className='w-full' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+              console.log('+ 导出');
+              if(!isVip().is_vip) {
+                out(10)
+              }else {
+                toast({
+                  duration: 9000,
+                  // isClosable: true,
+                  render: () => (
+                    <div className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-zinc-800 p-2 rounded-md flex items-center text-lg'>
+                      <div className="i-ri-vip-diamond-fill mx-2 text-xl" />
+                      <div className='flex-1 font-bold'>VIP专享功能</div>
+                      <Button bgColor='white' size='sm' onClick={()=>{navigate('/user')}}>开通VIP</Button>
+                    </div>
+                  ),
+                })
+              }
+            }}>
+              <div className="i-ri-vip-diamond-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+              超清导出 (8K)
+            </Button>
+          </div>
         </ScaleFade>
         <ScaleFade in={status === 2} className='absolute w-full z-20' unmountOnExit>
           <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{

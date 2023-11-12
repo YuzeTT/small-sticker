@@ -59,7 +59,7 @@ export default function Chagee() {
                 <HighText show={highLight} text='服务热线' eg='全球服务热线400-0000-000' />
               </div>
             </div>
-            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={80} color='black' />
+            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={80} color='black' type={'svg'} />
           </div>
           <div className='mt-2' text='0.7rem'>
             <HighText show={highLight} text='承诺' eg='如果对饮料有任何不满意门店可以免费为您重做' />

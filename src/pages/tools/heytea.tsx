@@ -61,7 +61,7 @@ export default function Heytea() {
                 <HighText show={highLight} text='店铺号码' eg='0599-00000000' />
               </div>
             </div>
-            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' />
+            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' type={'svg'} />
           </div>
         </div>
       </BaseCard>

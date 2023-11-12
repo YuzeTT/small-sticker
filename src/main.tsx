@@ -94,6 +94,22 @@ const components = {
         },
         textColor: '#07C160'
       },
+      vip: {
+        bgColor: '#E8C391',
+        _hover: {
+          bgColor: '#E8C899',
+        },
+        _active: {
+          bgColor: '#E8BD87',
+        },
+        _loading: {
+          bgColor: '#E8C391',
+          _hover: {
+            bgColor: '#E8C391'
+          }
+        },
+        textColor: '#FFFFFF'
+      },
     }
   }
 }

@@ -67,7 +67,7 @@ export default function Navbar() {
               <div className={`i-ri-cup-fill text-orange-500`} />
               <div className='whitespace-nowrap overflow-hidden text-sm ml-1 text-orange-500'>请我喝咖啡</div>
             </a> */}
-            <a href="/user" decoration-none min-w-8 h-7 px-3 rounded-full flex='~ items-center justify-center' className={`${isVip().is_vip?'bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-sm text-white': 'bg-blue-500 text-white'}`}>
+            <a href="/user" decoration-none min-w-8 h-7 px-3 rounded-full flex='~ items-center justify-center' className={`${isVip().is_vip?'bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-sm text-zinc-800': 'bg-blue-500 text-white'}`}>
               <div className={`i-ri-vip-diamond-fill`} />
               <div className={`whitespace-nowrap overflow-hidden text-sm ml-1 `}>会员</div>
             </a>

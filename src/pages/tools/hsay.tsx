@@ -48,7 +48,7 @@ export default function Hsay() {
                   <HighText show={highLight} text='地址' eg='小红书店' />
                 </div>
               </div>
-              <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' />
+              <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={100} color='black' type={'svg'} />
             </div>
           </div>
         </div>

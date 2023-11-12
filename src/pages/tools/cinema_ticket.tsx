@@ -36,7 +36,7 @@ export default function CinemaTicket() {
                 </div>
               </div>
               <div flex='~' mt-1>
-                <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={140} />
+                <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={140} type={'svg'} />
                 <div ml-2>
                   <div text='xs'>票价：<HighText show={highLight} text='' eg='10.0' />元</div>
                   <div text='xs'>服务费：<HighText show={highLight} text='' eg='10.0' />元</div>

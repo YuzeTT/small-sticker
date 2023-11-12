@@ -17,7 +17,7 @@ export default function Mxbc() {
             <div>
               <HighText show={highLight} text='数量' eg='01/01' />
             </div>
-            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={70} color='black' />
+            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={70} color='black' type={'svg'} />
           </div>
           {/* <img src="/heytea.png" alt="logo" absolute w-10 h-auto right-4 top-4 op80/> */}
           <div className={highLight ? '' : '-mt-4'}>

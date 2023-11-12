@@ -43,7 +43,7 @@ export default function Goodme() {
                 <HighText show={highLight} text='电话 时间 日期' eg={`18800000000 ${dayjs().format('HH:mm')} ${dayjs().format('MM-DD')}`} />
               </div>
             </div>
-            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={80} color='black' />
+            <QRCode value={'https://sticker.hsott.cn'} bordered={false} className="-m-3" size={80} color='black' type={'svg'} />
           </div>
           <div className='mt-2 flex justify-between items-center'>
             <img src="/images/goodme-2.webp" alt="goodme" className='w-15' />
