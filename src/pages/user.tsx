@@ -59,7 +59,7 @@ const getVip = (level: number, time: number = 0, name: string = '加载中...') 
 export default function User() {
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef: RefObject = useRef(null)
+  const cancelRef = useRef(null)
 
   const [userId, setUserId] = useState('')
   const [check, setCheck] = useState(false)
