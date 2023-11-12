@@ -37,35 +37,7 @@ export default function Ticket() {
   };
 
   const decrypt = new JSEncrypt()
-  const priKey = `-----BEGIN RSA PRIVATE KEY-----
-  MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCooGiojjdOFc4h
-  uuR5LreCu/G41oq99UpG2mJqpukczSqrxJCoyqSWGgFOoEhuZyIcPdbOzPdC5vlI
-  j99M77PO9hggH+W2F+SDFnWboFg3bb5yaPWo3TRegNmIk8IBD5UZEqRt4puA4cua
-  a0c3HWHEVLdF6l9leiSiX6brhiTK1/BpkOBxyONMExI8I39nz+9lS76x1IVKZDOB
-  W+FpH1ph0P+hFJwH4eSLiVvRVz2Rj5CRhdN32GWKIFN43QXXyj/UC3d1SiO/aDuG
-  +y9HVKCYhQp9aDh/gQWwsHsiqGZj6MMtGrmqUqeO1GF3y5cpbD5u8U3rzfUCNXgE
-  gRuMpuJbAgMBAAECggEAEGhzZptYBFAY261c1/HUx3LURYESxQMeNCDB3NDa9AN+
-  uHILBXGabEShhe4QvjVo20ilI0BMewUQkp/1QX49h9Dobg/MgVh30s2XqgoDK3mR
-  Q361ELZdhyiQgjqmcQX8IxFuUIbxTKwr7J2ts043miwIHVR97djhwa7/BgHqiJYr
-  b4le0VMRiY467YMj+ir7roqEo7lALSVdw4pZvRJmVqXXhSjgzOYWfbSZGUvReZz3
-  Lil85GxSm6suT/0Y6zchKf71UUomnhG9yss9EOqcxRrJCiF6miaZkt3DhFjJW8NY
-  kUXAN6UwiuX8vVwWulVWo0snUemPlNtLvKbWGxfMWQKBgQD3fsVoc03ybRA/rdYu
-  ZEtBYvnIVJK+Uc58tsXdcIotsG0Wtshm+G1bvnNjhS3V1LpHqGxZPW3y+ZWR9WOa
-  5MiTL9qlVh/pVmo7LMlkLCVnCBD6vJgGjE3g1KtAQLBLoFeJUC0ds/w9qeQy0OWG
-  MYCMcZrzKnn1MrMkQWtoxfGhLwKBgQCua9OGBEP9K52ZcN+fZzK2DpimL7zdExkw
-  rFAIaPsqKXRcuzuMiy8wiDwdZSKCdNY3ZwugIMFHP9IDQ1jx3JBfPPmR1z9tldGl
-  w+7rLNxhMrG3o87r1TQy5Cf6xJJFNunkNeAFUzcNretW3NG/8LtxaYjU1M2JSbaS
-  Oof1aySOlQKBgFNkEZvqDf97JBhwuFQVUw4LDWKkrHUYF10KMI02WDig04DtwYSA
-  fEiHWVXVD+aWsNVoOGmxOxS9Z9owNomAQNznKOLArCvxBAZARvNLtKaMnzv8w7Sh
-  HbR9s94Ibd5tflE0BJ+Xf4w/bDZ7EHswvsGTncQFMeaeWKIEsO4ylAHdAoGAOX6b
-  nCqdyr9s1N6LKD1ZTv/iu60ywWEBRbUXMJ6CZHSDwemKCJr8tC/EOSBUTtJ6poqW
-  H3OMopLcBG1XzWoaQPqVfciJRPNExzKd9/Gyt2uBf3pExCJkcX4Z26SeXqhqUuqb
-  bMXweNbio6Bol6+f6hOSoi1/jwi4YN1gYbqusz0CgYBtKPMv2nz5Tl8jHxI0bHuw
-  CUnoElOmNZMYFRxGzTelj0k/Ml56nq20EZwO8BNTQ7ytoBT4E6IZdGqW7tLuRCrY
-  cU+XWfO0SyWX6T8ZFAVEL22q3oYjXOPZjlAt7WLcLG5Y0j5eoV3heH+iRGNfvCJW
-  1YJO0YUsNoBnh2UQI9r2zg==
-  -----END RSA PRIVATE KEY-----
-  `
+  const priKey = import.meta.env.VITE_PRIKEY
   decrypt.setPrivateKey(priKey)
 
   const out = useCallback((n?: number) => {

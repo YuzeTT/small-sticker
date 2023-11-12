@@ -8,8 +8,10 @@ import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
 import { Modal } from 'antd'
+import Login from './components/Login'
 import Footer from './components/Footer'
 import { nanoid } from 'nanoid'
+import isVip from './utils/isVip'
 
 const Loading = () => {
   return (
@@ -48,6 +50,10 @@ const RouterRender = () => {
 }
 
 function App() {
+  const info = isVip()
+  // console.log('22'+info);
+  // console.log(info);
+  
   useEffect(()=>{
     const id = localStorage.getItem("id")
     if (id) {
@@ -71,6 +77,9 @@ function App() {
   return (
     <>
       <Router>
+        {info.name!=='用户'?
+          <Login name={info.name}></Login>:''
+        }
         <Navbar></Navbar>
         <div bg='white'>
           <div px-4 py-4 max-w-xl mx-auto>
