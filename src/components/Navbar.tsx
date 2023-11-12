@@ -4,6 +4,7 @@
 // import { useState } from 'react'
 // import { Alert } from 'antd';
 import { motion } from "framer-motion"
+import isVip from "../utils/isVip"
 
 export default function Navbar() {
   // const h = 10
@@ -62,23 +63,13 @@ export default function Navbar() {
             <a href="https://github.com/YuzeTT/small-sticker" className='decoration-none text-#1F2328'>
               <div className='i-ri-github-fill text-2xl'></div>
             </a>
-            <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button= '>
-              {/* <motion.div 
-                initial="collapsed"
-                animate={
-                  showText ?'open':'collapsed'
-                }
-                exit="collapsed"
-                variants={{
-                  open: { opacity: 1, width: "auto" },
-                  collapsed: { opacity: 0, width: 0 }
-                }}
-                transition={{ type: "spring" }}className=' text-blue-500 '
-              >
-                
-              </motion.div> */}
+            {/* <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button= '>
               <div className={`i-ri-cup-fill text-orange-500`} />
               <div className='whitespace-nowrap overflow-hidden text-sm ml-1 text-orange-500'>请我喝咖啡</div>
+            </a> */}
+            <a href="/user" decoration-none min-w-8 h-7 px-3 rounded-full flex='~ items-center justify-center' className={`${isVip().is_vip?'bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-sm text-white': 'bg-blue-500 text-white'}`}>
+              <div className={`i-ri-vip-diamond-fill`} />
+              <div className={`whitespace-nowrap overflow-hidden text-sm ml-1 `}>会员</div>
             </a>
           </motion.div>
         </div>

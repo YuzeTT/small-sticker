@@ -82,10 +82,10 @@ export default function index() {
               <div className='font-bold mt-0.5 text-lg'>小红书</div>
             </div>
           </a>
-          <a href='/sponsor' className='text-zinc-800 bg-[#E11D4815] rounded-lg p-4 flex items-center col-span-2' style={{border: '1px solid #F4F4F5'}}>
-            <div className="i-ri-hand-heart-fill text-2xl text-[#E11D48] mr-4" />
+          <a href='/user' className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-white rounded-lg p-4 flex items-center col-span-2' style={{border: '1px solid #F4F4F5'}}>
+            <div className="i-ri-vip-diamond-fill text-2xl mr-4" />
             <div>
-              <div className='font-bold mt-0.5 text-lg'>支持一下 <span className='op50'>(如果手头富裕的话)</span></div>
+              <div className='font-bold mt-0.5 text-lg'>支持一下 <span className='op80'>(建站低价)</span></div>
             </div>
           </a>
         </div>
