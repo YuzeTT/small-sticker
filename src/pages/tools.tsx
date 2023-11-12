@@ -91,7 +91,7 @@ export default function Heytea() {
           <div className="flex gap-2">
             <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
               console.log('+ 导出');
-              out(1)
+              out(1.3)
             }}>
               <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
               急速导出 (720P)
