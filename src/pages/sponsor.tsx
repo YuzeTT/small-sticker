@@ -52,6 +52,10 @@ export default function sponsor() {
             </div>
           </div>
         ))}
+
+        <video controls className='rounded-xl'>
+          <source src="https://upos-sz-mirrorali.bilivideo.com/upgcxcode/99/91/137649199/137649199_da2-1-192.mp4?e=ig8euxZM2rNcNbNM7wdVhwdlhbKMhwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1699818910&gen=playurlv2&os=alibv&oi=2018263300&trid=acbf23947d8e4f979e577f5137216464T&mid=3493297544759901&platform=html5&upsig=0d91879d6c3eac4cbd09cfcfe605c6b6&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,mid,platform&bvc=vod&nettype=0&bw=244006&orderid=0,1&buvid=&build=0&mobi_app=&f=T_0_0&logo=80000000" type="video/mp4" />
+        </video>
       </div>
     </div>
   )
