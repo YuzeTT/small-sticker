@@ -1,4 +1,4 @@
-import { Button, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from '@chakra-ui/react'
+import { Button, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Switch, FormLabel, FormControl } from '@chakra-ui/react'
 import HighText from "../../components/HighText";
 import { useOutletContext } from "react-router-dom";
 import { ChangeEvent, RefObject, useState } from "react";
@@ -9,6 +9,7 @@ export default function Instagram() {
 
   const [image, setImage] = useState('');
   const [head, setHead] = useState('');
+  const [bleedingLine, setBleedingLine] = useState(false);
 
   const [imageX , setImageX] = useState(0)
   const [imageY , setImageY] = useState(0)
@@ -117,9 +118,15 @@ export default function Instagram() {
             <div className='text-xs text-center op80'>X:{imageX}% Y:{imageY}% Zoom:{imageZoom}%</div>
           </div>
         </div>
+        <FormControl display='flex' alignItems='center' className='justify-center text-zinc-500'>
+          <FormLabel htmlFor='line' mb='0' fontSize='sm'>
+            3mm 出血线（印刷需打开）
+          </FormLabel>
+          <Switch id='line' size='sm' isChecked={bleedingLine} onChange={(v)=>{setBleedingLine(v.target.checked)}} />
+        </FormControl>
       </div>
-      <BaseCard ref={ref}>
-        <div className={`min-w-[250px] max-w-[250px] z-0 relative min-h-[350px] max-h-[350px] h-[350px]  origin-top flex flex-col`}>
+      <BaseCard ref={ref} className='overflow-hidden'>
+        <div className={`min-w-[250px] max-w-[250px] z-0 relative min-h-[350px] max-h-[350px] h-[350px]  origin-top flex flex-col`} style={bleedingLine?{border:'13.6px dashed #FF000020'}:{}}>
           <div className='flex justify-between px-2 py-1.5 bg-white'>
             <img src="/images/instagram/logo.webp" alt="logo" className='w-15 h-auto' />
             <div className='flex gap-4'>
@@ -127,7 +134,7 @@ export default function Instagram() {
               <img src="/images/instagram/messenger.svg" alt="" className='w-3.5' />
             </div>
           </div>
-          <div className='w-full h-[1px] bg-#E8E8E8'></div>
+          <div className='h-[1px] bg-#E8E8E8 -mx-[13.6px] w-[300px]'></div>
           <div className='flex px-2 py-1.5 items-center bg-white'>
             <div className='bg-gradient-to-rt from-[#FCCE10] via-[#FA0C65] to-[#D009B9] p-[1px] rounded-full'>
               <div className='bg-white rounded-full p-[1px]'>
@@ -159,7 +166,7 @@ export default function Instagram() {
           <div className='px-2 pb-1.5 text-[0.6rem] flex-1 bg-white'>
             <HighText show={highLight} text='文案' eg='点我看群主女装' />
           </div>
-          <div className='w-full h-[1px] bg-#E8E8E8'></div>
+          <div className='w-[300px] h-[1px] bg-#E8E8E8 -mx-[13.6px]'></div>
           <div className='flex items-center justify-between py-2 px-4 bg-white'>
             <img src="/images/instagram/home.svg" alt="home" className='w-3.5' />
             <img src="/images/instagram/search.svg" alt="search" className='w-4' />
