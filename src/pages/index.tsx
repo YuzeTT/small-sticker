@@ -1,4 +1,4 @@
-import { Modal, message } from 'antd'
+import { message } from 'antd'
 // import { Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
