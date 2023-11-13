@@ -2,9 +2,9 @@ name: NodeJS with Vite
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -24,5 +24,6 @@ jobs:
 
     - name: Build
       run: |
+        npm install pnpm -g
         pnpm i
         pnpm build
