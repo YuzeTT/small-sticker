@@ -74,6 +74,10 @@ export default function Instagram() {
         </label>
       </div>
       <div className='mb-4'>
+        <div className='mb-2 text-sm text-orange-500 flex items-center justify-center'>
+          <div className="i-ri-information-line mr-1" />
+          请到「预览模式」调整图片以获得准确的比例
+        </div>
         <div className='flex items-center gap-4'>
           <table className='w-48 h-40 mx-auto'>
             <tbody>
@@ -134,7 +138,7 @@ export default function Instagram() {
               <img src="/images/instagram/messenger.svg" alt="" className='w-3.5' />
             </div>
           </div>
-          <div className='h-[1px] bg-#E8E8E8 -mx-[13.6px] w-[300px]'></div>
+          <div className='h-[1px] bg-#E8E8E8 w-full'></div>
           <div className='flex px-2 py-1.5 items-center bg-white'>
             <div className='bg-gradient-to-rt from-[#FCCE10] via-[#FA0C65] to-[#D009B9] p-[1px] rounded-full'>
               <div className='bg-white rounded-full p-[1px]'>
@@ -166,7 +170,7 @@ export default function Instagram() {
           <div className='px-2 pb-1.5 text-[0.6rem] flex-1 bg-white'>
             <HighText show={highLight} text='文案' eg='点我看群主女装' />
           </div>
-          <div className='w-[300px] h-[1px] bg-#E8E8E8 -mx-[13.6px]'></div>
+          <div className='w-full h-[1px] bg-#E8E8E8'></div>
           <div className='flex items-center justify-between py-2 px-4 bg-white'>
             <img src="/images/instagram/home.svg" alt="home" className='w-3.5' />
             <img src="/images/instagram/search.svg" alt="search" className='w-4' />
