@@ -27,7 +27,7 @@ import dayjs from 'dayjs'
 const getVip = (level: number, time: number = 0, name: string = '加载中...') => {
   const list = [
     {
-      level: 0,
+      level: '0',
       text: <div className='text-xs bg-zinc-500 text-white rounded px-1.5 py-0.5' mr-2>访客</div>,
       icon: '/images/vip/vip-0.svg'
     },
@@ -42,7 +42,7 @@ const getVip = (level: number, time: number = 0, name: string = '加载中...') 
       icon: '/images/vip/vip-1.svg'
     },
     {
-      level: 100,
+      level: '100',
       text: <div className='text-xs bg-zinc-900 text-white rounded px-1.5 py-0.5' mr-2>管理员</div>,
       icon: '/images/vip/vip-5.svg'
     }
