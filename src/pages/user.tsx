@@ -24,7 +24,7 @@ import JSEncrypt from 'jsencrypt'
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import dayjs from 'dayjs'
 
-const getVip = (level: number, time: number = 0, name: string = '加载中...') => {
+const getVip = (level: string | undefined, time: number = 0, name: string = '加载中...') => {
   const list = [
     {
       level: '0',
