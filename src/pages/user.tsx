@@ -78,7 +78,7 @@ export default function User() {
 
   const [userId, setUserId] = useState('')
   const [check, setCheck] = useState(false)
-  const [userInfo, setUserInfo] = useState({ name: '用户', level: 0, time: 0, wechat: '' })
+  const [userInfo, setUserInfo] = useState({ name: '用户', level: '0', time: 0, wechat: '' })
   const [inputKey, setInputKey] = useState('')
   const decrypt = useMemo(() => new JSEncrypt(), [])
   const priKey = import.meta.env.VITE_PRIKEY
