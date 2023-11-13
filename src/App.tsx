@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   useRoutes,
 } from 'react-router-dom'
-import { Skeleton, Stack, Fade } from '@chakra-ui/react'
+import { Skeleton, Stack, Fade, useToast, Button } from '@chakra-ui/react'
 import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
@@ -47,6 +47,7 @@ const RouterRender = () => {
 }
 
 function App() {
+  const toast = useToast()
   const info = isVip()
   useEffect(()=>{
     const id = localStorage.getItem("id")
@@ -65,6 +66,23 @@ function App() {
       console.log('noid');
       const t_id = nanoid(10)
       localStorage.setItem("id", t_id)
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        toast({
+          title: '有更新可用',
+          icon: <div className="i-ri-refresh-line text-2xl" />,
+          description: <div className='flex items-center'>
+            <div>更新已加载完毕，点击按钮以更新 ➤</div>
+            <Button bgColor='white' size='sm' className='ml-2' onClick={()=>{window.location.reload()}}>更新</Button>
+          </div>,
+          status: 'success',
+          duration: 9000,
+        })    
+      });
+    }else {
+      console.log('+ 未检测到更新');
     }
   }, [])
 
