@@ -5,17 +5,20 @@ import dayjs from 'dayjs'
 export default function Get_key() {
   const [rsa , setRsa] = useState('')
   const [name , setName] = useState('')
+  const [level , setLevel] = useState('')
   const [d , setD] = useState('0')
   const [h , setH] = useState('0')
   const [t , setT] = useState(new Date().getTime())
   const [data , setData] = useState({
     time: t,
-    name: name
+    name: name,
+    level: level
   })
   const refresh = () => {
     setData({
       time: t+parseInt(d)*1000*60*60*24+parseInt(h)*1000*60*60,
-      name: name
+      name: name,
+      level: level
     })
     
   }
@@ -32,6 +35,9 @@ export default function Get_key() {
       <div space-y-2>
         <div><span bg-teal px-1>timestamp</span> {t} <button onClick={()=>{setT(new Date().getTime())}} bg-teal-500 className="border-solid border-green-700 text-white">0.Refresh</button></div>
         <input type="text" value={name} onChange={(v)=>{setName(v.target.value)}} /> Nick Name
+        <div>
+          <input type="text" value={level} onChange={(v)=>{setLevel(v.target.value)}} /> Level
+        </div>
         <div>
           <input type="number" value={d} onChange={(v)=>{setD(v.target.value)}} /> day(s)
         </div>

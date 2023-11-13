@@ -37,6 +37,11 @@ const getVip = (level: number, time: number = 0, name: string = '加载中...') 
       icon: '/images/vip/vip-1.svg'
     },
     {
+      level: '2',
+      text: <div className='text-xs bg-purple-500 text-white rounded px-1.5 py-0.5' mr-2>贡献者</div>,
+      icon: '/images/vip/vip-1.svg'
+    },
+    {
       level: 100,
       text: <div className='text-xs bg-zinc-900 text-white rounded px-1.5 py-0.5' mr-2>管理员</div>,
       icon: '/images/vip/vip-5.svg'
