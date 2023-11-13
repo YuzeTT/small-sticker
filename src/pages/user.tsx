@@ -306,6 +306,10 @@ export default function User() {
                       <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
                       <div className='text-sm op80 ml-2'>去广告</div>
                     </div>
+                    <div flex='~ items-center'>
+                      <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
+                      <div className='text-sm op80 ml-2'>商用授权（不包含第三方Logo）</div>
+                    </div>
                   </div>
                   <div className='absolute top-4 right-4 text-xs text-white rounded-full px-2 py-0.2 bg-red-500'>建站特惠</div>
                 </div>
