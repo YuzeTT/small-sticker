@@ -138,18 +138,19 @@ export default function Heytea() {
       </div>
       <div font-sans className='relative'>
         <Collapse in={status === 2} animateOpacity className='pt-4' unmountOnExit>
-          {!isVip().is_vip?
-            <div className='card px-2.5 py-1.5 bg-orange-50 text-orange-600 flex items-center'>
-              <div className="i-ri-creative-commons-nc-fill mr-2 text-lg" />
-              <div className='text-sm flex-1'>未获得商用授权 仅允许个人使用</div>
-              <Button size='xs' colorScheme='orange' onClick={()=>{navigate('/user')}}>获取授权</Button>
-            </div>:
-            <div className='card px-2.5 py-1.5 bg-green-50 text-green-600 flex items-center'>
-              <div className="i-ri-money-dollar-circle-fill mr-2 text-lg" />
-              <div className='text-sm flex-1'>已获得商用授权（不包含第三方Logo）</div>
-              {/* <Button size='xs' colorScheme='orange' onClick={()=>{navigate('/user')}}>获取授权</Button> */}
-            </div>
-          }
+          <div className='mb-4'>
+            {!isVip().is_vip?
+              <div className='card px-2.5 py-1.5 bg-orange-50 text-orange-600 flex items-center'>
+                <div className="i-ri-creative-commons-nc-fill mr-2 text-lg" />
+                <div className='text-sm flex-1'>未获得商用授权 仅允许个人使用</div>
+                <Button size='xs' colorScheme='orange' onClick={()=>{navigate('/user')}}>获取授权</Button>
+              </div>:
+              <div className='card px-2.5 py-1.5 bg-green-50 text-green-600 flex items-center'>
+                <div className="i-ri-money-dollar-circle-fill mr-2 text-lg" />
+                <div className='text-sm flex-1'>已获得商用授权（不包含第三方Logo）</div>
+              </div>
+            }
+          </div>
           <ExportList imageSrc={imageSrc} />
         </Collapse>
         <Collapse in={status !== 2} animateOpacity className='pt-4'>

@@ -3,31 +3,33 @@ import { Modal, message } from 'antd'
 import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import list from '../utils/router'
-import FollowMe from '../components/FollowMe';
+// import FollowMe from '../components/FollowMe';
 import isVip from '../utils/isVip';
 
 export default function index() {
   const navigate = useNavigate();
 
   const jumpBefore = (url: string) => {
-    if(localStorage.getItem("isFollowMe")!=='true'){
-      Modal.info({
-        title: '使用必读',
-        icon: null,
-        content: (
-          <div>
-            <FollowMe />
-          </div>
-        ),
-        onOk() {
-          localStorage.setItem("isFollowMe", 'true')
-          jump(url)
-        },
-        okText: '已关注且不再弹出',
-      });
-    } else {
-      jump(url)
-    }
+    // if(localStorage.getItem("isFollowMe")!=='true'){
+    //   Modal.info({
+    //     title: '使用必读',
+    //     icon: null,
+    //     content: (
+    //       <div>
+    //         <FollowMe />
+    //       </div>
+    //     ),
+    //     onOk() {
+    //       localStorage.setItem("isFollowMe", 'true')
+    //       jump(url)
+    //     },
+    //     okText: '已关注且不再弹出',
+    //   });
+    // } else {
+      
+    // }
+
+    jump(url)
 
   }
   
