@@ -11,6 +11,13 @@ const hot = ['#FEE2E2','#DC2626']
 
 const list = {
   done: [
+    // {
+    //   name: ['人生二格', '85mm*54mm'],
+    //   logo: '/images/rslg.webp',
+    //   url: '/tools/rseg',
+    //   tag: '新上线',
+    //   tag_color: ['#dcfce7','#16a34a']
+    // },
     {
       name: ['Instagram', '三寸 小卡/透卡'],
       logo: '/images/instagram/logo.webp',

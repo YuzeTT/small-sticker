@@ -15,6 +15,12 @@
 } */
 
 @font-face {
+  font-family: 'exo';
+  font-style: normal;
+  src: local('code'), url('/fonts/Exo2-Black.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'code';
   font-style: normal;
   src: local('code'), url('/fonts/Neutra Display Titling.otf') format('truetype');
