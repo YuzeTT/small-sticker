@@ -83,7 +83,7 @@ export default function Instagram() {
             <tbody>
               <tr>
                 <td className='h-full w-full relative overflow-hidden'>
-                  <div className='h-full w-full bg-center bg-contain bg-cover bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image})`, transform: `translate(${imageX}%,${imageY}%) scale(${imageZoom-30}%)`}}>
+                  <div className='h-full w-full bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image})`, transform: `translate(${imageX}%,${imageY}%) scale(${imageZoom-30}%)`}}>
                   </div>
                   <div className='h-35 w-45 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' style={{border:'20px solid #00000050'}}></div>
                   <div className='text-[0.7rem] text-white absolute top-[1px] left-1/2 transform -translate-x-1/2'>裁剪区</div>
@@ -143,7 +143,7 @@ export default function Instagram() {
             <div className='bg-gradient-to-rt from-[#FCCE10] via-[#FA0C65] to-[#D009B9] p-[1px] rounded-full'>
               <div className='bg-white rounded-full p-[1px]'>
                 {head?
-                <div className='w-4.5 h-4.5 rounded-full bg-center bg-cover bg-no-repeat ' style={{backgroundImage: `url(${head})`}} />:
+                <div className='w-4.5 h-4.5 rounded-full bg-center bg-cover! bg-no-repeat ' style={{backgroundImage: `url(${head})`}} />:
                 <div className='w-4.5 h-4.5 rounded-full bg-zinc-50' />
                 }
               </div>
@@ -155,7 +155,7 @@ export default function Instagram() {
           </div>
           {image?
             <div className='h-full w-full overflow-hidden'>
-              <div className='h-full w-full bg-center bg-contain bg-cover bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image})`, transform: `translate(${imageX}%,${imageY}%) scale(${imageZoom}%)`}}></div>
+              <div className='h-full w-full bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image})`, transform: `translate(${imageX}%,${imageY}%) scale(${imageZoom}%)`}}></div>
             </div>:
             <div className='w-full h-full bg-zinc-50 flex items-center justify-center text-zinc-500'>请上传图片</div>
           }

@@ -26,6 +26,9 @@ dependencies:
   axios:
     specifier: ^1.6.1
     version: 1.6.1
+  cropperjs:
+    specifier: ^1.6.1
+    version: 1.6.1
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -56,6 +59,9 @@ dependencies:
   react-copy-to-clipboard:
     specifier: ^5.1.0
     version: 5.1.0(react@18.2.0)
+  react-cropper:
+    specifier: ^2.3.3
+    version: 2.3.3(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -3148,6 +3154,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -3157,6 +3164,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -3166,6 +3174,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -3175,6 +3184,7 @@ packages:
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -4150,6 +4160,10 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.2
+    dev: false
+
+  /cropperjs@1.6.1:
+    resolution: {integrity: sha512-F4wsi+XkDHCOMrHMYjrTEE4QBOrsHHN5/2VsVAaRq8P7E5z7xQpT75S+f/9WikmBEailas3+yo+6zPIomW+NOA==}
     dev: false
 
   /cross-spawn@7.0.3:
@@ -6218,6 +6232,15 @@ packages:
     dependencies:
       copy-to-clipboard: 3.3.3
       prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /react-cropper@2.3.3(react@18.2.0):
+    resolution: {integrity: sha512-zghiEYkUb41kqtu+2jpX2Ntigf+Jj1dF9ew4lAobPzI2adaPE31z0p+5TcWngK6TvmWQUwK3lj4G+NDh1PDQ1w==}
+    peerDependencies:
+      react: '>=17.0.2'
+    dependencies:
+      cropperjs: 1.6.1
       react: 18.2.0
     dev: false
 

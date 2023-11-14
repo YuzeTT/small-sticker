@@ -89,7 +89,7 @@ export default function index() {
           <div p-4  cursor-pointer rounded-xl decoration-none relative overflow-hidden className='z-0 card hover:bg-zinc-50 transition' key={key} onClick={()=>{jumpBefore(item.url)}}>
             <div className='z-20'>
               <div flex='~ items-start justify-between'>
-                <div className='w-25 h-10 bg-contain bg-cover bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
+                <div className='w-25 h-10 bg-contain bg-contain bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
                 {item.tag?
                   <div className='px-1 py-0.5 text-xs rounded absolute right-2 top-2' style={{backgroundColor: item.tag_color[0], color: item.tag_color[1]}}>{item.tag}</div>
                   :''
@@ -110,7 +110,7 @@ export default function index() {
         {list.todo.map((item, key)=>(
           <div p-4 className='card hover:bg-zinc-50 transition' rounded-xl decoration-none key={key} >
             <div flex='~ items-start justify-between'>
-              <div className='w-25 h-10 bg-contain bg-cover bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
+              <div className='w-25 h-10 bg-contain bg-contain bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />
             </div>
             <div className='mt-6' text='xl zinc-700'>{item.name[0]}</div>
             <div text='sm zinc-500'>{item.name[1]}</div>
