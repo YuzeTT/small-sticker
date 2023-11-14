@@ -90,12 +90,14 @@ export default function Rseg() {
           <DrawerBody className='mx-auto'>
             <Cropper
               src={image1}
-              style={{ maxHeight: '50vh', width: "80vw" }}
+              style={{ height: 'auto', width: "auto", maxHeight: '50vh', maxWidth: "80vw" }}
               initialAspectRatio={1}
               aspectRatio={1}
               guides={true}
               autoCropArea={1}
               ref={cropperRef1}
+              viewMode={1}
+              background={false}
             />
           </DrawerBody>
 
@@ -130,6 +132,8 @@ export default function Rseg() {
               guides={true}
               autoCropArea={1}
               ref={cropperRef2}
+              viewMode={1}
+              background={false}
             />
           </DrawerBody>
 
@@ -207,8 +211,18 @@ export default function Rseg() {
                     </div>
                   </td>
                   <td className='flex gap-3'>
-                    <div className='h-33 w-33 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image1Crop})`}}></div>
-                    <div className='h-33 w-33 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image2Crop})`}}></div>
+                    {image1Crop?
+                      <div className='h-33 w-33 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image1Crop})`}}></div>:
+                      <div className='h-33 w-33 bg-zinc-200 flex justify-center items-center op50'>
+                        请上传图片
+                      </div>
+                    }
+                    {image2Crop?
+                      <div className='h-33 w-33 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image2Crop})`}}></div>:
+                      <div className='h-33 w-33 bg-zinc-200 flex justify-center items-center op50'>
+                        请上传图片
+                      </div>
+                    }
                   </td>
                   <td className='align-end '>
                     <div className='justify-end align-bottom rotate-90 origin-bottom mb-15 flex items-center relative'>
