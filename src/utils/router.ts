@@ -11,19 +11,19 @@ const hot = ['#FEE2E2','#DC2626']
 
 const list = {
   done: [
-    // {
-    //   name: ['人生二格', '85mm*54mm'],
-    //   logo: '/images/rslg.webp',
-    //   url: '/tools/rseg',
-    //   tag: '新上线',
-    //   tag_color: ['#dcfce7','#16a34a']
-    // },
+    {
+      name: ['人生二格', '85mm*54mm 明信片'],
+      logo: '/images/rslg.webp',
+      url: '/tools/rseg',
+      tag: '新上线',
+      tag_color: ['#dcfce7','#16a34a']
+    },
     {
       name: ['Instagram', '三寸 小卡/透卡'],
       logo: '/images/instagram/logo.webp',
       url: '/tools/instagram',
-      tag: '新上线',
-      tag_color: ['#dcfce7','#16a34a']
+      tag: '热门',
+      tag_color: hot
     },
     {
       name: ['茶百道', '奶茶标签'],

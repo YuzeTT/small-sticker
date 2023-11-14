@@ -62,7 +62,7 @@ export default function Heytea() {
       {contextHolder}
       <div flex='~ items-center' mb-4  bg-zinc-50 p-2 rounded-md>
         <div className="i-ri-lightbulb-fill w-4 h-4 mr-2 text-blue-500" />
-        <div text='zinc-600 sm'>点击灰色文字可以快速填充哦！</div>
+        <div text='zinc-600 sm'>蓝色输入框可编辑，点击灰色文字快速填充哦！</div>
       </div>
       <div>
         <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
