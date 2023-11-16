@@ -32,6 +32,7 @@ export default function Rseg() {
   const [image2Crop, setImage2Crop] = useState('');
   const [bleedingLine, setBleedingLine] = useState(false);
   const [isSmall, setIsSmall] = useState(false);
+  const [tw, setTw] = useState(false);
 
   const handleImage1Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
@@ -192,9 +193,15 @@ export default function Rseg() {
             </tr>
           </tbody>
         </table>
+
+        <div className='flex text-sm justify-center items-center gap-2 mt-2'>
+          <div className='op70'>85*54mm(大陆)</div>
+          <Switch id='line' size='sm' isChecked={tw} onChange={(v)=>{setTw(v.target.checked)}} />
+          <div className='op70'>90*54mm(中国台湾)</div>
+        </div>
       </div>
-      <BaseCard ref={ref} className={`overflow-hidden ${isSmall?'scale-85':''}`}>
-        <div className={`min-w-[345px] max-w-[345px] z-0 relative min-h-[219px] bg-white ${highLight?'':'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine?{border:'12.18px dashed #FF000020'}:{}}>
+      <BaseCard ref={ref} className={`-mx-4 ${isSmall?'scale-85':''} ${tw?'scale-85':''}`}>
+        <div className={`${tw?'min-w-[386px] max-w-[386px] w-[386px]!':'min-w-[345px] max-w-[345px]'} z-0 relative min-h-[219px] bg-white ${highLight?'':'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine?{border:'12.18px dashed #FF000020'}:{}}>
           <div className={`p-3 ${bleedingLine?'scale-95':'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{fontFamily: 'exo'}}>
             <table className='mx-auto'>
               <tbody>
