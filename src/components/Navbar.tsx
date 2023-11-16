@@ -104,6 +104,17 @@ export default function Navbar() {
           </motion.div>
         </div>
       </div>
+      {isVip().level==100?
+        <div className='px-2 pb-2'>
+          <div id="toast-simple" className="flex items-center w-full p-4 space-x-3 rtl:space-x-reverse text-gray-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg card" role="alert">
+              <div className="i-ri-passport-fill text-xl text-blue-500" />
+              <div className="ps-4 text-sm font-normal flex justify-between items-center flex-1">
+                <div>开发者模式已开启</div>
+                <div>管理员：{isVip().name}</div>
+              </div>
+          </div>
+        </div>:''
+      }
       {/* <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center' >
         <div className={getMsg()[1]} text-lg text-blue-500></div>
         <div pl-2>{getMsg()[0]}</div>
