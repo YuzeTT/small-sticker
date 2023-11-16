@@ -39,22 +39,24 @@ export default function Navbar() {
   // const tag = list.done.find((e)=> e.url === location.pathname)
 
   const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
+  const [updateAvailable, setUpdateAvailable] = useState<boolean>(false);
 
   useEffect(() => {
-    // Check if service worker is supported
     if ('serviceWorker' in navigator) {
-      // Register the service worker
       navigator.serviceWorker.register('/sw.js').then((reg) => {
         setRegistration(reg);
+
+        reg.addEventListener('controllerchange', () => {
+          setUpdateAvailable(true);
+        });
       });
     }
   }, []);
 
   const updateServiceWorker = () => {
     if (registration) {
-      registration.update();
-    } else {
-      console.log('无更新');
+      registration.update()
+      setUpdateAvailable(false)
     }
   };
 
@@ -83,14 +85,14 @@ export default function Navbar() {
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
           <motion.div className='flex justify-end flex-1 items-center space-x-2'>
-            {registration?
+            {updateAvailable&&
               <div onClick={updateServiceWorker} className='flex items-center p-1 bg-zinc-100 rounded-xl card'>
                 <div className='px-2'>
                   {/* <div className='text-[0.7rem]'>有更新可用！</div> */}
                   <div className='text-xs text-blue-500 font-bold'>有更新：v0.4.3</div>
                 </div>
                 <button type="button" className="px-3 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">更新</button>
-              </div>:''
+              </div>
             }
             {/* <a href="https://github.com/YuzeTT/small-sticker" className='decoration-none text-#1F2328'>
               <div className='i-ri-github-fill text-2xl'></div>
