@@ -148,28 +148,28 @@ export default function Rseg() {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-      <div className='flex gap-2 mb-4'>
-        <label className='flex-1'>
-          <input type="file" onChange={handleImage1Change} className='hidden'>
+      <div className='grid grid-cols-2 gap-2 mb-4'>
+        <label className='w-full flex'>
+          <input type="file" onChange={handleImage1Change} className='hidden w-0'>
           </input>
           <Button
             as='span'
             variant='outline'
             colorScheme='messenger'
-            className='w-full'
+            border={'1px dashed'}
             leftIcon={<div className="i-ri-image-add-fill text-xl" />}
           >
             上传图片（左）
           </Button>
         </label>
-        <label className='flex-1'>
-          <input type="file" onChange={handleImage2Change} className='hidden'>
+        <label className='w-full flex'>
+          <input type="file" onChange={handleImage2Change} className='hidden w-0'>
           </input>
           <Button
             as='span'
             variant='outline'
             colorScheme='messenger'
-            className='w-full'
+            border={'1px dashed'}
             leftIcon={<div className="i-ri-image-add-fill text-xl" />}
           >
             上传图片（右）
