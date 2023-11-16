@@ -33,6 +33,7 @@ export default function Rseg() {
   const [image1Crop, setImage1Crop] = useState('');
   const [image2Crop, setImage2Crop] = useState('');
   const [bleedingLine, setBleedingLine] = useState(false);
+  const [isSmall, setIsSmall] = useState(false);
 
   const handleImage1Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
@@ -177,14 +178,36 @@ export default function Rseg() {
         </label>
       </div>
       <div className='mb-4'>
+        <table className='mx-auto'>
+          <tbody>
+            <tr>
+              <td className='text-sm op70'>3mm 出血线（印刷需打开）</td>
+              <td>
+                <Switch id='line' size='sm' isChecked={bleedingLine} onChange={(v)=>{setBleedingLine(v.target.checked)}} />
+              </td>
+            </tr>
+            <tr>
+              <td className='text-sm op70'>修复模式（图像缺失需打开）</td>
+              <td>
+                <Switch id='line' size='sm' isChecked={isSmall} onChange={(v)=>{setIsSmall(v.target.checked)}} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {/* <FormControl display='flex' alignItems='center' className='justify-center text-zinc-500'>
+          <FormLabel htmlFor='line' mb='0' fontSize='sm'>
+            
+          </FormLabel>
+          
+        </FormControl>
         <FormControl display='flex' alignItems='center' className='justify-center text-zinc-500'>
           <FormLabel htmlFor='line' mb='0' fontSize='sm'>
-            3mm 出血线（印刷需打开）
+            
           </FormLabel>
-          <Switch id='line' size='sm' isChecked={bleedingLine} onChange={(v)=>{setBleedingLine(v.target.checked)}} />
-        </FormControl>
+          
+        </FormControl> */}
       </div>
-      <BaseCard ref={ref} className='overflow-hidden'>
+      <BaseCard ref={ref} className={`overflow-hidden ${isSmall?'scale-85':''}`}>
         <div className={`min-w-[345px] max-w-[345px] z-0 relative min-h-[219px] bg-white ${highLight?'':'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine?{border:'12.18px dashed #FF000020'}:{}}>
           <div className={`p-3 ${bleedingLine?'scale-95':'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{fontFamily: 'exo'}}>
             <table className='mx-auto'>
