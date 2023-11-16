@@ -28,6 +28,8 @@ export default function Rseg() {
 
   const [image1, setImage1] = useState('');
   const [image2, setImage2] = useState('');
+  const [image1Size, setImage1Size] = useState(0);
+  const [image2Size, setImage2Size] = useState(0);
   const [image1Crop, setImage1Crop] = useState('');
   const [image2Crop, setImage2Crop] = useState('');
   const [bleedingLine, setBleedingLine] = useState(false);
@@ -36,7 +38,7 @@ export default function Rseg() {
 
   const handleImage1Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
-
+    setImage1Size(file?.size||0)
     if (file) {
       const reader = new FileReader();
 
@@ -50,7 +52,7 @@ export default function Rseg() {
   }
   const handleImage2Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
-
+    setImage2Size(file?.size||0)
     if (file) {
       const reader = new FileReader();
 
@@ -72,6 +74,18 @@ export default function Rseg() {
     if (typeof cropperRef2.current?.cropper !== "undefined") {
       setImage2Crop(cropperRef2.current?.cropper.getCroppedCanvas().toDataURL());
     }
+  }
+
+  function formatBytes(bytes: number, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
   
   return (
@@ -102,9 +116,9 @@ export default function Rseg() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose1}>
+            {/* <Button variant='outline' mr={3} onClick={onClose1}>
               取消
-            </Button>
+            </Button> */}
             <Button colorScheme='messenger' onClick={()=>{
               getCropData1()
               onClose1()
@@ -138,9 +152,9 @@ export default function Rseg() {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant='outline' mr={3} onClick={onClose2}>
+            {/* <Button variant='outline' mr={3} onClick={onClose2}>
               取消
-            </Button>
+            </Button> */}
             <Button colorScheme='messenger' onClick={()=>{
               getCropData2()
               onClose2()
@@ -177,6 +191,11 @@ export default function Rseg() {
             上传图片（右）
           </Button>
         </label>
+      </div>
+      <div>
+        {image1Size+image2Size>=5120000?
+        <div className='text-sm text-red-500 text-center mb-2'>文件较大({formatBytes(image1Size+image2Size)}) 导出可能需要 1-3分钟</div>:''
+      }
       </div>
       <div className='mb-4'>
         <table className='mx-auto'>
