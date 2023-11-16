@@ -1,5 +1,5 @@
 import { Segmented, message } from "antd";
-import { Button, Collapse, ScaleFade, useToast } from '@chakra-ui/react'
+import { Button, Collapse, useToast } from '@chakra-ui/react'
 import { useCallback, useRef, useState } from "react";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 // import SecureWatermark from "../components/SecureWatermark";
@@ -60,14 +60,14 @@ export default function Heytea() {
   return (
     <div>
       {contextHolder}
-      <div flex='~ items-center' mb-4  bg-zinc-50 p-2 rounded-md>
+      <div flex='~ items-center' mb-4 bg-zinc-50 p-2 rounded-md>
         <div className="i-ri-lightbulb-fill w-4 h-4 mr-2 text-blue-500" />
         <div text='zinc-600 sm'>蓝色输入框可编辑，点击灰色文字快速填充哦！</div>
       </div>
       <div>
         <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
           console.log(highLight);
-          
+
           setStatus(parseInt(`${v}`))
           if (v === 0) {
             setHighLight(true)
@@ -76,75 +76,105 @@ export default function Heytea() {
           }
         }} />
       </div>
-      
-      <div className='h-10 relative mt-2'>
-        <ScaleFade in={status === 0} className='absolute w-full z-20' unmountOnExit>
-          <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+
+      <div className='relative mt-2'>
+        {/* <ScaleFade in={status === 0} className='w-full z-20' unmountOnExit> */}
+        {status === 0 ?
+          <Button variant='second' className='w-full shadow-card' isLoading={isLoading} loadingText='导出中' onClick={() => {
             setStatus(1)
             setHighLight(false)
           }}>
             下一步
             <div className="i-ri-arrow-right-line" ml-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          </Button>
-        </ScaleFade>
-        <ScaleFade in={status === 1} className='absolute w-full z-20' unmountOnExit>
-          <div className="flex gap-2">
-            <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
-              console.log('+ 导出');
-              out(1.3)
-            }}>
-              <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-              急速导出 (720P)
-            </Button>
-            {/* <Button variant='main' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
-              console.log('+ 导出');
-              out()
-            }}>
-              <div className="i-ri-hd-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-              标准导出
-            </Button> */}
-            <Button variant='vip' className='w-full' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={()=>{
-              console.log('+ 导出');
-              if(isVip().is_vip) {
-                out(10)
-              }else {
-                toast({
-                  duration: 9000,
-                  // isClosable: true,
-                  render: () => (
-                    <div className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-zinc-800 p-2 rounded-md flex items-center text-lg'>
-                      <div className="i-ri-vip-diamond-fill mx-2 text-xl" />
-                      <div className='flex-1 font-bold'>VIP专享功能</div>
-                      <Button bgColor='white' size='sm' onClick={()=>{navigate('/user')}}>开通VIP</Button>
-                    </div>
-                  ),
-                })
-              }
-            }}>
-              <div className="i-ri-vip-diamond-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-              超清导出 (8K)
-            </Button>
-          </div>
-        </ScaleFade>
-        <ScaleFade in={status === 2} className='absolute w-full z-20' unmountOnExit>
-          <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+          </Button> : ''
+        }
+        {/* </ScaleFade> */}
+        {/* <ScaleFade in={status === 1} className=' w-full z-20' unmountOnExit> */}
+        {status === 1 ?
+          <div className='p-2 bg-zinc-50 rounded-lg card'>
+            <div className='text-xs mb-2 op50'>导出选项</div>
+            <div className="flex gap-2">
+              <Button variant='second' bg='white' className='w-full shadow-card' isLoading={isLoading} loadingText='导出中' onClick={() => {
+                console.log('+ 导出');
+                out(1.3)
+              }}>
+                {/* <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} /> */}
+                急速 720P
+              </Button>
+              {/* <Button variant='main' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
+                  console.log('+ 导出');
+                  out()
+                }}>
+                  <div className="i-ri-hd-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+                  标准导出
+                </Button> */}
+              <Button variant='vip' className='w-full shadow-card' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={() => {
+                console.log('+ 导出');
+                if (isVip().is_vip) {
+                  out(5)
+                } else {
+                  toast({
+                    duration: 9000,
+                    // isClosable: true,
+                    render: () => (
+                      <div className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-zinc-800 p-2 rounded-md flex items-center text-lg'>
+                        <div className="i-ri-vip-diamond-fill mx-2 text-xl" />
+                        <div className='flex-1 font-bold'>VIP专享功能</div>
+                        <Button bgColor='white' size='sm' onClick={() => { navigate('/user') }}>开通VIP</Button>
+                      </div>
+                    ),
+                  })
+                }
+              }}>
+                <div className="i-ri-vip-diamond-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+                超清 4K
+              </Button>
+              <Button variant='vip' className='w-full shadow-card' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={() => {
+                console.log('+ 导出');
+                if (isVip().is_vip) {
+                  out(10)
+                } else {
+                  toast({
+                    duration: 9000,
+                    // isClosable: true,
+                    render: () => (
+                      <div className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-zinc-800 p-2 rounded-md flex items-center text-lg'>
+                        <div className="i-ri-vip-diamond-fill mx-2 text-xl" />
+                        <div className='flex-1 font-bold'>VIP专享功能</div>
+                        <Button bgColor='white' size='sm' onClick={() => { navigate('/user') }}>开通VIP</Button>
+                      </div>
+                    ),
+                  })
+                }
+              }}>
+                <div className="i-ri-vip-diamond-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+                极致 8K
+              </Button>
+            </div>
+          </div> : ''
+        }
+        {/* </ScaleFade> */}
+        {/* <ScaleFade in={status === 2} className='w-full z-20' unmountOnExit> */}
+        {status === 2 ?
+          <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={() => {
             setStatus(0)
             setHighLight(true)
           }}>
             <div className="i-ri-arrow-go-back-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
             返回编辑
-          </Button>
-        </ScaleFade>
+          </Button> : ''
+        }
+        {/* </ScaleFade> */}
       </div>
       <div font-sans className='relative'>
         <Collapse in={status === 2} animateOpacity className='pt-4' unmountOnExit>
           <div className='mb-4'>
-            {!isVip().is_vip?
+            {!isVip().is_vip ?
               <div className='card px-2.5 py-1.5 bg-orange-50 text-orange-600 flex items-center'>
                 <div className="i-ri-creative-commons-nc-fill mr-2 text-lg" />
                 <div className='text-sm flex-1'>未获得商用授权 仅允许个人使用</div>
-                <Button size='xs' colorScheme='orange' onClick={()=>{navigate('/user')}}>获取授权</Button>
-              </div>:
+                <Button size='xs' colorScheme='orange' onClick={() => { navigate('/user') }}>获取授权</Button>
+              </div> :
               <div className='card px-2.5 py-1.5 bg-green-50 text-green-600 flex items-center'>
                 <div className="i-ri-money-dollar-circle-fill mr-2 text-lg" />
                 <div className='text-sm flex-1'>已获得商用授权（不包含第三方Logo）</div>
