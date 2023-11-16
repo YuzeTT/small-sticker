@@ -156,6 +156,7 @@ export default function Rseg() {
             as='span'
             variant='outline'
             colorScheme='messenger'
+            className='w-full'
             border={'1px dashed'}
             leftIcon={<div className="i-ri-image-add-fill text-xl" />}
           >
@@ -169,6 +170,7 @@ export default function Rseg() {
             as='span'
             variant='outline'
             colorScheme='messenger'
+            className='w-full'
             border={'1px dashed'}
             leftIcon={<div className="i-ri-image-add-fill text-xl" />}
           >
