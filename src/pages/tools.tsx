@@ -1,5 +1,5 @@
-import { Segmented, message } from "antd";
-import { Button, Collapse, useToast } from '@chakra-ui/react'
+import { message } from "antd";
+import { Button, Collapse, useToast, Tabs, Tab, TabList } from '@chakra-ui/react'
 import { useCallback, useRef, useState } from "react";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 // import SecureWatermark from "../components/SecureWatermark";
@@ -64,8 +64,8 @@ export default function Heytea() {
         <div className="i-ri-lightbulb-fill w-4 h-4 mr-2 text-blue-500" />
         <div text='zinc-600 sm'>蓝色输入框可编辑，点击灰色文字快速填充哦！</div>
       </div>
-      <div>
-        <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
+      <div className='mb-4'>
+        {/* <Segmented block={true} options={[{ value: 0, label: '编辑模式' }, { value: 1, label: '预览模式' }, { value: 2, label: '导出记录' }]} value={status} onChange={(v) => {
           console.log(highLight);
 
           setStatus(parseInt(`${v}`))
@@ -74,40 +74,47 @@ export default function Heytea() {
           } else if (v === 1) {
             setHighLight(false)
           }
-        }} />
+        }} /> */}
+
+        <Tabs index={status} isFitted variant='unstyled' className='bg-zinc-100 p-1 rounded-xl' onChange={(v)=>{
+          setStatus(parseInt(`${v}`))
+          if (v === 0) {
+            setHighLight(true)
+          } else if (v === 1) {
+            setHighLight(false)
+          }
+        }}>
+          <TabList className='gap-1'>
+            <Tab className='hover:bg-gray-100 rounded-lg h-9' _selected={{ color: 'white', bg: '#2563EB', rounded: '0.5rem' }} >编辑</Tab>
+            <Tab className='hover:bg-gray-100 rounded-lg h-9' _selected={{ color: 'white', bg: '#2563EB', rounded: '0.5rem' }} >预览</Tab>
+            <Tab className='hover:bg-gray-100 rounded-lg h-9' _selected={{ color: 'white', bg: '#2563EB', rounded: '0.5rem' }} >导出记录</Tab>
+          </TabList>
+        </Tabs>
+
       </div>
 
-      <div className='relative mt-2'>
-        {/* <ScaleFade in={status === 0} className='w-full z-20' unmountOnExit> */}
+      <div className=''>
+
         {status === 0 ?
-          <Button variant='second' className='w-full shadow-card' isLoading={isLoading} loadingText='导出中' onClick={() => {
+          <button type="button" className="w-full py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 flex justify-center items-center" onClick={() => {
             setStatus(1)
             setHighLight(false)
           }}>
-            下一步
+            <div>下一步</div>
             <div className="i-ri-arrow-right-line" ml-1 style={{ display: isLoading ? 'none' : 'block' }} />
-          </Button> : ''
+          </button> : ''
         }
-        {/* </ScaleFade> */}
-        {/* <ScaleFade in={status === 1} className=' w-full z-20' unmountOnExit> */}
         {status === 1 ?
           <div className='p-2 bg-zinc-50 rounded-lg card'>
             <div className='text-xs mb-2 op50'>导出选项</div>
             <div className="flex gap-2">
-              <Button variant='second' bg='white' className='w-full shadow-card' isLoading={isLoading} loadingText='导出中' onClick={() => {
+              <Button variant='second' bg='white' className='w-full shadow-card border border-gray-200 hover:bg-gray-100' isLoading={isLoading} loadingText='导出中' onClick={() => {
                 console.log('+ 导出');
                 out(1.3)
               }}>
                 {/* <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} /> */}
                 急速 720P
               </Button>
-              {/* <Button variant='main' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={()=>{
-                  console.log('+ 导出');
-                  out()
-                }}>
-                  <div className="i-ri-hd-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-                  标准导出
-                </Button> */}
               <Button variant='vip' className='w-full shadow-card' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={() => {
                 console.log('+ 导出');
                 if (isVip().is_vip) {
@@ -153,18 +160,15 @@ export default function Heytea() {
             </div>
           </div> : ''
         }
-        {/* </ScaleFade> */}
-        {/* <ScaleFade in={status === 2} className='w-full z-20' unmountOnExit> */}
         {status === 2 ?
-          <Button variant='second' className='w-full' isLoading={isLoading} loadingText='导出中' onClick={() => {
+          <button type="button" className="w-full py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 flex justify-center items-center" onClick={() => {
             setStatus(0)
             setHighLight(true)
           }}>
             <div className="i-ri-arrow-go-back-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-            返回编辑
-          </Button> : ''
+            <div>返回编辑</div>
+          </button> : ''
         }
-        {/* </ScaleFade> */}
       </div>
       <div font-sans className='relative'>
         <Collapse in={status === 2} animateOpacity className='pt-4' unmountOnExit>
