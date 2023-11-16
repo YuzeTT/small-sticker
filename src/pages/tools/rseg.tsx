@@ -1,8 +1,6 @@
 import {
   Button,
   Switch,
-  FormLabel,
-  FormControl,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -194,18 +192,6 @@ export default function Rseg() {
             </tr>
           </tbody>
         </table>
-        {/* <FormControl display='flex' alignItems='center' className='justify-center text-zinc-500'>
-          <FormLabel htmlFor='line' mb='0' fontSize='sm'>
-            
-          </FormLabel>
-          
-        </FormControl>
-        <FormControl display='flex' alignItems='center' className='justify-center text-zinc-500'>
-          <FormLabel htmlFor='line' mb='0' fontSize='sm'>
-            
-          </FormLabel>
-          
-        </FormControl> */}
       </div>
       <BaseCard ref={ref} className={`overflow-hidden ${isSmall?'scale-85':''}`}>
         <div className={`min-w-[345px] max-w-[345px] z-0 relative min-h-[219px] bg-white ${highLight?'':'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine?{border:'12.18px dashed #FF000020'}:{}}>
