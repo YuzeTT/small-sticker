@@ -3,6 +3,8 @@
 // import list from '../utils/router';
 // import { useState } from 'react'
 // import { Alert } from 'antd';
+import { useEffect, useState } from "react";
+
 import { motion } from "framer-motion"
 import isVip from "../utils/isVip"
 
@@ -35,6 +37,27 @@ export default function Navbar() {
   // const [showText , setShowText] = useState(false)
   // const location = useLocation()
   // const tag = list.done.find((e)=> e.url === location.pathname)
+
+  const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
+
+  useEffect(() => {
+    // Check if service worker is supported
+    if ('serviceWorker' in navigator) {
+      // Register the service worker
+      navigator.serviceWorker.register('/sw.js').then((reg) => {
+        setRegistration(reg);
+      });
+    }
+  }, []);
+
+  const updateServiceWorker = () => {
+    if (registration) {
+      registration.update();
+    } else {
+      console.log('无更新');
+    }
+  };
+
   return (
     <div bg='white' overflow-hidden style={{borderBottom :'1px solid #EFEFEF'}}>
       <div>
@@ -60,12 +83,17 @@ export default function Navbar() {
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
           <motion.div className='flex justify-end flex-1 items-center space-x-2'>
-            <a href="https://github.com/YuzeTT/small-sticker" className='decoration-none text-#1F2328'>
+            {registration?
+              <div onClick={updateServiceWorker} className='flex items-center p-1 bg-zinc-100 rounded-xl card'>
+                <div className='px-2'>
+                  {/* <div className='text-[0.7rem]'>有更新可用！</div> */}
+                  <div className='text-xs text-blue-500 font-bold'>有更新：v0.4.3</div>
+                </div>
+                <button type="button" className="px-3 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">更新</button>
+              </div>:''
+            }
+            {/* <a href="https://github.com/YuzeTT/small-sticker" className='decoration-none text-#1F2328'>
               <div className='i-ri-github-fill text-2xl'></div>
-            </a>
-            {/* <a href="/sponsor" decoration-none text-zinc-900 min-w-8 h-8 px-3 bg-orange-100 rounded-full flex='~ items-center justify-center' className='animated-button= '>
-              <div className={`i-ri-cup-fill text-orange-500`} />
-              <div className='whitespace-nowrap overflow-hidden text-sm ml-1 text-orange-500'>请我喝咖啡</div>
             </a> */}
             <a href="/user" decoration-none min-w-8 h-7 px-3 rounded-full flex='~ items-center justify-center' className={`${isVip().is_vip?'bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-sm text-zinc-800': 'bg-blue-500 text-white'}`}>
               <div className={`i-ri-vip-diamond-fill`} />
