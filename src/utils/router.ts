@@ -14,7 +14,7 @@ const list = {
     {
       name: ['人生四格', '50mm*150mm'],
       logo: '/images/rssg.webp',
-      url: '/tools/rseg',
+      url: '/tools/rssg',
       tag: '新上线',
       tag_color: ['#dcfce7','#16a34a']
     },
