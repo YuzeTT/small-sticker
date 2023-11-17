@@ -12,6 +12,13 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
+      name: ['人生四格', '50mm*150mm'],
+      logo: '/images/rssg.webp',
+      url: '/tools/rseg',
+      tag: '新上线',
+      tag_color: ['#dcfce7','#16a34a']
+    },
+    {
       name: ['人生二格', '85mm*54mm 明信片'],
       logo: '/images/rslg.webp',
       url: '/tools/rseg',
