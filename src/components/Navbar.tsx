@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { motion } from "framer-motion"
 import isVip from "../utils/isVip"
+import Toggle from './Toggle'
 
 export default function Navbar() {
   // const h = 10
@@ -40,7 +41,6 @@ export default function Navbar() {
 
   const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
   const [updateAvailable, setUpdateAvailable] = useState<boolean>(false);
-
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').then((reg) => {
@@ -97,6 +97,7 @@ export default function Navbar() {
             {/* <a href="https://github.com/YuzeTT/small-sticker" className='decoration-none text-#1F2328'>
               <div className='i-ri-github-fill text-2xl'></div>
             </a> */}
+              <Toggle />
             <a href="/user" decoration-none min-w-8 h-7 px-3 rounded-full flex='~ items-center justify-center' className={`${isVip().is_vip?'bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-sm text-zinc-800': 'bg-blue-500 text-white'}`}>
               <div className={`i-ri-vip-diamond-fill`} />
               <div className={`whitespace-nowrap overflow-hidden text-sm ml-1 `}>会员</div>
