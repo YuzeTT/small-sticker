@@ -26,7 +26,7 @@ export default function Chapanda() {
       </RadioGroup>
       <BaseCard ref={ref}>
         <div className={`w-50 ${!highLight&&'h-100'} p-3 flex flex-col bg-white`}>
-          <div className={`py-1 text-center ${type==='1'?'bg-black text-white':'bg-white text-zinc-900'} font-bold text-xl`}>
+          <div className={`py-1 text-center ${type==='1'?'bg-black text-white':'bg-white text-zinc-900'} font-bold text-xl`} style={highLight?{height: '2.4rem', marginBottom: '2.5rem'}:{}}>
             <HighText show={highLight} text='取餐码' eg='啡快 57076' />
           </div>
           <div className='flex justify-between'>
