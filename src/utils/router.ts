@@ -12,9 +12,9 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
-      name: ['人生四格', '50mm*150mm'],
-      logo: '/images/rssg.webp',
-      url: '/tools/rssg',
+      name: ['星巴克', '咖啡标签'],
+      logo: '/images/starbucks.png',
+      url: '/tools/starbucks',
       tag: '新上线',
       tag_color: ['#dcfce7','#16a34a']
     },
@@ -22,8 +22,15 @@ const list = {
       name: ['人生二格', '85mm*54mm 明信片'],
       logo: '/images/rslg.webp',
       url: '/tools/rseg',
-      tag: '新上线',
-      tag_color: ['#dcfce7','#16a34a']
+      tag: '热门',
+      tag_color: hot
+    },
+    {
+      name: ['人生四格', '50mm*150mm'],
+      logo: '/images/rssg.webp',
+      url: '/tools/rssg',
+      tag: '',
+      tag_color: []
     },
     {
       name: ['Instagram', '三寸 小卡/透卡'],
@@ -139,10 +146,6 @@ const list = {
     },
   ],
   todo: [
-    {
-      name: ['星巴克', '咖啡标签'],
-      logo: '/images/starbucks.png',
-    },
     {
       name: ['茶颜悦色', '奶茶标签'],
       logo: '/images/sexytea.png',
