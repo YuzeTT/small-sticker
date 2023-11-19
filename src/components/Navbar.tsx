@@ -1,4 +1,4 @@
-// import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 // import { useLocation } from 'react-router';
 // import list from '../utils/router';
 // import { useState } from 'react'
@@ -9,6 +9,7 @@ import { motion } from "framer-motion"
 import isVip from "../utils/isVip"
 
 export default function Navbar() {
+  const navigate = useNavigate();
   // const h = 10
   // const hostname = window.location.hostname
   // const h = new Date().getHours()
@@ -35,7 +36,7 @@ export default function Navbar() {
   //   }
   // }
   // const [showText , setShowText] = useState(false)
-  // const location = useLocation()
+  const location = useLocation()
   // const tag = list.done.find((e)=> e.url === location.pathname)
 
   const [registration, setRegistration] = useState<ServiceWorkerRegistration | null>(null);
@@ -61,7 +62,8 @@ export default function Navbar() {
   };
 
   return (
-    <div bg='white' overflow-hidden style={{borderBottom :'1px solid #EFEFEF'}}>
+    // style={{borderBottom :'1px solid #EFEFEF'}}
+    <div overflow-hidden className={location.pathname==='/'?'hidden':'block bg-transparent'}>
       <div>
         <div className='h-[64px]' px-4 flex='~ items-center justify-between'>
             {/* <div className="i-ri-menu-fill text-2xl text-gray-500" /> */}
@@ -71,8 +73,9 @@ export default function Navbar() {
               <span className='px-2 py-1 bg-orange-200 text-orange-700 rounded-md text-sm font-500'>Beta</span>
             }
           </div> */}
+          <div className="i-ri-arrow-left-s-line text-2xl mr-4" onClick={()=>{navigate('/')}} />
           <a flex='~ items-center' href='/' decoration-none text-zinc-900>
-            <img src='/images/wsj.png' alt='logo' className='w-8 h-8' />
+            <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-7 h-7' />
             <span className="text-lg font-bold ml-2">大贴纸</span>
             {/* <img src='/sticker_logo.png' alt='logo' className='w-8 h-8' /> */}
             {/* <div text='lg' font='bold'>大贴纸</div> */}
@@ -104,7 +107,7 @@ export default function Navbar() {
           </motion.div>
         </div>
       </div>
-      {isVip().level==100?
+      {/* {isVip().level==100?
         <div className='px-2 pb-2'>
           <div id="toast-simple" className="flex items-center w-full p-4 space-x-3 rtl:space-x-reverse text-gray-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg card" role="alert">
               <div className="i-ri-passport-fill text-xl text-blue-500" />
@@ -114,7 +117,7 @@ export default function Navbar() {
               </div>
           </div>
         </div>:''
-      }
+      } */}
       {/* <div px-4 pb-4 text='zinc-500' flex='~ items-center justify-center' >
         <div className={getMsg()[1]} text-lg text-blue-500></div>
         <div pl-2>{getMsg()[0]}</div>

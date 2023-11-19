@@ -37,8 +37,20 @@ export default function index() {
     navigate(url)
   }
   return (
-    <div className='max-w-xl mx-auto'>
-      <div className='p-2 rounded-2xl mb-4 card'>
+    <div className='max-w-xl mx-auto relative z-10'>
+      <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-[70px]'></div>
+      <div className='w-40 h-40 rounded-full bg-green-100 absolute top-10 -right-10 z-0 blur-[70px]'></div>
+      <div className='mb-4 relative p-4'>
+        <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-12 h-12' />
+        <div className='text-3xl op90 mt-5'>早生蚝!</div>
+        <div className='text-lg op90 mt-2'>欢迎来到大贴纸的全新站点~</div>
+
+        <a href='/user' className='absolute top-0 right-0 m-4 bg-green-100 p-1 rounded-full flex items-center text-green-700'>
+          <div className="i-ri-account-circle-fill text-xl" />
+          <div className='text-sm mx-1'>我的账户</div>
+        </a>
+      </div>
+      <div className='p-2 rounded-2xl mb-4 card bg-white relative z-20'>
         <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>快捷跳转</div>
         <div className='grid grid-cols-2 gap-2'>
           <CopyToClipboard text='752693422'
@@ -86,7 +98,7 @@ export default function index() {
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
         {list.done.map((item, key)=>(
-          <div p-4  cursor-pointer rounded-xl decoration-none relative overflow-hidden className='z-0 card hover:bg-zinc-50 transition' key={key} onClick={()=>{jumpBefore(item.url)}}>
+          <div p-4  cursor-pointer rounded-xl decoration-none relative overflow-hidden className='bg-white z-0 card hover:bg-zinc-50 transition' key={key} onClick={()=>{jumpBefore(item.url)}}>
             <div className='z-20'>
               <div flex='~ items-start justify-between'>
                 <div className='w-25 h-10 bg-contain bg-contain bg-left bg-no-repeat' text='center' style={{backgroundImage: `url(${item.logo})`}} />

@@ -92,10 +92,12 @@ function App() {
         {info.name!=='用户'?
           <Login name={info.name}></Login>:''
         }
-        <Navbar></Navbar>
         <div bg='white'>
-          <div px-4 py-4 max-w-xl mx-auto>
-            <RouterRender/>
+          <Navbar></Navbar>
+          <div>
+            <div px-4 pb-4 max-w-xl mx-auto>
+              <RouterRender/>
+            </div>
           </div>
         </div>
         <Footer></Footer>

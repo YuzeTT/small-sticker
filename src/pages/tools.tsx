@@ -76,7 +76,7 @@ export default function Heytea() {
           }
         }} /> */}
 
-        <Tabs index={status} isFitted variant='unstyled' className='bg-zinc-100 p-1 rounded-xl' onChange={(v)=>{
+        <Tabs index={status} isFitted variant='unstyled' className='bg-zinc-50 p-1 rounded-xl' onChange={(v)=>{
           setStatus(parseInt(`${v}`))
           if (v === 0) {
             setHighLight(true)
