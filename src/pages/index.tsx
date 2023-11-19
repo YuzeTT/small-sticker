@@ -10,32 +10,37 @@ export default function index() {
   const navigate = useNavigate();
 
   const jumpBefore = (url: string) => {
-    // if(localStorage.getItem("isFollowMe")!=='true'){
-    //   Modal.info({
-    //     title: '使用必读',
-    //     icon: null,
-    //     content: (
-    //       <div>
-    //         <FollowMe />
-    //       </div>
-    //     ),
-    //     onOk() {
-    //       localStorage.setItem("isFollowMe", 'true')
-    //       jump(url)
-    //     },
-    //     okText: '已关注且不再弹出',
-    //   });
-    // } else {
-      
-    // }
-
     jump(url)
-
   }
   
   const jump = (url: string) => {
     navigate(url)
   }
+
+  // const h = 0
+  const h = new Date().getHours()
+
+
+  const time_list = [
+    '夜已深，注意休息哦！', // 0,1,2
+    '快去睡觉吧！', // 3,4,5
+    '早安呀！',  // 6,7,8
+    '早生蚝！', // 9,10,11
+    '记得按时吃饭哦！', // 12,13,14
+    '下午好！', // 15,16,17
+    '吃了嘛！！', // 18,19,20
+    '累了一天，该休息啦~', // 21,22,23
+  ]
+
+  const getMsg = () => {
+    switch (h) {
+      case 15:
+        return '三点几嘞！'
+      default:
+        return time_list[Math.floor(h / 3)]
+    }
+  }
+
   return (
     <div className='max-w-xl mx-auto relative z-10'>
       <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-[70px]'></div>
@@ -43,7 +48,7 @@ export default function index() {
       <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-[70px]'></div>
       <div className='my-4 relative p-4'>
         <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-12 h-12' />
-        <div className='text-3xl op90 mt-5'>早生蚝!</div>
+        <div className='text-3xl op90 mt-5'>{getMsg()}</div>
         <div className='text-lg op90 mt-2'>欢迎来到大贴纸的全新站点~</div>
 
         <div className='flex gap-4 items-center relative mt-4'>
