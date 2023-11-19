@@ -68,7 +68,7 @@ export default function index() {
             <div className="i-ri-github-fill text-xl text-[#1F2328]" />
           </a>
           <a href='https://www.xiaohongshu.com/user/profile/5dbc28ee00000000010047ef' className='bg-white h-8 w-8 flex items-center justify-center rounded-md'>
-            <img src="/images/red.svg" alt="red" className='w-4 h-4 mr-4' />
+            <img src="/images/red.svg" alt="red" className='w-4 h-4' />
           </a>
         </div>
 
