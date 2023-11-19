@@ -40,61 +40,38 @@ export default function index() {
     <div className='max-w-xl mx-auto relative z-10'>
       <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-[70px]'></div>
       <div className='w-40 h-40 rounded-full bg-green-100 absolute top-10 -right-10 z-0 blur-[70px]'></div>
-      <div className='mb-4 relative p-4'>
+      <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-[70px]'></div>
+      <div className='my-4 relative p-4'>
         <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-12 h-12' />
         <div className='text-3xl op90 mt-5'>早生蚝!</div>
         <div className='text-lg op90 mt-2'>欢迎来到大贴纸的全新站点~</div>
+
+        <div className='flex gap-4 items-center relative mt-4'>
+          <CopyToClipboard text='752693422'
+            onCopy={() => message.success({content:'QQ群号 已复制'})}>
+            <div className="bg-white h-8 w-8 flex items-center justify-center rounded-md">
+              <div className="i-ri-qq-fill text-xl text-[#0099FF]" />
+            </div>
+          </CopyToClipboard>
+          <CopyToClipboard text='fusion_shuo'
+            onCopy={() => message.success({content:'微信群（加微信）已复制'})}>
+            <div className='bg-white h-8 w-8 flex items-center justify-center rounded-md' >
+              <div className="i-ri-wechat-fill text-xl text-[#07C160]" />
+            </div>
+          </CopyToClipboard>
+          <a href='https://github.com/YuzeTT/small-sticker' className='bg-white h-8 w-8 flex items-center justify-center rounded-md'>
+            <div className="i-ri-github-fill text-xl text-[#1F2328]" />
+          </a>
+          <a href='https://www.xiaohongshu.com/user/profile/5dbc28ee00000000010047ef' className='bg-white h-8 w-8 flex items-center justify-center rounded-md'>
+            <img src="/images/red.svg" alt="red" className='w-4 h-4 mr-4' />
+          </a>
+        </div>
 
         <a href='/user' className='absolute top-0 right-0 m-4 bg-green-100 p-1 rounded-full flex items-center text-green-700'>
           <div className="i-ri-account-circle-fill text-xl" />
           <div className='text-sm mx-1'>我的账户</div>
         </a>
       </div>
-      <div className='p-2 rounded-2xl mb-4 card bg-white relative z-20'>
-        <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>快捷跳转</div>
-        <div className='grid grid-cols-2 gap-2'>
-          <CopyToClipboard text='752693422'
-            onCopy={() => message.success({content:'已复制到剪贴板'})}>
-            <div className='bg-[#0099FF15] rounded-lg p-4 flex items-center' data-clipboard-text='752693422'>
-              <div className="i-ri-qq-fill text-2xl text-[#0099FF] mr-4" />
-              <div>
-                <div className='text-zinc-500 text-xs'>QQ群</div>
-                <div className='font-bold mt-0.5'>752693422</div>
-              </div>
-            </div>
-          </CopyToClipboard>
-          <CopyToClipboard text='fusion_shuo'
-            onCopy={() => message.success({content:'已复制到剪贴板'})}>
-            <div className='bg-[#07C16015] rounded-lg p-4 flex items-center' >
-              <div className="i-ri-wechat-fill text-2xl text-[#07C160] mr-4" />
-              <div>
-                <div className='text-zinc-500 text-xs'>微信群（加好友）</div>
-                <div className='font-bold mt-0.5'>fusion_shuo</div>
-              </div>
-            </div>
-          </CopyToClipboard>
-          
-          <a href='https://github.com/YuzeTT/small-sticker' className='text-zinc-800 bg-[#1F232810] rounded-lg p-4 flex items-center'>
-            <div className="i-ri-github-fill text-2xl text-[#1F2328] mr-4" />
-            <div>
-              <div className='font-bold mt-0.5 text-lg'>Github</div>
-            </div>
-          </a>
-          <a href='https://www.xiaohongshu.com/user/profile/5dbc28ee00000000010047ef' className='text-zinc-800 bg-[#FF274115] rounded-lg p-4 flex items-center' style={{border: '1px solid #F4F4F5'}}>
-            <img src="/images/red.svg" alt="red" className='w-6 h-6 mr-4' />
-            <div>
-              <div className='font-bold mt-0.5 text-lg'>小红书</div>
-            </div>
-          </a>
-          <a href='/user' className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-white rounded-lg p-4 flex items-center col-span-2' style={{border: '1px solid #F4F4F5'}}>
-            <div className="i-ri-vip-diamond-fill text-2xl mr-4" />
-            <div>
-              <div className='font-bold mt-0.5 text-lg'>支持一下 <span className='op80'>(建站低价)</span></div>
-            </div>
-          </a>
-        </div>
-      </div>
-      
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
         {list.done.map((item, key)=>(
