@@ -37,6 +37,11 @@ const getVip = (level: string | undefined, time: number = 0, name: string = '加
       icon: '/images/vip/vip-1.svg'
     },
     {
+      level: '1',
+      text: <div className='text-xs bg-orange-500 text-white rounded px-1.5 py-0.5' mr-2>会员</div>,
+      icon: '/images/vip/vip-1.svg'
+    },
+    {
       level: '2',
       text: <div className='text-xs bg-purple-500 text-white rounded px-1.5 py-0.5' mr-2>贡献者</div>,
       icon: '/images/vip/vip-1.svg'
@@ -96,13 +101,13 @@ export default function User() {
     const t = new Date().getTime()
     if (v.time - t >= 0) {
       console.log('+ 密钥有效');
-      console.log(`${v.name}，欢迎回来！`);
-      toast({
-        variant: 'subtle',
-        description: `欢迎回来，${v.name}`,
-        status: 'success',
-        duration: 1000,
-      })
+      // console.log(`${v.name}，欢迎回来！`);
+      // toast({
+      //   variant: 'subtle',
+      //   description: `欢迎回来，${v.name}`,
+      //   status: 'success',
+      //   duration: 1000,
+      // })
       setUserInfo(v)
       console.log(v);
 
@@ -158,12 +163,12 @@ export default function User() {
     const t = new Date().getTime()
     if (v.time - t >= 0) {
       console.log('+ 密钥有效');
-      toast({
-        variant: 'subtle',
-        description: `${v.name} 登录成功`,
-        status: 'success',
-        duration: 1000,
-      })
+      // toast({
+      //   variant: 'subtle',
+      //   description: `${v.name} 登录成功`,
+      //   status: 'success',
+      //   duration: 1000,
+      // })
       localStorage.removeItem('is_login')
       localStorage.removeItem('login_exp')
 
