@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   useRoutes,
 } from 'react-router-dom'
-import { Fade, useToast, Button } from '@chakra-ui/react'
+import { Fade } from '@chakra-ui/react'
 import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
@@ -37,7 +37,6 @@ const RouterRender = () => {
 }
 
 function App() {
-  const toast = useToast()
   const info = isVip()
   useEffect(()=>{
     const id = localStorage.getItem("id")
