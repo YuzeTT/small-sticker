@@ -12,6 +12,13 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
+      name: ['Apple Music', '播放器 透卡/小卡'],
+      logo: '/images/apple-music-icon.svg',
+      url: '/tools/music',
+      tag: '还没做好',
+      tag_color: ['#dcfce7','#16a34a']
+    },
+    {
       name: ['星巴克', '咖啡标签'],
       logo: '/images/starbucks.png',
       url: '/tools/starbucks',
