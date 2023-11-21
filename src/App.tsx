@@ -7,7 +7,7 @@ import { Skeleton, Stack, Fade, useToast, Button } from '@chakra-ui/react'
 import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
-import { Modal } from 'antd'
+// import { Modal } from 'antd'
 import Login from './components/Login'
 import Footer from './components/Footer'
 import { nanoid } from 'nanoid'
@@ -54,13 +54,13 @@ function App() {
     if (id) {
       console.log('idok');
       
-      if(id==='NU4Wb3J3Hz'){
-        Modal.warning({
-          title: '关于您违规使用我站工具的警告',
-          content: '我站发现您对使用本站生成的内容进行了涂抹二维码并共享的操作，故我站向您发送告警弹窗，如继续该行为我站将永久封禁您的ID',
-          okText: '我已了解，且同意协议'
-        });
-      }
+      // if(id==='NU4Wb3J3Hz'){
+      //   Modal.warning({
+      //     title: '关于您违规使用我站工具的警告',
+      //     content: '我站发现您对使用本站生成的内容进行了涂抹二维码并共享的操作，故我站向您发送告警弹窗，如继续该行为我站将永久封禁您的ID',
+      //     okText: '我已了解，且同意协议'
+      //   });
+      // }
       
     } else {
       console.log('noid');
@@ -92,10 +92,10 @@ function App() {
         {info.name!=='用户'?
           <Login name={info.name}></Login>:''
         }
-        <div bg='white'>
+        <div bg='white' className='overflow-hidden'>
           <Navbar></Navbar>
           <div>
-            <div className='px-4 pb-4 max-w-xl mx-auto overflow-hidden'>
+            <div className='px-4 pb-4 max-w-xl mx-auto'>
               <RouterRender/>
             </div>
           </div>

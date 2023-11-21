@@ -70,6 +70,9 @@ export default function index() {
           <a href='https://www.xiaohongshu.com/user/profile/5dbc28ee00000000010047ef' className='bg-white h-8 w-8 flex items-center justify-center rounded-md'>
             <img src="/images/red.svg" alt="red" className='w-4 h-4' />
           </a>
+          <a href='https://afdian.net/a/sticker' className='bg-white h-8 w-8 flex items-center justify-center rounded-md overflow-hidden'>
+            <img src="/images/aifadian-2.png" alt="red" className='w-5 h-5 rounded-sm' />
+          </a>
         </div>
 
         <a href='/user' className='absolute top-0 right-0 m-4 bg-green-100 p-1 rounded-full flex items-center text-green-700'>
