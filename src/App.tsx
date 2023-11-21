@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   useRoutes,
 } from 'react-router-dom'
-import { Skeleton, Stack, Fade, useToast, Button } from '@chakra-ui/react'
+import { Fade, useToast, Button } from '@chakra-ui/react'
 import routes from '~react-pages'
 import './App.css'
 import Navbar from './components/Navbar'
@@ -16,20 +16,10 @@ import isVip from './utils/isVip'
 const Loading = () => {
   return (
     <div className=''>
-      <Stack>
-        <Skeleton height='35px' fadeDuration={5}/>
-        <div className='grid grid-cols-3 gap-2'>
-          <Skeleton height='35px' />
-          <Skeleton height='35px' />
-          <Skeleton height='35px' />
-        </div>
-        <div className='grid grid-cols-3 gap-2'>
-          <Skeleton height='25px' />
-          <Skeleton height='25px' />
-          <Skeleton height='25px' />
-        </div>
-        <Skeleton height='280px' width='200px' className='mx-auto mt-4' />
-      </Stack>
+      <div className='w-full mt-30 mb-20 flex flex-col justify-center text-center items-center'>
+        <img src="/images/big-sticker_logo_2.webp" alt="logo" className='w-10 h-10 animate-bounce mx-auto' />
+        <div className='text-sm op50 mt-4'>加载中...</div>
+      </div>
     </div>
   )
 }
@@ -39,7 +29,7 @@ const RouterRender = () => {
     <div>
       <Suspense fallback={<Loading />}>
         <Fade in={true}>
-        {useRoutes(routes)}
+          {useRoutes(routes)}
         </Fade>
       </Suspense>
     </div>
