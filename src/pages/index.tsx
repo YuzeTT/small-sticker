@@ -5,6 +5,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import list from '../utils/router'
 // import FollowMe from '../components/FollowMe';
 import isVip from '../utils/isVip';
+import AccountButton from "../components/AccountButton";
 
 export default function index() {
   const navigate = useNavigate();
@@ -75,10 +76,13 @@ export default function index() {
           </a>
         </div>
 
-        <a href='/user' className='absolute top-0 right-0 m-4 bg-green-100 p-1 rounded-full flex items-center text-green-700'>
+        {/* <a href='/user' className='absolute top-0 right-0 m-4 bg-green-100 p-1 rounded-full flex items-center text-green-700'>
           <div className="i-ri-account-circle-fill text-xl" />
           <div className='text-sm mx-1'>我的账户</div>
-        </a>
+        </a> */}
+        <div className='absolute top-0 right-0 m-4'>
+          <AccountButton />
+        </div>
       </div>
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>

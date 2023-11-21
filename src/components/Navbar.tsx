@@ -1,12 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom"
 // import { useLocation } from 'react-router';
 import list from '../utils/router';
+import AccountButton from "./AccountButton";
 // import { useState } from 'react'
 // import { Alert } from 'antd';
 // import { useState } from "react";
 
 // import { motion } from "framer-motion"
-import isVip from "../utils/isVip"
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -93,10 +93,7 @@ export default function Navbar() {
             </div>:''
           } */}
           {/* <button onClick={()=>{setShowText(!showText)}}></button> */}
-          <a href='/user' className={`p-1 rounded-full flex items-center ${isVip().level===0?'bg-green-100 text-green-700':isVip().level === '1'?'bg-[#E8BD87] text-[#FFFFFF]':isVip().level === '100'?'bg-blue-500 text-[#FFFFFF]':''}`}>
-            <div className="i-ri-account-circle-fill text-xl" />
-            <div className='text-sm mx-1'>{isVip().level==100?'管理站点':'我的账户'}</div>
-          </a>
+          <AccountButton />
           {/* <motion.div className='flex justify-end flex-1 items-center space-x-2'> */}
              {/* <div className='flex items-center p-1 bg-zinc-100 rounded-xl card'>
                 <div className='px-2'>
