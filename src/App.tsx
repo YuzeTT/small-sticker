@@ -58,22 +58,22 @@ function App() {
       localStorage.setItem("id", t_id)
     }
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        toast({
-          title: '有更新可用',
-          icon: <div className="i-ri-refresh-line text-2xl" />,
-          description: <div className='flex items-center'>
-            <div>更新已加载完毕，点击按钮以更新 ➤</div>
-            <Button bgColor='white' size='sm' className='ml-2' onClick={()=>{window.location.reload()}}>更新</Button>
-          </div>,
-          status: 'success',
-          duration: 9000,
-        })    
-      });
-    }else {
-      console.log('+ 未检测到更新');
-    }
+    // if ('serviceWorker' in navigator) {
+    //   navigator.serviceWorker.addEventListener('controllerchange', () => {
+    //     toast({
+    //       title: '有更新可用',
+    //       icon: <div className="i-ri-refresh-line text-2xl" />,
+    //       description: <div className='flex items-center'>
+    //         <div>更新已加载完毕，点击按钮以更新 ➤</div>
+    //         <Button bgColor='white' size='sm' className='ml-2' onClick={()=>{window.location.reload()}}>更新</Button>
+    //       </div>,
+    //       status: 'success',
+    //       duration: 9000,
+    //     })    
+    //   });
+    // }else {
+    //   console.log('+ 未检测到更新');
+    // }
   }, [])
 
   return (
