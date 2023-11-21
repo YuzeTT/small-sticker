@@ -270,12 +270,12 @@ export default function User() {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>支持小站</DrawerHeader>
+            <DrawerHeader>兑换会员</DrawerHeader>
             <DrawerBody>
               <div className=''>
-                <div className='mb-1 font-bold text-orange-500 text-center text-lg'>直接加好友直接转账即可~</div>
-                <div className='mb-1 font-bold text-orange-500 text-center text-lg'>微信: hong_yu1024 (备注：会员)</div>
-                <div className='text-zinc-500 text-center text-sm'>之前赞助过的宝可以 补差价 <span className='font-bold'>并额外赠送7天</span> 哦！</div>
+                <div className='mb-1 font-bold text-orange-500 text-center text-lg'>加微信：hong_yu1024（备注：爱发电）</div>
+                <div className='mb-1 font-bold text-orange-500 text-center text-lg'>发送爱发电的订单即可~</div>
+                {/* <div className='text-zinc-500 text-center text-sm'>之前赞助过的宝可以 补差价 <span className='font-bold'>并额外赠送7天</span> 哦！</div> */}
                 <img src="/images/wechat_qrcode.jpg" alt="qrcode" className='w-80 mx-auto mt-2' />
               </div>
             </DrawerBody>
@@ -287,10 +287,13 @@ export default function User() {
           </DrawerContent>
         </Drawer>
 
+        {/* <div className='card overflow-hidden pb-2'>
+          <iframe src="https://afdian.net/leaflet?slug=sticker" width="100%" scrolling="no" height="200" frameborder="0" className=''></iframe>
+        </div> */}
         <div className='card'>
           <div>
             <div grid grid-cols-1>
-              <div bg-white p-4 rounded-xl relative onClick={onOpenVip}>
+              <div bg-white p-4 rounded-xl relative>
                 <div className='flex-1'>
                   <div className='font-bold text-xl'>🧋一杯奶茶 | 早鸟特惠</div>
                   <div text-sm my-1>
@@ -314,6 +317,16 @@ export default function User() {
                     <div flex='~ items-center'>
                       <div className='w-2 h-2 bg-blue-500 rounded-full'></div>
                       <div className='text-sm op80 ml-2'>商用授权（不包含第三方Logo）</div>
+                    </div>
+                  </div>
+                  <div className='mt-4 flex gap-4 items-end justify-center'>
+                    <a href="https://afdian.net/a/sticker">
+                      <div className='text-sm text-purple-700 text-center mb-1'>先点这个购买 ↓</div>
+                      <img width="150" src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.png" alt="" className='mx-auto' />
+                    </a>
+                    <div>
+                      <div className='text-sm text-purple-700 text-center mb-1'>再加微信兑换+进群 ↓</div>
+                      <button className='w-[150px] h-[42px] bg-purple-100 text-purple-700 text-sm rounded-md' onClick={onOpenVip}>联系作者</button>
                     </div>
                   </div>
                   <div className='absolute top-4 right-4 text-xs text-white rounded-full px-2 py-0.2 bg-red-500'>建站特惠</div>
