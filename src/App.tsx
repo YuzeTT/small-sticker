@@ -95,7 +95,7 @@ function App() {
         <div bg='white'>
           <Navbar></Navbar>
           <div>
-            <div px-4 pb-4 max-w-xl mx-auto>
+            <div className='px-4 pb-4 max-w-xl mx-auto overflow-hidden'>
               <RouterRender/>
             </div>
           </div>
