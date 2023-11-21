@@ -83,3 +83,8 @@ a {
 .shadow-card {
   box-shadow: 0px 4px 7px 0px #00000008;
 }
+
+.blur-circle {
+  filter: blur(70px);
+  -webkit-filter: blur(70px);
+}

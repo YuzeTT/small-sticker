@@ -43,9 +43,9 @@ export default function index() {
 
   return (
     <div className='max-w-xl mx-auto relative z-10'>
-      <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-[70px]'></div>
-      <div className='w-40 h-40 rounded-full bg-green-100 absolute top-10 -right-10 z-0 blur-[70px]'></div>
-      <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-[70px]'></div>
+      <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-circle'></div>
+      <div className='w-40 h-40 rounded-full bg-green-100 absolute top-10 -right-10 z-0 blur-circle'></div>
+      <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-circle'></div>
       <div className='my-4 relative p-4'>
         <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-12 h-12' />
         <div className='text-3xl op90 mt-5'>{getMsg()}</div>
