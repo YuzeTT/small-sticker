@@ -38,14 +38,14 @@ export default function Userlist() {
       });
   }
 
-  function shield(str: string) {
-    const prefix = (str as string).slice(0, 2);
-    const suffix = (str as string).slice(-2);
-    const middleMasked = Math.max(str.length - 4, 0);
-    // const middleMasked = '*'.repeat(middleMasked);
+  // function shield(str: string) {
+  //   const prefix = (str as string).slice(0, 2);
+  //   const suffix = (str as string).slice(-2);
+  //   const middleMasked = Math.max(str.length - 4, 0);
+  //   // const middleMasked = '*'.repeat(middleMasked);
   
-    return prefix + '*'.repeat(middleMasked) + suffix;
-  }
+  //   return prefix + '*'.repeat(middleMasked) + suffix;
+  // }
 
   return (
     <div className=''>
@@ -103,7 +103,7 @@ export default function Userlist() {
                       <div className='text-xs text-orange-700'>Expired</div>
                     </div>
                   }
-                  <div className='font-bold text-xl'>{shield(v[1])}</div>
+                  <div className='font-bold text-xl'>{v[1]}</div>
                 </div>
                 <div><span className="text-zinc-500 mr-2">Expiry Date</span>{dayjs(v[2]).format('YYYY-MM-DD HH:mm:ss')}</div>
                 <div><span className="text-zinc-500 mr-2">Level</span>{v[3]}</div>
