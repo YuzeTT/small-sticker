@@ -176,9 +176,11 @@ export default function Rseg() {
         <div className={` min-w-[231.5px] max-w-[231.5px] z-0 relative  ${isRounded ? 'rounded-xl overflow-hidden' : ''} ${highLight ? 'h-auto' : 'min-h-[359px] max-h-auto h-auto'} origin-top`}>
           {!tr &&
             <>
-              <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-full -z-30' />
-              <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-full blur-xl -z-20' />
-              <div className='w-full h-full absolute bg-black/20 -z-10'></div>
+              <img src={image1Crop} alt="bg" className='absolute origin-center  -z-30' />
+              {/* <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-auto blur-xl1 -z-20' /> */}
+              <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden ' style={{ backgroundImage: `url(${image1Crop})`}}></div>
+              <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden blur-xl scale-150' style={{ backgroundImage: `url(${image1Crop})`}}></div>
+              <div className='w-full h-full absolute bg-black/40 -z-10'></div>
             </>
           }
           <div className='flex flex-col h-full' style={bleedingLine ? { border: '12.18px dashed #FF000000' } : {}}>
@@ -203,13 +205,13 @@ export default function Rseg() {
               {/* ↑↓←→↖↗↙↘↕）？ */}
             </div>
             <div className='flex px-5 my-1.5 text-white items-center'>
-              <div className="text-[0.6rem] flex-1 op80">
+              <div className="text-[0.6rem] flex-1 op80 whitespace-nowrap">
                 <HighText show={highLight} text='播放' eg='1:21' />
               </div>
               <div className="w-full h-[6px] mx-2 bg-white/50 rounded-full relative">
                 <div className="h-[6px] absolute bg-white/80 rounded-full" style={{width: progress+'%'}}></div>
               </div>
-              <div className="text-[0.6rem] flex-1 op80">
+              <div className="text-[0.6rem] flex-1 op80 whitespace-nowrap">
                 <HighText show={highLight} text='剩余' eg='-1:22' />
               </div>
             </div>
