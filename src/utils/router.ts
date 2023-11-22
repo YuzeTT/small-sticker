@@ -1,9 +1,9 @@
-import LuckingCoffee from '/images/lucking_coffee.svg'
+// import LuckingCoffee from '/images/lucking_coffee.svg'
 import Train from '/images/train.svg'
 // import Ticket_ from '/images/damai.png'
 import Ticket from '/images/cinema_logo.png'
 import Mcdonald from '/images/mcdonald.png'
-import Heytea from '/images/heytea.png'
+// import Heytea from '/images/heytea.png'
 import Chagee from '/images/chagee.png'
 
 const hot = ['#FEE2E2','#DC2626']
@@ -12,7 +12,7 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
-      name: ['Apple Music', '播放器 透卡/小卡'],
+      name: ['Apple Music', '播放器 透卡/小卡 88.5mm*57m(含出血3mm)'],
       logo: '/images/icons/music.webp',
       url: '/tools/music',
       color: ['#EB4666', '#EF4146'],
@@ -95,7 +95,7 @@ const list = {
       name: ['瑞幸咖啡', '咖啡标签'],
       logo: '/images/icons/lucking_coffee.webp',
       url: '/lucking_coffee',
-      color: ['#EB4666', '#EF4146'],
+      color: ['#0022AB', '#1641eb'],
       tag: '热门',
       tag_color: hot
     },
@@ -109,9 +109,9 @@ const list = {
     },
     {
       name: ['库迪咖啡', '咖啡标签'],
-      logo: '/images/cotti.png',
+      logo: '/images/icons/cotti.webp',
       url: '/tools/cotti',
-      color: ['#EB4666', '#EF4146'],
+      color: ['#CF323B', '#ff6069'],
       tag: '',
       tag_color: ['','']
     },
@@ -119,15 +119,15 @@ const list = {
       name: ['照片打卡', '纪念卡'],
       logo: '/images/photo.png',
       url: '/photo',
-      color: ['#EB4666', '#EF4146'],
+      color: ['#1254E2', '#2F70FA'],
       tag: '',
       tag_color: ['','']
     },
     {
-      name: ['路牌', '你懂的'],
+      name: ['路牌', '写啥都很土的小牌子 可加杆子'],
       logo: '/images/guideboard.png',
       url: '/guideboard',
-      color: ['#EB4666', '#EF4146'],
+      color: ['#1F4DA0', '#2869dd'],
       tag: '',
       tag_color: ['','']
     },
@@ -143,7 +143,7 @@ const list = {
       name: ['霸王茶姬', '奶茶标签'],
       logo: Chagee,
       url: '/tools/chagee',
-      color: ['#EB4666', '#EF4146'],
+      color: ['#EA1C24', '#ff4a51'],
       tag: '',
       tag_color: ['','']
     },

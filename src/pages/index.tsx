@@ -1,6 +1,6 @@
 import { message } from 'antd'
 // import { Button } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import list from '../utils/router'
 // import FollowMe from '../components/FollowMe';
@@ -8,15 +8,15 @@ import isVip from '../utils/isVip';
 import AccountButton from "../components/AccountButton";
 
 export default function index() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const jumpBefore = (url: string) => {
-    jump(url)
-  }
+  // const jumpBefore = (url: string) => {
+  //   jump(url)
+  // }
   
-  const jump = (url: string) => {
-    navigate(url)
-  }
+  // const jump = (url: string) => {
+  //   navigate(url)
+  // }
 
   // const h = 0
   const h = new Date().getHours()
@@ -85,21 +85,24 @@ export default function index() {
           <AccountButton />
         </div>
       </div>
-      <div className='mb-6 mt-6 text-[24px] font-bold relative'>所有工具</div>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-8'>
+      <div className='mb-6 mt-6 text-[24px] font-bold relative px-4 flex items-center gap-2'>
+        <div>所有工具</div>
+        <div className='text-[1rem] bg-gray-100 text-gray-600 px-1 py-0.5 rounded'>Beta</div>
+      </div>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-4'>
         {list.done.map((item, key)=>(
-          <a href={item.url} className='flex items-center' key={key}>
+          <a href={item.url} className='flex' key={key}>
             <div className={`flex items-center justify-center h-13.5 w-13.5 rounded-md p-3`} style={{background: `linear-gradient(to top right, ${item.color[0]}, ${item.color[1]})`}}>
               <img src={item.logo} alt="logo" className='w-auto max-h-8 h-auto' />
             </div>
-            <div className='ml-4'>
-              <div className='text-md font-bold'>{item.name[0]}</div>
-              <div className='text-xs op50 mt-1'>{item.name[1]}</div>
+            <div className='ml-4 flex-1'>
+              <div className='text-[16px] font-bold'>{item.name[0]}</div>
+              <div className='text-[14px] op50 mt-1'>{item.name[1]}</div>
             </div>
           </a>
         ))}
       </div>
-      <div text='sm' op50 mb-2>已完成</div>
+      {/* <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
         {list.done.map((item, key)=>(
           <div p-4  cursor-pointer rounded-xl decoration-none relative overflow-hidden className='bg-white z-0 card hover:bg-zinc-50 transition' key={key} onClick={()=>{jumpBefore(item.url)}}>
@@ -120,8 +123,8 @@ export default function index() {
             }
           </div>
         ))}
-      </div>
-      <div text='sm' op50 mb-2 mt-4>待制作（或许赞助可以加速呢！）</div>
+      </div> */}
+      {/* <div text='sm' op50 mb-2 mt-4>待制作（或许赞助可以加速呢！）</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3 op50'>
         {list.todo.map((item, key)=>(
           <div p-4 className='card hover:bg-zinc-50 transition' rounded-xl decoration-none key={key} >
@@ -132,7 +135,7 @@ export default function index() {
             <div text='sm zinc-500'>{item.name[1]}</div>
           </div>
         ))}
-      </div>
+      </div> */}
       {isVip().is_vip?'':
       <div className='card p-2 rounded-2xl mt-4'>
         <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>广告</div>
