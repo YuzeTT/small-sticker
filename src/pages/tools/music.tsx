@@ -169,6 +169,7 @@ export default function Rseg() {
         <div className={` min-w-[231.5px] max-w-[231.5px] z-0 relative  ${isRounded ? 'rounded-xl overflow-hidden' : ''} ${highLight ? 'h-auto' : 'min-h-[359px] max-h-auto h-auto'} origin-top`}>
           {!tr &&
             <>
+              <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-full -z-30' />
               <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-full blur-xl -z-20' />
               <div className='w-full h-full absolute bg-black/20 -z-10'></div>
             </>
