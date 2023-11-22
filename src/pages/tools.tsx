@@ -184,6 +184,10 @@ export default function Heytea() {
                 <div className='text-sm flex-1'>已获得商用授权（不包含第三方Logo）</div>
               </div>
             }
+            <div className='card mt-2 px-2.5 py-1.5 bg-orange-50 text-orange-600 flex items-center'>
+              <div className="i-ri-error-warning-fill mr-2 text-lg" />
+              <div className='text-sm flex-1'>本站不会收集你生成的图片，故没有历史记录功能，请生成完立刻保存，刷新就没了哦！！</div>
+            </div>
           </div>
           <ExportList imageSrc={imageSrc} />
         </Collapse>
