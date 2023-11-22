@@ -88,3 +88,7 @@ a {
   filter: blur(70px);
   -webkit-filter: blur(70px);
 }
+
+.fillsvg-white * {
+  fill: #ffffff
+}

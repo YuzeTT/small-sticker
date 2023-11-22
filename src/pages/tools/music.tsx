@@ -11,7 +11,10 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 import Cropper, { ReactCropperElement } from "react-cropper";
-import HighText from "../../components/HighText";
+// import HighText from "../../components/HighText";
+import IconNext from "../../components/IconNext";
+import IconPause from "../../components/IconPause";
+import IconAirplay from "../../components/IconAirplay";
 import { useOutletContext } from "react-router-dom";
 import { ChangeEvent, RefObject, useState, useRef } from "react";
 import BaseCard from "../../components/BaseCard";
@@ -20,18 +23,13 @@ import "cropperjs/dist/cropper.css";
 
 export default function Rseg() {
   const cropperRef1 = useRef<ReactCropperElement>(null)
-  const cropperRef2 = useRef<ReactCropperElement>(null)
   const { isOpen: isOpen1, onOpen: onOpen1, onClose: onClose1 } = useDisclosure()
-  const { isOpen: isOpen2, onOpen: onOpen2, onClose: onClose2 } = useDisclosure()
 
   const [highLight, ref]:[highLight: boolean, ref: RefObject<HTMLDivElement>] = useOutletContext();
 
   const [image1, setImage1] = useState('');
-  const [image2, setImage2] = useState('');
   const [image1Size, setImage1Size] = useState(0);
-  const [image2Size, setImage2Size] = useState(0);
   const [image1Crop, setImage1Crop] = useState('');
-  const [image2Crop, setImage2Crop] = useState('');
   const [bleedingLine, setBleedingLine] = useState(false);
   const [isSmall, setIsSmall] = useState(false);
   const [tw, setTw] = useState(false);
@@ -50,29 +48,10 @@ export default function Rseg() {
     }
     onOpen1()
   }
-  const handleImage2Change = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-    setImage2Size(file?.size||0)
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onloadend = () => {
-        setImage2(reader.result as string);
-      };
-
-      reader.readAsDataURL(file);
-    }
-    onOpen2()
-  }
 
   const getCropData1 = () => {
     if (typeof cropperRef1.current?.cropper !== "undefined") {
       setImage1Crop(cropperRef1.current?.cropper.getCroppedCanvas().toDataURL());
-    }
-  }
-  const getCropData2 = () => {
-    if (typeof cropperRef2.current?.cropper !== "undefined") {
-      setImage2Crop(cropperRef2.current?.cropper.getCroppedCanvas().toDataURL());
     }
   }
 
@@ -126,42 +105,6 @@ export default function Rseg() {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-      <Drawer
-        isOpen={isOpen2}
-        placement='bottom'
-        onClose={onClose2}
-        size='md'
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>裁剪图片</DrawerHeader>
-
-          <DrawerBody className='mx-auto'>
-            <Cropper
-              src={image2}
-              style={{ maxHeight: '50vh', width: "80vw" }}
-              initialAspectRatio={1}
-              aspectRatio={1}
-              guides={true}
-              autoCropArea={1}
-              ref={cropperRef2}
-              viewMode={1}
-              background={false}
-            />
-          </DrawerBody>
-
-          <DrawerFooter>
-            {/* <Button variant='outline' mr={3} onClick={onClose2}>
-              取消
-            </Button> */}
-            <Button colorScheme='messenger' onClick={()=>{
-              getCropData2()
-              onClose2()
-            }}>裁剪</Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
       <div className='grid grid-cols-2 gap-2 mb-4'>
         <label className='w-full flex'>
           <input type="file" onChange={handleImage1Change} className='hidden w-0'>
@@ -174,27 +117,13 @@ export default function Rseg() {
             border={'1px dashed'}
             leftIcon={<div className="i-ri-image-add-fill text-xl" />}
           >
-            上传图片（左）
-          </Button>
-        </label>
-        <label className='w-full flex'>
-          <input type="file" onChange={handleImage2Change} className='hidden w-0'>
-          </input>
-          <Button
-            as='span'
-            variant='outline'
-            colorScheme='messenger'
-            className='w-full'
-            border={'1px dashed'}
-            leftIcon={<div className="i-ri-image-add-fill text-xl" />}
-          >
-            上传图片（右）
+            上传图片
           </Button>
         </label>
       </div>
       <div>
-        {image1Size+image2Size>=5120000?
-        <div className='text-sm text-red-500 text-center mb-2'>文件较大({formatBytes(image1Size+image2Size)}) 导出可能需要 1-3分钟</div>:''
+        {image1Size>=5120000?
+        <div className='text-sm text-red-500 text-center mb-2'>文件较大({formatBytes(image1Size)}) 导出可能需要 1-3分钟</div>:''
       }
       </div>
       <div className='mb-4'>
@@ -222,61 +151,57 @@ export default function Rseg() {
         </div>
       </div>
       <BaseCard ref={ref} className={`-mx-4 ${isSmall?'scale-85':''} ${tw?'scale-85':''}`}>
-        <div className={`${tw?'min-w-[386px] max-w-[386px] w-[386px]!':'min-w-[345px] max-w-[345px]'} z-0 relative min-h-[219px] bg-white ${highLight?'':'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine?{border:'12.18px dashed #FF000020'}:{}}>
-          <div className={`p-3 ${bleedingLine?'scale-95':'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{fontFamily: 'exo'}}>
-            <table className='mx-auto'>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td className='flex justify-between text-xs mb-1'>
-                    <div>
-                      <HighText show={highLight} value='TAKE YOUR MEMORY' />
-                    </div>
-                    <div>
-                      <HighText show={highLight} value='PHOTOMATIC' />
-                    </div>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr className='text-sm'>
-                  <td className='align-start'>
-                    <div className='justify-end align-top rotate-90 origin-top mt-4 flex items-center relative'>
-                      <div className="i-ri-triangle-fill rotate-90" />
-                      <div className='absolute left-5'>
-                        <HighText show={highLight} value='0000' />
-                      </div>
-                    </div>
-                  </td>
-                  <td className='flex gap-3'>
-                    {image1Crop?
-                      <div className='h-33 w-33 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image1Crop})`}}></div>:
-                      <div className='h-33 w-33 bg-zinc-200 flex justify-center items-center op50'>
-                        请上传图片
-                      </div>
-                    }
-                    {image2Crop?
-                      <div className='h-33 w-33 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image2Crop})`}}></div>:
-                      <div className='h-33 w-33 bg-zinc-200 flex justify-center items-center op50'>
-                        请上传图片
-                      </div>
-                    }
-                  </td>
-                  <td className='align-end '>
-                    <div className='justify-end align-bottom rotate-90 origin-bottom mb-15 flex items-center relative'>
-                      <div className="i-ri-triangle-fill rotate-90" />
-                      <div className='absolute left-5'>
-                        <HighText show={highLight} value='0000' />
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colSpan={3} className='text-center text-2xl'>
-                    <HighText show={highLight} value='Photomatic' />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div className={` min-w-[231.5px] max-w-[231.5px] z-0 relative min-h-[359px] max-h-[359px] h-[359px] rounded-xl overflow-hidden ${highLight?'':'max-h-[386px] h-[386px]'} origin-top`}>
+          <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-full blur-xl -z-20' />
+          <div className='w-full h-full absolute bg-black/20 -z-10'></div>
+          <div className='flex flex-col h-full' style={bleedingLine?{border:'12.18px dashed #FF000000'}:{}}>
+            
+            <div className='mx-auto pt-4'>
+              {image1Crop?
+                <div className={`rounded-lg bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden`} style={{backgroundImage: `url(${image1Crop})`, height: bleedingLine?'175.14px':'199.5px', width: bleedingLine?'175.14px':'199.5px'}}></div>:
+                <div className='rounded-lg bg-zinc-200 flex justify-center items-center op50' style={{height: bleedingLine?'175.14px':'199.5px', width: bleedingLine?'175.14px':'199.5px'}}>
+                  请上传图片
+                </div>
+              }
+            </div>
+            <div className='text-[0.6rem] px-5 pt-2 text-white'>iPhone</div>
+            <div className='text-sm px-5 text-white'>晴天</div>
+            <div className='text-xs px-5 text-white op50'>周杰伦</div>
+            <div className='flex px-5 my-2 text-white items-center'>
+              <div className="text-[0.6rem] flex-1 op80">1:31</div>
+              <div className="w-full h-[6px] mx-2 bg-white/50 rounded-full relative">
+                <div className="h-[6px] w-1/2 absolute bg-white/80 rounded-full"></div>
+              </div>
+              <div className="text-[0.6rem] flex-1 op80">-1:55</div>
+            </div>
+            <div className='grid grid-cols-5 px-2 items-center'>
+              <div></div>
+              <div className='mx-auto rotate-180 fill-white/80 w-8 h-8 flex items-center'>
+                <IconNext />
+              </div>
+              <div className='mx-auto fill-white/80 w-10 h-10 flex items-center'>
+                <IconPause />
+              </div>
+              <div className='mx-auto fill-white/80 w-8 h-8 flex items-center'>
+                <IconNext />
+                {/* <img src="/images/music/next.svg" alt="last" className='fillsvg-white' /> */}
+              </div>
+              <div className='mx-auto fill-white/80 w-8 h-8 flex items-center'>
+                <IconAirplay />
+                {/* <img src="/images/music/airplay.svg" alt="last" className='w-8 h-8' /> */}
+              </div>
+            </div>
+            <div className='flex px-5 my-2 text-white items-center'>
+              <div>
+                <img src="/images/music/volume-1.svg" alt="volume" className='w-5 h-5' />
+              </div>
+              <div className="w-full h-[6px] mx-2 bg-white/50 rounded-full relative">
+                <div className="h-[6px] w-1/2 absolute bg-white/80 rounded-full"></div>
+              </div>
+              <div>
+                <img src="/images/music/volume-2.svg" alt="volume" className='w-5 h-5' />
+              </div>
+            </div>
           </div>
         </div>
       </BaseCard>
