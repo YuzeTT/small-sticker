@@ -217,19 +217,21 @@ export default function Rseg() {
             </div>
             <div className='grid grid-cols-5 px-2 my-1 items-center'>
               <div />
-              <div className='mx-auto rotate-180 fill-white/80 w-8 h-8 flex items-center'>
+              <div className='mx-auto rotate-180 op80 w-8 h-8 flex items-center'>
+                <img src="/images/music/next.svg" alt="last" />
+                {/* <IconNext /> */}
+              </div>
+              <div className='mx-auto op80 w-10 h-10 flex items-center'>
+                <img src="/images/music/pause.svg" alt="last" />
+                {/* <IconPause /> */}
+              </div>
+              <div className='mx-auto op80 w-8 h-8 flex items-center'>
                 <IconNext />
+                <img src="/images/music/next.svg" alt="last" />
               </div>
-              <div className='mx-auto fill-white/80 w-10 h-10 flex items-center'>
-                <IconPause />
-              </div>
-              <div className='mx-auto fill-white/80 w-8 h-8 flex items-center'>
-                <IconNext />
-                {/* <img src="/images/music/next.svg" alt="last" className='fillsvg-white' /> */}
-              </div>
-              <div className='mx-auto fill-white/80 w-8 h-8 flex items-center'>
-                <IconAirplay />
-                {/* <img src="/images/music/airplay.svg" alt="last" className='w-8 h-8' /> */}
+              <div className='mx-auto op80 w-8 h-8 flex items-center'>
+                {/* <IconAirplay /> */}
+                <img src="/images/music/airplay.svg" alt="last" />
               </div>
             </div>
             {/* <div className='flex px-5 my-2 text-white items-center'>
