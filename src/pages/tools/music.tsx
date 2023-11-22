@@ -82,6 +82,10 @@ export default function Rseg() {
           <DrawerHeader>裁剪图片</DrawerHeader>
 
           <DrawerBody className='mx-auto'>
+            <div className='text-xs mb-4 text-orange-600'>
+              <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1 leading-6'>提示</span>
+              <span>如果此处没图片↓↓ 大概率是浏览器/格式不支持 或者尺寸太大需要稍等一会~ （微信内置浏览器可能无法加载较大的图片）</span>
+            </div>
             <Cropper
               src={image1}
               style={{ height: 'auto', width: "auto", maxHeight: '50vh', maxWidth: "80vw" }}
@@ -106,9 +110,9 @@ export default function Rseg() {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-      <div className='grid grid-cols-2 gap-2 mb-4'>
+      <div className='grid grid-cols-1 gap-2 mb-4'>
         <label className='w-full flex'>
-          <input type="file" onChange={handleImage1Change} className='hidden w-0'>
+          <input type="file" onChange={handleImage1Change} className='hidden w-0' accept="image/*">
           </input>
           <Button
             as='span'
@@ -157,6 +161,10 @@ export default function Rseg() {
           </tbody>
         </table>
       </div>
+      <div className='text-xs text-center mb-4 text-orange-600'>
+        <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1'>提示</span>
+        <span>歌词仅有一行时，比例才适用于冲印</span>
+      </div>
       <BaseCard ref={ref} className={`-mx-4 overflow-hidden ${isSmall ? 'scale-85' : ''}`}>
         <div className={` min-w-[231.5px] max-w-[231.5px] z-0 relative  ${isRounded ? 'rounded-xl overflow-hidden' : ''} ${highLight ? 'h-auto' : 'min-h-[359px] max-h-auto h-auto'} origin-top`}>
           {!tr &&
@@ -183,7 +191,7 @@ export default function Rseg() {
               <HighText show={highLight} text='作者' eg='周杰伦' />
             </div>
             <div className='text-xs px-5 text-white op80 mt-1 text-left'>
-              <HighText show={highLight} text='歌词' eg='从前从前 有个人爱妳很久' />
+              <HighText show={highLight} text='歌词(可换行)' eg='从前从前 有个人爱妳很久' />
               {/* ↑↓←→↖↗↙↘↕）？ */}
             </div>
             <div className='flex px-5 my-1.5 text-white items-center'>
