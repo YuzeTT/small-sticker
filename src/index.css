@@ -92,3 +92,13 @@ a {
 .fillsvg-white * {
   fill: #ffffff
 }
+
+/* Thumb: Chrome, Safari, Opera, Edge Chromium */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  background-color: #2563EB;
+  border-radius: 50%;
+}

@@ -34,6 +34,7 @@ export default function Rseg() {
   const [isSmall, setIsSmall] = useState(false);
   const [tr, setTr] = useState(false);
   const [isRounded, setIsRounded] = useState(true);
+  const [progress, setProgress] = useState(50)
 
   const handleImage1Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
@@ -132,6 +133,11 @@ export default function Rseg() {
         }
       </div>
       <div className='mb-4'>
+        <div className='text-sm op50'>歌曲进度条（点击操作以防止触发返回手势）</div>
+        <input type="range" value={progress} onChange={(v)=>setProgress(parseInt(v.target.value))
+        } className="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer"/>
+      </div>
+      <div className='mb-4'>
         <table className='mx-auto'>
           <tbody>
             <tr>
@@ -147,7 +153,7 @@ export default function Rseg() {
               </td>
             </tr>
             <tr>
-              <td className='text-sm op70'>圆角</td>
+              <td className='text-sm op70'>圆角（印刷推荐关闭）</td>
               <td>
                 <Switch id='line3' size='sm' isChecked={isRounded} onChange={(v) => { setIsRounded(v.target.checked) }} />
               </td>
@@ -160,6 +166,7 @@ export default function Rseg() {
             </tr>
           </tbody>
         </table>
+        
       </div>
       <div className='text-xs text-center mb-4 text-orange-600'>
         <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1'>提示</span>
@@ -200,7 +207,7 @@ export default function Rseg() {
                 <HighText show={highLight} text='播放' eg='1:21' />
               </div>
               <div className="w-full h-[6px] mx-2 bg-white/50 rounded-full relative">
-                <div className="h-[6px] w-1/2 absolute bg-white/80 rounded-full"></div>
+                <div className="h-[6px] absolute bg-white/80 rounded-full" style={{width: progress+'%'}}></div>
               </div>
               <div className="text-[0.6rem] flex-1 op80">
                 <HighText show={highLight} text='剩余' eg='-1:22' />
