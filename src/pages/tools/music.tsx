@@ -178,6 +178,7 @@ export default function Rseg() {
             <>
               <img src={image1Crop} alt="bg" className='absolute origin-center  -z-30' />
               <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden ' style={{ backgroundImage: `url(${image1Crop})`}}></div>
+              <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden blur-img-sm blur-img-webkit-sm scale-150' style={{ backgroundImage: `url(${image1Crop})`}}></div>
               <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden blur-img blur-img-webkit scale-150' style={{ backgroundImage: `url(${image1Crop})`}}></div>
               <div className='w-full h-full absolute bg-black/20 -z-10'></div>
             </>:''

@@ -113,3 +113,14 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-filter: blur(24px);
   filter: blur(24px);
 }
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)){
+  .blur-img-webkit-sm {
+    --globalnav-backdrop-filter: saturate(180%) blur(10px);
+  }
+}
+
+.blur-img-sm {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
