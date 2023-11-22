@@ -174,14 +174,13 @@ export default function Rseg() {
       </div>
       <BaseCard ref={ref} className={`-mx-4 overflow-hidden ${isSmall ? 'scale-85' : ''}`}>
         <div className={` min-w-[231.5px] max-w-[231.5px] z-0 relative  ${isRounded ? 'rounded-xl overflow-hidden' : ''} ${highLight ? 'h-auto' : 'min-h-[359px] max-h-auto h-auto'} origin-top`}>
-          {!tr &&
+          {!tr && image1Crop ?
             <>
               <img src={image1Crop} alt="bg" className='absolute origin-center  -z-30' />
-              {/* <img src={image1Crop} alt="bg" className='absolute scale-150 origin-center h-full w-auto blur-xl1 -z-20' /> */}
               <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden ' style={{ backgroundImage: `url(${image1Crop})`}}></div>
-              <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden blur-xl scale-150' style={{ backgroundImage: `url(${image1Crop})`}}></div>
-              <div className='w-full h-full absolute bg-black/40 -z-10'></div>
-            </>
+              <div className='w-full h-full absolute bg-black/20 -z-10 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden blur-img blur-img-webkit scale-150' style={{ backgroundImage: `url(${image1Crop})`}}></div>
+              <div className='w-full h-full absolute bg-black/20 -z-10'></div>
+            </>:''
           }
           <div className='flex flex-col h-full' style={bleedingLine ? { border: '12.18px dashed #FF000000' } : {}}>
 

@@ -102,3 +102,14 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: #2563EB;
   border-radius: 50%;
 }
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)){
+  .blur-img-webkit {
+    --globalnav-backdrop-filter: saturate(180%) blur(24px);
+  }
+}
+
+.blur-img {
+  -webkit-filter: blur(24px);
+  filter: blur(24px);
+}
