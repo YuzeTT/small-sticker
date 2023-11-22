@@ -105,7 +105,7 @@ export default function Heytea() {
           </button> : ''
         }
         {status === 1 ?
-          <div className='p-2 bg-zinc-50 rounded-lg card'>
+          <div className='p-2 bg-zinc-50 rounded-lg'>
             <div className='text-xs mb-2 op50'>导出选项</div>
             <div className="flex gap-2">
               <Button variant='second' bg='white' className='w-full shadow-card border border-gray-200 hover:bg-gray-100' isLoading={isLoading} loadingText='导出中' onClick={() => {

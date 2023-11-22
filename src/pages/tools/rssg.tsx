@@ -28,7 +28,7 @@ export default function Rseg() {
   const { isOpen: isOpen3, onOpen: onOpen3, onClose: onClose3 } = useDisclosure()
   const { isOpen: isOpen4, onOpen: onOpen4, onClose: onClose4 } = useDisclosure()
 
-  const [highLight, ref]:[highLight: boolean, ref: RefObject<HTMLDivElement>] = useOutletContext();
+  const [highLight, ref]: [highLight: boolean, ref: RefObject<HTMLDivElement>] = useOutletContext();
 
   const [image1, setImage1] = useState('');
   const [image2, setImage2] = useState('');
@@ -50,7 +50,7 @@ export default function Rseg() {
 
   const handleImage1Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
-    setImage1Size(file?.size||0)
+    setImage1Size(file?.size || 0)
     if (file) {
       const reader = new FileReader();
 
@@ -64,7 +64,7 @@ export default function Rseg() {
   }
   const handleImage2Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
-    setImage2Size(file?.size||0)
+    setImage2Size(file?.size || 0)
     if (file) {
       const reader = new FileReader();
 
@@ -78,7 +78,7 @@ export default function Rseg() {
   }
   const handleImage3Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
-    setImage3Size(file?.size||0)
+    setImage3Size(file?.size || 0)
     if (file) {
       const reader = new FileReader();
 
@@ -92,7 +92,7 @@ export default function Rseg() {
   }
   const handleImage4Change = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
-    setImage4Size(file?.size||0)
+    setImage4Size(file?.size || 0)
     if (file) {
       const reader = new FileReader();
 
@@ -137,7 +137,7 @@ export default function Rseg() {
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
-  
+
   return (
     <div>
       <Drawer
@@ -152,11 +152,15 @@ export default function Rseg() {
           <DrawerHeader>裁剪图片</DrawerHeader>
 
           <DrawerBody className='mx-auto'>
+            <div className='text-xs mb-4 text-orange-600'>
+              <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1 leading-6'>提示</span>
+              <span>如果此处没图片↓↓ 大概率是浏览器/格式不支持 或者尺寸太大需要稍等一会~ （微信内置浏览器可能无法加载较大的图片）</span>
+            </div>
             <Cropper
               src={image1}
               style={{ height: 'auto', width: "auto", maxHeight: '50vh', maxWidth: "80vw" }}
               initialAspectRatio={1}
-              aspectRatio={4/3}
+              aspectRatio={4 / 3}
               guides={true}
               autoCropArea={1}
               ref={cropperRef1}
@@ -169,7 +173,7 @@ export default function Rseg() {
             {/* <Button variant='outline' mr={3} onClick={onClose1}>
               取消
             </Button> */}
-            <Button colorScheme='messenger' onClick={()=>{
+            <Button colorScheme='messenger' onClick={() => {
               getCropData1()
               onClose1()
             }}>裁剪</Button>
@@ -188,11 +192,15 @@ export default function Rseg() {
           <DrawerHeader>裁剪图片</DrawerHeader>
 
           <DrawerBody className='mx-auto'>
+            <div className='text-xs mb-4 text-orange-600'>
+              <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1 leading-6'>提示</span>
+              <span>如果此处没图片↓↓ 大概率是浏览器/格式不支持 或者尺寸太大需要稍等一会~ （微信内置浏览器可能无法加载较大的图片）</span>
+            </div>
             <Cropper
               src={image2}
               style={{ maxHeight: '50vh', width: "80vw" }}
               initialAspectRatio={1}
-              aspectRatio={4/3}
+              aspectRatio={4 / 3}
               guides={true}
               autoCropArea={1}
               ref={cropperRef2}
@@ -205,7 +213,7 @@ export default function Rseg() {
             {/* <Button variant='outline' mr={3} onClick={onClose2}>
               取消
             </Button> */}
-            <Button colorScheme='messenger' onClick={()=>{
+            <Button colorScheme='messenger' onClick={() => {
               getCropData2()
               onClose2()
             }}>裁剪</Button>
@@ -224,11 +232,15 @@ export default function Rseg() {
           <DrawerHeader>裁剪图片</DrawerHeader>
 
           <DrawerBody className='mx-auto'>
+            <div className='text-xs mb-4 text-orange-600'>
+              <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1 leading-6'>提示</span>
+              <span>如果此处没图片↓↓ 大概率是浏览器/格式不支持 或者尺寸太大需要稍等一会~ （微信内置浏览器可能无法加载较大的图片）</span>
+            </div>
             <Cropper
               src={image3}
               style={{ maxHeight: '50vh', width: "80vw" }}
               initialAspectRatio={1}
-              aspectRatio={4/3}
+              aspectRatio={4 / 3}
               guides={true}
               autoCropArea={1}
               ref={cropperRef3}
@@ -241,7 +253,7 @@ export default function Rseg() {
             {/* <Button variant='outline' mr={3} onClick={onClose2}>
               取消
             </Button> */}
-            <Button colorScheme='messenger' onClick={()=>{
+            <Button colorScheme='messenger' onClick={() => {
               getCropData3()
               onClose3()
             }}>裁剪</Button>
@@ -260,11 +272,15 @@ export default function Rseg() {
           <DrawerHeader>裁剪图片</DrawerHeader>
 
           <DrawerBody className='mx-auto'>
+            <div className='text-xs mb-4 text-orange-600'>
+              <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1 leading-6'>提示</span>
+              <span>如果此处没图片↓↓ 大概率是浏览器/格式不支持 或者尺寸太大需要稍等一会~ （微信内置浏览器可能无法加载较大的图片）</span>
+            </div>
             <Cropper
               src={image4}
               style={{ maxHeight: '50vh', width: "80vw" }}
               initialAspectRatio={1}
-              aspectRatio={4/3}
+              aspectRatio={4 / 3}
               guides={true}
               autoCropArea={1}
               ref={cropperRef4}
@@ -277,7 +293,7 @@ export default function Rseg() {
             {/* <Button variant='outline' mr={3} onClick={onClose2}>
               取消
             </Button> */}
-            <Button colorScheme='messenger' onClick={()=>{
+            <Button colorScheme='messenger' onClick={() => {
               getCropData4()
               onClose4()
             }}>裁剪</Button>
@@ -343,9 +359,9 @@ export default function Rseg() {
         </label>
       </div>
       <div>
-        {image1Size+image2Size+image3Size+image4Size>=5120000?
-        <div className='text-sm text-red-500 text-center mb-2'>文件较大({formatBytes(image1Size+image2Size+image3Size+image4Size)}) 导出可能需要 1-3分钟</div>:''
-      }
+        {image1Size + image2Size + image3Size + image4Size >= 5120000 ?
+          <div className='text-sm text-red-500 text-center mb-2'>文件较大({formatBytes(image1Size + image2Size + image3Size + image4Size)}) 导出可能需要 1-3分钟</div> : ''
+        }
       </div>
       <div className='mb-4'>
         <table className='mx-auto'>
@@ -353,42 +369,42 @@ export default function Rseg() {
             <tr>
               <td className='text-sm op70'>3mm 出血线（印刷需打开）</td>
               <td>
-                <Switch id='line' size='sm' isChecked={bleedingLine} onChange={(v)=>{setBleedingLine(v.target.checked)}} />
+                <Switch id='line' size='sm' isChecked={bleedingLine} onChange={(v) => { setBleedingLine(v.target.checked) }} />
               </td>
             </tr>
             <tr>
               <td className='text-sm op70'>修复模式（图像缺失需打开）</td>
               <td>
-                <Switch id='line' size='sm' isChecked={isSmall} onChange={(v)=>{setIsSmall(v.target.checked)}} />
+                <Switch id='line' size='sm' isChecked={isSmall} onChange={(v) => { setIsSmall(v.target.checked) }} />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <BaseCard ref={ref} className={`-mx-4 ${isSmall?'scale-85':''}`}>
-        <div className={`min-w-[203px] max-w-[203px] w-[203px] z-0 relative min-h-[609px] bg-white ${highLight?'':'max-h-[609px] h-[609px]'} origin-top flex flex-col`} style={bleedingLine?{border:'12.18px dashed #FF000020'}:{}}>
-          <div className={`p-3 ${bleedingLine?'scale-95':'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{fontFamily: 'exo'}}>
+      <BaseCard ref={ref} className={`-mx-4 ${isSmall ? 'scale-85' : ''}`}>
+        <div className={`min-w-[203px] max-w-[203px] w-[203px] z-0 relative min-h-[609px] bg-white ${highLight ? '' : 'max-h-[609px] h-[609px]'} origin-top flex flex-col`} style={bleedingLine ? { border: '12.18px dashed #FF000020' } : {}}>
+          <div className={`p-3 ${bleedingLine ? 'scale-95' : 'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{ fontFamily: 'exo' }}>
             <div className='flex flex-col gap-2'>
-              {image1Crop?
-                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image1Crop})`}}></div>:
+              {image1Crop ?
+                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image1Crop})` }}></div> :
                 <div className='h-30 w-40 bg-zinc-200 flex justify-center items-center op50'>
                   请上传图片
                 </div>
               }
-              {image2Crop?
-                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image2Crop})`}}></div>:
+              {image2Crop ?
+                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image2Crop})` }}></div> :
                 <div className='h-30 w-40 bg-zinc-200 flex justify-center items-center op50'>
                   请上传图片
                 </div>
               }
-              {image3Crop?
-                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image3Crop})`}}></div>:
+              {image3Crop ?
+                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image3Crop})` }}></div> :
                 <div className='h-30 w-40 bg-zinc-200 flex justify-center items-center op50'>
                   请上传图片
                 </div>
               }
-              {image4Crop?
-                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{backgroundImage: `url(${image4Crop})`}}></div>:
+              {image4Crop ?
+                <div className='h-30 w-40 bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image4Crop})` }}></div> :
                 <div className='h-30 w-40 bg-zinc-200 flex justify-center items-center op50'>
                   请上传图片
                 </div>
