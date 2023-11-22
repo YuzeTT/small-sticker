@@ -12,9 +12,6 @@ import {
 } from '@chakra-ui/react'
 import Cropper, { ReactCropperElement } from "react-cropper";
 import HighText from "../../components/HighText";
-import IconNext from "../../components/IconNext";
-import IconPause from "../../components/IconPause";
-import IconAirplay from "../../components/IconAirplay";
 import { useOutletContext } from "react-router-dom";
 import { ChangeEvent, RefObject, useState, useRef } from "react";
 import BaseCard from "../../components/BaseCard";
@@ -226,7 +223,7 @@ export default function Rseg() {
                 {/* <IconPause /> */}
               </div>
               <div className='mx-auto op80 w-8 h-8 flex items-center'>
-                <IconNext />
+                {/* <IconNext /> */}
                 <img src="/images/music/next.svg" alt="last" />
               </div>
               <div className='mx-auto op80 w-8 h-8 flex items-center'>
