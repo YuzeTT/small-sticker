@@ -1,6 +1,6 @@
 import LuckingCoffee from '/images/lucking_coffee.svg'
 import Train from '/images/train.svg'
-import Ticket_ from '/images/damai.png'
+// import Ticket_ from '/images/damai.png'
 import Ticket from '/images/cinema_logo.png'
 import Mcdonald from '/images/mcdonald.png'
 import Heytea from '/images/heytea.png'
@@ -8,13 +8,14 @@ import Chagee from '/images/chagee.png'
 
 const hot = ['#FEE2E2','#DC2626']
 // const warn = ['#FEF3C7','#D97706']
-
+// @unocss-include
 const list = {
   done: [
     {
       name: ['Apple Music', '播放器 透卡/小卡'],
-      logo: '/images/apple-music-icon.svg',
+      logo: '/images/icons/music.webp',
       url: '/tools/music',
+      color: ['#EB4666', '#EF4146'],
       tag: '还没做好',
       tag_color: ['#dcfce7','#16a34a']
     },
@@ -22,27 +23,31 @@ const list = {
       name: ['星巴克', '咖啡标签'],
       logo: '/images/starbucks.png',
       url: '/tools/starbucks',
+      color: ['#116E49', '#0f8b5a'],
       tag: '新上线',
       tag_color: ['#dcfce7','#16a34a']
     },
     {
       name: ['人生二格', '85mm*54mm 明信片'],
-      logo: '/images/rslg.webp',
+      logo: '/images/icons/rseg.webp',
       url: '/tools/rseg',
+      color: ['#F1A050', '#F3AA3C'],
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['人生四格', '50mm*150mm'],
-      logo: '/images/rssg.webp',
+      logo: '/images/icons/rssg.webp',
       url: '/tools/rssg',
+      color: ['#F1A050', '#F3AA3C'],
       tag: '',
       tag_color: []
     },
     {
       name: ['Instagram', '三寸 小卡/透卡'],
-      logo: '/images/instagram/logo.webp',
+      logo: '/images/icons/ins.webp',
       url: '/tools/instagram',
+      color: ['#FFCF00', '#FF009E'],
       tag: '热门',
       tag_color: hot
     },
@@ -50,13 +55,15 @@ const list = {
       name: ['茶百道', '奶茶标签'],
       logo: '/images/chapanda.webp',
       url: '/tools/chapanda',
+      color: ['#0A4DDC', '#3676ff'],
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['古茗', '奶茶标签'],
-      logo: '/images/goodme.webp',
+      logo: '/images/icons/goodme.webp',
       url: '/tools/goodme',
+      color: ['#4B4746', '#2E3746'],
       tag: '热门',
       tag_color: hot
     },
@@ -64,27 +71,31 @@ const list = {
       name: ['仿拍立得', '三寸 小卡'],
       logo: '/images/fpld.webp',
       url: '/fpld',
+      color: ['#5D39DA', '#7E42DD'],
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['大麦票根', '纪念票根'],
-      logo: Ticket_,
+      logo: '/images/icons/damai.webp',
       url: '/ticket',
+      color: ['#FF2869', '#ff5286'],
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['喜茶', '奶茶标签'],
-      logo: Heytea,
+      logo: '/images/icons/heytea.webp',
       url: '/tools/heytea',
+      color: ['#EB4666', '#EF4146'],
       tag: '热门',
       tag_color: hot
     },
     {
       name: ['瑞幸咖啡', '咖啡标签'],
-      logo: LuckingCoffee,
+      logo: '/images/icons/lucking_coffee.webp',
       url: '/lucking_coffee',
+      color: ['#EB4666', '#EF4146'],
       tag: '热门',
       tag_color: hot
     },
@@ -92,6 +103,7 @@ const list = {
       name: ['沪上阿姨', '奶茶标签'],
       logo: '/images/hsay.jpg',
       url: '/tools/hsay',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -99,6 +111,7 @@ const list = {
       name: ['库迪咖啡', '咖啡标签'],
       logo: '/images/cotti.png',
       url: '/tools/cotti',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -106,6 +119,7 @@ const list = {
       name: ['照片打卡', '纪念卡'],
       logo: '/images/photo.png',
       url: '/photo',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -113,6 +127,7 @@ const list = {
       name: ['路牌', '你懂的'],
       logo: '/images/guideboard.png',
       url: '/guideboard',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -120,6 +135,7 @@ const list = {
       name: ['蜜雪冰城', '奶茶标签'],
       logo: '/images/mxbc.png',
       url: '/tools/mxbc',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -127,6 +143,7 @@ const list = {
       name: ['霸王茶姬', '奶茶标签'],
       logo: Chagee,
       url: '/tools/chagee',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -134,6 +151,7 @@ const list = {
       name: ['观影纪念票', '纪念票根'],
       logo: Ticket,
       url: '/tools/cinema_ticket',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -141,6 +159,7 @@ const list = {
       name: ['高铁票', '纪念票根'],
       logo: Train,
       url: '/train',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },
@@ -148,6 +167,7 @@ const list = {
       name: ['麦当劳', '小票'],
       logo: Mcdonald,
       url: '/mcdonald',
+      color: ['#EB4666', '#EF4146'],
       tag: '',
       tag_color: ['','']
     },

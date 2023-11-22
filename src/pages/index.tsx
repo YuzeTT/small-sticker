@@ -47,6 +47,7 @@ export default function index() {
       <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-circle'></div>
       <div className='w-40 h-40 rounded-full bg-green-100 absolute top-10 -right-10 z-0 blur-circle'></div>
       <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-circle'></div>
+      
       <div className='my-4 relative p-4'>
         <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-12 h-12' />
         <div className='text-3xl op90 mt-5'>{getMsg()}</div>
@@ -83,6 +84,20 @@ export default function index() {
         <div className='absolute top-0 right-0 m-4'>
           <AccountButton />
         </div>
+      </div>
+      <div className='mb-6 mt-6 text-[24px] font-bold relative'>所有工具</div>
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-8'>
+        {list.done.map((item, key)=>(
+          <a href={item.url} className='flex items-center' key={key}>
+            <div className={`flex items-center justify-center h-13.5 w-13.5 rounded-md p-3`} style={{background: `linear-gradient(to top right, ${item.color[0]}, ${item.color[1]})`}}>
+              <img src={item.logo} alt="logo" className='w-auto max-h-8 h-auto' />
+            </div>
+            <div className='ml-4'>
+              <div className='text-md font-bold'>{item.name[0]}</div>
+              <div className='text-xs op50 mt-1'>{item.name[1]}</div>
+            </div>
+          </a>
+        ))}
       </div>
       <div text='sm' op50 mb-2>已完成</div>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-3'>
