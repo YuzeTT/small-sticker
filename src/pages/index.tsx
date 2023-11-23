@@ -96,7 +96,10 @@ export default function index() {
               <img src={item.logo} alt="logo" className='w-auto max-h-8 h-auto' />
             </div>
             <div className='ml-4 flex-1'>
-              <div className='text-[16px] font-bold'>{item.name[0]}</div>
+              <div className='text-[16px] font-bold flex items-center gap-2'>
+                <div>{item.name[0]}</div>
+                <div className='text-xs px-1 py-0.5' style={{backgroundColor: item.tag_color[0], color: item.tag_color[1]}}>{item.tag}</div>
+              </div>
               <div className='text-[14px] op50 mt-1'>{item.name[1]}</div>
             </div>
           </a>

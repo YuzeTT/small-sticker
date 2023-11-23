@@ -12,11 +12,19 @@ const hot = ['#FEE2E2','#DC2626']
 const list = {
   done: [
     {
+      name: ['人生四格', '2x2版 106mm*156mm(含3mm出血)'],
+      logo: '/images/icons/rssg-2.webp',
+      url: '/tools/rssg-2',
+      color: ['#F1A050', '#F3AA3C'],
+      tag: '内测',
+      tag_color: ['#F3F4F6','#4B5563']
+    },
+    {
       name: ['Apple Music', '播放器 透卡/小卡 88.5mm*57m(含出血3mm)'],
       logo: '/images/icons/music.webp',
       url: '/tools/music',
       color: ['#EB4666', '#EF4146'],
-      tag: '还没做好',
+      tag: '新上线',
       tag_color: ['#dcfce7','#16a34a']
     },
     {
@@ -32,8 +40,8 @@ const list = {
       logo: '/images/icons/rseg.webp',
       url: '/tools/rseg',
       color: ['#F1A050', '#F3AA3C'],
-      tag: '热门',
-      tag_color: hot
+      tag: '',
+      tag_color: []
     },
     {
       name: ['人生四格', '50mm*150mm'],
