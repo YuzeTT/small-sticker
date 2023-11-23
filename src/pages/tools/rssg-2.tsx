@@ -1,6 +1,5 @@
 import {
   Button,
-  Switch,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -15,6 +14,7 @@ import HighText from "../../components/HighText";
 import { useOutletContext } from "react-router-dom";
 import { ChangeEvent, RefObject, useState, useRef } from "react";
 import BaseCard from "../../components/BaseCard";
+import Toggle from "../../components/Toggle";
 
 import "cropperjs/dist/cropper.css"
 
@@ -210,9 +210,6 @@ export default function Rseg() {
           </DrawerBody>
 
           <DrawerFooter>
-            {/* <Button variant='outline' mr={3} onClick={onClose2}>
-              取消
-            </Button> */}
             <Button colorScheme='messenger' onClick={() => {
               getCropData2()
               onClose2()
@@ -363,27 +360,25 @@ export default function Rseg() {
           <div className='text-sm text-red-500 text-center mb-2'>文件较大({formatBytes(image1Size + image2Size + image3Size + image4Size)}) 导出可能需要 1-3分钟</div> : ''
         }
       </div>
-      <div className='mb-4'>
-        <table className='mx-auto'>
-          <tbody>
-            <tr>
-              <td className='text-sm op70'>3mm 出血线（印刷需打开）</td>
-              <td>
-                <Switch id='line' size='sm' isChecked={bleedingLine} onChange={(v) => { setBleedingLine(v.target.checked) }} />
-              </td>
-            </tr>
-            <tr>
-              <td className='text-sm op70'>修复模式（图像缺失需打开）</td>
-              <td>
-                <Switch id='line' size='sm' isChecked={isSmall} onChange={(v) => { setIsSmall(v.target.checked) }} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div className='flex items-start justify-center gap-6 my-6'>
+        <Toggle
+          value={bleedingLine}
+          onChange={(v)=>setBleedingLine(v)}
+          icon={<div className="i-ri-shape-2-line" />}
+          text='出血线'
+          remark='印刷需打开'
+        />
+        <Toggle
+          value={isSmall}
+          onChange={(v)=>setIsSmall(v)}
+          icon={<div className="i-ri-bug-line" />}
+          text='修复模式'
+          remark='修复图像缺失'
+        />
       </div>
       <BaseCard ref={ref} className={`${isSmall ? 'scale-85' : ''}`}>
         <div
-          className={`z-0 relative bg-white flex flex-col w-full p-3 justify-center ${highLight?'':'max-h-[390px] h-[390px] min-h-[390px]'} max-w-[265px] w-[265px] min-w-[265px]`}
+          className={`z-0 relative bg-white flex flex-col w-full justify-center ${highLight?'':'max-h-[390px] h-[390px] min-h-[390px]'} max-w-[265px] w-[265px] min-w-[265px] ${bleedingLine?'p-6':'p-3'}`}
           // style={{
           //   aspectRatio: `${aspect.width}/${aspect.height}`
           // }}
@@ -417,8 +412,8 @@ export default function Rseg() {
                       backgroundImage: `url(${image1Crop})`,
                     }}
                     />:
-                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                      请上传图片
+                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50 text-sm'>
+                      1
                     </div>
                   }
                 </div>
@@ -438,8 +433,8 @@ export default function Rseg() {
                       backgroundImage: `url(${image2Crop})`,
                     }}
                     />:
-                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                      请上传图片
+                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50 text-sm'>
+                      2
                     </div>
                   }
                 </div>
@@ -467,8 +462,8 @@ export default function Rseg() {
                       backgroundImage: `url(${image3Crop})`,
                     }}
                     />:
-                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                      请上传图片
+                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50 text-sm'>
+                      3
                     </div>
                   }
                 </div>
@@ -488,8 +483,8 @@ export default function Rseg() {
                       backgroundImage: `url(${image4Crop})`,
                     }}
                     />:
-                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                      请上传图片
+                    <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50 text-sm'>
+                      4
                     </div>
                   }
                 </div>
@@ -503,115 +498,6 @@ export default function Rseg() {
                 </div>
               </div>
             </div>
-            {/* <div className=''> */}
-              {/* <div>
-                <div className='text-xl'>
-                  <HighText show={highLight} value='Photomatic' />
-                </div>
-                <div className='-mt-1'>
-                  <HighText show={highLight} value='Photomatic' />
-                </div>
-              </div> */}
-              {/* <div className="grid grid-cols-2 gap-6 relative">
-                <div className="absolute top-5 -left-9 rotate-90 flex items-center">
-                  <div className="i-ri-triangle-fill rotate-90 text-xs mr-1" />
-                  <HighText
-                    show={highLight}
-                    value='YuzeTT'
-                    className="text-xs"
-                  />
-                </div>
-                <div className="absolute top-[4 0%] left-[40.5%] rotate-90 flex items-center">
-                  <div className="i-ri-triangle-fill rotate-90 text-xs mr-1" />
-                  <HighText
-                    show={highLight}
-                    value='YuzeTT'
-                    className="text-xs"
-                  />
-                </div>
-                <div className="absolute top-5 -left-9 rotate-90 flex items-center">
-                  <div className="i-ri-triangle-fill rotate-90 text-xs mr-1" />
-                  <HighText
-                    show={highLight}
-                    value='YuzeTT'
-                    className="text-xs"
-                  />
-                </div>
-                <div className="absolute top-5 -left-9 rotate-90 flex items-center">
-                  <div className="i-ri-triangle-fill rotate-90 text-xs mr-1" />
-                  <HighText
-                    show={highLight}
-                    value='YuzeTT'
-                    className="text-xs"
-                  />
-                </div>
-                <div className="absolute top-5 -left-9 rotate-90 flex items-center">
-                  <div className="i-ri-triangle-fill rotate-90 text-xs mr-1" />
-                  <HighText
-                    show={highLight}
-                    value='YuzeTT'
-                    className="text-xs"
-                  />
-                </div>
-                <div className="absolute top-5 -left-9 rotate-90 flex items-center">
-                  <div className="i-ri-triangle-fill rotate-90 text-xs mr-1" />
-                  <HighText
-                    show={highLight}
-                    value='YuzeTT'
-                    className="text-xs"
-                  />
-                </div>
-                <div
-                  className="w-full aspect-[3/4] bg-cover bg-gray"
-                  style={{
-                    backgroundImage: `url(${image1Crop})`
-                  }}
-                />
-
-                <div
-                  className="w-full aspect-[3/4] bg-cover bg-gray"
-                  style={{
-                    backgroundImage: `url(${image2Crop})`
-                  }}
-                />
-                <div
-                  className="w-full aspect-[3/4] bg-cover bg-gray"
-                  style={{
-                    backgroundImage: `url(${image3Crop})`
-                  }}
-                />
-                <div
-                  className="w-full aspect-[3/4] bg-cover bg-gray"
-                  style={{
-                    backgroundImage: `url(${image4Crop})`
-                  }}
-                />
-              </div> */}
-              {/* {image1Crop ?
-                <div className='aspect-[3/4] bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image1Crop})` }}></div> :
-                <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                  请上传图片
-                </div>
-              }
-              {image2Crop ?
-                <div className='aspect-[3/4] bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image2Crop})` }}></div> :
-                <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                  请上传图片
-                </div>
-              }
-              {image3Crop ?
-                <div className='aspect-[3/4] bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image3Crop})` }}></div> :
-                <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                  请上传图片
-                </div>
-              }
-              {image4Crop ?
-                <div className='aspect-[3/4] bg-center bg-contain bg-cover! bg-no-repeat overflow-hidden' style={{ backgroundImage: `url(${image4Crop})` }}></div> :
-                <div className='aspect-[3/4] bg-zinc-200 flex justify-center items-center op50'>
-                  请上传图片
-                </div>
-              } */}
-            {/* </div> */}
             <div className='text-center text-xl mt-1'>
               <HighText show={highLight} value='Photomatic' className={highLight?'min-w-10':''} />
             </div>
@@ -621,15 +507,3 @@ export default function Rseg() {
     </div>
   )
 }
-
-// const aspect = {
-//   width: 106,
-//   height: 156
-// }
-
-// export default function ABC() {
-
-//   return (
-    
-//   )
-// }
