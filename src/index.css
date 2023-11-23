@@ -85,8 +85,8 @@ a {
 }
 
 .blur-circle {
-  filter: blur(70px);
   -webkit-filter: blur(70px);
+  filter: blur(70px);
 }
 
 .fillsvg-white * {
@@ -103,9 +103,9 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
-@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)){
+@supports ((-webkit-filter: initial) or (filter: initial)){
   .blur-img-webkit {
-    --globalnav-backdrop-filter: saturate(180%) blur(24px);
+    --globalnav-filter: blur(24px);
   }
 }
 
@@ -114,9 +114,9 @@ input[type="range"]::-webkit-slider-thumb {
   filter: blur(24px);
 }
 
-@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)){
+@supports ((-webkit-filter: initial) or (filter: initial)){
   .blur-img-webkit-sm {
-    --globalnav-backdrop-filter: saturate(180%) blur(10px);
+    --globalnav-filter: blur(10px);
   }
 }
 
