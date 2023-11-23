@@ -1,6 +1,5 @@
 import {
   Button,
-  Switch,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -167,12 +166,34 @@ export default function Rseg() {
         
       </div> */}
       <div className='flex items-start justify-center gap-6 my-6'>
-        <Toggle value={bleedingLine} onChange={(v)=>setBleedingLine(v)} icon={<div className="i-ri-shape-2-line" />} text='出血线' remark='印刷需打开'></Toggle>
-        <Toggle value={isRounded} onChange={(v)=>setIsRounded(v)} icon={<div className="i-ri-rounded-corner" />} text='圆角'></Toggle>
-        <Toggle value={isSmall} onChange={(v)=>setIsSmall(v)} icon={<div className="i-ri-bug-line" />} text='修复模式' remark='修复图像缺失'></Toggle>
-        <Toggle value={tr} onChange={(v)=>setTr(v)} icon={<div className="i-ri-contrast-drop-fill" />} text='透明背景'></Toggle>
+        <Toggle
+          value={bleedingLine}
+          onChange={(v)=>setBleedingLine(v)}
+          icon={<div className="i-ri-shape-2-line" />}
+          text='出血线'
+          remark='印刷需打开'
+        />
+        <Toggle
+          value={isRounded}
+          onChange={(v)=>setIsRounded(v)}
+          icon={<div className="i-ri-rounded-corner" />}
+          text='圆角'
+        />
+        <Toggle
+          value={isSmall}
+          onChange={(v)=>setIsSmall(v)}
+          icon={<div className="i-ri-bug-line" />}
+          text='修复模式'
+          remark='修复图像缺失'
+        />
+        <Toggle
+          value={tr}
+          onChange={(v)=>setTr(v)}
+          icon={<div className="i-ri-contrast-drop-fill" />}
+          text='透明背景'
+        />
       </div>
-      
+
       <div className='text-xs text-center mb-4 text-orange-600'>
         <span className='text-[0.7rem] text-white bg-orange-600 px-1 py-0.5 rounded mr-1'>提示</span>
         <span>歌词仅有一行时，比例才适用于冲印</span>
