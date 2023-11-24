@@ -16,8 +16,8 @@ const list = {
       logo: '/images/icons/rssg-2.webp',
       url: '/tools/rssg-2',
       color: ['#F1A050', '#F3AA3C'],
-      tag: '内测',
-      tag_color: ['#F3F4F6','#4B5563']
+      tag: '新上线',
+      tag_color: ['#dcfce7','#16a34a']
     },
     {
       name: ['Apple Music', '播放器 透卡/小卡 88.5mm*57m(含出血3mm)'],
