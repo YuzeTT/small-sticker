@@ -85,6 +85,14 @@ export default function index() {
           <AccountButton />
         </div>
       </div>
+      <div className='p-4 flex flex-col items-center justify-center bg-white border-1 rounded-lg relative'>
+        <div className="i-ri-feedback-line text-2xl text-red-500" />
+        <div className='mt-2 font-bold text-lg'>站点通知</div>
+        <div className='mt-1 text-sm op50'>小红书和网站遭到恶意举报。</div>
+        <div className='mt-3'>
+          <a href='/notice' className='px-2.5 py-1.5 bg-zinc-900 rounded text-white text-xs'>了解更多</a>
+        </div>
+      </div>
       <div className='mb-6 mt-6 text-[24px] font-bold relative px-4 flex items-center gap-2'>
         <div>所有工具</div>
         <div className='text-[1rem] bg-gray-100 text-gray-600 px-1 py-0.5 rounded'>Beta</div>
