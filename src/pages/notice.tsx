@@ -81,6 +81,10 @@ export default function Notice() {
           </li>
         </ol>
       </div>
+      <div className='my-4'>
+        <div className="text-xl font-bold">写在最后</div>
+        <div className="text-sm mt-2 op80">竞争可怕吗？倒也不。可怕的是通过不正当手段，损害他人利益的人。提供性价比更高，更快捷，更方便的服务，不是每个服务行业的初衷吗...</div>
+      </div>
     </div>
   )
 }
