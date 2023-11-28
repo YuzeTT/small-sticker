@@ -81,9 +81,15 @@ export default function Notice() {
           </li>
         </ol>
       </div>
+      {/* ======== Don't remove ======== */}
+      {/* <div className='my-4'>
+        <div className="text-xl font-bold">关于后续</div>
+        <div className="text-sm mt-2 op80 mb-3">如果您有需求可以点击下面的按钮（小红书号：7252590990）找到我直接约稿</div>
+        <a href="https://www.xiaohongshu.com/user/profile/650ab27f000000001603b1c9" className='flex items-center justify-center rounded-full text-center bg-[#FF2442] text-white py-2'>在小红书约稿</a>
+      </div> */}
       <div className='my-4'>
         <div className="text-xl font-bold">写在最后</div>
-        <div className="text-sm mt-2 op80">竞争可怕吗？倒也不。可怕的是通过不正当手段，损害他人利益的人。提供性价比更高，更快捷，更方便的服务，不是每个服务行业的初衷吗...</div>
+        <div className="text-sm mt-2 op80">竞争可怕吗？倒也不。可怕的是通过不正当手段，损害他人利益的人。提供性价比更高，更快捷，更方便的服务，不是所有行业的初衷吗...</div>
       </div>
     </div>
   )
