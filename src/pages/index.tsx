@@ -60,12 +60,12 @@ export default function index() {
               <div className="i-ri-qq-fill text-xl text-[#0099FF]" />
             </div>
           </CopyToClipboard>
-          <CopyToClipboard text='fusion_shuo'
-            onCopy={() => message.success({content:'微信群（加微信）已复制'})}>
+          <div
+            onClick={() => message.warning({content:'微信的智障设计，仅开放会员群'})}>
             <div className='bg-white h-8 w-8 flex items-center justify-center rounded-md' >
               <div className="i-ri-wechat-fill text-xl text-[#07C160]" />
             </div>
-          </CopyToClipboard>
+          </div>
           <a href='https://github.com/YuzeTT/small-sticker' className='bg-white h-8 w-8 flex items-center justify-center rounded-md'>
             <div className="i-ri-github-fill text-xl text-[#1F2328]" />
           </a>
@@ -85,14 +85,24 @@ export default function index() {
           <AccountButton />
         </div>
       </div>
-      <div className='p-4 flex flex-col items-center justify-center bg-white border-1 rounded-lg relative'>
+      {/* <div className='p-4 flex flex-col items-center justify-center bg-white border-1 rounded-lg relative'>
         <div className="i-ri-feedback-line text-2xl text-red-500" />
         <div className='mt-2 font-bold text-lg'>站点通知</div>
         <div className='mt-1 text-sm op50'>小红书和网站遭到恶意举报。</div>
         <div className='mt-3'>
           <a href='/notice' className='px-2.5 py-1.5 bg-zinc-900 rounded text-white text-xs'>了解更多</a>
         </div>
-      </div>
+      </div> */}
+      {/* <div className='px-2 py-4 flex items-center  bg-red-200 text-red-600 border-1 rounded-lg relative border-3 border-white ring-3 ring-red-600'>
+        <div className="text-4xl text-white mr-4 ml-2" >🤬</div>
+        <div>
+          <div className='font-bold text-lg'>救！站点被抄袭！！！</div>
+          <div className='mt-1 text-sm op50'>本工具仅有网页端！！！</div>
+          <div className='mt-3'>
+            <a href='/notice2' className='px-2.5 py-1.5 bg-red-600 rounded text-white text-xs'>了解更多</a>
+          </div>
+        </div>
+      </div> */}
       <div className='mb-6 mt-6 text-[24px] font-bold relative px-4 flex items-center gap-2'>
         <div>所有工具</div>
         <div className='text-[1rem] bg-gray-100 text-gray-600 px-1 py-0.5 rounded'>Beta</div>
@@ -147,6 +157,33 @@ export default function index() {
           </div>
         ))}
       </div> */}
+      <div className='card p-2 rounded-2xl mt-4'>
+        <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>友情链接</div>
+        <div className='grid grid-cols-2 gap-2'>
+          <a href="https://static.miplus.cloud/label/page/download.html" target='_blank' className='col-span-2 flex items-center gap-3 bg-purple-100 p-2 rounded-md'>
+            <img src="/images/icons/app-logo.png" alt="" className='w-14 h-14 rounded' />
+            <div>
+              <div className='text-lg font-bold text-purple-800'>票根生成器</div>
+              <div className='flex items-center mt-1 gap-2'>
+                <div className='text-xs px-1 py-0.5 bg-purple-200 text-purple-800 rounded'>社区实现</div>
+                <div className='text-xs px-1 py-0.5 bg-blue-200 text-blue-800 rounded'>Android</div>
+                <div className='text-xs px-1 py-0.5 bg-blue-200 text-blue-800 rounded'>iOS</div>
+              </div>
+            </div>
+          </a>
+          <a href="https://target.elfmc.com/" target='_blank' className='col-span-2 flex items-center gap-3 bg-orange-100 p-2 rounded-md'>
+            <img src="/images/icons/fq-icon.svg" alt="" className='w-14 h-14 rounded p-3 bg-white' />
+            <div>
+              <div className='text-lg font-bold text-orange-800'>POMOTIMER 番茄钟</div>
+              <div className='flex items-center mt-1 gap-2'>
+                {/* <div className='text-xs px-1 py-0.5 bg-purple-200 text-purple-800 rounded'>社区实现</div> */}
+                <div className='text-xs px-1 py-0.5 bg-orange-200 text-orange-800 rounded'>Web</div>
+                {/* <div className='text-xs px-1 py-0.5 bg-blue-100 text-blue-800 rounded'>iOS</div> */}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
       {isVip().is_vip?'':
       <div className='card p-2 rounded-2xl mt-4'>
         <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>广告</div>

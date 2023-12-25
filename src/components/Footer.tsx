@@ -31,7 +31,7 @@ export default function Footer() {
         <div text='sm' op10 mx-2>|</div>
         <a href='https://monitor.hsott.cn/' target='_blank' className='decoration-none text-blue-500 op50 hover:op100 transition'>状态</a>
       </div>
-      <div text='sm' op-50 mb-2 text-center>友情链接：<a href='https://target.elfmc.com/' className='decoration-none text-blue-500 hover:op100 transition'>POMOTIMER</a></div>
+      {/* <div text='sm' op-50 mb-2 text-center>友情链接：<a href='https://target.elfmc.com/' className='decoration-none text-blue-500 hover:op100 transition'>POMOTIMER</a></div> */}
     </div>
   )
 }
