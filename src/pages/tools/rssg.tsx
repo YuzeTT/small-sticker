@@ -382,7 +382,7 @@ export default function Rseg() {
         </table>
       </div>
       <BaseCard ref={ref} className={`-mx-4 ${isSmall ? 'scale-85' : ''}`}>
-        <div className={`min-w-[203px] max-w-[203px] w-[203px] z-0 relative min-h-[609px] bg-white ${highLight ? '' : 'max-h-[609px] h-[609px]'} origin-top flex flex-col`} style={bleedingLine ? { border: '12.18px dashed #FF000020' } : {}}>
+        <div className={`min-w-[203px] max-w-[203px] w-[203px] z-0 relative min-h-[609px] bg-white ${highLight ? '' : 'max-h-[609px] h-[609px]'} origin-top flex flex-col`} style={bleedingLine ? { border: '12.18px dashed #FF000000' } : {}}>
           <div className={`p-3 ${bleedingLine ? 'scale-95' : 'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{ fontFamily: 'exo' }}>
             <div className='flex flex-col gap-2'>
               {image1Crop ?

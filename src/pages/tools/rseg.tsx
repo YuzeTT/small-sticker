@@ -230,7 +230,7 @@ export default function Rseg() {
         </div>
       </div>
       <BaseCard ref={ref} className={`-mx-4 ${isSmall ? 'scale-85' : ''} ${tw ? 'scale-85' : ''}`}>
-        <div className={`${tw ? 'min-w-[386px] max-w-[386px] w-[386px]!' : 'min-w-[345px] max-w-[345px]'} z-0 relative min-h-[219px] bg-white ${highLight ? '' : 'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine ? { border: '12.18px dashed #FF000020' } : {}}>
+        <div className={`${tw ? 'min-w-[386px] max-w-[386px] w-[386px]!' : 'min-w-[345px] max-w-[345px]'} z-0 relative min-h-[219px] bg-white ${highLight ? '' : 'max-h-[219px] h-[219px]'} origin-top flex flex-col`} style={bleedingLine ? { border: '12.18px dashed #FF000000' } : {}}>
           <div className={`p-3 ${bleedingLine ? 'scale-95' : 'scale-100'} absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`} style={{ fontFamily: 'exo' }}>
             <table className='mx-auto'>
               <tbody>

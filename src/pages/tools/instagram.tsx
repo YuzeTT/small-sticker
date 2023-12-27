@@ -130,7 +130,7 @@ export default function Instagram() {
         </FormControl>
       </div>
       <BaseCard ref={ref} className='overflow-hidden'>
-        <div className={`min-w-[250px] max-w-[250px] z-0 relative min-h-[350px] max-h-[350px] h-[350px]  origin-top flex flex-col`} style={bleedingLine?{border:'13.6px dashed #FF000020'}:{}}>
+        <div className={`min-w-[250px] max-w-[250px] z-0 relative min-h-[350px] max-h-[350px] h-[350px]  origin-top flex flex-col`} style={bleedingLine?{border:'13.6px dashed #FF000000'}:{}}>
           <div className='flex justify-between px-2 py-1.5 bg-white'>
             <img src="/images/instagram/logo.webp" alt="logo" className='w-15 h-auto' />
             <div className='flex gap-4'>
