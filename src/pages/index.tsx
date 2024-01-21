@@ -174,7 +174,7 @@ export default function index() {
           <a href="https://target.elfmc.com/" target='_blank' className='col-span-2 flex items-center gap-3 bg-orange-100 p-2 rounded-md'>
             <img src="/images/icons/fq-icon.svg" alt="" className='w-14 h-14 rounded p-3 bg-white' />
             <div>
-              <div className='text-lg font-bold text-orange-800'>POMOTIMER 番茄钟</div>
+              <div className='text-lg font-bold text-orange-800'>目标番茄钟</div>
               <div className='flex items-center mt-1 gap-2'>
                 {/* <div className='text-xs px-1 py-0.5 bg-purple-200 text-purple-800 rounded'>社区实现</div> */}
                 <div className='text-xs px-1 py-0.5 bg-orange-200 text-orange-800 rounded'>Web</div>
