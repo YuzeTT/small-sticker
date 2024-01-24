@@ -184,16 +184,6 @@ export default function index() {
           </a>
         </div>
       </div>
-      {isVip().is_vip?'':
-      <div className='card p-2 rounded-2xl mt-4'>
-        <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>广告</div>
-        <div className='grid grid-cols-2 gap-2'>
-          <a href="https://fei.z2ajj.cn/?t=jpybajg" target='_blank' className='col-span-2'>
-            <img src="/images/fly.webp" alt="fly" className='w-full rounded-xl overflow-hidden' style={{border: '1px solid #F4F4F5'}}/>
-          </a>
-        </div>
-      </div>
-      }
       
     </div>
   )
