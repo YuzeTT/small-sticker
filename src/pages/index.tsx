@@ -4,7 +4,7 @@ import { message } from 'antd'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import list from '../utils/router'
 // import FollowMe from '../components/FollowMe';
-import isVip from '../utils/isVip';
+// import isVip from '../utils/isVip';
 import AccountButton from "../components/AccountButton";
 
 export default function index() {
