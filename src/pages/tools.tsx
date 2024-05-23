@@ -3,14 +3,14 @@ import { Button, Collapse, useToast, Tabs, Tab, TabList } from '@chakra-ui/react
 import { useCallback, useRef, useState } from "react";
 import showImage from "../utils/downloadHtmlAsImage/showImage";
 // import SecureWatermark from "../components/SecureWatermark";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import ExportList from "../components/ExportList";
 import { Outlet } from "react-router";
-import isVip from "../utils/isVip";
+// import isVip from "../utils/isVip";
 
 export default function Heytea() {
   const toast = useToast()
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const ref = useRef<HTMLDivElement>(null)
   const [messageApi, contextHolder] = message.useMessage();
@@ -76,7 +76,7 @@ export default function Heytea() {
           }
         }} /> */}
 
-        <Tabs index={status} isFitted variant='unstyled' className='bg-zinc-50 p-1 rounded-xl' onChange={(v)=>{
+        <Tabs index={status} isFitted variant='unstyled' className='bg-zinc-50 p-1 rounded-xl' onChange={(v) => {
           setStatus(parseInt(`${v}`))
           if (v === 0) {
             setHighLight(true)
@@ -112,50 +112,22 @@ export default function Heytea() {
                 console.log('+ 导出');
                 out(1.3)
               }}>
-                {/* <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} /> */}
-                急速 720P
+                <div className="i-ri-flashlight-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+                急速
               </Button>
-              <Button variant='vip' className='w-full shadow-card' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={() => {
+              <Button variant='second' bg='white' className='w-full shadow-card border border-gray-200 hover:bg-gray-100' isLoading={isLoading} loadingText='导出中' onClick={() => {
                 console.log('+ 导出');
-                if (isVip().is_vip) {
-                  out(5)
-                } else {
-                  toast({
-                    duration: 9000,
-                    // isClosable: true,
-                    render: () => (
-                      <div className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-zinc-800 p-2 rounded-md flex items-center text-lg'>
-                        <div className="i-ri-vip-diamond-fill mx-2 text-xl" />
-                        <div className='flex-1 font-bold'>VIP专享功能</div>
-                        <Button bgColor='white' size='sm' onClick={() => { navigate('/user') }}>开通VIP</Button>
-                      </div>
-                    ),
-                  })
-                }
+                out(5)
               }}>
-                <div className="i-ri-vip-diamond-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-                超清 4K
+                <div className="i-ri-hd-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
+                超清
               </Button>
-              <Button variant='vip' className='w-full shadow-card' textColor=' text-zinc-800' isLoading={isLoading} loadingText='导出中' onClick={() => {
+              <Button variant='second' bg='white' className='w-full shadow-card border border-gray-200 hover:bg-gray-100' isLoading={isLoading} loadingText='导出中' onClick={() => {
                 console.log('+ 导出');
-                if (isVip().is_vip) {
-                  out(10)
-                } else {
-                  toast({
-                    duration: 9000,
-                    // isClosable: true,
-                    render: () => (
-                      <div className='bg-gradient-to-r from-[#E8BC86] to-[#E8C99B] text-zinc-800 p-2 rounded-md flex items-center text-lg'>
-                        <div className="i-ri-vip-diamond-fill mx-2 text-xl" />
-                        <div className='flex-1 font-bold'>VIP专享功能</div>
-                        <Button bgColor='white' size='sm' onClick={() => { navigate('/user') }}>开通VIP</Button>
-                      </div>
-                    ),
-                  })
-                }
+                out(10)
               }}>
-                <div className="i-ri-vip-diamond-fill" mr-1 style={{ display: isLoading ? 'none' : 'block' }} />
-                极致 8K
+                <div className="i-ri-4k-fill" mr-1 />
+                极致
               </Button>
             </div>
           </div> : ''
@@ -173,7 +145,7 @@ export default function Heytea() {
       <div font-sans className='relative'>
         <Collapse in={status === 2} animateOpacity className='pt-4' unmountOnExit>
           <div className='mb-4'>
-            {!isVip().is_vip ?
+            {/* {!isVip().is_vip ?
               <div className='card px-2.5 py-1.5 bg-orange-50 text-orange-600 flex items-center'>
                 <div className="i-ri-creative-commons-nc-fill mr-2 text-lg" />
                 <div className='text-sm flex-1'>未获得商用授权 仅允许个人使用</div>
@@ -183,7 +155,7 @@ export default function Heytea() {
                 <div className="i-ri-money-dollar-circle-fill mr-2 text-lg" />
                 <div className='text-sm flex-1'>已获得商用授权（不包含第三方Logo）</div>
               </div>
-            }
+            } */}
             <div className='card mt-2 px-2.5 py-1.5 bg-orange-50 text-orange-600 flex items-center'>
               <div className="i-ri-error-warning-fill mr-2 text-lg" />
               <div className='text-sm flex-1'>本站不会收集你生成的图片，故没有历史记录功能，请生成完立刻保存，刷新就没了哦！！</div>
