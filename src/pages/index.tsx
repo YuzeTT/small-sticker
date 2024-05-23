@@ -1,10 +1,11 @@
-import { message } from 'antd'
+import { message, Progress } from 'antd'
 // import { Button } from '@chakra-ui/react'
+// import { green } from 'antd/lib/c';
 // import { useNavigate } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import list from '../utils/router'
 // import FollowMe from '../components/FollowMe';
-// import isVip from '../utils/isVip';
+import isVip from '../utils/isVip';
 import AccountButton from "../components/AccountButton";
 
 export default function index() {
@@ -13,7 +14,7 @@ export default function index() {
   // const jumpBefore = (url: string) => {
   //   jump(url)
   // }
-  
+
   // const jump = (url: string) => {
   //   navigate(url)
   // }
@@ -44,24 +45,27 @@ export default function index() {
 
   return (
     <div className='max-w-xl mx-auto relative z-10'>
-      <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-circle'></div>
+      {/* <div className='w-40 h-40 rounded-full bg-blue-100 absolute -top-10 -left-10 z-0 blur-circle'></div>
       <div className='w-40 h-40 rounded-full bg-green-100 absolute top-10 -right-10 z-0 blur-circle'></div>
-      <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-circle'></div>
-      
+      <div className='w-40 h-40 rounded-full bg-purple-100 absolute top-30 left-10 z-0 blur-circle'></div> */}
+
+      <div absolute className='-left-5 -top-5 -right-5 z-0'>
+        <img src="/images/focus-bg.png" alt="" />
+      </div>
+
       <div className='my-4 relative p-4'>
         <img src='/images/big-sticker_logo_2.webp' alt='logo' className='w-12 h-12' />
         <div className='text-3xl op90 mt-5'>{getMsg()}</div>
-        <div className='text-lg op90 mt-2'>欢迎来到大贴纸的全新站点~</div>
-
+        <div className='text-lg op90 mt-2'>没想到快死的站点突然流量暴涨！恢复更新预告！</div>
         <div className='flex gap-4 items-center relative mt-4'>
           <CopyToClipboard text='752693422'
-            onCopy={() => message.success({content:'QQ群号 已复制'})}>
+            onCopy={() => message.success({ content: 'QQ群号 已复制' })}>
             <div className="bg-white h-8 w-8 flex items-center justify-center rounded-md">
               <div className="i-ri-qq-fill text-xl text-[#0099FF]" />
             </div>
           </CopyToClipboard>
           <div
-            onClick={() => message.warning({content:'微信的智障设计，仅开放会员群'})}>
+            onClick={() => message.warning({ content: '要不 考虑一下加QQ群？' })}>
             <div className='bg-white h-8 w-8 flex items-center justify-center rounded-md' >
               <div className="i-ri-wechat-fill text-xl text-[#07C160]" />
             </div>
@@ -76,6 +80,48 @@ export default function index() {
             <img src="/images/aifadian-2.png" alt="red" className='w-5 h-5 rounded-sm' />
           </a>
         </div>
+        {!isVip().is_vip ?
+          <>
+            <div className='card p-2 rounded-2xl mt-4'>
+              {/* <div className='mb-3 mt-1 mx-2 text-zinc-600 text-sm'>公告</div> */}
+              <div flex gap-2>
+
+                <div w-13 h-13 text-lg flex items-center justify-center bg-red-100 rounded-md font-bold text-red-600>
+                  <div>喜报</div>
+                </div>
+                <div flex-1>
+                  <div font-bold text-red-600 text-lg>本站即日起取消VIP制度</div>
+                  <div text-sm op80>我想开了，我觉得这么好的东西应该免费。所以取消了VIP功能限制，如果您手头富裕欢迎赞助我们以维持站点运营~ 也欢迎去 <a href="https://github.com/YuzeTT/small-sticker" text-blue-600 underline>Github</a> 给我个Star 这会使我大脑旋转！</div>
+                </div>
+              </div>
+
+              <div className="h-[1px] w-full bg-gray-200 my-2"></div>
+              <div mt-2>
+                <div text-xs op50>站点资金情况</div>
+                <div mt-1 flex items-end>
+
+                  <div font-bold flex-1 >
+                    <div text-xl>资金一般</div>
+                    <div>
+                      <Progress steps={5} percent={50} showInfo={false} strokeColor={'#f97316'} />
+                    </div>
+                  </div>
+                  <div flex flex-col>
+                    <button rounded-md className='text-right font-bold text-sm text-orange-600 py-0.5' onClick={() => message.warning({ content: '代码还没写完qwq' })}>查看赞助列表</button>
+                    <div mt-1></div>
+                    <a px-3 py-1 rounded-md className='bg-orange-500 font-bold text-md text-white' href="/coffee">☕ 请我喝咖啡</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </> : ''
+        }
+
+        <div className='card p-2 rounded-2xl mt-4'>
+          <div text-xs op50 mb-1>公告</div>
+          <div>新版站点正在进行早期测试，可能会随机刷新出各种BUG！！新增自由拖拽布局，编辑更自由，100毫秒内急速出图。PS：仅上线瑞幸咖啡标签。<a href="https://beta.sticker.hsott.cn/" text-blue-600 underline>戳我传送</a></div>
+        </div>
+
 
         {/* <a href='/user' className='absolute top-0 right-0 m-4 bg-green-100 p-1 rounded-full flex items-center text-green-700'>
           <div className="i-ri-account-circle-fill text-xl" />
@@ -105,18 +151,18 @@ export default function index() {
       </div> */}
       <div className='mb-6 mt-6 text-[24px] font-bold relative px-4 flex items-center gap-2'>
         <div>所有工具</div>
-        <div className='text-[1rem] bg-gray-100 text-gray-600 px-1 py-0.5 rounded'>Beta</div>
+        {/* <div className='text-[1rem] bg-gray-100 text-gray-600 px-1 py-0.5 rounded'>Beta</div> */}
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-4'>
-        {list.done.map((item, key)=>(
+        {list.done.map((item, key) => (
           <a href={item.url} className='flex' key={key}>
-            <div className={`flex items-center justify-center h-13.5 w-13.5 rounded-md p-3`} style={{background: `linear-gradient(to top right, ${item.color[0]}, ${item.color[1]})`}}>
+            <div className={`flex items-center justify-center h-13.5 w-13.5 rounded-md p-3`} style={{ background: `linear-gradient(to top right, ${item.color[0]}, ${item.color[1]})` }}>
               <img src={item.logo} alt="logo" className='w-auto max-h-8 h-auto' />
             </div>
             <div className='ml-4 flex-1'>
               <div className='text-[16px] font-bold flex items-center gap-2'>
                 <div>{item.name[0]}</div>
-                <div className='text-xs px-1 py-0.5' style={{backgroundColor: item.tag_color[0], color: item.tag_color[1]}}>{item.tag}</div>
+                <div className='text-xs px-1 py-0.5' style={{ backgroundColor: item.tag_color[0], color: item.tag_color[1] }}>{item.tag}</div>
               </div>
               <div className='text-[14px] op50 mt-1'>{item.name[1]}</div>
             </div>
@@ -184,7 +230,7 @@ export default function index() {
           </a>
         </div>
       </div>
-      
-    </div>
+
+    </div >
   )
 }

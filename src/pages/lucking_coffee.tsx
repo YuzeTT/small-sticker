@@ -33,7 +33,7 @@ export default function LuckinCoffee() {
   };
 
   const handleOk = () => {
-    window.open('/sponsor')
+    window.open('/coffee')
   };
 
   const handleCancel = () => {

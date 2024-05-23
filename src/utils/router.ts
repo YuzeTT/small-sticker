@@ -6,18 +6,26 @@ import Mcdonald from '/images/mcdonald.png'
 // import Heytea from '/images/heytea.png'
 import Chagee from '/images/chagee.png'
 
-const hot = ['#FEE2E2','#DC2626']
+const hot = ['#FEE2E2', '#DC2626']
 // const warn = ['#FEF3C7','#D97706']
 // @unocss-include
 const list = {
   done: [
+    {
+      name: ['瑞幸咖啡', '咖啡标签'],
+      logo: '/images/icons/lucking_coffee.webp',
+      url: '/lucking_coffee',
+      color: ['#0022AB', '#1641eb'],
+      tag: '热门',
+      tag_color: hot
+    },
     {
       name: ['人生四格', '2x2版 106mm*156mm(含3mm出血)'],
       logo: '/images/icons/rssg-2.webp',
       url: '/tools/rssg-2',
       color: ['#F1A050', '#F3AA3C'],
       tag: '新上线',
-      tag_color: ['#dcfce7','#16a34a']
+      tag_color: ['#dcfce7', '#16a34a']
     },
     {
       name: ['Apple Music', '播放器 透卡/小卡 88.5mm*57m(含出血3mm)'],
@@ -25,7 +33,7 @@ const list = {
       url: '/tools/music',
       color: ['#EB4666', '#EF4146'],
       tag: '新上线',
-      tag_color: ['#dcfce7','#16a34a']
+      tag_color: ['#dcfce7', '#16a34a']
     },
     {
       name: ['星巴克', '咖啡标签'],
@@ -33,7 +41,7 @@ const list = {
       url: '/tools/starbucks',
       color: ['#116E49', '#0f8b5a'],
       tag: '新上线',
-      tag_color: ['#dcfce7','#16a34a']
+      tag_color: ['#dcfce7', '#16a34a']
     },
     {
       name: ['人生二格', '85mm*54mm 明信片'],
@@ -99,21 +107,14 @@ const list = {
       tag: '热门',
       tag_color: hot
     },
-    {
-      name: ['瑞幸咖啡', '咖啡标签'],
-      logo: '/images/icons/lucking_coffee.webp',
-      url: '/lucking_coffee',
-      color: ['#0022AB', '#1641eb'],
-      tag: '热门',
-      tag_color: hot
-    },
+
     {
       name: ['沪上阿姨', '奶茶标签'],
       logo: '/images/hsay.jpg',
       url: '/tools/hsay',
       color: ['#EB4666', '#EF4146'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['库迪咖啡', '咖啡标签'],
@@ -121,7 +122,7 @@ const list = {
       url: '/tools/cotti',
       color: ['#CF323B', '#ff6069'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['照片打卡', '纪念卡'],
@@ -129,7 +130,7 @@ const list = {
       url: '/photo',
       color: ['#1254E2', '#2F70FA'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['路牌', '写啥都很土的小牌子 可加杆子'],
@@ -137,7 +138,7 @@ const list = {
       url: '/guideboard',
       color: ['#1F4DA0', '#2869dd'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['蜜雪冰城', '奶茶标签'],
@@ -145,7 +146,7 @@ const list = {
       url: '/tools/mxbc',
       color: ['#EB4666', '#EF4146'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['霸王茶姬', '奶茶标签'],
@@ -153,7 +154,7 @@ const list = {
       url: '/tools/chagee',
       color: ['#EA1C24', '#ff4a51'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['观影纪念票', '纪念票根'],
@@ -161,7 +162,7 @@ const list = {
       url: '/tools/cinema_ticket',
       color: ['#EB4666', '#EF4146'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['高铁票', '纪念票根'],
@@ -169,7 +170,7 @@ const list = {
       url: '/train',
       color: ['#EB4666', '#EF4146'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
     {
       name: ['麦当劳', '小票'],
@@ -177,7 +178,7 @@ const list = {
       url: '/mcdonald',
       color: ['#EB4666', '#EF4146'],
       tag: '',
-      tag_color: ['','']
+      tag_color: ['', '']
     },
   ],
   todo: [
