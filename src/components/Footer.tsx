@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div>
       <div flex='~ items-center justify-center' py-4 bg='white'>
-        <div className='text-sm op-50' onClick={()=>{
+        <div className='text-sm op-50' onClick={() => {
           Modal.info({
             title: '调试信息',
             okText: '上传问题',
@@ -23,7 +23,7 @@ export default function Footer() {
               </div>
             )
           });
-        }}>© 2023 YuzeTT</div>
+        }}>© 2024 YuzeTT</div>
         <div text='sm' op10 mx-2>|</div>
         <a href='https://hsott.cn' className='decoration-none text-blue-500 op50 hover:op100 transition'>hsott.cn</a>
         <div text='sm' op10 mx-2>|</div>

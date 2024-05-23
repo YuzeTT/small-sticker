@@ -292,10 +292,14 @@ export default function User() {
           </DrawerContent>
         </Drawer>
 
+        <div>
+          本站已不再出售VIP，您可以通过 <a href="/coffee" text-blue-600 underline>赞助本站</a> 来支持我哦！
+        </div>
+
         {/* <div className='card overflow-hidden pb-2'>
           <iframe src="https://afdian.net/leaflet?slug=sticker" width="100%" scrolling="no" height="200" frameborder="0" className=''></iframe>
         </div> */}
-        <div className='card'>
+        {/* <div className='card'>
           <div>
             <div grid grid-cols-1>
               <div bg-white p-4 rounded-xl relative>
@@ -339,7 +343,7 @@ export default function User() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )
