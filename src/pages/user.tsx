@@ -78,7 +78,7 @@ export default function User() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = useRef(null)
 
-  const { isOpen: isOpenVip, onOpen: onOpenVip, onClose: onCloseVip } = useDisclosure()
+  const { isOpen: isOpenVip, onClose: onCloseVip } = useDisclosure()
   // const vipBtnRef = useRef(null)
 
   const [userId, setUserId] = useState('')
