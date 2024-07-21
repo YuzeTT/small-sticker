@@ -20,6 +20,14 @@ const list = {
       tag_color: hot
     },
     {
+      name: ['一点点', '奶茶标签'],
+      logo: '/images/alittle-tea.png',
+      url: '/tools/alittletea',
+      color: ['#F1A050', '#F3AA3C'],
+      tag: '新上线',
+      tag_color: ['#dcfce7', '#16a34a']
+    },
+    {
       name: ['人生四格', '2x2版 106mm*156mm(含3mm出血)'],
       logo: '/images/icons/rssg-2.webp',
       url: '/tools/rssg-2',
