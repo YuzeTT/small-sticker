@@ -1,3 +1,5 @@
+
+
 ![](/public/images/banner.jpg)
 
 <div align="center">
@@ -26,6 +28,12 @@ pnpm dev
 
 ``` bash
 pnpm build
+```
+
+## 预览
+
+``` bash
+pnpm preview
 ```
 
 ## Star History
